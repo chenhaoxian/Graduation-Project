@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<!--   
+    namespace：必须与对应的接口全类名一致  
+    id:必须与对应接口的某个对应的方法名一致  
+      
+ --> 
+<!--  在dao包下创建一个UserMapper.xml文件作为上一步创建的DAO接口的实现。 -->
+
+<mapper namespace="mapper.UserMapper">
+
+
+<!-- 
+<insert id="save" parameterType="Users">
+insert into users(username,password) values(#{username},#{password})
+</insert>
+
+<update id="update" parameterType="Users">
+update users set username = #{username} where id = #{id}
+</update>
+
+<delete id="delete" parameterType="int">
+delete from users where username=#{username}
+</delete>
+
+<select id="findById" parameterType="int" resultType="Users">
+select username,password from users where id=#{id}
+</select>
+ -->
+	<select id="findAll" parameterType="User" resultType="User">
+	select * from justtest
+	</select>
+
+
+
+	<select id="testFindById" parameterType="int" resultType="User">
+		select name,age from justtest where id = #{id}
+	</select>
+	
+
+</mapper>

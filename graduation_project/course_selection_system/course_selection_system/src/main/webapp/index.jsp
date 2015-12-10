@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<link href="<c:url value="/bootstrap/css/bootstrap.min.css" />" rel="stylesheet" />
+<link href="<c:url value="/res/bootstrap/css/bootstrap.min.css" />" rel="stylesheet" />
 
 <title>fff</title> 
 </head>
@@ -15,6 +15,8 @@
   <button type="button" class="btn btn-primary btn-lg">Large button</button>
   <button type="button" class="btn btn-default btn-lg">Large button</button>
 </p>
+
+<a href="testmybatis/test1">go to test mybatis</a>
 
 
 

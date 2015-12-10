@@ -8,6 +8,6 @@
 </head>
 <body>
 yeah!!!!!
-<a href="../bootstrap/test1.jsp">test</a>
+<a href="../res/bootstrap/test1.jsp">test</a>
 </body>
 </html>
