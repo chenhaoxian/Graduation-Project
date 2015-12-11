@@ -29,13 +29,13 @@ select username,password from users where id=#{id}
 </select>
  -->
 	<select id="findAll" parameterType="User" resultType="User">
-	select * from justtest
+	select * from user
 	</select>
 
 
 
 	<select id="testFindById" parameterType="int" resultType="User">
-		select name,age from justtest where id = #{id}
+		select * from user where id = #{id}
 	</select>
 	
 
