@@ -22,7 +22,7 @@
   
   <properties>  
       <org.springframework.version>4.0.5.RELEASE</org.springframework.version>
-      <mysql.version>5.1.29</mysql.version>
+      <mysql.version>5.1.29</mysql.version> 
   </properties>
 
   <dependencies>
@@ -38,7 +38,7 @@
         <dependency>  
             <groupId>javax.servlet</groupId>  
             <artifactId>servlet-api</artifactId>  
-            <version>2.5</version>  
+            <version>2.5</version>   
             <scope>provided</scope>  
         </dependency>  
         <dependency>  
@@ -194,7 +194,19 @@
        </dependency>
     
   </dependencies>
+  
   <build>
     <finalName>course_selection_system</finalName>
+    <plugins>
+        <plugin>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-compiler-plugin</artifactId>
+	    <version>3.1</version>
+	    <configuration>
+	        <source>1.7</source>
+	        <target>1.7</target>
+	    </configuration>
+	</plugin>
+    </plugins>
   </build>
 </project>
