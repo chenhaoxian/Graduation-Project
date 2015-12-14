@@ -69,12 +69,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- logo begin -->
+                        <!-- 
                         <h1 id="logo">
                             <a href="index.html">
                                 <img class="logo-1" src="res/images/logo.png" alt="">
                                 <img class="logo-2" src="res/images/logo-2.png" alt="">
                             </a>
                         </h1>
+                         -->
                         <!-- logo close -->
 
                         <!-- small button begin -->
@@ -117,12 +119,47 @@
                             <div class="spacer-single"></div>
                             <div class="text-slider border-deco">
                                 <div class="text-item">欢迎来到 <span class="id-color">大学生选课系统</span></div>
-                                <div class="text-item">青春 + <span class="id-color">活力</span></div>
-                                <div class="text-item">勤奋 &amp; <span class="id-color">智慧</span></div>
+                                <div class="text-item">designed by <span class="id-color">陈浩贤</span></div>
+                                <!-- <div class="text-item">勤奋 &amp; <span class="id-color">智慧</span></div> -->
                                 <div class="text-item"><span class="id-color"><i class="icon-bike"></i></span> Ready to Go?</div>
                             </div>
                             <div class="spacer-single"></div>
-                            <a href="#" class="btn btn-border btn-big">登 录</a>
+
+	                           <a href="#loginmodal" class="btn btn-border btn-big" id="modaltrigger">登 录</a> 
+	                            
+	                            <!-- ============================= -->
+	                            <!--  
+	                            <div id="loginmodal" style="display:none;">
+								    <h1>User Login</h1>
+								    <form id="loginform" name="loginform" method="post" action="index.html">
+								      <label for="username">Username:</label>
+								      <input type="text" name="username" id="username" class="txtfield" tabindex="1">
+								      
+								      <label for="password">Password:</label>
+								      <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+								      
+								      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
+							    	</form>
+							  </div>
+							  -->
+							  <div id="loginmodal" style="display:none;">
+								    
+								    <form id="loginform" name="loginform" method="post" action="index.html">
+								      	<div class="input-group">
+										  <span class="input-group-addon" id="basic-addon1">账号</span>
+										  <input type="text" class="form-control" placeholder="Username"  name="userid" aria-describedby="basic-addon1">
+										</div>
+										<div class="input-group">
+										  <span class="input-group-addon" id="basic-addon1">密码</span>
+										  <input type="text" class="form-control" placeholder="Password" name="password" aria-describedby="basic-addon1">
+										</div>
+										
+								      	<div class="form-actions"><input type="submit" name="loginbtn" id="loginbtn" tabindex="3" value="ok" ></div>
+							    	</form>
+							  </div>
+
+							  <!-- ============================= -->
+                            
                         </div>
                     </div>
                      
@@ -149,6 +186,10 @@
 
         
     </div>
+    
+    
+    
+    
    
 
 
@@ -168,10 +209,23 @@
     <script src="res/js/classie.js"></script>
     <script src="res/js/designesia.js"></script>
     <script src="res/js/validation.js"></script>
+    <script src="res/chx/js/jquery.leanModal.min.js"></script>
 
     <!-- SLIDER REVOLUTION SCRIPTS  -->
     <script type="text/javascript" src="res/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
     <script type="text/javascript" src="res/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    
+    
+    <script type="text/javascript">
+		$(function(){
+		  $('#loginform').submit(function(e){
+		    return false;
+		  });
+		  
+		  
+		  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+		});
+	</script>
 
 </body>
 </html>

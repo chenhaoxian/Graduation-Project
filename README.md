@@ -1,2 +1,2 @@
-# Graduation-Project
-//undergraduate course selection system
+# undergraduate course selection system
+//Graduation-Project
