@@ -41,8 +41,15 @@
     <link rel="stylesheet" href="res/fonts/font-awesome/css/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="res/fonts/elegant_font/HTML_CSS/style.css" type="text/css">
     <link rel="stylesheet" href="res/fonts/et-line-font/style.css" type="text/css">
-    <style>
+    <style type="text/css">
     	.test{background:#000;filter:alpha(opacity=50);opacity:.5;color:#fff;}
+    	
+			body{margin:0px;}
+			
+			#bg{width:100%;height:100%;top:0px;left:0px;position:absolute;filter: Alpha(opacity=50);opacity:0.5; background:#000000; display:none;}
+			
+			#popbox{position:absolute;width:400px; height:400px; left:50%; top:50%; margin:-200px 0 0 -200px; display:none; background:#666666;}
+
     </style>
 </head>
 
@@ -129,26 +136,39 @@
                             <div class="spacer-single"></div>
 
 	                          <a href="#loginmodal" class="btn btn-border btn-big" id="modaltrigger">登 录</a> 
+	                          
+	                          <!-- ====================================test============================ -->
+	                          
+	                        
+	                          
+	                          <!-- =====================================test end ========================== -->
 	                           
 	                           
 	                            
 	<!-- ======================隐藏的登录表单======================================================================= -->
-													  <div id="loginmodal" style="display:none; ">
+													  <div id="loginmodal" style="display:none; background-color:white;">
 														    
-														    <form  name="loginform" method="post" action="test.jsp" class="modal-body">
+														    <form  name="loginform" method="post"  class="modal-body" >
+														    			
 														      	<div class="input-group">
 																		  <span class="input-group-addon" id="basic-addon1">账号</span>
-																		  <input type="text" class="form-control" placeholder="输入学号或教工号"  name="userid" aria-describedby="basic-addon1">
+																		  <input type="text" class="form-control" placeholder="输入学号或教工号"  id="account" aria-describedby="basic-addon1">
 																		</div>
+																		<span class="label label-danger" id="account_warning"></span>
 																		
 																		<div class="input-group">
 																		  <span class="input-group-addon" id="basic-addon1">密码</span>
-																		  <input type="text" id="password" class="form-control" placeholder="密码" name="password" aria-describedby="basic-addon1">
+																		  <input type="password" id="password" class="form-control" placeholder="密码" id="password" aria-describedby="basic-addon1">
 																		</div>
+																		<span class="label label-danger" id="password_warning"></span>
 																		
-																    <input type="submit" class="btn btn-default" value="sign in">
+																		<div>
+																			<input type="button" class="btn btn-default" value="sign in" id="login_input"> 
+	
+																	    <button type="button" class="btn btn-default" id="btn_cancel" onclick="close_form()">Cancel</button>
+														    	
+																		</div>
 																    
-																    <button type="button" class="btn btn-default" id="btn_cancel" onclick="close_form()">Cancel</button>
 													    	</form>
 													  </div>
  <!-- ======================================================================================================== --> 
@@ -306,38 +326,11 @@
     
     <!-- 登录验证 -->
     <script type="text/javascript" src="res/chx/js/jquery.formance.min.js"></script>
-    
+    <script type="text/javascript" src="res/chx/js/loginAjax.js"></script>
     
     <script type="text/javascript">
-    	
-    	$(function(){
-    		$("#password").bl
-    	})
     
-			$(function(){
-				$('#loginform').submit(function(){
-					      alert(1);
-			          return false;
-			        });
-			  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
-			});
 			
-			
-			
-			
-			
-			//$(function(){
-				// $('#loginform').submit(function(){
-			   //       //return false;
-			  //        alert('ss');
-			  //        return false;
-			  //      });
-				
-			//});
-			
-			function close_form(){
-				document.getElementById('loginmodal').style.display='none'; 
-			}
 		
 		
 	</script>
