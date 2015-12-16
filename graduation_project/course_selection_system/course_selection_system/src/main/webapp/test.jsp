@@ -18,7 +18,11 @@
 
 <a href="testmybatis/test1">go to test mybatis</a>
 
-
+<h3>user now:</h3>
+<%
+	//User user = request.getSession().getAttribute(user);
+%>
+${sessionScope.user.name }
 
 
 
