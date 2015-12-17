@@ -192,96 +192,71 @@
             
             <!-- =================================================================================================== -->
             
+  
             
-            <section id="section-about">
+            <!-- ==================================================================================================== -->
+            
+            <!-- contact section begin -->
+            <!-- section begin -->
+            <section id="section-contact" class="dark" data-speed="5" data-type="background">
                 <div class="container">
                     <div class="row">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3 text-center">
-                                <h1 class="animated" data-animation="fadeInUp">What is <span class="id-color">this?</span>
-                                    <span class="small-border animated" data-animation="fadeInUp"></span>
-                                </h1>
-                                <p class="lead animated" data-animation="fadeInUp">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
-                                <div class="spacer-single"></div>
-                            </div>
+                        <div class="col-md-12 text-center">
+                            <h1 class="animated" data-animation="fadeInUp">Contact <span class="id-color">Us</span>
+                        	<span class="small-border animated" data-animation="fadeInUp"></span>
+                            </h1>
+                            <p class="animated" data-animation="fadeIn">
+                                Get in touch with us. Feel Free to use contact below.
+                            </p>
+                            <div class="spacer-single"></div>
                         </div>
-                        <!-- featured box begin -->
-                        <div class="feature-box-small-icon box-fx center col-md-3 animated" data-animation="fadeInUp" data-delay="0">
-                            <div class="inner">
-                                <div class="front">
-                                    <i class="icon-genius"></i>
-                                    <h3>Our Portfolio</h3>
-                                    <span>Our Recent Works</span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                                	<br>
-                                    <a href="#" class="btn btn-border">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- featured box close -->
 
-                        <!-- featured box begin -->
-                        <div class="feature-box-small-icon box-fx center col-md-3 animated" data-animation="fadeInUp" data-delay="200">
-                            <div class="inner">
-                                <div class="front">
-                                    <i class="icon-linegraph"></i>
-                                    <h3>Experiences</h3>
-                                    <span>What We Have Done</span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                                	<br>
-                                    <a href="#" class="btn btn-border">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- featured box close -->
+                        <div class="col-md-8 animated" data-animation="fadeInUp" data-delay="200" data-speed="5">
 
-                        <!-- featured box begin -->
-                        <div class="feature-box-small-icon box-fx center col-md-3 animated" data-animation="fadeInUp" data-delay="400">
-                            <div class="inner">
-                                <div class="front">
-                                    <i class="icon-layers"></i>
-                                    <h3>Our Vision</h3>
-                                    <span>View Our Story</span>
+                            <form name="contactForm" id='contact_form' method="post">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div id='name_error' class='error'>请输入你的名字。</div>
+                                        <div>
+                                            <input type='text' name='name' id='name' class="form-control" placeholder="Your Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id='email_error' class='error'>请输入合法邮箱。</div>
+                                        <div>
+                                            <input type='text' name='email' id='email' class="form-control" placeholder="Your Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div id='message_error' class='error'>请输入你的意见。</div>
+                                        <div>
+                                            <textarea name='message' id='message' class="form-control" placeholder="Your Message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div id='mail_success' class='success'>发送成功</div>
+                                    <div id='mail_fail' class='error'>对不起，发送失败</div>
+                                    <div class="col-md-12">
+                                        <p id='submit'>
+                                            <input type='submit' id='send_message' value='Submit Form' class="btn btn-border">
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                                	<br>
-                                    <a href="#" class="btn btn-border">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- featured box close -->
+                            </form>
 
-                        <!-- featured box begin -->
-                        <div class="feature-box-small-icon box-fx center col-md-3 animated" data-animation="fadeInUp" data-delay="600">
-                            <div class="inner">
-                                <div class="front">
-                                    <i class="icon-heart"></i>
-                                    <h3>Happy Clients</h3>
-                                    <span>What They Says</span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                                	<br>
-                                    <a href="#" class="btn btn-border">Read More</a>
-                                </div>
-                            </div>
                         </div>
-                        <!-- featured box close -->
 
+                        <div class="col-md-4">
+                            <address>
+                                <span><i class="fa fa-map-marker fa-lg"></i>100 Mainstreet Center, Sydney</span>
+                                <span><i class="fa fa-phone fa-lg"></i>(208) 333 9296</span>
+                                <span><i class="fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">contact@example.com</a></span>
+                                <span><i class="fa fa-globe fa-lg"></i><a href="#">support.cubic.com</a></span>
+                            </address>
+                        </div>
                     </div>
                 </div>
             </section>
-            <!-- section close -->
-            
-            
-            <!-- ==================================================================================================== -->
+            <!-- contact section end -->
             
             
             
@@ -317,7 +292,6 @@
     <script src="res/js/jquery.countTo.js"></script>
     <script src="res/js/classie.js"></script>
     <script src="res/js/designesia.js"></script>
-    <script src="res/js/validation.js"></script>
     <script src="res/chx/js/jquery.leanModal.min.js"></script>
 
     <!-- SLIDER REVOLUTION SCRIPTS  -->
@@ -326,7 +300,8 @@
     
     <!-- 登录验证 -->
     <script type="text/javascript" src="res/chx/js/jquery.formance.min.js"></script>
-    <script type="text/javascript" src="res/chx/js/loginAjax.js"></script>
+    <script type="text/javascript" src="res/chx/js/ajax.login.js"></script>
+    <script src="res/chx/js/ajax.contactForm.js"></script>
     
     <script type="text/javascript">
     
