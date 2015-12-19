@@ -154,7 +154,7 @@
 										  <input type="text" class="form-control" placeholder="Password" name="password" aria-describedby="basic-addon1">
 										</div>
 										
-								      	<div class="form-actions"><input type="submit" name="loginbtn" id="loginbtn" tabindex="3" value="ok" ></div>
+								      	<div class="center"><input type="submit" name="loginbtn" id="loginbtn" tabindex="3" value="ok" ></div>
 							    	</form>
 							  </div>
 
