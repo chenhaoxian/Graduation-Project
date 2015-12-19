@@ -1,27 +1,26 @@
 package service.serviceImpl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import mapper.UserMapper;
 import model.User;
-import service.JustTestService;
+import service.LoginService;
 
-@Service("testService")
+@Service("loginService")
 @Transactional
-public class JustTestServiceImpl implements JustTestService {
+public class LoginServiceImpl implements LoginService {
 	
 	@Autowired
 	private UserMapper userMapper;
-	
-	public List<User> testFindAll() {
+
+	@Override
+	public User findUserByUserid(String userId) {
+		User user = new User();
+		user = userMapper.findUserByUserId(userId);
 		
-		List<User> list = userMapper.findAll();
-		
-		return list;
+		return user;
 	}
+
 }

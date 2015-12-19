@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+package controller;
+
+public class LoginController {
+
+}
+=======
+package controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/login")
+public class LoginController {
+
+	
+}
+>>>>>>> 460399ba085b289efeb50f858eb7d9958396224b
