@@ -17,5 +17,6 @@ public interface UserMapper {
 //	User testFindById(int id);
 //	List<User> testFindAll();
 	User findUserByUserId(String userId);
+	int checkContactMessage(String email);
 	
 }

@@ -165,7 +165,7 @@
 																		<div>
 																			<input type="button" class="btn btn-default" value="sign in" id="login_input"> 
 	
-																	    <button type="button" class="btn btn-default" id="btn_cancel" onclick="close_form()">Cancel</button>
+																	    <button type="button" class="btn btn-default" id="btn_cancel" onclick="close_form();">Cancel</button>
 														    	
 																		</div>
 																    
@@ -184,16 +184,13 @@
                         <source src="res/video/video-2.ogg" type="video/ogg" />
                     </video>
 
-
                 </div>
 
             </section>
             <!-- section close -->
             
             <!-- =================================================================================================== -->
-            
-  
-            
+                
             <!-- ==================================================================================================== -->
             
             <!-- contact section begin -->
@@ -213,35 +210,46 @@
 
                         <div class="col-md-8 animated" data-animation="fadeInUp" data-delay="200" data-speed="5">
 
-                            <form name="contactForm" id='contact_form' method="post">
+                            <form name="contactForm" id="contact_form" method="post">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div id='name_error' class='error'>请输入你的名字。</div>
                                         <div>
                                             <input type='text' name='name' id='name' class="form-control" placeholder="Your Name">
+                                            <!-- <input type="text" class="form-control" id="contact_name" placeholder="Your Name"> -->
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div id='email_error' class='error'>请输入合法邮箱。</div>
                                         <div>
                                             <input type='text' name='email' id='email' class="form-control" placeholder="Your Email">
+                                            <!-- <input type="email" class="form-control" id="contact_email" placeholder="jane.doe@example.com"> -->
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div id='message_error' class='error'>请输入你的意见。</div>
                                         <div>
-                                            <textarea name='message' id='message' class="form-control" placeholder="Your Message"></textarea>
+                                            <textarea type="text" name='message' id='message' class="form-control" placeholder="Your Message"></textarea>
                                         </div>
                                     </div>
                                     <div id='mail_success' class='success'>发送成功</div>
                                     <div id='mail_fail' class='error'>对不起，发送失败</div>
                                     <div class="col-md-12">
+
                                         <p id='submit'>
                                             <input type='submit' id='send_message' value='Submit Form' class="btn btn-border">
                                         </p>
+
+                                     <!-- 
+                                     	<p id='submit'>
+
+                                     		<input type="button" id="send_contactMessage" value="Submit Form" class="btn btn-success">
+																			</p>
+																			 -->
                                     </div>
                                 </div>
                             </form>
+                        
 
                         </div>
 
@@ -301,14 +309,82 @@
     <!-- 登录验证 -->
     <script type="text/javascript" src="res/chx/js/jquery.formance.min.js"></script>
     <script type="text/javascript" src="res/chx/js/ajax.login.js"></script>
-    <script src="res/chx/js/ajax.contactForm.js"></script>
+    <!-- 邮件验证 -->
+    <script type="text/javascript" src="res/chx/js/ajax.contactForm.js"></script>
     
     <script type="text/javascript">
-    
-			
-		
-		
-	</script>
+    	$(function(){
+    		$('#send_message').click(function(e){
+    			e.preventDefault();
+    			var error = false;
+    			var name = $('#name').val();
+    			var email = $('#email').val();
+    			var message = $('#message').val();
+    			
+          if(name.length == 0){
+              var error = true;
+              $('#name_error').fadeIn(500);
+          }else{
+              $('#name_error').fadeOut(500);
+          }
+          if(email.length == 0 || email.indexOf('@') == '-1'){
+              var error = true;
+              $('#email_error').fadeIn(500);
+          }else{
+              $('#email_error').fadeOut(500);
+          }
+          if(message.length == 0){
+              var error = true;
+              $('#message_error').fadeIn(500);
+          }else{
+              $('#message_error').fadeOut(500);
+          }
+    			
+          
+          if(error == false){
+              // Disable submit button just after the form processed 1st time successfully.
+               $('#send_message').attr({'disabled' : 'true', 'value' : '发送中...' });
+               
+//               $.post("userOperation/sendEmail.do", $("#contact_form").serialize(),function(result){
+//                   if(result == 'sent'){
+//                       //If the email is sent successfully, remove the submit button
+//                        $('#submit').remove();
+//                       //Display the success message
+//                       $('#mail_success').fadeIn(500);
+//                   }else{
+//                       //Display the error message
+//                       $('#mail_fail').fadeIn(500);
+//                       // Enable the submit button again
+//                       $('#send_message').removeAttr('disabled').attr('value', 'Send The Message');
+//                   }
+//               });
+               
+               $.ajax({
+                   type: "POST",
+                   url:"userOperation/contactMessage.do",
+                   data:$('#contact_form').serialize(),// 要提交的表单
+                   success: function(msg) {
+                	   alert(msg);
+                	   if(result == 'sent'){
+                           //If the email is sent successfully, remove the submit button
+                            $('#submit').remove();
+                           //Display the success message
+                           $('#mail_success').fadeIn(500);
+                       }else{
+                           //Display the error message
+                           $('#mail_fail').fadeIn(500);
+                           // Enable the submit button again
+                           $('#send_message').removeAttr('disabled').attr('value', 'Send The Message');
+                       }
+                	 }
+               });
+           }
+          
+          
+    			
+    		});
+    	});
+    </script>
 
 </body>
 </html>
