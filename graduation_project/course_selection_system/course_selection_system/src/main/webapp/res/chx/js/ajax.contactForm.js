@@ -66,3 +66,61 @@
 ////		//return false;
 ////	});
 ////});
+
+
+
+    	$(function(){
+    		$('#send_message').click(function(e){
+    			e.preventDefault();
+    			var error = false;
+    			var name = $('#name').val();
+    			var email = $('#email').val();
+    			var message = $('#message').val();
+    			
+          if(name.length == 0 || name.length > 20){
+              var error = true;
+              $('#name_error').fadeIn(500);
+          }else{
+              $('#name_error').fadeOut(500);
+          }
+          if(email.length == 0 || email.indexOf('@') == '-1' || email.length > 30){
+              var error = true;
+              $('#email_error').fadeIn(500);
+          }else{
+              $('#email_error').fadeOut(500);
+          }
+          if(message.length == 0 || message.length > 100){
+              var error = true;
+              $('#message_error').fadeIn(500);
+          }else{
+              $('#message_error').fadeOut(500);
+          }
+    			
+          
+          if(error == false){
+               $('#send_message').attr({'disabled' : 'true', 'value' : '发送中...' });
+               
+               $.ajax({
+                   type: "POST",
+                   url:"userOperation/contactMessage.do",
+                   data:$('#contact_form').serialize(),// 要提交的表单
+                   success: function(msg) {
+                	   
+                	   if(msg == 'send'){
+               		   		 //$('#name_error').fadeOut(500);
+                         // $('#submit').remove();
+                          $('#mail_success').fadeIn(500);
+                          //$("#send_message").attr("disabled",true);
+                          $('#mail_fail').fadeOut(500);
+                          $('#send_message').remove();
+                      }else{
+                   	   		//alert(msg);
+                   	   	$('#mail_success').fadeOut(500);
+                          $('#mail_fail').fadeIn(500);
+                          $('#send_message').removeAttr('disabled').attr('value', '提 交');
+                      }
+                	 }
+               });
+           }
+    		});
+    	});

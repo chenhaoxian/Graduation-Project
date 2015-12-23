@@ -40,9 +40,13 @@ select username,password from users where id=#{id}
 	</select>
 	 -->
 	 
-		<insert id="saveContactMessage" parameterType="ContactMessage">
+		<insert id="saveContactMessage" parameterType="ContactMessage" >
 			insert into user_contact(name,email,message) values(#{name},#{email},#{message})
 		</insert>
+		
+		<select id="checkContactMessage" parameterType="String" resultType="int">
+	 	select count(1) from user_contact where email = #{email}
+	 </select>
 	 
 
 </mapper>

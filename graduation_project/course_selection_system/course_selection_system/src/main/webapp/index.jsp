@@ -51,6 +51,8 @@
 			#popbox{position:absolute;width:400px; height:400px; left:50%; top:50%; margin:-200px 0 0 -200px; display:none; background:#666666;}
 
     </style>
+    
+    
 </head>
 
 <body id="homepage">
@@ -237,7 +239,7 @@
                                     <div class="col-md-12">
 
                                         <p id='submit'>
-                                            <input type='submit' id='send_message' value='Submit Form' class="btn btn-border">
+                                            <input type='submit' id='send_message' value='提 交' class="btn btn-border">
                                         </p>
 
                                      <!-- 
@@ -312,79 +314,7 @@
     <!-- 邮件验证 -->
     <script type="text/javascript" src="res/chx/js/ajax.contactForm.js"></script>
     
-    <script type="text/javascript">
-    	$(function(){
-    		$('#send_message').click(function(e){
-    			e.preventDefault();
-    			var error = false;
-    			var name = $('#name').val();
-    			var email = $('#email').val();
-    			var message = $('#message').val();
-    			
-          if(name.length == 0){
-              var error = true;
-              $('#name_error').fadeIn(500);
-          }else{
-              $('#name_error').fadeOut(500);
-          }
-          if(email.length == 0 || email.indexOf('@') == '-1'){
-              var error = true;
-              $('#email_error').fadeIn(500);
-          }else{
-              $('#email_error').fadeOut(500);
-          }
-          if(message.length == 0){
-              var error = true;
-              $('#message_error').fadeIn(500);
-          }else{
-              $('#message_error').fadeOut(500);
-          }
-    			
-          
-          if(error == false){
-              // Disable submit button just after the form processed 1st time successfully.
-               $('#send_message').attr({'disabled' : 'true', 'value' : '发送中...' });
-               
-//               $.post("userOperation/sendEmail.do", $("#contact_form").serialize(),function(result){
-//                   if(result == 'sent'){
-//                       //If the email is sent successfully, remove the submit button
-//                        $('#submit').remove();
-//                       //Display the success message
-//                       $('#mail_success').fadeIn(500);
-//                   }else{
-//                       //Display the error message
-//                       $('#mail_fail').fadeIn(500);
-//                       // Enable the submit button again
-//                       $('#send_message').removeAttr('disabled').attr('value', 'Send The Message');
-//                   }
-//               });
-               
-               $.ajax({
-                   type: "POST",
-                   url:"userOperation/contactMessage.do",
-                   data:$('#contact_form').serialize(),// 要提交的表单
-                   success: function(msg) {
-                	   alert(msg);
-                	   if(result == 'sent'){
-                           //If the email is sent successfully, remove the submit button
-                            $('#submit').remove();
-                           //Display the success message
-                           $('#mail_success').fadeIn(500);
-                       }else{
-                           //Display the error message
-                           $('#mail_fail').fadeIn(500);
-                           // Enable the submit button again
-                           $('#send_message').removeAttr('disabled').attr('value', 'Send The Message');
-                       }
-                	 }
-               });
-           }
-          
-          
-    			
-    		});
-    	});
-    </script>
+    
 
 </body>
 </html>

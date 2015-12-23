@@ -44,13 +44,6 @@ select username,password from users where id=#{id}
 	 	select * from user where userid = #{userId}
 	 </select>
 	 
-	 <select id="checkContactMessage" parameterType="String" resultType="int">
-	 	select count(1) from user_contact where email = #{email}
-	 </select>
-	 
-		<insert id="saveContactMessage" parameterType="String">
-			insert into user_contact(name,email,message) values(#{name},#{email},#{msg})
-		</insert>
 	 
 
 </mapper>

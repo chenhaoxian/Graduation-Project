@@ -1,5 +1,6 @@
 package service.serviceImpl;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,14 +33,21 @@ public class UserOperationServiceImpl implements UserOperationService{
 	}
 
 	@Override
-	public boolean sendContactMessage(String name, String email, String msg) {
-		if(userMapper.checkContactMessage(email) == 0){
-			contactMessageMapper.saveContactMessage(name, email, msg);
+	public boolean sendContactMessage(@Param("name")String name, @Param("email")String email, @Param("message")String message) {
+		if(contactMessageMapper.checkContactMessage(email) == 0){
+			print("数据库不存在这个邮箱");
+			contactMessageMapper.saveContactMessage(name, email, message);
 			return true;
 		}else{
+			print("数据库存在这个邮箱");
 			return false;
 		}
 		
+	}
+	
+	
+	private void print(Object msg){
+		System.out.println(msg);
 	}
 
 }
