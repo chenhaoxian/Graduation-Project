@@ -2,6 +2,13 @@ package model;
 
 public class ContactMessage {
 	
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	private String name;
 	private String email;
 	private String message;
@@ -25,7 +32,17 @@ public class ContactMessage {
 	}
 	@Override
 	public String toString() {
-		return "ContactMessage [name=" + name + ", email=" + email + ", message=" + message + "]";
+		return "ContactMessage [id=" + id + ", name=" + name + ", email=" + email + ", message=" + message + "]";
+	}
+	
+	public ContactMessage(){}
+	
+	public ContactMessage(int id, String name, String email, String message) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.message = message;
 	}
 	
 	
