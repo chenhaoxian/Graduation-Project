@@ -34,6 +34,7 @@ public class UserOperationServiceImpl implements UserOperationService{
 
 	@Override
 	public boolean sendContactMessage(@Param("name")String name, @Param("email")String email, @Param("message")String message) {
+		print(name);
 		if(contactMessageMapper.checkContactMessage(email) == 0){
 			print("数据库不存在这个邮箱");
 			contactMessageMapper.saveContactMessage(name, email, message);

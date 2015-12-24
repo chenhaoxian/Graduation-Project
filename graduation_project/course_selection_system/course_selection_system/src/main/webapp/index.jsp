@@ -62,12 +62,14 @@
         <section class="selected">
             welcome !
         </section>
+        <!-- 
         <section>
             Insert your custom message here.
         </section>
         <section>
             Make your customers smile.
         </section>
+         -->
     </div>
     
     <div id="wrapper">
@@ -99,12 +101,14 @@
                         <nav>
                             <ul id="mainmenu">
                                 <li><a class="active" href="http://www.zhbit.com">学校首页</a></li>
-                                <li><a href="#section-about">About Us</a></li>
+                                <!-- 
+                                <li><a href="#section-about">About Us</a></li> 
                                 <li><a href="#section-team">Team</a></li>
                                 <li><a href="#section-services">Services</a></li>
                                 <li><a href="#section-portfolio">Portfolio</a></li>
                                 <li><a href="#section-testimonial">Testimonial</a></li>
                                 <li><a href="#section-blog">Blog</a></li>
+                                -->
                                 <li><a href="#section-contact">Contact</a></li>
                             </ul>
                         </nav>
@@ -127,7 +131,7 @@
                     <div class="de-video-content">
                         <div class="text-center">
                             <!-- CREATIVE AGENCY / WEBSITE DEVELOPMENT / COPYWRITER  -->
-                          	<div class="text-item"><span class="id-color">北京理工大学珠海学院 </span></div>
+                          	<!-- <div class="text-item"><span class="id-color">北京理工大学珠海学院 </span></div> -->
                             <div class="spacer-single"></div>
                             <div class="text-slider border-deco">
                                 <div class="text-item">欢迎来到 <span class="id-color">大学生选课系统</span></div>
@@ -257,10 +261,10 @@
 
                         <div class="col-md-4">
                             <address>
-                                <span><i class="fa fa-map-marker fa-lg"></i>100 Mainstreet Center, Sydney</span>
-                                <span><i class="fa fa-phone fa-lg"></i>(208) 333 9296</span>
-                                <span><i class="fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">contact@example.com</a></span>
-                                <span><i class="fa fa-globe fa-lg"></i><a href="#">support.cubic.com</a></span>
+                                <span><i class="fa fa-map-marker fa-lg"></i>北京理工大学珠海学院</span>
+                                <span><i class="fa fa-phone fa-lg"></i>0756-3622745</span>
+                                <span><i class="fa fa-envelope-o fa-lg"></i><a href="mailto:xiannzb@163.com">xiannzb@163.com</a></span>
+                                <span><i class="fa fa-globe fa-lg"></i><a href="http://www.zhbit.com">www.zhbit.com</a></span>
                             </address>
                         </div>
                     </div>
