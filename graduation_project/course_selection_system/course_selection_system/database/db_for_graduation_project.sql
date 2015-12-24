@@ -3,7 +3,7 @@
 # Server version:               5.5.16
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2015-12-23 16:13:24
+# Date/time:                    2015-12-24 14:45:20
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -20,7 +20,7 @@ USE `db_course_selection_system`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
-  `userid` varchar(30) DEFAULT NULL,
+  `userid` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
   `user_type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS `user_contact` (
   `message` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
-# Dumping data for table db_course_selection_system.user_contact: ~4 rows (approximately)
+# Dumping data for table db_course_selection_system.user_contact: ~42 rows (approximately)
 /*!40000 ALTER TABLE `user_contact` DISABLE KEYS */;
 REPLACE INTO `user_contact` (`id`, `name`, `email`, `message`) VALUES
 	(1, 'test1', 'test1@qq.com', 'test1'),
@@ -81,7 +81,15 @@ REPLACE INTO `user_contact` (`id`, `name`, `email`, `message`) VALUES
 	(31, 'sdfsdf', '47sdfdddd3770@qq.com', 'ddd'),
 	(32, 'sdfdf', 'ddddsdfdffdf@qq.com', 'sdf'),
 	(33, 'asdasd', 'ddfsdfdddf@qq.com', 'dfdfdf'),
-	(34, 'adadasd', 'd13770@qq.com', 'aasdasd');
+	(34, 'adadasd', 'd13770@qq.com', 'aasdasd'),
+	(35, '?', '47dd13770@qq.com', 'dd'),
+	(36, 'sdadasd', '4746asdssd70@qq.com', 'asdas'),
+	(37, '???', '47asdsdw613770@qq.com', '????'),
+	(38, 'sda?', 'teasdddsdfsdf@qq.com', 'asdad????'),
+	(39, '陈浩贤', 'dfsdfsd@qq.com', '哈哈哈哈'),
+	(40, '????', '47sf13770@qq.com', 'dd??'),
+	(41, '??', '47ddf3770@qq.com', '????'),
+	(42, '颠倒是非', '47dfdf3770@qq.com', 'sdf辅导费');
 /*!40000 ALTER TABLE `user_contact` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
