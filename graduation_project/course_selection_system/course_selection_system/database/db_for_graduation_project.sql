@@ -3,7 +3,7 @@
 # Server version:               5.5.16
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2015-12-24 14:45:20
+# Date/time:                    2015-12-25 16:28:21
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -14,6 +14,91 @@
 # Dumping database structure for db_course_selection_system
 CREATE DATABASE IF NOT EXISTS `db_course_selection_system` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `db_course_selection_system`;
+
+
+# Dumping structure for table db_course_selection_system.course
+CREATE TABLE IF NOT EXISTS `course` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cname` varchar(20) DEFAULT NULL,
+  `cno` varchar(20) DEFAULT NULL,
+  `ccount` int(11) DEFAULT NULL,
+  `ctype` varchar(20) DEFAULT NULL,
+  `ccredit` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cno` (`cno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# Dumping data for table db_course_selection_system.course: ~0 rows (approximately)
+/*!40000 ALTER TABLE `course` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course` ENABLE KEYS */;
+
+
+# Dumping structure for table db_course_selection_system.department
+CREATE TABLE IF NOT EXISTS `department` (
+  `departmentno` varchar(20) DEFAULT NULL,
+  `departmentname` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# Dumping data for table db_course_selection_system.department: ~0 rows (approximately)
+/*!40000 ALTER TABLE `department` DISABLE KEYS */;
+/*!40000 ALTER TABLE `department` ENABLE KEYS */;
+
+
+# Dumping structure for table db_course_selection_system.profession
+CREATE TABLE IF NOT EXISTS `profession` (
+  `professionName` varchar(50) DEFAULT NULL,
+  `professionNo` varchar(20) DEFAULT NULL,
+  `departmentno` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# Dumping data for table db_course_selection_system.profession: ~0 rows (approximately)
+/*!40000 ALTER TABLE `profession` DISABLE KEYS */;
+/*!40000 ALTER TABLE `profession` ENABLE KEYS */;
+
+
+# Dumping structure for table db_course_selection_system.selectcourse
+CREATE TABLE IF NOT EXISTS `selectcourse` (
+  `cno` varchar(20) DEFAULT NULL,
+  `sno` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# Dumping data for table db_course_selection_system.selectcourse: ~0 rows (approximately)
+/*!40000 ALTER TABLE `selectcourse` DISABLE KEYS */;
+/*!40000 ALTER TABLE `selectcourse` ENABLE KEYS */;
+
+
+# Dumping structure for table db_course_selection_system.student
+CREATE TABLE IF NOT EXISTS `student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sname` varchar(20) DEFAULT NULL,
+  `sno` varchar(20) DEFAULT NULL,
+  `grade` varchar(20) DEFAULT NULL,
+  `password` varchar(30) DEFAULT NULL,
+  `professionNo` varchar(20) DEFAULT NULL,
+  `scredit` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sno` (`sno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# Dumping data for table db_course_selection_system.student: ~0 rows (approximately)
+/*!40000 ALTER TABLE `student` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+
+
+# Dumping structure for table db_course_selection_system.teacher
+CREATE TABLE IF NOT EXISTS `teacher` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tname` varchar(20) DEFAULT NULL,
+  `tno` varchar(20) DEFAULT NULL,
+  `departmentno` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tno` (`tno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# Dumping data for table db_course_selection_system.teacher: ~0 rows (approximately)
+/*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
+/*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
 
 
 # Dumping structure for table db_course_selection_system.user
