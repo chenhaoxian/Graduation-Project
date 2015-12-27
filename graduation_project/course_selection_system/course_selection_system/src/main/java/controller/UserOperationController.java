@@ -12,7 +12,7 @@ public class UserOperationController {
 	@Autowired
 	private UserOperationController userOperationController;
 	
-	@RequestMapping("sendEmail.do")
+	@RequestMapping("sendEmail")
 	private @ResponseBody String sendContactEmail(String name, String email, String msg){
 		
 		if(userOperationController.sendContactEmail(name, email, msg) != null){
