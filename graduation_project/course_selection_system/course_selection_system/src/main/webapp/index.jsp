@@ -51,6 +51,8 @@
 			#popbox{position:absolute;width:400px; height:400px; left:50%; top:50%; margin:-200px 0 0 -200px; display:none; background:#666666;}
 
     </style>
+    
+    
 </head>
 
 <body id="homepage">
@@ -60,12 +62,14 @@
         <section class="selected">
             welcome !
         </section>
+        <!-- 
         <section>
             Insert your custom message here.
         </section>
         <section>
             Make your customers smile.
         </section>
+         -->
     </div>
     
     <div id="wrapper">
@@ -97,12 +101,14 @@
                         <nav>
                             <ul id="mainmenu">
                                 <li><a class="active" href="http://www.zhbit.com">学校首页</a></li>
-                                <li><a href="#section-about">About Us</a></li>
+                                <!-- 
+                                <li><a href="#section-about">About Us</a></li> 
                                 <li><a href="#section-team">Team</a></li>
                                 <li><a href="#section-services">Services</a></li>
                                 <li><a href="#section-portfolio">Portfolio</a></li>
                                 <li><a href="#section-testimonial">Testimonial</a></li>
                                 <li><a href="#section-blog">Blog</a></li>
+                                -->
                                 <li><a href="#section-contact">Contact</a></li>
                             </ul>
                         </nav>
@@ -125,7 +131,7 @@
                     <div class="de-video-content">
                         <div class="text-center">
                             <!-- CREATIVE AGENCY / WEBSITE DEVELOPMENT / COPYWRITER  -->
-                          	<div class="text-item"><span class="id-color">北京理工大学珠海学院 </span></div>
+                          	<!-- <div class="text-item"><span class="id-color">北京理工大学珠海学院 </span></div> -->
                             <div class="spacer-single"></div>
                             <div class="text-slider border-deco">
                                 <div class="text-item">欢迎来到 <span class="id-color">大学生选课系统</span></div>
@@ -165,7 +171,7 @@
 																		<div>
 																			<input type="button" class="btn btn-default" value="sign in" id="login_input"> 
 	
-																	    <button type="button" class="btn btn-default" id="btn_cancel" onclick="close_form()">Cancel</button>
+																	    <button type="button" class="btn btn-default" id="btn_cancel" onclick="close_form();">Cancel</button>
 														    	
 																		</div>
 																    
@@ -184,16 +190,13 @@
                         <source src="res/video/video-2.ogg" type="video/ogg" />
                     </video>
 
-
                 </div>
 
             </section>
             <!-- section close -->
             
             <!-- =================================================================================================== -->
-            
-  
-            
+                
             <!-- ==================================================================================================== -->
             
             <!-- contact section begin -->
@@ -213,44 +216,55 @@
 
                         <div class="col-md-8 animated" data-animation="fadeInUp" data-delay="200" data-speed="5">
 
-                            <form name="contactForm" id='contact_form' method="post">
+                            <form name="contactForm" id="contact_form" method="post">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div id='name_error' class='error'>请输入你的名字。</div>
                                         <div>
                                             <input type='text' name='name' id='name' class="form-control" placeholder="Your Name">
+                                            <!-- <input type="text" class="form-control" id="contact_name" placeholder="Your Name"> -->
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div id='email_error' class='error'>请输入合法邮箱。</div>
                                         <div>
                                             <input type='text' name='email' id='email' class="form-control" placeholder="Your Email">
+                                            <!-- <input type="email" class="form-control" id="contact_email" placeholder="jane.doe@example.com"> -->
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div id='message_error' class='error'>请输入你的意见。</div>
                                         <div>
-                                            <textarea name='message' id='message' class="form-control" placeholder="Your Message"></textarea>
+                                            <textarea type="text" name='message' id='message' class="form-control" placeholder="Your Message"></textarea>
                                         </div>
                                     </div>
                                     <div id='mail_success' class='success'>发送成功</div>
                                     <div id='mail_fail' class='error'>对不起，发送失败</div>
                                     <div class="col-md-12">
+
                                         <p id='submit'>
-                                            <input type='submit' id='send_message' value='Submit Form' class="btn btn-border">
+                                            <input type='submit' id='send_message' value='提 交' class="btn btn-border">
                                         </p>
+
+                                     <!-- 
+                                     	<p id='submit'>
+
+                                     		<input type="button" id="send_contactMessage" value="Submit Form" class="btn btn-success">
+																			</p>
+																			 -->
                                     </div>
                                 </div>
                             </form>
+                        
 
                         </div>
 
                         <div class="col-md-4">
                             <address>
-                                <span><i class="fa fa-map-marker fa-lg"></i>100 Mainstreet Center, Sydney</span>
-                                <span><i class="fa fa-phone fa-lg"></i>(208) 333 9296</span>
-                                <span><i class="fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">contact@example.com</a></span>
-                                <span><i class="fa fa-globe fa-lg"></i><a href="#">support.cubic.com</a></span>
+                                <span><i class="fa fa-map-marker fa-lg"></i>北京理工大学珠海学院</span>
+                                <span><i class="fa fa-phone fa-lg"></i>0756-3622745</span>
+                                <span><i class="fa fa-envelope-o fa-lg"></i><a href="mailto:xiannzb@163.com">xiannzb@163.com</a></span>
+                                <span><i class="fa fa-globe fa-lg"></i><a href="http://www.zhbit.com">www.zhbit.com</a></span>
                             </address>
                         </div>
                     </div>
@@ -301,14 +315,10 @@
     <!-- 登录验证 -->
     <script type="text/javascript" src="res/chx/js/jquery.formance.min.js"></script>
     <script type="text/javascript" src="res/chx/js/ajax.login.js"></script>
-    <script src="res/chx/js/ajax.contactForm.js"></script>
+    <!-- 邮件验证 -->
+    <script type="text/javascript" src="res/chx/js/ajax.contactForm.js"></script>
     
-    <script type="text/javascript">
     
-			
-		
-		
-	</script>
 
 </body>
 </html>

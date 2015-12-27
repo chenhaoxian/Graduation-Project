@@ -16,8 +16,8 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	<!-- data source : DriverManagerDataSource -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	<property name="driverClassName" value="org.gjt.mm.mysql.Driver"/>
-	<property name="url" value="jdbc:mysql://localhost:3306/db_course_selection_system"/> 
-	<property name="username" value="root"/>
+	<property name="url" value="jdbc:mysql://localhost:3306/db_course_selection_system?characterEncoding=utf8"/> 
+	<property name="username" value="root"/> 
 	<property name="password" value="xian520."/>
 	</bean>
 
@@ -26,7 +26,7 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	-->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dataSource"></property>
-	<property name="typeAliasesPackage" value="model"></property> 
+	<property name="typeAliasesPackage" value="model"></property>  
 	<property name="configLocation" value="classpath:mybatis-config.xml"></property>
 	</bean>
 	

@@ -8,7 +8,7 @@
  --> 
 <!--  在dao包下创建一个UserMapper.xml文件作为上一步创建的DAO接口的实现。 -->
 
-<mapper namespace="mapper.UserMapper">
+<mapper namespace="mapper.ContactMessageMapper">
 
 
 <!-- 
@@ -40,10 +40,13 @@ select username,password from users where id=#{id}
 	</select>
 	 -->
 	 
-	 <select id="findUserByUserId" parameterType="String" resultType="User">
-	 	select * from user where userid = #{userId}
+		<insert id="saveContactMessage" parameterType="ContactMessage" >
+			insert into user_contact(name,email,message) values(#{name},#{email},#{message})
+		</insert>
+		
+		<select id="checkContactMessage" parameterType="String" resultType="int">
+	 	select count(1) from user_contact where email = #{email}
 	 </select>
-	 
 	 
 
 </mapper>
