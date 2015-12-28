@@ -14,7 +14,10 @@ create table student(
 	password varchar(30),
 	professionNo varchar(20),
 	scredit int
+	
 );
+alter table student modify grade int;
+desc student;
 
 create table teacher(
 	id int auto_increment primary key,
@@ -49,3 +52,27 @@ create table department(
 	departmentname varchar(20)
 );
 
+drop table admin;
+create table admin(
+	id int auto_increment primary key,
+	aid varchar(20) unique,
+	password varchar(20),
+	name varchar(20),
+	usertype int
+);
+
+alter table student add usertype varchar(20);
+select * from student;
+
+alter table teacher add usertype varchar(20);
+
+select * from user;
+select * from student;
+select * from teacher;
+select * from admin;
+
+insert into teacher(tname,tno,departmentno,password,usertype) values('test1','1','hahaha','123',2);
+insert into admin (aid,password,name ,usertype) values('1','123','admin1','3');
+select * from student;
+select professionno from student;
+insert into student(sname,sno,grade,password,professionNo,scredit,usertype) values('student1','1','1',)

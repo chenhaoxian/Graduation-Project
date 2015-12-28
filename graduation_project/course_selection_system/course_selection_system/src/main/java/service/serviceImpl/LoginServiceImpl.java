@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import mapper.UserMapper;
+import model.Admin;
+import model.Student;
+import model.Teacher;
 import model.User;
 import service.LoginService;
 
@@ -16,11 +19,26 @@ public class LoginServiceImpl implements LoginService {
 	private UserMapper userMapper;
 
 	@Override
-	public User findUserByUserid(String userId) {
-		User user = new User();
-		user = userMapper.findUserByUserId(userId);
+	public Student findUserByUserid(String sno) {
+		Student student = new Student();
+		student = userMapper.findUserByUserId(sno);
 		
-		return user;
+		return student;
+	}
+
+	@Override
+	public Teacher findTeacherByTno(String tno) {
+		Teacher teacher = new Teacher();
+		teacher = userMapper.findTeacherByTno(tno);
+		
+		return teacher;
+	}
+
+	@Override
+	public Admin findAdminByAid(String aid) {
+		Admin admin = new Admin();
+		admin = userMapper.findAdminByAid(aid);
+		return admin;
 	}
 
 }

@@ -3,7 +3,7 @@
 # Server version:               5.5.16
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2015-12-25 16:28:21
+# Date/time:                    2015-12-28 17:05:30
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -14,6 +14,24 @@
 # Dumping database structure for db_course_selection_system
 CREATE DATABASE IF NOT EXISTS `db_course_selection_system` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `db_course_selection_system`;
+
+
+# Dumping structure for table db_course_selection_system.admin
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `aid` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `usertype` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `aid` (`aid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+# Dumping data for table db_course_selection_system.admin: ~0 rows (approximately)
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+REPLACE INTO `admin` (`id`, `aid`, `password`, `name`, `usertype`) VALUES
+	(1, '1', '123', 'admin1', 3);
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 
 
 # Dumping structure for table db_course_selection_system.course
@@ -72,16 +90,19 @@ CREATE TABLE IF NOT EXISTS `student` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sname` varchar(20) DEFAULT NULL,
   `sno` varchar(20) DEFAULT NULL,
-  `grade` varchar(20) DEFAULT NULL,
+  `grade` int(11) DEFAULT NULL,
   `password` varchar(30) DEFAULT NULL,
   `professionNo` varchar(20) DEFAULT NULL,
   `scredit` int(11) DEFAULT NULL,
+  `usertype` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `sno` (`sno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 # Dumping data for table db_course_selection_system.student: ~0 rows (approximately)
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
+REPLACE INTO `student` (`id`, `sname`, `sno`, `grade`, `password`, `professionNo`, `scredit`, `usertype`) VALUES
+	(1, 'student1', '1', 1, '123', '1', 0, '1');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 
 
@@ -92,12 +113,15 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `tno` varchar(20) DEFAULT NULL,
   `departmentno` varchar(20) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL,
+  `usertype` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tno` (`tno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 # Dumping data for table db_course_selection_system.teacher: ~0 rows (approximately)
 /*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
+REPLACE INTO `teacher` (`id`, `tname`, `tno`, `departmentno`, `password`, `usertype`) VALUES
+	(1, 'test1', '1', 'hahaha', '123', '2');
 /*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
 
 

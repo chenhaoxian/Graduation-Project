@@ -40,8 +40,16 @@ select username,password from users where id=#{id}
 	</select>
 	 -->
 	 
-	 <select id="findUserByUserId" parameterType="String" resultType="User">
-	 	select * from user where userid = #{userId}
+	 <select id="findUserByUserId" parameterType="String" resultType="Student">
+	 	select * from student where sno = #{sno}
+	 </select>
+	 
+	 <select id="findTeacherByTno" parameterType="String" resultType="Teacher">
+	 	select * from teacher where tno = #{tno}
+	 </select>
+	 
+	 <select id="findAdminByAid" parameterType="String" resultType="Admin">
+	 	select * from admin where aid = #{aid}
 	 </select>
 	 
 	 

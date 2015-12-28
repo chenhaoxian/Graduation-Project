@@ -2,6 +2,9 @@ package mapper;
 
 import java.util.List;
 
+import model.Admin;
+import model.Student;
+import model.Teacher;
 import model.User;
 
 public interface UserMapper {
@@ -16,7 +19,9 @@ public interface UserMapper {
 //	List<User> findAll();
 //	User testFindById(int id);
 //	List<User> testFindAll();
-	User findUserByUserId(String userId);
+	Student findUserByUserId(String sno);
+	Teacher findTeacherByTno(String tno);
+	Admin findAdminByAid(String aid);
 	
 	
 }

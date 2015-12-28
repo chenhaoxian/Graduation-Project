@@ -70,12 +70,12 @@
 
 
     	$(function(){
-    		$('#send_message').click(function(e){
-    			e.preventDefault();
-    			var error = false;
-    			var name = $('#name').val();
-    			var email = $('#email').val();
-    			var message = $('#message').val();
+			$('#send_message').click(function(e){
+				e.preventDefault();
+				var error = false;
+				var name = $('#name').val();
+				var email = $('#email').val();
+				var message = $('#message').val();
     			
           if(name.length == 0 || name.length > 20){
               var error = true;

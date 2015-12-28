@@ -22,7 +22,9 @@
 <%
 	//User user = request.getSession().getAttribute(user);
 %>
-${sessionScope.user.name }
+${sessionScope.student.sname }
+${sessionScope.admin.name }
+${sessionScope.teacher.tname }
 
 
 
