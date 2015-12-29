@@ -75,4 +75,4 @@ insert into teacher(tname,tno,departmentno,password,usertype) values('test1','1'
 insert into admin (aid,password,name ,usertype) values('1','123','admin1','3');
 select * from student;
 select professionno from student;
-insert into student(sname,sno,grade,password,professionNo,scredit,usertype) values('student1','1','1',)
+insert into student(sname,sno,grade,password,professionNo,scredit,usertype) values('student1','1',1,'123','1',0,1)
