@@ -76,3 +76,50 @@ insert into admin (aid,password,name ,usertype) values('1','123','admin1','3');
 select * from student;
 select professionno from student;
 insert into student(sname,sno,grade,password,professionNo,scredit,usertype) values('student1','1',1,'123','1',0,1)
+
+select * from course;
+select * from student;
+select * from profession;
+drop table profession;
+create table profession(
+	professionName varchar(50),
+	professionNo varchar(20) primary key,
+	departmentno varchar(20)
+);
+select * from profession;
+alter table student add  foreign key fk_student_professionno(professionno) references profession(professionno);
+select * from student;
+desc student;
+alter table student drop column professionno;
+select * from student;
+alter table student add column professionno varchar(20);
+
+--====================================为student表的professionno字段设置外键===================================
+alter table student add constraint fk_student_professionNo foreign key(professionno) references profession(professionno);
+
+select * from student;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

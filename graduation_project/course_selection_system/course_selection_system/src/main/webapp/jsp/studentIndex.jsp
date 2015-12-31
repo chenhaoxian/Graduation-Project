@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Kanrisha - A Premium HTML5 Responsive Admin Template</title>
+	<title>学生选课系统</title>
 	<!--[if lt IE 9]>
 		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -95,7 +95,7 @@
 					</li>
 					 -->
 					<li class="i_22_settings">
-						<a href="#" title="Log out">
+						<a href="../index.jsp" title="Log out">
 							<span class="label">退出</span>
 						</a>
 					</li>
@@ -356,7 +356,7 @@
 					
 				<div class="g_12">
 					<div class="widget_header">
-						<h4 class="widget_header_title wwIcon i_16_add">{}</h4>
+						<h4 class="widget_header_title wwIcon i_16_add">姓名</h4>
 					</div>
 					<div class="widget_contents">
 					${sessionScope.student.sname }

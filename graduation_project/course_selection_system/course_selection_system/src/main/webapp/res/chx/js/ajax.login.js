@@ -6,7 +6,7 @@ $(function(){
 	$('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
 });
 
-//for login
+//for  student login
 $(function(){
 	$('#login_input').click(function(){
 		var account = $('#account').val();
@@ -52,7 +52,7 @@ $(function(){
 						
 					}else {
 						//$('#loginform').sumbit();
-						window.location.href = 'jsp/test.jsp';
+						window.location.href = 'jsp/studentIndex.jsp';
 					}
 				}
 			});
