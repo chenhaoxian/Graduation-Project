@@ -5,7 +5,7 @@
 	<configuration>
 	<!-- 实体类，简称     设置 别名 -->
 	<typeAliases>
-		<typeAlias alias="Student" type="model.Student"/>
+		<typeAlias alias="Student" type="model.Student"/> 
 		<typeAlias alias="ContactMessage" type="model.ContactMessage"/>
 		<typeAlias alias="Teacher" type="model.Teacher"/>
 		<typeAlias type="model.Admin" alias="Admin"/>
