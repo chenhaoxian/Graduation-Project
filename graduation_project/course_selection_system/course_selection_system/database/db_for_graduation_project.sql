@@ -3,7 +3,7 @@
 # Server version:               5.5.16
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2015-12-31 15:07:47
+# Date/time:                    2016-01-04 17:17:05
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -53,12 +53,15 @@ CREATE TABLE IF NOT EXISTS `course` (
 
 # Dumping structure for table db_course_selection_system.department
 CREATE TABLE IF NOT EXISTS `department` (
-  `departmentno` varchar(20) DEFAULT NULL,
-  `departmentname` varchar(20) DEFAULT NULL
+  `departmentNo` varchar(20) NOT NULL,
+  `departmentName` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`departmentNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 # Dumping data for table db_course_selection_system.department: ~0 rows (approximately)
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
+REPLACE INTO `department` (`departmentNo`, `departmentName`) VALUES
+	('1', '计算机学院');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 
 
@@ -66,12 +69,16 @@ CREATE TABLE IF NOT EXISTS `department` (
 CREATE TABLE IF NOT EXISTS `profession` (
   `professionName` varchar(50) DEFAULT NULL,
   `professionNo` varchar(20) NOT NULL,
-  `departmentno` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`professionNo`)
+  `departmentNo` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`professionNo`),
+  KEY `fk_profession_departmentNo` (`departmentNo`),
+  CONSTRAINT `fk_profession_departmentNo` FOREIGN KEY (`departmentNo`) REFERENCES `department` (`departmentNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 # Dumping data for table db_course_selection_system.profession: ~0 rows (approximately)
 /*!40000 ALTER TABLE `profession` DISABLE KEYS */;
+REPLACE INTO `profession` (`professionName`, `professionNo`, `departmentNo`) VALUES
+	('软件工程', '1', '1');
 /*!40000 ALTER TABLE `profession` ENABLE KEYS */;
 
 
@@ -93,7 +100,6 @@ CREATE TABLE IF NOT EXISTS `student` (
   `sno` varchar(20) DEFAULT NULL,
   `grade` int(11) DEFAULT NULL,
   `password` varchar(30) DEFAULT NULL,
-  `scredit` int(11) DEFAULT NULL,
   `usertype` varchar(20) DEFAULT NULL,
   `professionno` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -104,8 +110,8 @@ CREATE TABLE IF NOT EXISTS `student` (
 
 # Dumping data for table db_course_selection_system.student: ~1 rows (approximately)
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-REPLACE INTO `student` (`id`, `sname`, `sno`, `grade`, `password`, `scredit`, `usertype`, `professionno`) VALUES
-	(1, 'student1', '1', 1, '123', 0, '1', NULL);
+REPLACE INTO `student` (`id`, `sname`, `sno`, `grade`, `password`, `usertype`, `professionno`) VALUES
+	(1, 'student1', '1', 1, '123', '1', '1');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 
 

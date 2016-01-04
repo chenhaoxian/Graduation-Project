@@ -142,18 +142,19 @@ create table credit (
 )
 insert into credit values(4,2,2,'1');
 select * from credit;
+desc credit;
 
 alter table student drop column scredit;
 select * from student;
 select s.* ,p.* , d.* ,c.*
-		from student s
-		left join profession p 
-		on s.professionno = p.professionNo
-		left join department d 
-		on p.departmentNo = d.departmentNo
-		left join credit c
-		on s.sno = c.sno
-		where s.sno = '1';
+from student s
+left join profession p 
+on s.professionno = p.professionNo
+left join department d 
+on p.departmentNo = d.departmentNo
+left join credit c
+on s.sno = c.sno
+where s.sno = '1';
 
 
 
