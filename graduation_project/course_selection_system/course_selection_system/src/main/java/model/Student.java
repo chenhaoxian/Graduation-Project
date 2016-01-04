@@ -1,18 +1,42 @@
 package model;
 
+import java.util.List;
+
 public class Student {
-	private int id;
+	
+	private int id ;
 	private String sname;
 	private String sno;
 	private int grade;
 	private String password;
-	private String professionNO;
-	private int scredit;
-	private int usertype;
+	private String usertype;
+	private Profession profession;
+	private Credit credit;
 	
-	public Student(){}
+	
+	
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", sname=" + sname + ", sno=" + sno + ", grade=" + grade + ", password=" + password
+				+ ", usertype=" + usertype + ", profession=" + profession + ", credit=" + credit + "]";
+	}
 
+	public Student(){}
 	
+	
+
+	public Student(int id, String sname, String sno, int grade, String password, String usertype, Profession profession,
+			Credit credit) {
+		super();
+		this.id = id;
+		this.sname = sname;
+		this.sno = sno;
+		this.grade = grade;
+		this.password = password;
+		this.usertype = usertype;
+		this.profession = profession;
+		this.credit = credit;
+	}
 
 	public int getId() {
 		return id;
@@ -30,6 +54,14 @@ public class Student {
 		this.sname = sname;
 	}
 
+	public Credit getCredit() {
+		return credit;
+	}
+
+	public void setCredit(Credit credit) {
+		this.credit = credit;
+	}
+
 	public String getSno() {
 		return sno;
 	}
@@ -38,7 +70,13 @@ public class Student {
 		this.sno = sno;
 	}
 
-	
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
 
 	public String getPassword() {
 		return password;
@@ -48,61 +86,21 @@ public class Student {
 		this.password = password;
 	}
 
-	public String getProfessionNO() {
-		return professionNO;
-	}
 
-	public void setProfessionNO(String professionNO) {
-		this.professionNO = professionNO;
-	}
-
-	public int getScredit() {
-		return scredit;
-	}
-
-	public void setScredit(int scredit) {
-		this.scredit = scredit;
-	}
-
-	public int getUsertype() {
+	public String getUsertype() {
 		return usertype;
 	}
 
-	public void setUsertype(int usertype) {
+	public void setUsertype(String usertype) {
 		this.usertype = usertype;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", sname=" + sname + ", sno=" + sno + ", grade=" + grade + ", password=" + password
-				+ ", professionNO=" + professionNO + ", scredit=" + scredit + ", usertype=" + usertype + "]";
+	public Profession getProfession() {
+		return profession;
 	}
 
-
-
-	public Student(int id, String sname, String sno, int grade, String password, String professionNO, int scredit,
-			int usertype) {
-		super();
-		this.id = id;
-		this.sname = sname;
-		this.sno = sno;
-		this.grade = grade;
-		this.password = password;
-		this.professionNO = professionNO;
-		this.scredit = scredit;
-		this.usertype = usertype;
-	}
-
-
-
-	public int getGrade() {
-		return grade;
-	}
-
-
-
-	public void setGrade(int grade) {
-		this.grade = grade;
+	public void setProfession(Profession profession) {
+		this.profession = profession;
 	}
 	
 	

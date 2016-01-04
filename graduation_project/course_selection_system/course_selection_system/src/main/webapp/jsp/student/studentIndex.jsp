@@ -8,46 +8,46 @@
 	<!--[if lt IE 9]>
 		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="../res/js/secondpage/Flot/excanvas.js"></script>
+		<script src="../../res/js/secondpage/Flot/excanvas.js"></script>
 	<![endif]-->
 	<!-- The Fonts -->
 	<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />
 	<!-- The Main CSS File -->
-	<link rel="stylesheet" href="../res/css/secondpage/CSS/style.css" />
+	<link rel="stylesheet" href="../../res/css/secondpage/CSS/style.css" />
 	<!-- jQuery -->
-	<script src="../res/js/secondpage/jQuery/jquery-1.7.2.min.js"></script>
+	<script src="../../res/js/secondpage/jQuery/jquery-1.7.2.min.js"></script>
 	<!-- Flot -->
-	<script src="../res/js/secondpage/secondpage/Flot/jquery.flot.js"></script>
-	<script src="../res/js/secondpage/Flot/jquery.flot.resize.js"></script>
-	<script src="../res/js/secondpage/Flot/jquery.flot.pie.js"></script>
+	<script src="../../res/js/secondpage/secondpage/Flot/jquery.flot.js"></script>
+	<script src="../../res/js/secondpage/Flot/jquery.flot.resize.js"></script>
+	<script src="../../res/js/secondpage/Flot/jquery.flot.pie.js"></script>
 	<!-- DataTables -->
-	<script src="../res/js/secondpage/DataTables/jquery.dataTables.min.js"></script>
+	<script src="../../res/js/secondpage/DataTables/jquery.dataTables.min.js"></script>
 	<!-- ColResizable -->
-	<script src="../res/js/secondpage/ColResizable/colResizable-1.3.js"></script>
+	<script src="../../res/js/secondpage/ColResizable/colResizable-1.3.js"></script>
 	<!-- jQuryUI -->
-	<script src="../res/js/secondpage/jQueryUI/jquery-ui-1.8.21.min.js"></script>
+	<script src="../../res/js/secondpage/jQueryUI/jquery-ui-1.8.21.min.js"></script>
 	<!-- Uniform -->
-	<script src="../res/js/secondpage/Uniform/jquery.uniform.js"></script>
+	<script src="../../res/js/secondpage/Uniform/jquery.uniform.js"></script>
 	<!-- Tipsy -->
-	<script src="../res/js/secondpage/Tipsy/jquery.tipsy.js"></script>
+	<script src="../../res/js/secondpage/Tipsy/jquery.tipsy.js"></script>
 	<!-- Elastic -->
-	<script src="../res/js/secondpage/Elastic/jquery.elastic.js"></script>
+	<script src="../../res/js/secondpage/Elastic/jquery.elastic.js"></script>
 	<!-- ColorPicker -->
-	<script src="../res/js/secondpage/ColorPicker/colorpicker.js"></script>
+	<script src="../../res/js/secondpage/ColorPicker/colorpicker.js"></script>
 	<!-- SuperTextarea -->
-	<script src="../res/js/secondpage/SuperTextarea/jquery.supertextarea.min.js"></script>
+	<script src="../../res/js/secondpage/SuperTextarea/jquery.supertextarea.min.js"></script>
 	<!-- UISpinner -->
-	<script src="../res/js/secondpage/UISpinner/ui.spinner.js"></script>
+	<script src="../../res/js/secondpage/UISpinner/ui.spinner.js"></script>
 	<!-- MaskedInput -->
-	<script src="../res/js/secondpage/MaskedInput/jquery.maskedinput-1.3.js"></script>
+	<script src="../../res/js/secondpage/MaskedInput/jquery.maskedinput-1.3.js"></script>
 	<!-- ClEditor -->
-	<script src="../res/js/secondpage/ClEditor/jquery.cleditor.js"></script>
+	<script src="../../res/js/secondpage/ClEditor/jquery.cleditor.js"></script>
 	<!-- Full Calendar -->
-	<script src="../res/js/secondpage/FullCalendar/fullcalendar.js"></script>
+	<script src="../../res/js/secondpage/FullCalendar/fullcalendar.js"></script>
 	<!-- Color Box -->
-	<script src="../res/js/secondpage/ColorBox/jquery.colorbox.js"></script>
+	<script src="../../res/js/secondpage/ColorBox/jquery.colorbox.js"></script>
 	<!-- Kanrisha Script -->
-	<script src="../res/js/secondpage/kanrisha.js"></script>
+	<script src="../../res/js/secondpage/kanrisha.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 	<!-- Change Pattern -->
@@ -59,100 +59,7 @@
 		<span id="pattern5"></span>
 		<span id="pattern6"></span>
 	</div>
-	<!-- Top Panel -->
-	<div class="top_panel">
-		<div class="wrapper">
-			<div class="user">
-				<img src="../res/images/secondpage/Images/user_avatar.png" alt="user_avatar" class="user_avatar" />
-				<span class="label">${sessionScope.student.sname }</span>
-				<!-- Top Tooltip -->
-				<!-- 
-				<div class="top_tooltip">
-					<div>
-						<ul class="user_options">
-							<li class="i_16_profile"><a href="#" title="Profile"></a></li>
-							<li class="i_16_tasks"><a href="#" title="Tasks"></a></li>
-							<li class="i_16_notes"><a href="#" title="Notes"></a></li>
-							<li class="i_16_options"><a href="#" title="Options"></a></li>
-							<li class="i_16_logout"><a href="#" title="Log-Out"></a></li>
-						</ul>
-					</div>
-				</div>
-				 -->
-			</div>
-			<div class="top_links">
-				<ul>
-				<!-- 
-					<li class="i_22_search search_icon">
-						<div class="top_tooltip right_direction">
-							<div>
-								<form class="top_search_form" />
-									<input type="text" class="top_search_input" />
-									<input type="submit" class="top_search_submit" value="" />
-								</form>
-							</div>
-						</div>
-					</li>
-					 -->
-					<li class="i_22_settings">
-						<a href="../index.jsp" title="Log out">
-							<span class="label">退出</span>
-						</a>
-					</li>
-					<!-- 
-					<li class="i_22_upload">
-						<a href="#" title="Upload">
-							<span class="label">Upload</span>
-						</a>
-
-						<ul class="drop_menu menu_with_icons right_direction">
-							<li>
-								<a class="i_16_add" href="#" title="New Flie">
-									<span class="label">New File</span>
-								</a>									
-							</li>
-							<li>
-								<a class="i_16_progress" href="#" title="2 Files Left">
-									<span class="label">Files Left</span>
-									<span class="small_count">2</span>
-								</a>
-							</li>
-							<li>
-								<a class="i_16_files" href="#" title="Browse Files">
-									<span class="label">Browse Files</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="i_22_inbox top_inbox">
-						<a href="#" title="Inbox">
-							<span class="label lasCount">Inbox</span>
-							<span class="small_count">3</span>
-						</a>
-					</li>
-					<li class="i_22_pages">
-						<a href="#" title="Pages">
-							<span class="label">Pages</span>
-						</a>
-						
-						<ul class="drop_menu menu_without_icons">
-							<li>
-								<a title="403 Page" href="403.html">
-									<span class="label">403 Forbidden</span>
-								</a>									
-							</li>
-							<li>
-								<a href="404.html" title="404 Page">
-									<span class="label">404 Not Found</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					 -->
-				</ul>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="header.jsp"></jsp:include>
 	
 	<!--==================================================== 4 yuan =============================================== -->
 	<header class="main_header">
@@ -212,10 +119,11 @@
 	</header>
 	<!-- ===================================4yuan  end=========================================================== -->
 
+	<!-- =========================侧边栏目          start ========================================================-->
 	<div class="wrapper small_menu">
 		<ul class="menu_small_buttons">
 			<li><a title="个人 信息" class="i_22_dashboard smActive" href="studentIndex.jsp"></a></li>
-			<li><a title="Your Messages" class="i_22_inbox" href="inbox.html"></a></li>
+			<li><a title="Your Messages" class="i_22_inbox" href="selection.jsp"></a></li>
 			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
 			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>
 			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
@@ -233,10 +141,10 @@
 						<span class="tab_info">Person Info</span>
 					</a>
 				</li>
-				<li class="i_32_inbox">
-					<a href="inbox.html" title="Your Messages">
-						<span class="tab_label">Inbox</span>
-						<span class="tab_info">Your Messages</span>
+				<li class="i_32_ui">
+					<a href="selection.jsp" title="Your Messages">
+						<span class="tab_label">选课</span>
+						<span class="tab_info">Select course</span>
 					</a>
 				</li>
 				<li class="i_32_charts">
@@ -265,13 +173,14 @@
 				</li>
 			</ul>
 		</aside>
+		<!-- ==================侧边栏目    end ===================================================================== -->
 
 		<div class="contents">
 			<div class="grid_wrapper">
 
 				<div class="g_6 contents_header">
 					<h3 class="i_16_dashboard tab_label">个人信息</h3>
-					<div><span class="label">General Informations and Resume</span></div>
+					<div><span class="label">Person Info</span></div>
 				</div>
 				<!-- 
 				<div class="g_6 contents_options">
@@ -310,25 +219,25 @@
 				<!-- Quick Statistics -->
 				<div class="g_3 quick_stats">
 					<div class="big_stats visitor_stats">
-						0
+						${sessionScope.student.credit.required }
 					</div>
 					<h5 class="stats_info">必修学分</h5>
 				</div>
 				<div class="g_3 quick_stats">
 					<div class="big_stats tickets_stats">
-						0
+						${sessionScope.student.credit.selected }
 					</div>
 					<h5 class="stats_info">限选学分</h5>
 				</div>
 				<div class="g_3 quick_stats">
 					<div class="big_stats users_stats">
-						0
+						${sessionScope.student.credit.common }
 					</div>
 					<h5 class="stats_info">通选学分</h5>
 				</div>
 				<div class="g_3 quick_stats">
 					<div class="big_stats orders_stats">
-						0
+						${sessionScope.student.credit.required +sessionScope.student.credit.selected+sessionScope.student.credit.common}
 					</div>
 					<h5 class="stats_info">已选学分</h5>
 				</div>
@@ -346,7 +255,7 @@
 						<table style="width: 100%">
 							<tr>
 								<td align="center">
-									<img class="img-circle" alt="140x140" src="../res/images/avatar.jpg" style="width:150px;height:150px;"/>
+									<img class="img-circle" alt="140x140" src="../../res/images/avatar.jpg" style="width:150px;height:150px;"/>
 								</td>
 							</tr>
 						</table>
@@ -386,7 +295,16 @@
 						<h4 class="widget_header_title wwIcon i_16_add">专业</h4>
 					</div>
 					<div class="widget_contents">
-						软件工程 
+						${sessionScope.student.profession.professionName }
+					</div>
+				</div>
+				
+				<div class="g_12">
+					<div class="widget_header">
+						<h4 class="widget_header_title wwIcon i_16_add">学院</h4>
+					</div>
+					<div class="widget_contents">
+						${sessionScope.student.profession.department.departmentName }
 					</div>
 				</div>
 				
