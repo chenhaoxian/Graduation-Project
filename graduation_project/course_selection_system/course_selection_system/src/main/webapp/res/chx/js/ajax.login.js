@@ -52,7 +52,7 @@ $(function(){
 						
 					}else {
 						//$('#loginform').sumbit();
-						window.location.href = 'jsp/studentIndex.jsp';
+						window.location.href = 'jsp/student/studentIndex.jsp';
 					}
 				}
 			});
