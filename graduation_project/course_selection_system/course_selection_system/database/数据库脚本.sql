@@ -157,6 +157,45 @@ on s.sno = c.sno
 where s.sno = '1';
 
 
+select * from course;
+drop table course;
+
+create table course (
+	id int auto_increment primary key,
+	cno varchar(20)  unique,
+	cname varchar(30) ,
+	ctype varchar(20),
+	ctime varchar(50),
+	credit int,
+	total int,
+	margin int,
+	tno varchar(20),
+	constraint fk_course_teacher foreign key (tno) references teacher(tno)
+)
+
+select * from teacher;
+drop table teacher;
+
+create table teacher(
+	id int auto_increment primary key,
+	tno varchar(20) unique,
+	tname varchar(20),
+	password varchar(20),
+	departmentNo varchar(20),
+	constraint fk_teacher_department foreign key(departmentNo) references department(departmentNo)
+	
+)
+
+select * from department;
+
+select * from teacher;
+
+insert into teacher(tno,tname,password,departmentno) values('1','teacher1','123','1');
+
+select * from course;
+desc course;
+alter table course modify column ctype varchar(50);
+insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) values ('TX1','古今数学思想'，'')
 
 
 
