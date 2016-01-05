@@ -3,7 +3,7 @@
 # Server version:               5.5.16
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2016-01-04 17:17:05
+# Date/time:                    2016-01-05 14:58:54
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -129,8 +129,8 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 
 # Dumping data for table db_course_selection_system.teacher: ~1 rows (approximately)
 /*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
-REPLACE INTO `teacher` (`id`, `tname`, `tno`, `departmentno`, `password`, `usertype`) VALUES
-	(1, 'test1', '1', 'hahaha', '123', '2');
+REPLACE INTO `teacher` (`id`, `tno`, `tname`, `password`, `departmentNo`) VALUES
+	(1, '1', 'teacher1', '123', '1');
 /*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
 
 
