@@ -70,7 +70,7 @@
 					</li>
 					 -->
 					<li class="i_22_settings">
-						<a href="../index.jsp" title="Log out">
+						<a href="../../index.jsp" title="Log out">
 							<span class="label">退出</span>
 						</a>
 					</li>
