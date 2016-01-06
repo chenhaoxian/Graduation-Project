@@ -3,7 +3,7 @@
 # Server version:               5.5.16
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2016-01-05 14:58:54
+# Date/time:                    2016-01-05 17:03:26
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -37,18 +37,40 @@ REPLACE INTO `admin` (`id`, `aid`, `password`, `name`, `usertype`) VALUES
 # Dumping structure for table db_course_selection_system.course
 CREATE TABLE IF NOT EXISTS `course` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cname` varchar(20) DEFAULT NULL,
   `cno` varchar(20) DEFAULT NULL,
-  `ccount` int(11) DEFAULT NULL,
-  `ctype` varchar(20) DEFAULT NULL,
-  `ccredit` int(11) DEFAULT NULL,
+  `cname` varchar(30) DEFAULT NULL,
+  `ctype` varchar(50) DEFAULT NULL,
+  `ctime` varchar(50) DEFAULT NULL,
+  `credit` int(11) DEFAULT NULL,
+  `total` int(11) DEFAULT NULL,
+  `margin` int(11) DEFAULT NULL,
+  `tno` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `cno` (`cno`)
+  UNIQUE KEY `cno` (`cno`),
+  KEY `fk_course_teacher` (`tno`),
+  CONSTRAINT `fk_course_teacher` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 # Dumping data for table db_course_selection_system.course: ~0 rows (approximately)
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
+
+
+# Dumping structure for table db_course_selection_system.credit
+CREATE TABLE IF NOT EXISTS `credit` (
+  `required` int(11) DEFAULT NULL,
+  `selected` int(11) DEFAULT NULL,
+  `common` int(11) DEFAULT NULL,
+  `sno` varchar(20) DEFAULT NULL,
+  KEY `fk_credit_student` (`sno`),
+  CONSTRAINT `fk_credit_student` FOREIGN KEY (`sno`) REFERENCES `student` (`sno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# Dumping data for table db_course_selection_system.credit: ~1 rows (approximately)
+/*!40000 ALTER TABLE `credit` DISABLE KEYS */;
+REPLACE INTO `credit` (`required`, `selected`, `common`, `sno`) VALUES
+	(4, 2, 2, '1');
+/*!40000 ALTER TABLE `credit` ENABLE KEYS */;
 
 
 # Dumping structure for table db_course_selection_system.department
@@ -58,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `department` (
   PRIMARY KEY (`departmentNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-# Dumping data for table db_course_selection_system.department: ~0 rows (approximately)
+# Dumping data for table db_course_selection_system.department: ~1 rows (approximately)
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
 REPLACE INTO `department` (`departmentNo`, `departmentName`) VALUES
 	('1', '计算机学院');
@@ -75,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `profession` (
   CONSTRAINT `fk_profession_departmentNo` FOREIGN KEY (`departmentNo`) REFERENCES `department` (`departmentNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-# Dumping data for table db_course_selection_system.profession: ~0 rows (approximately)
+# Dumping data for table db_course_selection_system.profession: ~1 rows (approximately)
 /*!40000 ALTER TABLE `profession` DISABLE KEYS */;
 REPLACE INTO `profession` (`professionName`, `professionNo`, `departmentNo`) VALUES
 	('软件工程', '1', '1');
@@ -118,13 +140,14 @@ REPLACE INTO `student` (`id`, `sname`, `sno`, `grade`, `password`, `usertype`, `
 # Dumping structure for table db_course_selection_system.teacher
 CREATE TABLE IF NOT EXISTS `teacher` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tname` varchar(20) DEFAULT NULL,
   `tno` varchar(20) DEFAULT NULL,
-  `departmentno` varchar(20) DEFAULT NULL,
+  `tname` varchar(20) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL,
-  `usertype` varchar(20) DEFAULT NULL,
+  `departmentNo` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `tno` (`tno`)
+  UNIQUE KEY `tno` (`tno`),
+  KEY `fk_teacher_department` (`departmentNo`),
+  CONSTRAINT `fk_teacher_department` FOREIGN KEY (`departmentNo`) REFERENCES `department` (`departmentNo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 # Dumping data for table db_course_selection_system.teacher: ~1 rows (approximately)
