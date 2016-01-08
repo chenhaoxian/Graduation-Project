@@ -14,6 +14,10 @@
 	<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />
 	<!-- The Main CSS File -->
 	<link rel="stylesheet" href="../../res/css/secondpage/CSS/style.css" />
+	<link rel="stylesheet" href="../../res/chx/css/flat-ui.css" />
+  <link rel="stylesheet" href="../../res/chx/css/buttons.css">
+  <!-- js -->
+
 	<!-- jQuery -->
 	<script src="../../res/js/secondpage/jQuery/jquery-1.7.2.min.js"></script>
 	<!-- Flot -->
@@ -49,8 +53,6 @@
 	<!-- Kanrisha Script -->
 	<script src="../../res/js/secondpage/kanrisha.js"></script>
 	
-  <!-- Buttons 库的核心文件 -->
-  <link rel="stylesheet" href="../../res/chx/css/buttons.css">
 
   <!-- 当需要使用带下拉菜单的按钮时才需要加载下面的 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
@@ -197,11 +199,7 @@
 				</div>
 
 				<div class="g_6 contents_options">
-				<!-- 
-					<div class="simple_buttons">
-						<div class="bwIcon i_16_help">Help</div>
-					</div>
-					 -->
+			
 					<div class="simple_buttons">
 						<div class="bwIcon i_16_help">选课类别</div>
 						<div class="buttons_arrow">
@@ -228,38 +226,26 @@
 				</div>
 
 				<div class="g_12 separator"><span></span></div>
+				
+				 <div >
+            <ul class="pagination">
+              <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
+              <li class="active"><a href="#fakelink">1</a></li>
+              <li><a href="">2</a></li>
+              <li><a href="">3</a></li>
+              <li><a href="">4</a></li>
+              <li><a href="">5</a></li>
+              <li><a href="">6</a></li>
+              <li><a href="">7</a></li>
+              <li><a href="">8</a></li>
+              <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
+            </ul>
+          </div>
 
-				<div class="g_12">
-					<div class="widget_header">
-						<h4 class="widget_header_title wwIcon i_16_tooltip">选课表</h4>
-					</div>
-					<div class="widget_contents noPadding twCheckbox">
-						<table class="tables datatable noObOLine">
-							<thead>
-								<tr>
-									<th>
-										<!-- <input type="checkbox" class="simple_form tMainC"> -->
-									</th>
-									<th>上课时间</th>
-									<th>课程名</th>
-									<th>人数</th>
-									<th>已选</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="status_open">
-									<!-- <td><input type="checkbox" class="simple_form"></td> -->
-									<td><a class="button button-primary button-circle button-small"><i class="fa fa-plus"></i></a></td>
-									<td>#23874933333333333333333</td>
-									<td>I Can't R实上assword</td>
-									<td>High</td>
-									<td>Open</td>
-								</tr>
-								
-							</tbody>
-						</table>
-					</div>
-				</div>
+				
+			</div>
+		</div>
+	</div>
 				<div class="g_12 separator"><span></span></div>
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='UTF-8'></script></div>
 </body>
