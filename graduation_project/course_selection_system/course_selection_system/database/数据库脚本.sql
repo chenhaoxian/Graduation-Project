@@ -198,6 +198,14 @@ alter table course modify column ctype varchar(50);
 insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) values ('TX1','古今数学思想'，'')
 
 
+select * from course;
+
+
+
+
+
+
+
 
 
 

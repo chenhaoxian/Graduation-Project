@@ -194,54 +194,59 @@
 			<div class="grid_wrapper">
 
 				<div class="g_6 contents_header">
-					<h3 class="i_16_ui tab_label">选课</h3>
+					<h3 class="i_16_ui tab_label">通选选课</h3>
 					<div><span class="label">Select Course</span></div>
 				</div>
 
-				<div class="g_6 contents_options">
-			
-					<div class="simple_buttons">
-						<div class="bwIcon i_16_help">选课类别</div>
-						<div class="buttons_arrow">
-
-							<ul class="drop_menu menu_with_icons right_direction">
-								<li>
-									<a class="i_16_progress" href="#">
-										<span class="label">必修课选课</span>
-									</a>									
-								</li>
-								<li>
-									<a class="i_16_progress" href="#">
-										<span class="label">限选课选课</span>
-									</a>
-								</li>
-								<li>
-									<a class="i_16_progress" href="#">
-										<span class="label">通选课选课</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
 
 				<div class="g_12 separator"><span></span></div>
-				
-				 <div >
+
+   <!-- =======================================所有课程信息表=====start======================= -->
+				<div class="g_12">
+					<table class="tables datatable noObOLine">
+						<thead>
+							<tr>
+								<th>操作</th>
+								<th>上课时间</th>
+								<th>课程名</th>
+								<th>学分</th>
+								<th>人数</th>
+								<th>已选</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input value="选择" type="button" class="button button-3d button-action button-pill"/></td>
+								<td>周一 8：00 - 9：30</td>
+								<td>课程名1</td>
+								<td>2</td>
+								<td>50</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td><button type="button" class="button button-3d button-action button-pill" disabled="disabled">选择</button></td>
+								<td>周一 8：00 - 9：30</td>
+								<td>课程名2</td>
+								<td>2</td>
+								<td>50</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="g_12" align="center">
             <ul class="pagination">
               <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
               <li class="active"><a href="#fakelink">1</a></li>
               <li><a href="">2</a></li>
               <li><a href="">3</a></li>
               <li><a href="">4</a></li>
-              <li><a href="">5</a></li>
-              <li><a href="">6</a></li>
-              <li><a href="">7</a></li>
-              <li><a href="">8</a></li>
               <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
             </ul>
           </div>
-
+				</div>
+				
+<!-- =======================================所有课程信息表=====end======================= -->
+				
 				
 			</div>
 		</div>
