@@ -235,8 +235,8 @@
 					</table>
 					<div class="g_12" align="center">
             <ul class="pagination">
-              <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
-              <li class="active"><a href="#fakelink">1</a></li>
+              <li class="previous"><a href="" class="fui-arrow-left"></a></li>
+              <li class="active"><a href="">1</a></li>
               <li><a href="">2</a></li>
               <li><a href="">3</a></li>
               <li><a href="">4</a></li>
@@ -245,7 +245,7 @@
           </div>
 				</div>
 				
-<!-- =======================================所有课程信息表=====end======================= -->
+<!-- =======================================所有课程信息表=====end======================================= -->
 				
 				
 			</div>
