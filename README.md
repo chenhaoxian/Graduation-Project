@@ -3,5 +3,12 @@
 
 //===============================================
 
+//bootstrap + jquery 
+
+//springMVC + Mybatis + spring
+
+//mysql
+
+//maven
 
 
