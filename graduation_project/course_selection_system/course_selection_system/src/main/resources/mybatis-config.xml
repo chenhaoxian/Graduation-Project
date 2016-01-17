@@ -5,8 +5,14 @@
 	<configuration>
 	<!-- 实体类，简称     设置 别名 -->
 	<typeAliases>
-		<typeAlias alias="User" type="model.User"/>
+		<typeAlias alias="Student" type="model.Student"/> 
 		<typeAlias alias="ContactMessage" type="model.ContactMessage"/>
+		<typeAlias alias="Teacher" type="model.Teacher"/>
+		<typeAlias type="model.Admin" alias="Admin"/> 
+		<typeAlias type="model.Profession" alias="Profession"/>
+		<typeAlias type="model.Department" alias="Department"/>
+		<typeAlias type="model.Credit" alias="Credit"/>
+		
 	</typeAliases>
 	
 <!-- 实体接口映射资源 -->

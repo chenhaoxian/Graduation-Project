@@ -9,39 +9,54 @@
 <!--  在dao包下创建一个UserMapper.xml文件作为上一步创建的DAO接口的实现。 -->
 
 <mapper namespace="mapper.UserMapper">
-
+	
+	<resultMap type="Student" id="studentResult">
+		<id property="id" column="id"/>
+		<result property="sname" column="sname"/>
+		<result property="sno" column="sno"/>
+		<result property="grade" column="grade"/>
+		<result property="password" column="password"/>
+		<result property="usertype" column="usertype"/>
+		<association property="credit" javaType="Credit">
+			<id property="sno" column="sno"/>
+			<result property="required" column="required"/>
+			<result property="selected" column="selected"/>
+			<result property="common" column="common"/>
+		</association>
+		<association property="profession" javaType="Profession">
+			<id property="professionNo" column="professionno"/>
+			<result property="professionName" column="professionName"/>
+			<association property="department" javaType="Department">
+				<id property="departmentNo" column="departmentNo"/>
+				<result property="departmentName" column="departmentName"/>
+			</association>
+		</association>
+		
+	</resultMap>
 
 <!-- 
-<insert id="save" parameterType="Users">
-insert into users(username,password) values(#{username},#{password})
-</insert>
-
-<update id="update" parameterType="Users">
-update users set username = #{username} where id = #{id}
-</update>
-
-<delete id="delete" parameterType="int">
-delete from users where username=#{username}
-</delete>
-
-<select id="findById" parameterType="int" resultType="Users">
-select username,password from users where id=#{id}
-</select>
- -->
- <!-- 
-	<select id="findAll" parameterType="User" resultType="User">
-	select * from user
-	</select>
-
-
-
-	<select id="testFindById" parameterType="int" resultType="User">
-		select * from user where id = #{id}
-	</select>
-	 -->
+	 <select id="findUserByUserId" parameterType="String" resultType="Student">
+	 	select * from student where sno = #{sno}
+	 </select>
+	  -->
+	 <select id="findTeacherByTno" parameterType="String" resultType="Teacher">
+	 	select * from teacher where tno = #{tno}
+	 </select>
 	 
-	 <select id="findUserByUserId" parameterType="String" resultType="User">
-	 	select * from user where userid = #{userId}
+	 <select id="findAdminByAid" parameterType="String" resultType="Admin">
+	 	select * from admin where aid = #{aid}
+	 </select>
+	 
+	 <select id="findUserByUserId" resultMap="studentResult">
+	 	select s.* ,p.* , d.* , c.*
+		from student s
+		left join profession p 
+		on s.professionno = p.professionNo
+		left join department d 
+		on p.departmentNo = d.departmentNo
+		left join credit c
+		on s.sno = c.sno
+		where s.sno = #{sno}
 	 </select>
 	 
 	 

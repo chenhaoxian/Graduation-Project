@@ -13,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.Admin;
+import model.Student;
+import model.Teacher;
 import model.User;
 import service.LoginService;
 
@@ -24,26 +27,68 @@ public class LoginController {
 	private LoginService loginService;
 	
 	
-	@RequestMapping("/checkUser")
+	@RequestMapping("/checkStudent")
 	public @ResponseBody String checkUser(HttpServletRequest request) throws ServletException, IOException {
+			request.getSession().invalidate();
 			String userId = request.getParameter("account");
 			String password = request.getParameter("password");
-			User user = loginService.findUserByUserid(userId);
-			if(user == null){
+			Student student = loginService.findUserByUserid(userId);
+			if(student == null){
 				return "null";
-			}else if(!password.equals(user.getPassword())){
+			}else if(!password.equals(student.getPassword())){
 				return "error";
 			}else {
-				print(user.toString());
-				request.getSession().setAttribute("user", user);
+				print(student.toString());
+				request.getSession().setAttribute("student", student);
 				return "success";
 			}
 			
 	}
 	
+	@RequestMapping("/checkTeacher")
+	public @ResponseBody String checkTeacher(HttpServletRequest request) throws ServletException, IOException{
+		request.getSession().invalidate();
+		String tno = request.getParameter("account");
+		String password = request.getParameter("password");
+		int usertype = Integer.parseInt(request.getParameter("usertype"));
+		
+		Teacher teacher = loginService.findTeacherByTno(tno);
+		
+		if(teacher == null){
+			return "null";
+		}else if(!password.equals(teacher.getPassword())){
+			return "error";
+		}else{
+			print(teacher.toString());
+			request.getSession().setAttribute("teacher", teacher);
+			return "success";
+		}
+	}
+	
+	@RequestMapping("/checkAdmin")
+	public @ResponseBody String checkAdmin(HttpServletRequest request) throws ServletException,IOException{
+		request.getSession().invalidate();
+		String aid = request.getParameter("account");
+		String password = request.getParameter("password");
+		
+		Admin admin = loginService.findAdminByAid(aid);
+		if(admin == null){
+			return "null";
+			
+		}else if(!password.equals(admin.getPassword())){
+			return "error";
+		}else {
+			print(admin.toString());
+			request.getSession().setAttribute("admin", admin);
+			return "success";
+		}
+	}
+	
 	
 	private void print(Object msg){
+		System.out.println("=========================================================");
 		System.out.println(msg);
+		System.out.println("=========================================================");
 	}
 	
 	

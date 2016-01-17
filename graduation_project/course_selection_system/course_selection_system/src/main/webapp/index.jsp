@@ -152,31 +152,90 @@
 	                           
 	                            
 	<!-- ======================隐藏的登录表单======================================================================= -->
-													  <div id="loginmodal" style="display:none; background-color:white;">
-														    
-														    <form  name="loginform" method="post"  class="modal-body" >
-														    			
-														      	<div class="input-group">
-																		  <span class="input-group-addon" id="basic-addon1">账号</span>
-																		  <input type="text" class="form-control" placeholder="输入学号或教工号"  id="account" aria-describedby="basic-addon1">
-																		</div>
-																		<span class="label label-danger" id="account_warning"></span>
-																		
-																		<div class="input-group">
-																		  <span class="input-group-addon" id="basic-addon1">密码</span>
-																		  <input type="password" id="password" class="form-control" placeholder="密码" id="password" aria-describedby="basic-addon1">
-																		</div>
-																		<span class="label label-danger" id="password_warning"></span>
-																		
-																		<div>
-																			<input type="button" class="btn btn-default" value="sign in" id="login_input"> 
-	
-																	    <button type="button" class="btn btn-default" id="btn_cancel" onclick="close_form();">Cancel</button>
-														    	
-																		</div>
-																    
-													    	</form>
-													  </div>
+  
+  <div id="loginmodal" style="display:none; background-color:white;">
+  			<div class="span12">
+				<div class="tabbable" id="tabs-541181">
+				
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#panel-976544" data-toggle="tab">学生</a>
+						</li>
+						<li >
+							<a href="#panel-882047" data-toggle="tab">教师</a>
+						</li>
+						<li>
+							<a href="#panel-1" data-toggle="tab">管理员</a>
+						</li>
+					</ul>
+					
+					<div class="tab-content">
+					
+						<div class="tab-pane active" id="panel-976544">
+							<form  name="loginform" method="post"  class="modal-body" >
+					      	<div class="input-group">
+									  <span class="input-group-addon" id="basic-addon1">账号</span>
+									  <input type="text" class="form-control" placeholder="输入学号"  id="account" aria-describedby="basic-addon1">
+									</div>
+									<span class="label label-danger" id="account_warning"></span>	
+									<div class="input-group">
+									  <span class="input-group-addon" id="basic-addon1">密码</span>
+									  <input type="password" id="password" class="form-control" placeholder="密码" id="password" aria-describedby="basic-addon1">
+									</div>
+									<span class="label label-danger" id="password_warning"></span>
+									<div>
+										<input type="button" class="btn btn-default" value="sign in" id="login_input"> 
+								    <button type="button" class="btn btn-default" id="btn_cancel" onclick="close_form();">Cancel</button>
+									</div> 
+				    	</form>
+						</div>
+						
+						<div class="tab-pane " id="panel-882047">
+							<form  name="teacher_form" method="post"  class="modal-body" >
+					      	<div class="input-group">
+									  <span class="input-group-addon" id="basic-addon1">账号</span>
+									  <input type="text" class="form-control" placeholder="输入教工号"  id="tno" aria-describedby="basic-addon1">
+									</div>
+									<span class="label label-danger" id="tno_warning"></span>
+									<div class="input-group">
+									  <span class="input-group-addon" id="basic-addon1">密码</span>
+									  <input type="password" id="teacher_password" class="form-control" placeholder="密码" aria-describedby="basic-addon1">
+									</div>
+									<span class="label label-danger" id="t_pwd_warning"></span>
+									<div>
+										<input type="button" class="btn btn-default" value="sign in" id="teacher_input"> 
+								    <button type="button" class="btn btn-default" id="btn_cancel" onclick="close_form();">Cancel</button>
+									</div> 
+				    	</form>
+						</div>
+						
+						<div class="tab-pane" id="panel-1">
+							<form  name="adminform" method="post"  class="modal-body" >
+					      	<div class="input-group">
+									  <span class="input-group-addon" id="basic-addon1">账号</span>
+									  <input type="text" class="form-control" placeholder="输入工号"  id="aid" aria-describedby="basic-addon1">
+									</div>
+									<span class="label label-danger" id="aid_warning"></span>
+									<div class="input-group">
+									  <span class="input-group-addon" id="basic-addon1">密码</span>
+									  <input type="password" id="admin_password" class="form-control" placeholder="密码" aria-describedby="basic-addon1">
+									</div>
+									<span class="label label-danger" id="a_pwd_warning"></span>
+									<div>
+										<input type="button" class="btn btn-default" value="sign in" id="admin_input"> 
+								    <button type="button" class="btn btn-default" id="btn_cancel" onclick="close_form();">Cancel</button>
+									</div> 
+				    	</form>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+    
+    
+ </div>
+													   
+													   
  <!-- ======================================================================================================== --> 
                         </div>
                     </div>
