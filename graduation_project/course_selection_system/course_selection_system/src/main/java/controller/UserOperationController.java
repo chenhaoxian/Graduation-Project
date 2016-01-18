@@ -17,18 +17,11 @@ public class UserOperationController {
 	@RequestMapping("sendEmail")
 	private @ResponseBody String sendContactEmail(String name, String email, String message){
 		
-		print(name);
-		print(email);
-		print(message);
-		
 		if(userOperationService.sendContactEmail(name, email, message)){
-			print("ok");
 			return "send";
 		}else {
-			print("false");
 			return "error";
-		}
-		 
+		} 
 	}
 	
 	@RequestMapping("contactMessage")
@@ -39,6 +32,22 @@ public class UserOperationController {
 			return "error";
 		}
 	}
+	
+	@RequestMapping("showAllTxCourse")
+	private String showAllCommonCourse(){
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	private void print(Object msg){
 		System.out.println("=====================================================");
