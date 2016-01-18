@@ -195,10 +195,49 @@ insert into teacher(tno,tname,password,departmentno) values('1','teacher1','123'
 select * from course;
 desc course;
 alter table course modify column ctype varchar(50);
-insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) values ('TX1','古今数学思想'，'')
+insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) 
+values ('TX2','通选课2','自然科学','周二 8:00--9:30',2,50,0,'1');
+insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) 
+values ('TX3','通选课3','自然科学','周三 8:00--9:30',2,50,0,'1');
+insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) 
+values ('TX4','通选课4','自然科学','周四 8:00--9:30',2,50,0,'1');
+insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) 
+values ('TX5','通选课5','自然科学','周五 8:00--9:30',2,50,0,'1');
 
+select * from teacher;
 
 select * from course;
+
+desc course;
+
+select  * from credit;
+
+
+select top(2) from course
+
+create table courseTongXuan(
+	id int primary key ,
+	cno varchar(20) unique,
+	cname varchar(50) ,
+	ctype varchar(50) ,
+	ctime varchar(50),
+	credit int ,
+	total int ,
+	margin int,
+	tno varchar(20),
+	foreign key(tno) references teacher(tno)
+);
+
+select * from courseTongXuan;
+
+--将 course 表数据 复制到 courseTongXuan
+insert into courseTongXuan (select * from course); 
+
+
+--!!!!!!!!!!!!!! 分页   mysql 没有 TOP 
+select * from courseTongXuan
+order by id 
+limit 2 , 2;
 
 
 

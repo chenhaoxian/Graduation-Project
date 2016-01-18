@@ -158,7 +158,7 @@
 				</li>
 				<li class="active_tab i_32_ui">
 					<a href="selection.jsp" title="Your Messages">
-						<span class="tab_label">选课</span>
+						<span class="tab_label">通选选课</span>
 						<span class="tab_info">Select Course</span>
 					</a>
 				</li>
