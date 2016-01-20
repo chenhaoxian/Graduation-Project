@@ -1,10 +1,20 @@
 package controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.github.pagehelper.PageInfo;
+
+import model.CourseTongXuan;
+import service.CourseTongXuanService;
 import service.UserOperationService;
 
 @Controller
@@ -14,21 +24,17 @@ public class UserOperationController {
 	@Autowired
 	private UserOperationService userOperationService ;
 	
+	@Autowired
+	private CourseTongXuanService courseTongXuanService;
+	
 	@RequestMapping("sendEmail")
 	private @ResponseBody String sendContactEmail(String name, String email, String message){
 		
-		print(name);
-		print(email);
-		print(message);
-		
 		if(userOperationService.sendContactEmail(name, email, message)){
-			print("ok");
 			return "send";
 		}else {
-			print("false");
 			return "error";
-		}
-		 
+		} 
 	}
 	
 	@RequestMapping("contactMessage")
@@ -39,6 +45,55 @@ public class UserOperationController {
 			return "error";
 		}
 	}
+	
+	@RequestMapping("/testGeneralMapper")
+	private String getCourseTongXuan(@RequestParam(required = false) CourseTongXuan courseTongXuan, 
+																		@RequestParam(required = false, defaultValue = "1") int page,
+																		@RequestParam(required = false, defaultValue = "10") int rows,
+																		HttpServletRequest request){
+		print("okoko");
+		
+		List<CourseTongXuan> courseTongXuanList = courseTongXuanService.selectByConrseTongXuan(courseTongXuan, page, rows);
+		
+		return "test";
+	}
+	
+//	@RequestMapping("/testGeneralMapper")
+//	public ModelAndView getCourseTongXuan(@RequestParam(required = false) CourseTongXuan courseTongXuan, 
+//																				@RequestParam(required = false, defaultValue = "1") int page,
+//																				@RequestParam(required = false, defaultValue = "10") int rows){
+//		print("okokokok");
+//		
+//		ModelAndView result = new ModelAndView("test");
+//		List<CourseTongXuan> courseTongXuanList = courseTongXuanService.selectByConrseTongXuan(courseTongXuan, page, rows);
+//		result.addObject("courseTongXuanList", new PageInfo<CourseTongXuan>(courseTongXuanList));
+//		result.addObject("queryParam", courseTongXuan);
+//		result.addObject("page", page);
+//		result.addObject("rows", rows);
+//		return result;
+//	}
+	
+//	@RequestMapping("/testGeneralMapper2")
+//	public ModelAndView getCourseTongXuan2(String tno, 
+//																				@RequestParam(required = false, defaultValue = "1") int page,
+//																				@RequestParam(required = false, defaultValue = "10") int rows){
+//		print("okokokok");
+//		
+//		ModelAndView result = new ModelAndView("test");
+//		List<CourseTongXuan> courseTongXuanList = courseTongXuanService.selectByConrseTongXuan(tno, page, rows);
+//		result.addObject("courseTongXuanList", new PageInfo<CourseTongXuan>(courseTongXuanList));
+////		result.addObject("queryParam", courseTongXuan);
+//		result.addObject("page", page);
+//		result.addObject("rows", rows);
+//		return result;
+//	}
+	
+	
+
+	
+	
+	
+	
 	
 	private void print(Object msg){
 		System.out.println("=====================================================");

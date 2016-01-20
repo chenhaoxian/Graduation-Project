@@ -158,7 +158,7 @@
 				</li>
 				<li class="active_tab i_32_ui">
 					<a href="selection.jsp" title="Your Messages">
-						<span class="tab_label">选课</span>
+						<span class="tab_label">通选选课</span>
 						<span class="tab_info">Select Course</span>
 					</a>
 				</li>
@@ -251,7 +251,19 @@
 			</div>
 		</div>
 	</div>
-				<div class="g_12 separator"><span></span></div>
+	
+	
+	<div class="g_12 separator"><span></span></div>
+	
+	<div>  测试分页   
+		<a href="../test.jsp"></a>
+	
+	</div>
+	
+	
+	
+	
+	
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='UTF-8'></script></div>
 </body>
 </html>

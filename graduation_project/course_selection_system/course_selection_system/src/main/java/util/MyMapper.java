@@ -1,0 +1,15 @@
+package util;
+
+import tk.mybatis.mapper.common.Mapper;
+import tk.mybatis.mapper.common.MySqlMapper;
+
+/**
+ * 
+ * @author CHENHY
+ * 注入泛型Mapper  继承其泛型单表操作方法
+ * 我自己的泛型Mapper接口类
+ * @param <T>
+ */
+public interface MyMapper<T> extends Mapper<T> , MySqlMapper<T> {
+
+}

@@ -143,7 +143,7 @@
 				</li>
 				<li class="i_32_ui">
 					<a href="selection.jsp" title="Your Messages">
-						<span class="tab_label">选课</span>
+						<span class="tab_label">通选选课</span>
 						<span class="tab_info">Select course</span>
 					</a>
 				</li>
