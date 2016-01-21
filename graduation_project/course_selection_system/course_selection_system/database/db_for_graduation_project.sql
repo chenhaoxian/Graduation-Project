@@ -3,7 +3,7 @@
 # Server version:               5.5.16
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2016-01-05 17:03:26
+# Date/time:                    2016-01-21 16:42:27
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -49,11 +49,46 @@ CREATE TABLE IF NOT EXISTS `course` (
   UNIQUE KEY `cno` (`cno`),
   KEY `fk_course_teacher` (`tno`),
   CONSTRAINT `fk_course_teacher` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+# Dumping data for table db_course_selection_system.course: ~5 rows (approximately)
+/*!40000 ALTER TABLE `course` DISABLE KEYS */;
+REPLACE INTO `course` (`id`, `cno`, `cname`, `ctype`, `ctime`, `credit`, `total`, `margin`, `tno`) VALUES
+	(1, 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', 2, 50, 0, '1'),
+	(2, 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', 2, 50, 0, '1'),
+	(3, 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', 2, 50, 0, '1'),
+	(4, 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', 2, 50, 0, '1'),
+	(5, 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', 2, 50, 0, '1');
+/*!40000 ALTER TABLE `course` ENABLE KEYS */;
+
+
+# Dumping structure for table db_course_selection_system.coursetongxuan
+CREATE TABLE IF NOT EXISTS `coursetongxuan` (
+  `id` int(11) NOT NULL,
+  `cno` varchar(20) DEFAULT NULL,
+  `cname` varchar(50) DEFAULT NULL,
+  `ctype` varchar(50) DEFAULT NULL,
+  `ctime` varchar(50) DEFAULT NULL,
+  `credit` int(11) DEFAULT NULL,
+  `total` int(11) DEFAULT NULL,
+  `margin` int(11) DEFAULT NULL,
+  `tno` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cno` (`cno`),
+  KEY `tno` (`tno`),
+  CONSTRAINT `coursetongxuan_ibfk_1` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-# Dumping data for table db_course_selection_system.course: ~0 rows (approximately)
-/*!40000 ALTER TABLE `course` DISABLE KEYS */;
-/*!40000 ALTER TABLE `course` ENABLE KEYS */;
+# Dumping data for table db_course_selection_system.coursetongxuan: ~6 rows (approximately)
+/*!40000 ALTER TABLE `coursetongxuan` DISABLE KEYS */;
+REPLACE INTO `coursetongxuan` (`id`, `cno`, `cname`, `ctype`, `ctime`, `credit`, `total`, `margin`, `tno`) VALUES
+	(0, 'TX6', '通选课6', '自然科学', '周一 10:00--11:30', 2, 50, 0, '1'),
+	(1, 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', 2, 50, 0, '1'),
+	(2, 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', 2, 50, 0, '1'),
+	(3, 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', 2, 50, 0, '1'),
+	(4, 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', 2, 50, 0, '1'),
+	(5, 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', 2, 50, 0, '1');
+/*!40000 ALTER TABLE `coursetongxuan` ENABLE KEYS */;
 
 
 # Dumping structure for table db_course_selection_system.credit
@@ -184,9 +219,9 @@ CREATE TABLE IF NOT EXISTS `user_contact` (
   `message` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
-# Dumping data for table db_course_selection_system.user_contact: ~42 rows (approximately)
+# Dumping data for table db_course_selection_system.user_contact: ~43 rows (approximately)
 /*!40000 ALTER TABLE `user_contact` DISABLE KEYS */;
 REPLACE INTO `user_contact` (`id`, `name`, `email`, `message`) VALUES
 	(1, 'test1', 'test1@qq.com', 'test1'),
@@ -230,7 +265,8 @@ REPLACE INTO `user_contact` (`id`, `name`, `email`, `message`) VALUES
 	(39, '陈浩贤', 'dfsdfsd@qq.com', '哈哈哈哈'),
 	(40, '????', '47sf13770@qq.com', 'dd??'),
 	(41, '??', '47ddf3770@qq.com', '????'),
-	(42, '颠倒是非', '47dfdf3770@qq.com', 'sdf辅导费');
+	(42, '颠倒是非', '47dfdf3770@qq.com', 'sdf辅导费'),
+	(43, 'ss', 'sdfsdfssdff770@qq.com', 'sss');
 /*!40000 ALTER TABLE `user_contact` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
