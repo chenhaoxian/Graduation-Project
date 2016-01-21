@@ -230,6 +230,9 @@ create table courseTongXuan(
 
 select * from courseTongXuan;
 
+insert into courseTongXuan (cno,cname,ctype,ctime,credit,total,margin,tno) 
+values ('TX6','通选课6','自然科学','周一 10:00--11:30',2,50,0,'1');
+
 --将 course 表数据 复制到 courseTongXuan
 insert into courseTongXuan (select * from course); 
 
@@ -240,8 +243,13 @@ order by id
 limit 2 , 2;
 
 
+select * from credit;
 
+select * from student
+where sname like '%ude%';
 
+select * from courseTongXuan;
+desc courseTongXuan;
 
 
 
