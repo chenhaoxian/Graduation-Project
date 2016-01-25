@@ -3,7 +3,7 @@
 # Server version:               5.5.16
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2016-01-21 16:42:27
+# Date/time:                    2016-01-25 17:07:09
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -12,11 +12,13 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 # Dumping database structure for db_course_selection_system
+DROP DATABASE IF EXISTS `db_course_selection_system`;
 CREATE DATABASE IF NOT EXISTS `db_course_selection_system` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `db_course_selection_system`;
 
 
 # Dumping structure for table db_course_selection_system.admin
+DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `aid` varchar(20) DEFAULT NULL,
@@ -35,6 +37,7 @@ REPLACE INTO `admin` (`id`, `aid`, `password`, `name`, `usertype`) VALUES
 
 
 # Dumping structure for table db_course_selection_system.course
+DROP TABLE IF EXISTS `course`;
 CREATE TABLE IF NOT EXISTS `course` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cno` varchar(20) DEFAULT NULL,
@@ -63,6 +66,7 @@ REPLACE INTO `course` (`id`, `cno`, `cname`, `ctype`, `ctime`, `credit`, `total`
 
 
 # Dumping structure for table db_course_selection_system.coursetongxuan
+DROP TABLE IF EXISTS `coursetongxuan`;
 CREATE TABLE IF NOT EXISTS `coursetongxuan` (
   `id` int(11) NOT NULL,
   `cno` varchar(20) DEFAULT NULL,
@@ -92,6 +96,7 @@ REPLACE INTO `coursetongxuan` (`id`, `cno`, `cname`, `ctype`, `ctime`, `credit`,
 
 
 # Dumping structure for table db_course_selection_system.credit
+DROP TABLE IF EXISTS `credit`;
 CREATE TABLE IF NOT EXISTS `credit` (
   `required` int(11) DEFAULT NULL,
   `selected` int(11) DEFAULT NULL,
@@ -109,6 +114,7 @@ REPLACE INTO `credit` (`required`, `selected`, `common`, `sno`) VALUES
 
 
 # Dumping structure for table db_course_selection_system.department
+DROP TABLE IF EXISTS `department`;
 CREATE TABLE IF NOT EXISTS `department` (
   `departmentNo` varchar(20) NOT NULL,
   `departmentName` varchar(20) DEFAULT NULL,
@@ -123,6 +129,7 @@ REPLACE INTO `department` (`departmentNo`, `departmentName`) VALUES
 
 
 # Dumping structure for table db_course_selection_system.profession
+DROP TABLE IF EXISTS `profession`;
 CREATE TABLE IF NOT EXISTS `profession` (
   `professionName` varchar(50) DEFAULT NULL,
   `professionNo` varchar(20) NOT NULL,
@@ -140,6 +147,7 @@ REPLACE INTO `profession` (`professionName`, `professionNo`, `departmentNo`) VAL
 
 
 # Dumping structure for table db_course_selection_system.selectcourse
+DROP TABLE IF EXISTS `selectcourse`;
 CREATE TABLE IF NOT EXISTS `selectcourse` (
   `cno` varchar(20) DEFAULT NULL,
   `sno` varchar(20) DEFAULT NULL
@@ -151,6 +159,7 @@ CREATE TABLE IF NOT EXISTS `selectcourse` (
 
 
 # Dumping structure for table db_course_selection_system.student
+DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sname` varchar(20) DEFAULT NULL,
@@ -173,6 +182,7 @@ REPLACE INTO `student` (`id`, `sname`, `sno`, `grade`, `password`, `usertype`, `
 
 
 # Dumping structure for table db_course_selection_system.teacher
+DROP TABLE IF EXISTS `teacher`;
 CREATE TABLE IF NOT EXISTS `teacher` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tno` varchar(20) DEFAULT NULL,
@@ -193,6 +203,7 @@ REPLACE INTO `teacher` (`id`, `tno`, `tname`, `password`, `departmentNo`) VALUES
 
 
 # Dumping structure for table db_course_selection_system.user
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -212,6 +223,7 @@ REPLACE INTO `user` (`id`, `name`, `userid`, `password`, `user_type`) VALUES
 
 
 # Dumping structure for table db_course_selection_system.user_contact
+DROP TABLE IF EXISTS `user_contact`;
 CREATE TABLE IF NOT EXISTS `user_contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,

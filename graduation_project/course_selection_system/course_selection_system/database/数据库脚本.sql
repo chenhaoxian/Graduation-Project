@@ -252,6 +252,8 @@ select * from courseTongXuan;
 desc courseTongXuan;
 
 
+select * from courseTongXuan;
+
 
 
 

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
@@ -215,6 +216,18 @@
 							</tr>
 						</thead>
 						<tbody>
+						
+							<c:forEach items="${courseTongXuanList }" var="courseTongXuan" varStatus="vs">
+								<tr>
+									<td><input value="选择" type="button" class="button button-3d button-action button-pill"/></td>
+									<td>${courseTongXuan.ctime }</td>
+									<td>${courseTongXuan.cname }</td>
+									<td>${courseTongXuan.credit }</td>
+									<td>${courseTongXuan.total }</td>
+									<td>${courseTongXuan.margin }</td>
+								</tr>
+							</c:forEach>
+							<!-- 
 							<tr>
 								<td><input value="选择" type="button" class="button button-3d button-action button-pill"/></td>
 								<td>周一 8：00 - 9：30</td>
@@ -223,6 +236,7 @@
 								<td>50</td>
 								<td>0</td>
 							</tr>
+							
 							<tr>
 								<td><button type="button" class="button button-3d button-action button-pill" disabled="disabled">选择</button></td>
 								<td>周一 8：00 - 9：30</td>
@@ -231,6 +245,7 @@
 								<td>50</td>
 								<td>0</td>
 							</tr>
+							 -->
 						</tbody>
 					</table>
 					<div class="g_12" align="center">

@@ -9,11 +9,11 @@
 <body>
 yeah!!!!!
 
-<h1>测试通用mapper:<a href="userOperation/testGeneralMapper.do">test</a></h1>
+<h1>测试通用mapper:<a href="userOperation/testSplitPage.do">test</a></h1>
 
-<form action="userOperation/testGeneralMapper.do" method="post">
+<form action="${pageContext.request.contextPath}/userOperation/testSplitPage.do" method="post">
 
-tno:<input type="text" name="courseTongXuan.tno" />
+tno:<input type="text" name="tno" />
 <input type="submit" value="submit"/>
 
 </form>
