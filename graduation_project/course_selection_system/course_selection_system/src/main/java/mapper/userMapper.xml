@@ -10,29 +10,43 @@
 
 <mapper namespace="mapper.UserMapper">
 	
-	<resultMap type="Student" id="studentResult">
+	
+	<!-- 学生信息 -->
+	<resultMap type="Student" id="studentResult"> <!--  学生表 -->
 		<id property="id" column="id"/>
 		<result property="sname" column="sname"/>
 		<result property="sno" column="sno"/>
 		<result property="grade" column="grade"/>
 		<result property="password" column="password"/>
 		<result property="usertype" column="usertype"/>
-		<association property="credit" javaType="Credit">
+		<association property="credit" javaType="Credit">  <!-- 关联学分表 -->
 			<id property="sno" column="sno"/>
 			<result property="required" column="required"/>
 			<result property="selected" column="selected"/>
 			<result property="common" column="common"/>
 		</association>
-		<association property="profession" javaType="Profession">
+		<association property="profession" javaType="Profession">  <!-- 关联专业表 -->
 			<id property="professionNo" column="professionno"/>
 			<result property="professionName" column="professionName"/>
-			<association property="department" javaType="Department">
+			<association property="department" javaType="Department">  <!-- 关联学院表 -->
 				<id property="departmentNo" column="departmentNo"/>
 				<result property="departmentName" column="departmentName"/>
 			</association>
 		</association>
-		
+
 	</resultMap>
+	
+	<resultMap type="CourseTongXuan" id="courseTongXuanResult">
+		<id column="id" property="id" jdbcType="INTEGER"/>
+		<result column="cno" property="cno" jdbcType="VARCHAR"/>
+		<result column="cname" property="cname" jdbcType="VARCHAR"/>
+		<result column="ctime" property="ctime" jdbcType="VARCHAR"/>
+		<result column="credit" property="credit" jdbcType="INTEGER"/>
+		<result column="total" property="total" jdbcType="INTEGER"/>
+		<result column="margin" property="margin" jdbcType="INTEGER"/>
+		<result column="tno" property="tno" jdbcType="VARCHAR"/>
+	</resultMap>
+
 
 <!-- 
 	 <select id="findUserByUserId" parameterType="String" resultType="Student">
@@ -57,6 +71,12 @@
 		left join credit c
 		on s.sno = c.sno
 		where s.sno = #{sno}
+	 </select>
+	 
+	 
+	 <select id="findCourseTongXuanByTno" resultMap="courseTongXuanResult">
+	 	select * from courseTongXuan
+	 	where tno = #{tno}
 	 </select>
 	 
 	 

@@ -5,6 +5,8 @@ public class CourseTongXuan {
 	private Integer id ;
 	
 	private String cno;
+	private String cname;
+	
 	private String ctype ; 
 	private String ctime;
 	private Integer credit;
@@ -14,11 +16,22 @@ public class CourseTongXuan {
 	
 	public CourseTongXuan(){}
 
-	public CourseTongXuan(Integer id, String cno, String ctype, String ctime, Integer credit, Integer total,
+	
+	
+	@Override
+	public String toString() {
+		return "CourseTongXuan [id=" + id + ", cno=" + cno + ", cname=" + cname + ", ctype=" + ctype + ", ctime=" + ctime
+				+ ", credit=" + credit + ", total=" + total + ", margin=" + margin + ", tno=" + tno + "]";
+	}
+
+
+
+	public CourseTongXuan(Integer id, String cno, String cname, String ctype, String ctime, Integer credit, Integer total,
 			Integer margin, String tno) {
 		super();
 		this.id = id;
 		this.cno = cno;
+		this.cname = cname;
 		this.ctype = ctype;
 		this.ctime = ctime;
 		this.credit = credit;
@@ -27,11 +40,16 @@ public class CourseTongXuan {
 		this.tno = tno;
 	}
 
-	@Override
-	public String toString() {
-		return "CourseTongXuan [id=" + id + ", cno=" + cno + ", ctype=" + ctype + ", ctime=" + ctime + ", credit=" + credit
-				+ ", total=" + total + ", margin=" + margin + ", tno=" + tno + "]";
+
+
+	public String getCname() {
+		return cname;
 	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+
 
 	public Integer getId() {
 		return id;

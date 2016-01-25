@@ -2,7 +2,10 @@ package mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import model.Admin;
+import model.CourseTongXuan;
 import model.Student;
 import model.Teacher;
 import model.User;
@@ -22,6 +25,8 @@ public interface UserMapper {
 	Student findUserByUserId(String sno);
 	Teacher findTeacherByTno(String tno);
 	Admin findAdminByAid(String aid);
+	
+	List<CourseTongXuan> findCourseTongXuanByTno(@Param("tno")String tno, @Param("page")int page, @Param("rows")int rows);
 	
 	
 }
