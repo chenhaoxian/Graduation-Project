@@ -38,7 +38,6 @@ public class LoginController {
 			}else if(!password.equals(student.getPassword())){
 				return "error";
 			}else {
-				print(student.toString());
 				request.getSession().setAttribute("student", student);
 				return "success";
 			}
