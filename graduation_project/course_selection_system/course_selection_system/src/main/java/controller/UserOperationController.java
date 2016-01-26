@@ -50,7 +50,7 @@ public class UserOperationController {
 	@RequestMapping("/testSplitPage")
 	private String getCourseTongXuan(String tno,
 			@RequestParam(required = false, defaultValue = "1")int page,
-			@RequestParam(required = false, defaultValue = "3") int rows){
+			@RequestParam(required = false, defaultValue = "10") int rows){
 		print(tno);
 		
 		List<CourseTongXuan> courseTongXuanList = userOperationService.findCourseTongXuanByTno(tno, page, rows);

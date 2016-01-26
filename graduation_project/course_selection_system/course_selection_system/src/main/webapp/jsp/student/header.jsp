@@ -38,7 +38,7 @@
 	<div class="top_panel">
 		<div class="wrapper">
 			<div class="user">
-				<img src="../../res/images/secondpage/Images/user_avatar.png" alt="user_avatar" class="user_avatar" />
+				<img src="${pageContext.request.contextPath}/res/images/secondpage/Images/user_avatar.png" alt="user_avatar" class="user_avatar" />
 				<span class="label">${sessionScope.student.sname }</span>
 				<!-- Top Tooltip -->
 				<!-- 
@@ -70,7 +70,7 @@
 					</li>
 					 -->
 					<li class="i_22_settings">
-						<a href="../../index.jsp" title="Log out">
+						<a href="${pageContext.request.contextPath}/index.jsp" title="Log out">
 							<span class="label">退出</span>
 						</a>
 					</li>
