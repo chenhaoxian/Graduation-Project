@@ -20,11 +20,12 @@
 		<result column="tno" property="tno" jdbcType="VARCHAR"/>
 	</resultMap>
 	
-	<select id="findAllCourseTongXuan" resultMap="courseTongXuanResult">
+	<select id="findAllCourseTongXuan" resultMap="courseTongXuanResult" statementType="CALLABLE">
 		select * from courseTongXuan
 	</select>
 	
-	<select id="countCourseTongXuan" resultType="int">
-		select count(*) from courseTongXuan
+	<select id="countCourseTongXuan" resultType="int" statementType="CALLABLE">
+		call pro_getTableRows('courseTongXuan')
 	</select>
+	
 </mapper>
