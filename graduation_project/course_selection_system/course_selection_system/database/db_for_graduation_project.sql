@@ -3,7 +3,7 @@
 # Server version:               5.5.16
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2016-01-25 17:07:09
+# Date/time:                    2016-01-27 17:18:42
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -144,6 +144,51 @@ CREATE TABLE IF NOT EXISTS `profession` (
 REPLACE INTO `profession` (`professionName`, `professionNo`, `departmentNo`) VALUES
 	('软件工程', '1', '1');
 /*!40000 ALTER TABLE `profession` ENABLE KEYS */;
+
+
+# Dumping structure for procedure db_course_selection_system.pro_countTableRows
+DROP PROCEDURE IF EXISTS `pro_countTableRows`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_countTableRows`(IN `p_tablename` VARCHAR(50))
+BEGIN
+declare v_tablename varchar(50);
+set v_tablename = concat('select count(1) from ',p_tablename);
+set @v_tablename = v_tablename;
+prepare stmt from @v_tablename;
+execute stmt;
+deallocate prepare stmt;
+END//
+DELIMITER ;
+
+
+# Dumping structure for procedure db_course_selection_system.pro_getTable
+DROP PROCEDURE IF EXISTS `pro_getTable`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_getTable`(IN `p_tablename` VARCHAR(50))
+BEGIN
+declare v_tablename varchar(50);
+set v_tablename = concat('select * from ',P_tablename);
+set @v_tablename=v_tablename;
+prepare stmt from @v_tablename;
+EXECUTE stmt ;
+deallocate prepare stmt;
+END//
+DELIMITER ;
+
+
+# Dumping structure for procedure db_course_selection_system.pro_test
+DROP PROCEDURE IF EXISTS `pro_test`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_test`(IN `P_tablename` VARCHAR(50))
+BEGIN
+declare v_tablename varchar(50);
+set v_tablename = concat('select * from ',P_tablename);
+set @v_tablename=v_tablename;
+prepare stmt from @v_tablename;
+EXECUTE stmt ;
+deallocate prepare stmt;
+END//
+DELIMITER ;
 
 
 # Dumping structure for table db_course_selection_system.selectcourse

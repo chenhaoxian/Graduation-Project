@@ -139,7 +139,7 @@
 	<div class="wrapper small_menu">
 		<ul class="menu_small_buttons">
 			<li><a title="个人 信息" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
-			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do"></a></li>
+			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1"></a></li>
 			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
 			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></sa></li>
 			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
@@ -158,7 +158,7 @@
 					</a>
 				</li>
 				<li class="active_tab i_32_ui">
-					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do" title="Your Messages">
+					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" title="Your Messages">
 						<span class="tab_label">通选选课</span>
 						<span class="tab_info">Select Course</span>
 					</a>
@@ -248,13 +248,19 @@
 							 -->
 						</tbody>
 					</table>
+					
+					<!-- =========================分页区域  start========================================================================== -->
 					<div class="g_12" align="center">
             <ul class="pagination">
-              <li class="previous"><a href="" class="fui-arrow-left"></a></li>
-              <li class="active"><a href="">1</a></li>
-              <li><a href="">2</a></li>
-              <li><a href="">3</a></li>
-              <li><a href="">4</a></li>
+              <li class="previous"><a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" class="fui-arrow-left"></a></li>
+              <li class="active"><a href="">1</a></li> 
+              <%
+              int m = Integer.parseInt(String.valueOf(request.getAttribute("pages")));;
+              for(int i = 2; i <= m; i++) {%>     
+              <!-- <li><a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=<%=i %>"><%=i %></a></li>  -->
+              <li><a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=<%=i %>"><%=i %></a></li>
+              <%} %>  
+
               <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
             </ul>
           </div>

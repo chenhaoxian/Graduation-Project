@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 
 import mapper.StudentMapper;
@@ -23,7 +24,12 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public List<CourseTongXuan> findAllCourseTongXuan(@Param("page")int page, @Param("rows")int rows) {
 		
-		PageHelper.startPage(page,rows);
+//		Page<CourseTongXuan> pages = new Page<CourseTongXuan>(); 
+		
+		PageHelper.startPage(page,rows,false);
+//		pages.setPageSize(rows);
+//		pages.setPageNum(page);
+		
 		List<CourseTongXuan> list = studentMapper.findAllCourseTongXuan(page, rows);
 		
 		return list;

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import model.CourseTongXuan;
+import service.CommonService;
 import service.StudentService;
 
 @Controller
@@ -18,14 +19,21 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
+	@Autowired
+	private CommonService commonService;
+	
 	@RequestMapping("findAllCourseTongXuan")
 	public String showCourseTongXuan(@RequestParam(required = false, defaultValue = "1")int page,
 			@RequestParam(required = false, defaultValue = "5")int rows,
-			Model model){
+			Model model,
+			@RequestParam(required = false, defaultValue = "0")boolean flag){
 		
 		List<CourseTongXuan> list = studentService.findAllCourseTongXuan(page, rows);
-		System.out.println(list.size());
 		model.addAttribute("courseTongXuanList", list);
+		if(flag){
+			int pages = commonService.countPages(rows, "courseTongXuan");
+			model.addAttribute("pages", pages);
+		}
 		
 		return "student/selection";
 	}

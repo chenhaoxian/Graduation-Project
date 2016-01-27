@@ -254,9 +254,39 @@ desc courseTongXuan;
 
 select * from courseTongXuan;
 
+select count(*) from courseTongXuan;
+
+create procedure pro_findTableByTableName(in p_tableName varchar)
+declare sql varchar(100);
+begin
+sql = 'select * from ' + p_tableName;
+execute sql;
+end;
 
 
+create procedure pro_test2()
+begin 
+select * from courseTongXuan ;
+end;
 
+call pro_test('courseTongXuan');
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_test2`()
+	LANGUAGE SQL
+	NOT DETERMINISTIC
+	CONTAINS SQL
+	SQL SECURITY DEFINER
+	COMMENT ''
+BEGIN
+select * from CourseTongXuan;
+END
+
+call pro_getTable('courseTongXuan');
+
+create procedure pro_getTableRows(in p_tableName varchar(50))
+begin
+select count(1) from p_tableName;
+end;
 
 
 
