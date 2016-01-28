@@ -1,0 +1,35 @@
+						<ul class="pagination">
+              <li class="previous"><a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" class="fui-arrow-left"></a></li>
+              <li class="active" id="page_li_first"><a href="">1</a></li> 
+              
+              <%
+              int m = Integer.parseInt(String.valueOf(request.getAttribute("pages")));;
+              for(int i = 2; i <= m; i++) {%>     
+              <!-- <li><a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=<%=i %>"><%=i %></a></li>  -->
+              <!-- <li id="page_li"><a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=<%=i %>"><%=i %></a></li> -->
+              <li id="page_li" onclick="func_test(<%=i %>)"><a href="" ><%=i %></a></li>
+              <%} %>  
+
+              <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
+            </ul>
+            
+            
+            
+            
+            function func_turn_next_page(){
+							
+							var page = "${page}";
+							
+							var pages = "${pages}"
+					
+							$.ajax({
+								type:"post",
+								url:"${pageContext.request.contextPath}/student/findAllCourseTongXuan.do",
+								data:{
+									page: page + 1
+								},
+								success:function(data){
+									alert('ok');
+								}
+							});
+						}
