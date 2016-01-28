@@ -60,7 +60,7 @@
 
   <script type="text/javascript" src="js/buttons.js"></script>
 
-  <!-- 只有使用字体图标时才需要加载 Font-Awesome -->
+  <!-- 只有使用字体图标时才需要加�Font-Awesome -->
   <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
@@ -75,7 +75,7 @@
 		<span id="pattern6"></span>
 	</div>
 	
-	<!-- 头文件 -->
+	<!-- 头文�-->
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<header class="main_header">
@@ -209,10 +209,10 @@
 							<tr>
 								<th>操作</th>
 								<th>上课时间</th>
-								<th>课程名</th>
+								<th>课程�/th>
 								<th>学分</th>
 								<th>人数</th>
-								<th>已选</th>
+								<th>已�/th>
 							</tr>
 						</thead>
 						<tbody>
@@ -230,8 +230,8 @@
 							<!-- 
 							<tr>
 								<td><input value="选择" type="button" class="button button-3d button-action button-pill"/></td>
-								<td>周一 8：00 - 9：30</td>
-								<td>课程名1</td>
+								<td>周一 8�0 - 9�0</td>
+								<td>课程�</td>
 								<td>2</td>
 								<td>50</td>
 								<td>0</td>
@@ -239,8 +239,8 @@
 							
 							<tr>
 								<td><button type="button" class="button button-3d button-action button-pill" disabled="disabled">选择</button></td>
-								<td>周一 8：00 - 9：30</td>
-								<td>课程名2</td>
+								<td>周一 8�0 - 9�0</td>
+								<td>课程�</td>
 								<td>2</td>
 								<td>50</td>
 								<td>0</td>
@@ -263,10 +263,11 @@
 								</li>
 						  </ul>
 						</nav>
-          </div>
-				</div>
-				
+			          </div>
+					</div>
+					
 <!-- =======================================所有课程信息表=====end======================================= -->
+				
 				
 				
 			</div>
@@ -282,6 +283,11 @@
 <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='UTF-8'></script></div>
 
 <script type="text/javascript">
+		<input type="submit" value="submit"/>
+		
+		</form>
+	
+	</div>
 	
 	$(function(){
 		$('#li_next').click(function(){

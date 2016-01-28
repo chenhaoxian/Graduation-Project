@@ -104,7 +104,7 @@ alter table profession add constraint fk_profession_departmentNo foreign key(dep
 select * from profession;
 update profession set departmentNo = '1' where professionNo = '1';
 select * from department;
-insert into department values('1', '计算机学院');
+insert into department values('1', '计算机学�);
 
 select * from student;
 desc profession;
@@ -233,7 +233,7 @@ select * from courseTongXuan;
 insert into courseTongXuan (cno,cname,ctype,ctime,credit,total,margin,tno) 
 values ('TX6','通选课6','自然科学','周一 10:00--11:30',2,50,0,'1');
 
---将 course 表数据 复制到 courseTongXuan
+--�course 表数�复制�courseTongXuan
 insert into courseTongXuan (select * from course); 
 
 
