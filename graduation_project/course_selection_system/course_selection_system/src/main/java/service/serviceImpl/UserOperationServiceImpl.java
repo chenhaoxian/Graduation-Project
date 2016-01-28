@@ -1,12 +1,17 @@
 package service.serviceImpl;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.github.pagehelper.PageHelper;
+
 import mapper.ContactMessageMapper;
 import mapper.UserMapper;
+import model.CourseTongXuan;
 import service.UserOperationService;
 import util.EmailUtil;
 
@@ -49,6 +54,13 @@ public class UserOperationServiceImpl implements UserOperationService{
 	
 	private void print(Object msg){
 		System.out.println(msg);
+	}
+
+	@Override
+	public List<CourseTongXuan> findCourseTongXuanByTno(@Param("tno")String tno, @Param("page")int page, @Param("rows")int rows) {
+		
+		PageHelper.startPage(page,rows);
+		return userMapper.findCourseTongXuanByTno(tno, page, rows);
 	}
 
 }

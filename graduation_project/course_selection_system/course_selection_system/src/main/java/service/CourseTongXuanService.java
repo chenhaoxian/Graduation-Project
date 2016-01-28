@@ -6,7 +6,7 @@ import model.CourseTongXuan;
 
 public interface CourseTongXuanService extends IService<CourseTongXuan> {
 	
-	List<CourseTongXuan> selectByConrseTongXuan(CourseTongXuan courseTongXuan, int page, int rows);
+	List<CourseTongXuan> selectByConrseTongXuan(String tno, int page, int rows);
 	
 	
 

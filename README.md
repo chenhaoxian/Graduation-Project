@@ -22,3 +22,15 @@
 #      作者信息
 
 ▇ 陈浩贤  (Hyman Chen)
+
+
+
+#      记录开发日常
+
+▓ 弃用通用Mapper,原因： 在开发过程中，调用selectByExample(example); 报空指针异常，网上文档太少，原因不明。
+
+▓ 删除分页代码，改用Mybatis分页插件，PageHelper.startPage(page,rows); 一句搞定，十分强大。
+
+▓ 只想说Mysql的存储过程贼恶心。
+
+▓ http://www.ngrok.cc/ 手机端访问web项目

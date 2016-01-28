@@ -3,7 +3,7 @@
 # Server version:               5.5.16
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2016-01-05 17:03:26
+# Date/time:                    2016-01-27 17:18:42
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -12,11 +12,13 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 # Dumping database structure for db_course_selection_system
+DROP DATABASE IF EXISTS `db_course_selection_system`;
 CREATE DATABASE IF NOT EXISTS `db_course_selection_system` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `db_course_selection_system`;
 
 
 # Dumping structure for table db_course_selection_system.admin
+DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `aid` varchar(20) DEFAULT NULL,
@@ -35,6 +37,7 @@ REPLACE INTO `admin` (`id`, `aid`, `password`, `name`, `usertype`) VALUES
 
 
 # Dumping structure for table db_course_selection_system.course
+DROP TABLE IF EXISTS `course`;
 CREATE TABLE IF NOT EXISTS `course` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cno` varchar(20) DEFAULT NULL,
@@ -49,14 +52,51 @@ CREATE TABLE IF NOT EXISTS `course` (
   UNIQUE KEY `cno` (`cno`),
   KEY `fk_course_teacher` (`tno`),
   CONSTRAINT `fk_course_teacher` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
-# Dumping data for table db_course_selection_system.course: ~0 rows (approximately)
+# Dumping data for table db_course_selection_system.course: ~5 rows (approximately)
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
+REPLACE INTO `course` (`id`, `cno`, `cname`, `ctype`, `ctime`, `credit`, `total`, `margin`, `tno`) VALUES
+	(1, 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', 2, 50, 0, '1'),
+	(2, 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', 2, 50, 0, '1'),
+	(3, 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', 2, 50, 0, '1'),
+	(4, 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', 2, 50, 0, '1'),
+	(5, 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', 2, 50, 0, '1');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 
 
+# Dumping structure for table db_course_selection_system.coursetongxuan
+DROP TABLE IF EXISTS `coursetongxuan`;
+CREATE TABLE IF NOT EXISTS `coursetongxuan` (
+  `id` int(11) NOT NULL,
+  `cno` varchar(20) DEFAULT NULL,
+  `cname` varchar(50) DEFAULT NULL,
+  `ctype` varchar(50) DEFAULT NULL,
+  `ctime` varchar(50) DEFAULT NULL,
+  `credit` int(11) DEFAULT NULL,
+  `total` int(11) DEFAULT NULL,
+  `margin` int(11) DEFAULT NULL,
+  `tno` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cno` (`cno`),
+  KEY `tno` (`tno`),
+  CONSTRAINT `coursetongxuan_ibfk_1` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# Dumping data for table db_course_selection_system.coursetongxuan: ~6 rows (approximately)
+/*!40000 ALTER TABLE `coursetongxuan` DISABLE KEYS */;
+REPLACE INTO `coursetongxuan` (`id`, `cno`, `cname`, `ctype`, `ctime`, `credit`, `total`, `margin`, `tno`) VALUES
+	(0, 'TX6', '通选课6', '自然科学', '周一 10:00--11:30', 2, 50, 0, '1'),
+	(1, 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', 2, 50, 0, '1'),
+	(2, 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', 2, 50, 0, '1'),
+	(3, 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', 2, 50, 0, '1'),
+	(4, 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', 2, 50, 0, '1'),
+	(5, 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', 2, 50, 0, '1');
+/*!40000 ALTER TABLE `coursetongxuan` ENABLE KEYS */;
+
+
 # Dumping structure for table db_course_selection_system.credit
+DROP TABLE IF EXISTS `credit`;
 CREATE TABLE IF NOT EXISTS `credit` (
   `required` int(11) DEFAULT NULL,
   `selected` int(11) DEFAULT NULL,
@@ -74,6 +114,7 @@ REPLACE INTO `credit` (`required`, `selected`, `common`, `sno`) VALUES
 
 
 # Dumping structure for table db_course_selection_system.department
+DROP TABLE IF EXISTS `department`;
 CREATE TABLE IF NOT EXISTS `department` (
   `departmentNo` varchar(20) NOT NULL,
   `departmentName` varchar(20) DEFAULT NULL,
@@ -88,6 +129,7 @@ REPLACE INTO `department` (`departmentNo`, `departmentName`) VALUES
 
 
 # Dumping structure for table db_course_selection_system.profession
+DROP TABLE IF EXISTS `profession`;
 CREATE TABLE IF NOT EXISTS `profession` (
   `professionName` varchar(50) DEFAULT NULL,
   `professionNo` varchar(20) NOT NULL,
@@ -104,7 +146,53 @@ REPLACE INTO `profession` (`professionName`, `professionNo`, `departmentNo`) VAL
 /*!40000 ALTER TABLE `profession` ENABLE KEYS */;
 
 
+# Dumping structure for procedure db_course_selection_system.pro_countTableRows
+DROP PROCEDURE IF EXISTS `pro_countTableRows`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_countTableRows`(IN `p_tablename` VARCHAR(50))
+BEGIN
+declare v_tablename varchar(50);
+set v_tablename = concat('select count(1) from ',p_tablename);
+set @v_tablename = v_tablename;
+prepare stmt from @v_tablename;
+execute stmt;
+deallocate prepare stmt;
+END//
+DELIMITER ;
+
+
+# Dumping structure for procedure db_course_selection_system.pro_getTable
+DROP PROCEDURE IF EXISTS `pro_getTable`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_getTable`(IN `p_tablename` VARCHAR(50))
+BEGIN
+declare v_tablename varchar(50);
+set v_tablename = concat('select * from ',P_tablename);
+set @v_tablename=v_tablename;
+prepare stmt from @v_tablename;
+EXECUTE stmt ;
+deallocate prepare stmt;
+END//
+DELIMITER ;
+
+
+# Dumping structure for procedure db_course_selection_system.pro_test
+DROP PROCEDURE IF EXISTS `pro_test`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_test`(IN `P_tablename` VARCHAR(50))
+BEGIN
+declare v_tablename varchar(50);
+set v_tablename = concat('select * from ',P_tablename);
+set @v_tablename=v_tablename;
+prepare stmt from @v_tablename;
+EXECUTE stmt ;
+deallocate prepare stmt;
+END//
+DELIMITER ;
+
+
 # Dumping structure for table db_course_selection_system.selectcourse
+DROP TABLE IF EXISTS `selectcourse`;
 CREATE TABLE IF NOT EXISTS `selectcourse` (
   `cno` varchar(20) DEFAULT NULL,
   `sno` varchar(20) DEFAULT NULL
@@ -116,6 +204,7 @@ CREATE TABLE IF NOT EXISTS `selectcourse` (
 
 
 # Dumping structure for table db_course_selection_system.student
+DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sname` varchar(20) DEFAULT NULL,
@@ -138,6 +227,7 @@ REPLACE INTO `student` (`id`, `sname`, `sno`, `grade`, `password`, `usertype`, `
 
 
 # Dumping structure for table db_course_selection_system.teacher
+DROP TABLE IF EXISTS `teacher`;
 CREATE TABLE IF NOT EXISTS `teacher` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tno` varchar(20) DEFAULT NULL,
@@ -158,6 +248,7 @@ REPLACE INTO `teacher` (`id`, `tno`, `tname`, `password`, `departmentNo`) VALUES
 
 
 # Dumping structure for table db_course_selection_system.user
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -177,6 +268,7 @@ REPLACE INTO `user` (`id`, `name`, `userid`, `password`, `user_type`) VALUES
 
 
 # Dumping structure for table db_course_selection_system.user_contact
+DROP TABLE IF EXISTS `user_contact`;
 CREATE TABLE IF NOT EXISTS `user_contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -184,9 +276,9 @@ CREATE TABLE IF NOT EXISTS `user_contact` (
   `message` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
-# Dumping data for table db_course_selection_system.user_contact: ~42 rows (approximately)
+# Dumping data for table db_course_selection_system.user_contact: ~43 rows (approximately)
 /*!40000 ALTER TABLE `user_contact` DISABLE KEYS */;
 REPLACE INTO `user_contact` (`id`, `name`, `email`, `message`) VALUES
 	(1, 'test1', 'test1@qq.com', 'test1'),
@@ -230,7 +322,8 @@ REPLACE INTO `user_contact` (`id`, `name`, `email`, `message`) VALUES
 	(39, '陈浩贤', 'dfsdfsd@qq.com', '哈哈哈哈'),
 	(40, '????', '47sf13770@qq.com', 'dd??'),
 	(41, '??', '47ddf3770@qq.com', '????'),
-	(42, '颠倒是非', '47dfdf3770@qq.com', 'sdf辅导费');
+	(42, '颠倒是非', '47dfdf3770@qq.com', 'sdf辅导费'),
+	(43, 'ss', 'sdfsdfssdff770@qq.com', 'sss');
 /*!40000 ALTER TABLE `user_contact` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

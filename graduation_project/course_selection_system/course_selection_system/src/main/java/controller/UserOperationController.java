@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,17 +47,39 @@ public class UserOperationController {
 		}
 	}
 	
-	@RequestMapping("/testGeneralMapper")
-	private String getCourseTongXuan(@RequestParam(required = false) CourseTongXuan courseTongXuan, 
-																		@RequestParam(required = false, defaultValue = "1") int page,
-																		@RequestParam(required = false, defaultValue = "10") int rows,
-																		HttpServletRequest request){
-		print("okoko");
+	@RequestMapping("/testSplitPage")
+	private String getCourseTongXuan(String tno,
+			@RequestParam(required = false, defaultValue = "1")int page,
+			@RequestParam(required = false, defaultValue = "10") int rows){
+		print(tno);
 		
-		List<CourseTongXuan> courseTongXuanList = courseTongXuanService.selectByConrseTongXuan(courseTongXuan, page, rows);
-		
+		List<CourseTongXuan> courseTongXuanList = userOperationService.findCourseTongXuanByTno(tno, page, rows);
+		print(courseTongXuanList.size());
+		Iterator<CourseTongXuan> it = courseTongXuanList.iterator();
+		while(it.hasNext()){
+			
+			print(it.next().toString());
+		}
 		return "test";
 	}
+	
+//	@RequestMapping("/testGeneralMapper")
+//	private String getCourseTongXuan(@RequestParam(required = false) String tno, 
+//																		@RequestParam(required = false, defaultValue = "1") int page,
+//																		@RequestParam(required = false, defaultValue = "3") int rows,
+//																		HttpServletRequest request){
+//		
+//		List<CourseTongXuan> courseTongXuanList = courseTongXuanService.selectByConrseTongXuan(tno, page, rows);
+//
+////		print(courseTongXuanList.size());
+////		Iterator<CourseTongXuan> it = courseTongXuanList.iterator();
+////		while(it.hasNext()){
+////			
+////			print(it.next().toString());
+////		}
+////		
+//		return "test";
+//	}
 	
 //	@RequestMapping("/testGeneralMapper")
 //	public ModelAndView getCourseTongXuan(@RequestParam(required = false) CourseTongXuan courseTongXuan, 

@@ -175,12 +175,12 @@
 							<form  name="loginform" method="post"  class="modal-body" >
 					      	<div class="input-group">
 									  <span class="input-group-addon" id="basic-addon1">账号</span>
-									  <input type="text" class="form-control" placeholder="输入学号"  id="account" aria-describedby="basic-addon1">
+									  <input type="text" class="form-control" placeholder="输入学号"  id="account" aria-describedby="basic-addon1" value="1">
 									</div>
 									<span class="label label-danger" id="account_warning"></span>	
 									<div class="input-group">
 									  <span class="input-group-addon" id="basic-addon1">密码</span>
-									  <input type="password" id="password" class="form-control" placeholder="密码" id="password" aria-describedby="basic-addon1">
+									  <input type="password" id="password" class="form-control" placeholder="密码" id="password" aria-describedby="basic-addon1" value="123">
 									</div>
 									<span class="label label-danger" id="password_warning"></span>
 									<div>

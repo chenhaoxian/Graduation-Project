@@ -230,6 +230,9 @@ create table courseTongXuan(
 
 select * from courseTongXuan;
 
+insert into courseTongXuan (cno,cname,ctype,ctime,credit,total,margin,tno) 
+values ('TX6','通选课6','自然科学','周一 10:00--11:30',2,50,0,'1');
+
 --将 course 表数据 复制到 courseTongXuan
 insert into courseTongXuan (select * from course); 
 
@@ -240,13 +243,50 @@ order by id
 limit 2 , 2;
 
 
+select * from credit;
+
+select * from student
+where sname like '%ude%';
+
+select * from courseTongXuan;
+desc courseTongXuan;
 
 
+select * from courseTongXuan;
+
+select count(*) from courseTongXuan;
+
+create procedure pro_findTableByTableName(in p_tableName varchar)
+declare sql varchar(100);
+begin
+sql = 'select * from ' + p_tableName;
+execute sql;
+end;
 
 
+create procedure pro_test2()
+begin 
+select * from courseTongXuan ;
+end;
 
+call pro_test('courseTongXuan');
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_test2`()
+	LANGUAGE SQL
+	NOT DETERMINISTIC
+	CONTAINS SQL
+	SQL SECURITY DEFINER
+	COMMENT ''
+BEGIN
+select * from CourseTongXuan;
+END
 
+call pro_getTable('courseTongXuan');
+
+create procedure pro_getTableRows(in p_tableName varchar(50))
+begin
+select count(1) from p_tableName;
+end;
 
 
 

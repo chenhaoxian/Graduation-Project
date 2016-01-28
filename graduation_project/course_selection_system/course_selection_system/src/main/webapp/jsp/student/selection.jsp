@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
@@ -8,50 +9,50 @@
 	<!--[if lt IE 9]>
 		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="../../res/js/secondpage/Flot/excanvas.js"></script>
+		<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/excanvas.js"></script>
 	<![endif]-->
 	<!-- The Fonts -->
 	<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />
 	<!-- The Main CSS File -->
-	<link rel="stylesheet" href="../../res/css/secondpage/CSS/style.css" />
-	<link rel="stylesheet" href="../../res/chx/css/flat-ui.css" />
-  <link rel="stylesheet" href="../../res/chx/css/buttons.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/secondpage/CSS/style.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/flat-ui.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/buttons.css">
   <!-- js -->
 
 	<!-- jQuery -->
-	<script src="../../res/js/secondpage/jQuery/jquery-1.7.2.min.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/jQuery/jquery-1.7.2.min.js"></script>
 	<!-- Flot -->
-	<script src="../../res/js/secondpage/secondpage/Flot/jquery.flot.js"></script>
-	<script src="../../res/js/secondpage/Flot/jquery.flot.resize.js"></script>
-	<script src="../../res/js/secondpage/Flot/jquery.flot.pie.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/secondpage/Flot/jquery.flot.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/jquery.flot.resize.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/jquery.flot.pie.js"></script>
 	<!-- DataTables -->
-	<script src="../../res/js/secondpage/DataTables/jquery.dataTables.min.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/DataTables/jquery.dataTables.min.js"></script>
 	<!-- ColResizable -->
-	<script src="../../res/js/secondpage/ColResizable/colResizable-1.3.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/ColResizable/colResizable-1.3.js"></script>
 	<!-- jQuryUI -->
-	<script src="../../res/js/secondpage/jQueryUI/jquery-ui-1.8.21.min.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/jQueryUI/jquery-ui-1.8.21.min.js"></script>
 	<!-- Uniform -->
-	<script src="../../res/js/secondpage/Uniform/jquery.uniform.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/Uniform/jquery.uniform.js"></script>
 	<!-- Tipsy -->
-	<script src="../../res/js/secondpage/Tipsy/jquery.tipsy.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/Tipsy/jquery.tipsy.js"></script>
 	<!-- Elastic -->
-	<script src="../../res/js/secondpage/Elastic/jquery.elastic.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/Elastic/jquery.elastic.js"></script>
 	<!-- ColorPicker -->
-	<script src="../../res/js/secondpage/ColorPicker/colorpicker.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/ColorPicker/colorpicker.js"></script>
 	<!-- SuperTextarea -->
-	<script src="../../res/js/secondpage/SuperTextarea/jquery.supertextarea.min.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/SuperTextarea/jquery.supertextarea.min.js"></script>
 	<!-- UISpinner -->
-	<script src="../../res/js/secondpage/UISpinner/ui.spinner.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/UISpinner/ui.spinner.js"></script>
 	<!-- MaskedInput -->
-	<script src="../../res/js/secondpage/MaskedInput/jquery.maskedinput-1.3.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/MaskedInput/jquery.maskedinput-1.3.js"></script>
 	<!-- ClEditor -->
-	<script src="../../res/js/secondpage/ClEditor/jquery.cleditor.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/ClEditor/jquery.cleditor.js"></script>
 	<!-- Full Calendar -->
-	<script src="../../res/js/secondpage/FullCalendar/fullcalendar.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/FullCalendar/fullcalendar.js"></script>
 	<!-- Color Box -->
-	<script src="../../res/js/secondpage/ColorBox/jquery.colorbox.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/ColorBox/jquery.colorbox.js"></script>
 	<!-- Kanrisha Script -->
-	<script src="../../res/js/secondpage/kanrisha.js"></script>
+	<script src="${pageContext.request.contextPath}/res/js/secondpage/kanrisha.js"></script>
 	
 
   <!-- 当需要使用带下拉菜单的按钮时才需要加载下面的 JavaScript 文件 -->
@@ -137,10 +138,10 @@
 	<!-- =========================侧边栏目          start ========================================================-->
 	<div class="wrapper small_menu">
 		<ul class="menu_small_buttons">
-			<li><a title="个人 信息" class="i_22_dashboard smActive" href="studentIndex.jsp"></a></li>
-			<li><a title="Your Messages" class="i_22_ui" href="selection.jsp"></a></li>
+			<li><a title="个人 信息" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
+			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1"></a></li>
 			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
-			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>
+			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></sa></li>
 			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
 			<li><a title="Some Fields" class="i_22_forms" href="forms.html"></a></li>
 		</ul>
@@ -151,13 +152,13 @@
 		<aside class="sidebar">
 			<ul class="tab_nav">
 				<li class="i_32_dashboard">
-					<a href="studentIndex.jsp" title="General Info">
+					<a href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp" title="General Info">
 						<span class="tab_label">个人信息</span>
 						<span class="tab_info">Person Info</span>
 					</a>
 				</li>
 				<li class="active_tab i_32_ui">
-					<a href="selection.jsp" title="Your Messages">
+					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" title="Your Messages">
 						<span class="tab_label">通选选课</span>
 						<span class="tab_info">Select Course</span>
 					</a>
@@ -215,6 +216,18 @@
 							</tr>
 						</thead>
 						<tbody>
+						
+							<c:forEach items="${courseTongXuanList }" var="courseTongXuan" varStatus="vs">
+								<tr>
+									<td><input value="选择" type="button" class="button button-3d button-action button-pill"/></td>
+									<td>${courseTongXuan.ctime }</td>
+									<td>${courseTongXuan.cname }</td>
+									<td>${courseTongXuan.credit }</td>
+									<td>${courseTongXuan.total }</td>
+									<td>${courseTongXuan.margin }</td>
+								</tr>
+							</c:forEach>
+							<!-- 
 							<tr>
 								<td><input value="选择" type="button" class="button button-3d button-action button-pill"/></td>
 								<td>周一 8：00 - 9：30</td>
@@ -223,6 +236,7 @@
 								<td>50</td>
 								<td>0</td>
 							</tr>
+							
 							<tr>
 								<td><button type="button" class="button button-3d button-action button-pill" disabled="disabled">选择</button></td>
 								<td>周一 8：00 - 9：30</td>
@@ -231,17 +245,24 @@
 								<td>50</td>
 								<td>0</td>
 							</tr>
+							 -->
 						</tbody>
 					</table>
-					<div class="g_12" align="center">
-            <ul class="pagination">
-              <li class="previous"><a href="" class="fui-arrow-left"></a></li>
-              <li class="active"><a href="">1</a></li>
-              <li><a href="">2</a></li>
-              <li><a href="">3</a></li>
-              <li><a href="">4</a></li>
-              <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
-            </ul>
+					
+					<!-- =========================分页区域  start========================================================================== -->
+					<div class="g_12" align="center" id="pagination">
+            <nav>
+						  <ul class="pagination">
+						  	<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+						    <li class="disabled" onclick="turn_page"><a href="">Previous</a></li>
+						    <li id="li_next"><a href="">Next</a></li>
+								<li>
+								  <a href="" aria-label="Next">
+								    <span aria-hidden="true">&raquo;</span>
+								  </a>
+								</li>
+						  </ul>
+						</nav>
           </div>
 				</div>
 				
@@ -254,16 +275,32 @@
 	
 	
 	<div class="g_12 separator"><span></span></div>
+<div style="display:none">
+
+
+<!-- ============================JS======================================================================== -->
+<script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='UTF-8'></script></div>
+
+<script type="text/javascript">
 	
-	<div>  测试分页   
-		<a href="../test.jsp"></a>
+	$(function(){
+		$('#li_next').click(function(){
+			var page = <%=request.getAttribute("page")%> ;
+			var pages = <%=request.getAttribute("pages") %>;
+			page = page + 1;
+			
+			if(page<=pages){
+				alert(page);
+				var str = '${pageContext.request.contextPath}/student/findCourseTong.do?page='+ page;
+				window.location.href = str;
+			}else{
+				alert("sorry");
+			}
+		});
+	});
 	
-	</div>
-	
-	
-	
-	
-	
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='UTF-8'></script></div>
+
+</script>
+
 </body>
 </html>
