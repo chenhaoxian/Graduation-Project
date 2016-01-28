@@ -250,19 +250,19 @@
 					</table>
 					
 					<!-- =========================分页区域  start========================================================================== -->
-					<div class="g_12" align="center">
-            <ul class="pagination">
-              <li class="previous"><a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" class="fui-arrow-left"></a></li>
-              <li class="active"><a href="">1</a></li> 
-              <%
-              int m = Integer.parseInt(String.valueOf(request.getAttribute("pages")));;
-              for(int i = 2; i <= m; i++) {%>     
-              <!-- <li><a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=<%=i %>"><%=i %></a></li>  -->
-              <li><a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=<%=i %>"><%=i %></a></li>
-              <%} %>  
-
-              <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
-            </ul>
+					<div class="g_12" align="center" id="pagination">
+            <nav>
+						  <ul class="pagination">
+						  	<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+						    <li class="disabled" onclick="turn_page"><a href="">Previous</a></li>
+						    <li id="li_next"><a href="">Next</a></li>
+								<li>
+								  <a href="" aria-label="Next">
+								    <span aria-hidden="true">&raquo;</span>
+								  </a>
+								</li>
+						  </ul>
+						</nav>
           </div>
 				</div>
 				
@@ -275,10 +275,32 @@
 	
 	
 	<div class="g_12 separator"><span></span></div>
+<div style="display:none">
+
+
+<!-- ============================JS======================================================================== -->
+<script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='UTF-8'></script></div>
+
+<script type="text/javascript">
+	
+	$(function(){
+		$('#li_next').click(function(){
+			var page = <%=request.getAttribute("page")%> ;
+			var pages = <%=request.getAttribute("pages") %>;
+			page = page + 1;
+			
+			if(page<=pages){
+				alert(page);
+				var str = '${pageContext.request.contextPath}/student/findCourseTong.do?page='+ page;
+				window.location.href = str;
+			}else{
+				alert("sorry");
+			}
+		});
+	});
 	
 
-	
-	
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='UTF-8'></script></div>
+</script>
+
 </body>
 </html>
