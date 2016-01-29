@@ -26,22 +26,48 @@ public class StudentController {
 	
 	private List<CourseTongXuan> courseTongXuanList;
 	
+	
 	@RequestMapping("findAllCourseTongXuan")
-	public String showCourseTongXuan(@RequestParam(required = false, defaultValue = "1")String page,
-			@RequestParam(required = false, defaultValue = "2")int rows,
+	public String showCourseTongXuan(@RequestParam(required = false, defaultValue = "1")Integer page,
+			@RequestParam(required = false, defaultValue = "2")Integer rows,
+			@RequestParam(required = false, defaultValue = "0")Integer pages,
 			Model model,
 			@RequestParam(required = false, defaultValue = "0")boolean flag){
-		System.out.println(page);
-		int page_int = Integer.parseInt(page);
-		courseTongXuanList = studentService.findAllCourseTongXuan(page_int, rows);
-		model.addAttribute("courseTongXuanList", courseTongXuanList);
-		model.addAttribute("page", page_int);
-		if(flag){
-			int pages = commonService.countPages(rows, "courseTongXuan");
-			model.addAttribute("pages", pages);
+		System.out.println(pages);
+//		int page_int = Integer.parseInt(page);
+		courseTongXuanList = studentService.findAllCourseTongXuan(page, rows);
+		for(CourseTongXuan c : courseTongXuanList){
+			System.out.println(c.toString());
 		}
 		
+		model.addAttribute("courseTongXuanList", courseTongXuanList);
+		model.addAttribute("page", page);
+		if(flag){
+			pages = commonService.countPages(rows, "courseTongXuan");
+		}
+		model.addAttribute("pages", pages);
+		
 		return "student/selection";
+	}
+	
+	
+	@RequestMapping("findCourseTongXuanByPage")
+	public @ResponseBody String showCourseTongXuanByPage(@RequestParam(required = false, defaultValue = "1")Integer page,
+			@RequestParam(required = false, defaultValue = "2")Integer rows,
+			@RequestParam(required = false, defaultValue = "0")Integer pages,
+			@RequestParam(required = false, defaultValue = "0")boolean flag){
+		System.out.println(pages);
+//		int page_int = Integer.parseInt(page);
+		courseTongXuanList = studentService.findAllCourseTongXuan(page, rows);
+		for(CourseTongXuan c : courseTongXuanList){
+			System.out.println(c.toString());
+		}
+		
+		if(flag){
+			pages = commonService.countPages(rows, "courseTongXuan");
+		}
+		
+		return "success";
 	}
 	
 	

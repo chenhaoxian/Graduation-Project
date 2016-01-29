@@ -210,6 +210,7 @@
 								<th>操作</th>
 								<th>上课时间</th>
 								<th>课程名</th>
+								<th>课程类型</th>
 								<th>学分</th>
 								<th>人数</th>
 								<th>已选</th>
@@ -219,51 +220,35 @@
 						
 							<c:forEach items="${courseTongXuanList }" var="courseTongXuan" varStatus="vs">
 								<tr>
-									<td><input value="选择" type="button" class="button button-3d button-action button-pill"/></td>
+									<td><input value="选择" type="button" class="button button-glow button-rounded "/></td>
 									<td>${courseTongXuan.ctime }</td>
-									<td>${courseTongXuan.cname }</td>
+									<td><a id="" href="#modal-container-4083" role="button" class="button-glow" data-toggle="modal">${courseTongXuan.cname }</a></td>
+									<td>${courseTongXuan.ctype }</td>
 									<td>${courseTongXuan.credit }</td>
 									<td>${courseTongXuan.total }</td>
 									<td>${courseTongXuan.margin }</td>
 								</tr>
 							</c:forEach>
-							<!-- 
-							<tr>
-								<td><input value="选择" type="button" class="button button-3d button-action button-pill"/></td>
-								<td>周一 8：00 - 9：30</td>
-								<td>课程名1</td>
-								<td>2</td>
-								<td>50</td>
-								<td>0</td>
-							</tr>
-							
-							<tr>
-								<td><button type="button" class="button button-3d button-action button-pill" disabled="disabled">选择</button></td>
-								<td>周一 8：00 - 9：30</td>
-								<td>课程名2</td>
-								<td>2</td>
-								<td>50</td>
-								<td>0</td>
-							</tr>
-							 -->
 						</tbody>
 					</table>
 					
+
+					
 					<!-- =========================分页区域  start========================================================================== -->
-					<div class="g_12" align="center" id="pagination">
-            <nav>
-						  <ul class="pagination">
-						  	<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-						    <li class="disabled" onclick="turn_page"><a href="">Previous</a></li>
-						    <li id="li_next"><a href="">Next</a></li>
-								<li>
-								  <a href="" aria-label="Next">
-								    <span aria-hidden="true">&raquo;</span>
-								  </a>
-								</li>
-						  </ul>
-						</nav>
+					
+					
+					<div class="g_12" align="center">
+					
+						<!-- <button class="button button-glow button-rounded button-raised button-primary " disabled="true"><span aria-hidden="true">&laquo;</span></button> -->
+						<button id="btn_previous" class="button button-glow button-rounded button-raised button-primary">Previous</button>
+            <button  id="btn_next" class="button button-glow button-rounded button-raised button-primary">Next</button>
+            <!-- <button  class="button button-glow button-rounded button-raised button-primary"><span aria-hidden="true">&raquo;</span></button> -->
+
           </div>
+					
+					
+					<!-- =========================分页区域  end========================================================================== -->
+					
 				</div>
 				
 <!-- =======================================所有课程信息表=====end======================================= -->
@@ -274,33 +259,41 @@
 	</div>
 	
 	
-	<div class="g_12 separator"><span></span></div>
-<div style="display:none">
+<div class="g_12 separator"><span></span></div>
 
-
-<!-- ============================JS======================================================================== -->
-<script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='UTF-8'></script></div>
 
 <script type="text/javascript">
 	
-	$(function(){
-		$('#li_next').click(function(){
+	$(function(){ 
+		$('#btn_next').click(function(){
+
 			var page = <%=request.getAttribute("page")%> ;
 			var pages = <%=request.getAttribute("pages") %>;
-			page = page + 1;
 			
-			if(page<=pages){
-				alert(page);
-				var str = '${pageContext.request.contextPath}/student/findCourseTong.do?page='+ page;
+			if(page<pages){
+				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}'; 
 				window.location.href = str;
 			}else{
-				alert("sorry");
+				alert("已经是最后一页了");
 			}
 		});
+		
+		$('#btn_previous').click(function(){
+			var page = <%=request.getAttribute("page")%> ;
+			var pages = <%=request.getAttribute("pages") %>;
+			
+			if(page<=pages && page>1){
+				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page-1}&pages=${pages}'; 
+				window.location.href = str;
+			}else{
+				alert("已经是第一页了");
+			}	
+		});
 	});
+		
 	
 
 </script>
-
+ 
 </body>
 </html>

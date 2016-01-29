@@ -288,6 +288,13 @@ begin
 select count(1) from p_tableName;
 end;
 
+select * from teacher;
+select * from department;
+
+select t.tname,d.departmentName
+from teacher t
+left join department d on t.departmentNo = d.departmentNo
+where tno = '1';
 
 
 
