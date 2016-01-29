@@ -33,3 +33,53 @@
 								}
 							});
 						}
+						
+						
+						
+						
+						
+						<div class="g_12" align="center" id="pagination">
+            <nav>
+						  <ul class="pagination">
+						  	<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+						    <li class="disabled" onclick="turn_page"><a href="">Previous</a></li>
+						    <li id="li_next"><a href="">Next</a></li>
+								<li>
+								  <a href="" aria-label="Next">
+								    <span aria-hidden="true">&raquo;</span>
+								  </a>
+								</li>
+						  </ul>
+						</nav>
+          </div>
+          
+          
+          
+          
+          
+          if(page<=pages){
+				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}'; 
+				window.location.href = str;
+			}else{
+				alert("sorry");
+			}
+			
+			
+			
+			
+$(function(){ 
+		$('#btn_next').click(function(){
+			var page = <%=request.getAttribute("page")%> ;
+			var pages = <%=request.getAttribute("pages") %>;
+			alert(pages);
+			
+			if(page<=pages){
+				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}'; 
+				window.location.href = str;
+				$("#btn_previous").removeAttr('disabled');
+				
+			}else{
+				alert("ÏµÍ³³ö´íÀ²£¡£¡Sorry!!");
+			}
+		});
+	});

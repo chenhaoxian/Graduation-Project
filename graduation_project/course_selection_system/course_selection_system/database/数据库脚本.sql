@@ -287,12 +287,3 @@ create procedure pro_getTableRows(in p_tableName varchar(50))
 begin
 select count(1) from p_tableName;
 end;
-
-
-
-
-
-
-
-
-

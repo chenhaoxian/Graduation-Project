@@ -209,8 +209,12 @@
 							<tr>
 								<th>操作</th>
 								<th>上课时间</th>
-								<th>课程�/th>
+<<<<<<< HEAD
+								<th>课程名</th>
 								<th>课程类型</th>
+=======
+								<th>课程�/th>
+>>>>>>> 4ffd452b5ec8b45c7b777be77ecb8c1fbcd30ec1
 								<th>学分</th>
 								<th>人数</th>
 								<th>已�/th>
@@ -229,12 +233,35 @@
 									<td>${courseTongXuan.margin }</td>
 								</tr>
 							</c:forEach>
+<<<<<<< HEAD
+=======
+							<!-- 
+							<tr>
+								<td><input value="选择" type="button" class="button button-3d button-action button-pill"/></td>
+								<td>周一 8�0 - 9�0</td>
+								<td>课程�</td>
+								<td>2</td>
+								<td>50</td>
+								<td>0</td>
+							</tr>
+							
+							<tr>
+								<td><button type="button" class="button button-3d button-action button-pill" disabled="disabled">选择</button></td>
+								<td>周一 8�0 - 9�0</td>
+								<td>课程�</td>
+								<td>2</td>
+								<td>50</td>
+								<td>0</td>
+							</tr>
+							 -->
+>>>>>>> 4ffd452b5ec8b45c7b777be77ecb8c1fbcd30ec1
 						</tbody>
 					</table>
 					
 
 					
 					<!-- =========================分页区域  start========================================================================== -->
+<<<<<<< HEAD
 					
 					
 					<div class="g_12" align="center">
@@ -244,13 +271,31 @@
             <button  id="btn_next" class="button button-glow button-rounded button-raised button-primary">Next</button>
             <!-- <button  class="button button-glow button-rounded button-raised button-primary"><span aria-hidden="true">&raquo;</span></button> -->
 
-			          </div>
+          </div>
 					
 					
 					<!-- =========================分页区域  end========================================================================== -->
 					
+				</div>
+				
+=======
+					<div class="g_12" align="center" id="pagination">
+            <nav>
+						  <ul class="pagination">
+						  	<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+						    <li class="disabled" onclick="turn_page"><a href="">Previous</a></li>
+						    <li id="li_next"><a href="">Next</a></li>
+								<li>
+								  <a href="" aria-label="Next">
+								    <span aria-hidden="true">&raquo;</span>
+								  </a>
+								</li>
+						  </ul>
+						</nav>
+			          </div>
 					</div>
 					
+>>>>>>> 4ffd452b5ec8b45c7b777be77ecb8c1fbcd30ec1
 <!-- =======================================所有课程信息表=====end======================================= -->
 				
 				

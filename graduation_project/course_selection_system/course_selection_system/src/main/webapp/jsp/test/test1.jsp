@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +17,8 @@ tno:<input type="text" name="tno" />
 <input type="submit" value="submit"/>
 
 </form>
+
+<h1><a href="login/checkStudent.do?userId=1">test</a></h1>
 
 
 

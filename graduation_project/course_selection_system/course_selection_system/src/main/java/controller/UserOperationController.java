@@ -26,7 +26,7 @@ public class UserOperationController {
 	private UserOperationService userOperationService ;
 	
 	@Autowired
-	private CourseTongXuanService courseTongXuanService;
+	private CourseTongXuanService courseTongXuanService; 
 	
 	@RequestMapping("sendEmail")
 	private @ResponseBody String sendContactEmail(String name, String email, String message){
@@ -60,7 +60,6 @@ public class UserOperationController {
 			
 			print(it.next().toString());
 		}
-		return "test";
 	}
 	
 //	@RequestMapping("/testGeneralMapper")
