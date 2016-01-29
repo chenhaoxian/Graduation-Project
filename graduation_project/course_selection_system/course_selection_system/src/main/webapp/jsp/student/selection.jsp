@@ -60,7 +60,7 @@
 
   <script type="text/javascript" src="js/buttons.js"></script>
 
-  <!-- 只有使用字体图标时才需要加载 Font-Awesome -->
+  <!-- 只有使用字体图标时才需要加�Font-Awesome -->
   <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
@@ -75,7 +75,7 @@
 		<span id="pattern6"></span>
 	</div>
 	
-	<!-- 头文件 -->
+	<!-- 头文�-->
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<header class="main_header">
@@ -209,11 +209,11 @@
 							<tr>
 								<th>操作</th>
 								<th>上课时间</th>
-								<th>课程名</th>
+								<th>课程�/th>
 								<th>课程类型</th>
 								<th>学分</th>
 								<th>人数</th>
-								<th>已选</th>
+								<th>已�/th>
 							</tr>
 						</thead>
 						<tbody>
@@ -244,14 +244,15 @@
             <button  id="btn_next" class="button button-glow button-rounded button-raised button-primary">Next</button>
             <!-- <button  class="button button-glow button-rounded button-raised button-primary"><span aria-hidden="true">&raquo;</span></button> -->
 
-          </div>
+			          </div>
 					
 					
 					<!-- =========================分页区域  end========================================================================== -->
 					
-				</div>
-				
+					</div>
+					
 <!-- =======================================所有课程信息表=====end======================================= -->
+				
 				
 				
 			</div>
@@ -263,6 +264,11 @@
 
 
 <script type="text/javascript">
+		<input type="submit" value="submit"/>
+		
+		</form>
+	
+	</div>
 	
 	$(function(){ 
 		$('#btn_next').click(function(){
