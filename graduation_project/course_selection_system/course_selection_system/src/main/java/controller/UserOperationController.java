@@ -60,6 +60,7 @@ public class UserOperationController {
 			
 			print(it.next().toString());
 		}
+		return "test";
 	}
 	
 //	@RequestMapping("/testGeneralMapper")
