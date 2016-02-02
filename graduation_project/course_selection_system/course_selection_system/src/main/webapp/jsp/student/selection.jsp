@@ -6,60 +6,14 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>学生选课系统</title>
-	<!--[if lt IE 9]>
-		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/excanvas.js"></script>
-	<![endif]-->
 	<!-- The Fonts -->
 	<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />
 	<!-- The Main CSS File -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/secondpage/CSS/style.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/flat-ui.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/buttons.css">
-  <!-- js -->
-
-	<!-- jQuery -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/jQuery/jquery-1.7.2.min.js"></script>
-	<!-- Flot -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/secondpage/Flot/jquery.flot.js"></script>
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/jquery.flot.resize.js"></script>
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/jquery.flot.pie.js"></script>
-	<!-- DataTables -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/DataTables/jquery.dataTables.min.js"></script>
-	<!-- ColResizable -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/ColResizable/colResizable-1.3.js"></script>
-	<!-- jQuryUI -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/jQueryUI/jquery-ui-1.8.21.min.js"></script>
-	<!-- Uniform -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/Uniform/jquery.uniform.js"></script>
-	<!-- Tipsy -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/Tipsy/jquery.tipsy.js"></script>
-	<!-- Elastic -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/Elastic/jquery.elastic.js"></script>
-	<!-- ColorPicker -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/ColorPicker/colorpicker.js"></script>
-	<!-- SuperTextarea -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/SuperTextarea/jquery.supertextarea.min.js"></script>
-	<!-- UISpinner -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/UISpinner/ui.spinner.js"></script>
-	<!-- MaskedInput -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/MaskedInput/jquery.maskedinput-1.3.js"></script>
-	<!-- ClEditor -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/ClEditor/jquery.cleditor.js"></script>
-	<!-- Full Calendar -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/FullCalendar/fullcalendar.js"></script>
-	<!-- Color Box -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/ColorBox/jquery.colorbox.js"></script>
-	<!-- Kanrisha Script -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/kanrisha.js"></script>
-	
-
-  <!-- 当需要使用带下拉菜单的按钮时才需要加载下面的 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-
-  <script type="text/javascript" src="js/buttons.js"></script>
-
+  <!-- grumble -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/grumble.min.css">
   <!-- 只有使用字体图标时才需要加�Font-Awesome -->
   <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   
@@ -141,7 +95,7 @@
 			<li><a title="个人 信息" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
 			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1"></a></li>
 			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
-			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></sa></li>
+			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>
 			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
 			<li><a title="Some Fields" class="i_22_forms" href="forms.html"></a></li>
 		</ul>
@@ -209,11 +163,11 @@
 							<tr>
 								<th>操作</th>
 								<th>上课时间</th>
-								<th>课程�/th>
+								<th>课程名</th>
 								<th>课程类型</th>
 								<th>学分</th>
 								<th>人数</th>
-								<th>已�/th>
+								<th>已选人数</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -222,7 +176,9 @@
 								<tr>
 									<td><input value="选择" type="button" class="button button-glow button-rounded "/></td>
 									<td>${courseTongXuan.ctime }</td>
-									<td><a id="" href="#modal-container-4083" role="button" class="button-glow" data-toggle="modal">${courseTongXuan.cname }</a></td>
+									<td>
+										<button class="button button-glow button-rounded " onclick="show_teacher(${courseTongXuan.tno })">${courseTongXuan.cname }</button>
+									</td>
 									<td>${courseTongXuan.ctype }</td>
 									<td>${courseTongXuan.credit }</td>
 									<td>${courseTongXuan.total }</td>
@@ -244,7 +200,7 @@
             <button  id="btn_next" class="button button-glow button-rounded button-raised button-primary">Next</button>
             <!-- <button  class="button button-glow button-rounded button-raised button-primary"><span aria-hidden="true">&raquo;</span></button> -->
 
-			          </div>
+			    </div>
 					
 					
 					<!-- =========================分页区域  end========================================================================== -->
@@ -262,9 +218,50 @@
 	
 <div class="g_12 separator"><span></span></div>
 
+<!-- js -->
+  
+
+<!-- jQuery -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/jQuery/jquery-1.7.2.min.js"></script>
+<!-- Flot -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/secondpage/Flot/jquery.flot.js"></script>
+<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/jquery.flot.resize.js"></script>
+<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/jquery.flot.pie.js"></script>
+<!-- DataTables -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/DataTables/jquery.dataTables.min.js"></script>
+<!-- ColResizable -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/ColResizable/colResizable-1.3.js"></script>
+<!-- jQuryUI -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/jQueryUI/jquery-ui-1.8.21.min.js"></script>
+<!-- Uniform -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/Uniform/jquery.uniform.js"></script>
+<!-- Tipsy -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/Tipsy/jquery.tipsy.js"></script>
+<!-- Elastic -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/Elastic/jquery.elastic.js"></script>
+<!-- ColorPicker -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/ColorPicker/colorpicker.js"></script>
+<!-- SuperTextarea -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/SuperTextarea/jquery.supertextarea.min.js"></script>
+<!-- UISpinner -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/UISpinner/ui.spinner.js"></script>
+<!-- MaskedInput -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/MaskedInput/jquery.maskedinput-1.3.js"></script>
+<!-- ClEditor -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/ClEditor/jquery.cleditor.js"></script>
+<!-- Full Calendar -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/FullCalendar/fullcalendar.js"></script>
+<!-- Color Box -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/ColorBox/jquery.colorbox.js"></script>
+<!-- Kanrisha Script -->
+<script src="${pageContext.request.contextPath}/res/js/secondpage/kanrisha.js"></script>
+
+<!-- 当需要使用带下拉菜单的按钮时才需要加载下面的 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="${pageContext.request.contextPath}/res/chx/js/jquery.grumble.min.js?v=7"></script>
 
 <script type="text/javascript">
-
 	
 	$(function(){ 
 		$('#btn_next').click(function(){
@@ -276,7 +273,26 @@
 				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}'; 
 				window.location.href = str;
 			}else{
-				alert("已经是最后一页了");
+				var $me = $(this), interval;
+				$me.grumble(
+					{
+						angle: 130,
+						text: '已经最后一页了!',
+						type: 'alt-', 
+						distance: -10,
+						hideOnClick: true,
+						onShow: function(){
+							var angle = 130, dir = 1;
+							interval = setInterval(function(){
+								(angle > 220 ? (dir=-1, angle--) : ( angle < 130 ? (dir=1, angle++) : angle+=dir));
+								$me.grumble('adjust',{angle: angle});
+							},25);
+						},
+						onHide: function(){
+							clearInterval(interval);
+						}
+					}
+				);
 			}
 		});
 		
@@ -288,13 +304,30 @@
 				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page-1}&pages=${pages}'; 
 				window.location.href = str;
 			}else{
-				alert("已经是第一页了");
+				var $me = $(this), interval;
+				$me.grumble(
+					{
+						angle: 130,
+						text: '已经是第一页了!',
+						type: 'alt-', 
+						distance: -10,
+						hideOnClick: true,
+						onShow: function(){
+							var angle = 130, dir = 1;
+							interval = setInterval(function(){
+								(angle > 220 ? (dir=-1, angle--) : ( angle < 130 ? (dir=1, angle++) : angle+=dir));
+								$me.grumble('adjust',{angle: angle});
+							},25);
+						},
+						onHide: function(){
+							clearInterval(interval);
+						}
+					}
+				);
 			}	
 		});
 	});
-		
-	 
-
+	
 </script>
  
 </body>

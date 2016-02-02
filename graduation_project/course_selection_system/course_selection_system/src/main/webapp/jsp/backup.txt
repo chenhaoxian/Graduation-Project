@@ -83,3 +83,45 @@ $(function(){
 			}
 		});
 	});
+	
+	
+	function show_teacher(tno){
+		alert(1);
+		$.ajax({
+			type : "post",
+			url : "student/showTeacher.do",
+			data : {
+				tno : tno
+			},
+			success:function(data){
+				alert(1);
+			}
+		});
+	}
+	
+	
+	$('').click(function(e){
+	var $me = $(this), interval;
+	
+	e.preventDefault();
+	
+	$me.grumble(
+		{
+			angle: 130,
+			text: 'Look at me!',
+			type: 'alt-', 
+			distance: 10,
+			hideOnClick: true,
+			onShow: function(){
+				var angle = 130, dir = 1;
+				interval = setInterval(function(){
+					(angle > 220 ? (dir=-1, angle--) : ( angle < 130 ? (dir=1, angle++) : angle+=dir));
+					$me.grumble('adjust',{angle: angle});
+				},25);
+			},
+			onHide: function(){
+				clearInterval(interval);
+			}
+		}
+	);
+});
