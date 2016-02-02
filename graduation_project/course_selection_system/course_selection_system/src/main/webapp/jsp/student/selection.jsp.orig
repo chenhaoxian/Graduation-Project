@@ -1,11 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
-<html lang="en-US">
+<html lang="en-US"> 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>学生选课系统</title>
+	<title>瀛︾敓閫夎绯荤粺</title>
 	<!--[if lt IE 9]>
 		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -55,12 +55,12 @@
 	<script src="${pageContext.request.contextPath}/res/js/secondpage/kanrisha.js"></script>
 	
 
-  <!-- 当需要使用带下拉菜单的按钮时才需要加载下面的 JavaScript 文件 -->
+  <!-- 褰撻渶瑕佷娇鐢ㄥ甫涓嬫媺鑿滃崟鐨勬寜閽椂鎵嶉渶瑕佸姞杞戒笅闈㈢殑 JavaScript 鏂囦欢 -->
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 
   <script type="text/javascript" src="js/buttons.js"></script>
 
-  <!-- 只有使用字体图标时才需要加�Font-Awesome -->
+  <!-- 鍙湁浣跨敤瀛椾綋鍥炬爣鏃舵墠闇�鍔犺紽ont-Awesome -->
   <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
@@ -75,7 +75,7 @@
 		<span id="pattern6"></span>
 	</div>
 	
-	<!-- 头文�-->
+	<!-- 澶存枃浠-->
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<header class="main_header">
@@ -135,10 +135,10 @@
 		</div>
 	</header>
 
-	<!-- =========================侧边栏目          start ========================================================-->
+	<!-- =========================渚ц竟鏍忕洰          start ========================================================-->
 	<div class="wrapper small_menu">
 		<ul class="menu_small_buttons">
-			<li><a title="个人 信息" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
+			<li><a title="涓汉 淇℃伅" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
 			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1"></a></li>
 			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
 			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></sa></li>
@@ -153,13 +153,13 @@
 			<ul class="tab_nav">
 				<li class="i_32_dashboard">
 					<a href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp" title="General Info">
-						<span class="tab_label">个人信息</span>
+						<span class="tab_label">涓汉淇℃伅</span>
 						<span class="tab_info">Person Info</span>
 					</a>
 				</li>
 				<li class="active_tab i_32_ui">
 					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" title="Your Messages">
-						<span class="tab_label">通选选课</span>
+						<span class="tab_label">閫氶�閫夎</span>
 						<span class="tab_info">Select Course</span>
 					</a>
 				</li>
@@ -189,42 +189,42 @@
 				</li>
 			</ul>
 		</aside>
-		<!-- ==================侧边栏目    end ===================================================================== -->
+		<!-- ==================渚ц竟鏍忕洰    end ===================================================================== -->
 
 		<div class="contents">
 			<div class="grid_wrapper">
 
 				<div class="g_6 contents_header">
-					<h3 class="i_16_ui tab_label">通选选课</h3>
+					<h3 class="i_16_ui tab_label">閫氶�閫夎</h3>
 					<div><span class="label">Select Course</span></div>
 				</div>
 
 
 				<div class="g_12 separator"><span></span></div>
 
-   <!-- =======================================所有课程信息表=====start======================= -->
+   <!-- =======================================鎵�湁璇剧▼淇℃伅琛�====start======================= -->
 				<div class="g_12">
 					<table class="tables datatable noObOLine">
 						<thead>
 							<tr>
-								<th>操作</th>
-								<th>上课时间</th>
+								<th>鎿嶄綔</th>
+								<th>涓婅鏃堕棿</th>
 <<<<<<< HEAD
-								<th>课程名</th>
-								<th>课程类型</th>
+								<th>璇剧▼鍚�/th>
+								<th>璇剧▼绫诲瀷</th>
 =======
-								<th>课程�/th>
+								<th>璇剧▼鍚/th>
 >>>>>>> 4ffd452b5ec8b45c7b777be77ecb8c1fbcd30ec1
-								<th>学分</th>
-								<th>人数</th>
-								<th>已�/th>
+								<th>瀛﹀垎</th>
+								<th>浜烘暟</th>
+								<th>宸查�th>
 							</tr>
 						</thead>
 						<tbody>
 						
 							<c:forEach items="${courseTongXuanList }" var="courseTongXuan" varStatus="vs">
 								<tr>
-									<td><input value="选择" type="button" class="button button-glow button-rounded "/></td>
+									<td><input value="閫夋嫨" type="button" class="button button-glow button-rounded "/></td>
 									<td>${courseTongXuan.ctime }</td>
 									<td><a id="" href="#modal-container-4083" role="button" class="button-glow" data-toggle="modal">${courseTongXuan.cname }</a></td>
 									<td>${courseTongXuan.ctype }</td>
@@ -237,18 +237,18 @@
 =======
 							<!-- 
 							<tr>
-								<td><input value="选择" type="button" class="button button-3d button-action button-pill"/></td>
-								<td>周一 8�0 - 9�0</td>
-								<td>课程�</td>
+								<td><input value="閫夋嫨" type="button" class="button button-3d button-action button-pill"/></td>
+								<td>鍛ㄤ竴 8锛0 - 9锛0</td>
+								<td>璇剧▼鍚</td>
 								<td>2</td>
 								<td>50</td>
 								<td>0</td>
 							</tr>
 							
 							<tr>
-								<td><button type="button" class="button button-3d button-action button-pill" disabled="disabled">选择</button></td>
-								<td>周一 8�0 - 9�0</td>
-								<td>课程�</td>
+								<td><button type="button" class="button button-3d button-action button-pill" disabled="disabled">閫夋嫨</button></td>
+								<td>鍛ㄤ竴 8锛0 - 9锛0</td>
+								<td>璇剧▼鍚</td>
 								<td>2</td>
 								<td>50</td>
 								<td>0</td>
@@ -260,7 +260,7 @@
 					
 
 					
-					<!-- =========================分页区域  start========================================================================== -->
+					<!-- =========================鍒嗛〉鍖哄煙  start========================================================================== -->
 <<<<<<< HEAD
 					
 					
@@ -274,7 +274,7 @@
           </div>
 					
 					
-					<!-- =========================分页区域  end========================================================================== -->
+					<!-- =========================鍒嗛〉鍖哄煙  end========================================================================== -->
 					
 				</div>
 				
@@ -296,7 +296,7 @@
 					</div>
 					
 >>>>>>> 4ffd452b5ec8b45c7b777be77ecb8c1fbcd30ec1
-<!-- =======================================所有课程信息表=====end======================================= -->
+<!-- =======================================鎵�湁璇剧▼淇℃伅琛�====end======================================= -->
 				
 				
 				
@@ -325,7 +325,7 @@
 				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}'; 
 				window.location.href = str;
 			}else{
-				alert("已经是最后一页了");
+				alert("宸茬粡鏄渶鍚庝竴椤典簡");
 			}
 		});
 		
@@ -337,7 +337,7 @@
 				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page-1}&pages=${pages}'; 
 				window.location.href = str;
 			}else{
-				alert("已经是第一页了");
+				alert("宸茬粡鏄涓�〉浜�);
 			}	
 		});
 	});

@@ -124,7 +124,7 @@ jQuery(document).ready(function() {
 	});	
 			
 			
-	});
+	}); 
 	
 	<!-- End of jPreLoader script -->
 
