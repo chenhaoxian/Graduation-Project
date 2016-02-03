@@ -8,7 +8,7 @@
 
 ▇ 运用spring4 对泛型Mapper 的注入
 
-▇ 前端 使用 Bootstrap + Jquery + CSS + Jsp 
+▇ 前端 使用 Bootstrap + Jquery + CSS + Jsp + Sco.js
 
 ▇ 服务器 Tomcat7 
 
@@ -34,3 +34,5 @@
 ▓ 只想说Mysql的存储过程贼恶心。
 
 ▓ http://www.ngrok.cc/ 手机端访问web项目
+
+
