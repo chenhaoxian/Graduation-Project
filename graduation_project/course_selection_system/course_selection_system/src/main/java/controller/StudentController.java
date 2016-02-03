@@ -36,9 +36,9 @@ public class StudentController {
 //		System.out.println(pages);
 //		int page_int = Integer.parseInt(page);
 		courseTongXuanList = studentService.findAllCourseTongXuan(page, rows);
-//		for(CourseTongXuan c : courseTongXuanList){
-//			System.out.println(c.toString());
-//		}
+		for(CourseTongXuan c : courseTongXuanList){
+			System.out.println(c.toString());
+		}
 		
 		model.addAttribute("courseTongXuanList", courseTongXuanList);
 		model.addAttribute("page", page);

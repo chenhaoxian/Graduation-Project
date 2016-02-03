@@ -264,37 +264,6 @@
 <script type="text/javascript">
 	
 	$(function(){ 
-		$('#btn_next').click(function(){
-
-			var page = <%=request.getAttribute("page")%> ;
-			var pages = <%=request.getAttribute("pages") %>;
-			
-			if(page<pages){
-				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}'; 
-				window.location.href = str;
-			}else{
-				var $me = $(this), interval;
-				$me.grumble(
-					{
-						angle: 130,
-						text: '已经最后一页了!',
-						type: 'alt-', 
-						distance: -10,
-						hideOnClick: true,
-						onShow: function(){
-							var angle = 130, dir = 1;
-							interval = setInterval(function(){
-								(angle > 220 ? (dir=-1, angle--) : ( angle < 130 ? (dir=1, angle++) : angle+=dir));
-								$me.grumble('adjust',{angle: angle});
-							},25);
-						},
-						onHide: function(){
-							clearInterval(interval);
-						}
-					}
-				);
-			}
-		});
 		
 		$('#btn_previous').click(function(){
 			var page = <%=request.getAttribute("page")%> ;
@@ -311,6 +280,7 @@
 						text: '已经是第一页了!',
 						type: 'alt-', 
 						distance: -10,
+						hideAfter: 2000,
 						hideOnClick: true,
 						onShow: function(){
 							var angle = 130, dir = 1;
@@ -326,9 +296,48 @@
 				);
 			}	
 		});
+		
+		
+		
+		$('#btn_next').click(function(){
+
+			var page = <%=request.getAttribute("page")%> ;
+			var pages = <%=request.getAttribute("pages") %>;
+			
+			if(page<pages){
+				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}'; 
+				window.location.href = str;
+			}else{
+				var $me = $(this), interval;
+				$me.grumble(
+					{
+						angle: 130,
+						text: '已经最后一页了!',
+						type: 'alt-', 
+						distance: -10,
+						hideAfter: 2000,
+						hideOnClick: true,
+						onShow: function(){
+							var angle = 130, dir = 1;
+							interval = setInterval(function(){
+								(angle > 220 ? (dir=-1, angle--) : ( angle < 130 ? (dir=1, angle++) : angle+=dir));
+								$me.grumble('adjust',{angle: angle});
+							},25);
+						},
+						onHide: function(){
+							clearInterval(interval);
+						}
+					}
+				);
+			}
+		});
+		
+		
 	});
 	
 </script>
+
+
  
 </body>
 </html>

@@ -2,32 +2,25 @@ package model;
 
 public class CourseTongXuan {
 	
-	private Integer id ;
-	
+	private Integer id;
 	private String cno;
 	private String cname;
-	
-	private String ctype ; 
+	private String ctype;
 	private String ctime;
 	private Integer credit;
 	private Integer total;
 	private Integer margin;
 	private String tno;
+	private Teacher teacher;
 	
-	public CourseTongXuan(){}
-
-	
-	
-	@Override
-	public String toString() {
-		return "CourseTongXuan [id=" + id + ", cno=" + cno + ", cname=" + cname + ", ctype=" + ctype + ", ctime=" + ctime
-				+ ", credit=" + credit + ", total=" + total + ", margin=" + margin + ", tno=" + tno + "]";
+	public CourseTongXuan() {
+		// TODO Auto-generated constructor stub
 	}
 
-
+	
 
 	public CourseTongXuan(Integer id, String cno, String cname, String ctype, String ctime, Integer credit, Integer total,
-			Integer margin, String tno) {
+			Integer margin, String tno, Teacher teacher) {
 		super();
 		this.id = id;
 		this.cno = cno;
@@ -38,17 +31,30 @@ public class CourseTongXuan {
 		this.total = total;
 		this.margin = margin;
 		this.tno = tno;
+		this.teacher = teacher;
 	}
 
 
 
-	public String getCname() {
-		return cname;
+	@Override
+	public String toString() {
+		return "CourseTongXuan [id=" + id + ", cno=" + cno + ", cname=" + cname + ", ctype=" + ctype + ", ctime=" + ctime
+				+ ", credit=" + credit + ", total=" + total + ", margin=" + margin + ", tno=" + tno + ", teacher=" + teacher
+				+ "]";
 	}
 
-	public void setCname(String cname) {
-		this.cname = cname;
+
+
+	public String getTno() {
+		return tno;
 	}
+
+
+
+	public void setTno(String tno) {
+		this.tno = tno;
+	}
+
 
 
 	public Integer getId() {
@@ -65,6 +71,14 @@ public class CourseTongXuan {
 
 	public void setCno(String cno) {
 		this.cno = cno;
+	}
+
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
 	}
 
 	public String getCtype() {
@@ -107,12 +121,12 @@ public class CourseTongXuan {
 		this.margin = margin;
 	}
 
-	public String getTno() {
-		return tno;
+	public Teacher getTeacher() {
+		return teacher;
 	}
 
-	public void setTno(String tno) {
-		this.tno = tno;
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
 	}
 	
 	
