@@ -14,6 +14,7 @@
 		<result column="cno" property="cno"/>
 		<result column="cname" property="cname" />
 		<result column="ctime" property="ctime" />
+		<result column="ctype" property="ctype"/>
 		<result column="credit" property="credit" />
 		<result column="total" property="total" />
 		<result column="margin" property="margin" />
@@ -30,10 +31,10 @@
 	</resultMap>
 	
 	<select id="findAllCourseTongXuan" resultMap="courseTongXuanResult" >
-		select c.*,t.* ,d.*
+		SELECT c.*,t.*,d.*
 		from coursetongxuan c
-		LEFT JOIN teacher t on c.tno = t.tno
-		LEFT JOIN department d on t.departmentNo = d.departmentNo
+		LEFT JOIN teacher t on c.tno = CONVERT(t.tno USING utf8) COLLATE utf8_unicode_ci
+		left join department d on t.departmentNo = CONVERT(d.departmentNo USING utf8) COLLATE utf8_unicode_ci
 
 	</select>
 	

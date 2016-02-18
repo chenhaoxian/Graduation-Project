@@ -10,7 +10,6 @@ public class CourseTongXuan {
 	private Integer credit;
 	private Integer total;
 	private Integer margin;
-	private String tno;
 	private Teacher teacher;
 	
 	public CourseTongXuan() {
@@ -19,8 +18,8 @@ public class CourseTongXuan {
 
 	
 
-	public CourseTongXuan(Integer id, String cno, String cname, String ctype, String ctime, Integer credit, Integer total,
-			Integer margin, String tno, Teacher teacher) {
+	public CourseTongXuan(Integer id, String cno, String cname, String ctype, String ctime, Integer credit,
+			Integer total, Integer margin, Teacher teacher) {
 		super();
 		this.id = id;
 		this.cno = cno;
@@ -30,7 +29,6 @@ public class CourseTongXuan {
 		this.credit = credit;
 		this.total = total;
 		this.margin = margin;
-		this.tno = tno;
 		this.teacher = teacher;
 	}
 
@@ -38,21 +36,9 @@ public class CourseTongXuan {
 
 	@Override
 	public String toString() {
-		return "CourseTongXuan [id=" + id + ", cno=" + cno + ", cname=" + cname + ", ctype=" + ctype + ", ctime=" + ctime
-				+ ", credit=" + credit + ", total=" + total + ", margin=" + margin + ", tno=" + tno + ", teacher=" + teacher
+		return "CourseTongXuan [id=" + id + ", cno=" + cno + ", cname=" + cname + ", ctype=" + ctype + ", ctime="
+				+ ctime + ", credit=" + credit + ", total=" + total + ", margin=" + margin + ", teacher=" + teacher
 				+ "]";
-	}
-
-
-
-	public String getTno() {
-		return tno;
-	}
-
-
-
-	public void setTno(String tno) {
-		this.tno = tno;
 	}
 
 

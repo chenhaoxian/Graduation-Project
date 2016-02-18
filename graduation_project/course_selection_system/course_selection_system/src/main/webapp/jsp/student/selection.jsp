@@ -177,7 +177,7 @@
 									<td><input value="选择" type="button" class="button button-glow button-rounded "/></td>
 									<td>${courseTongXuan.ctime }</td>
 									<td>
-										<button class="button button-glow button-rounded " onclick="show_teacher(${courseTongXuan.tno })">${courseTongXuan.cname }</button>
+										<button class="button button-glow button-rounded " onclick="show_teacher('${courseTongXuan.teacher.tname}','${courseTongXuan.teacher.department.departmentName }')">${courseTongXuan.cname }</button>
 									</td>
 									<td>${courseTongXuan.ctype }</td>
 									<td>${courseTongXuan.credit }</td>
@@ -197,7 +197,7 @@
 					
 						<!-- <button class="button button-glow button-rounded button-raised button-primary " disabled="true"><span aria-hidden="true">&laquo;</span></button> -->
 						<button id="btn_previous" class="button button-glow button-rounded button-raised button-primary">Previous</button>
-            <button  id="btn_next" class="button button-glow button-rounded button-raised button-primary">Next</button>
+            			<button  id="btn_next" class="button button-glow button-rounded button-raised button-primary">Next</button>
             <!-- <button  class="button button-glow button-rounded button-raised button-primary"><span aria-hidden="true">&raquo;</span></button> -->
 
 			    </div>
@@ -259,6 +259,10 @@
 <!-- 当需要使用带下拉菜单的按钮时才需要加载下面的 JavaScript 文件 -->
 <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 
+<!-- 显示老师信息 -->
+<!-- <script type="text/javascript" src="${pageContext.request.contextPath}/res/chx/js/showTeacher.js"></script> -->
+
+<!-- grumble 插件 -->
 <script src="${pageContext.request.contextPath}/res/chx/js/jquery.grumble.min.js?v=7"></script>
 
 <script type="text/javascript">
@@ -335,6 +339,11 @@
 		
 	});
 	
+	function show_teacher(teacherName,departmentName){
+		alert('授课老师:'+teacherName+' , 学院：'+departmentName);
+
+	}
+
 </script>
 
 

@@ -10,6 +10,6 @@ import tk.mybatis.mapper.common.MySqlMapper;
  * 我自己的泛型Mapper接口类
  * @param <T>
  */
-public interface MyMapper<T> extends Mapper<T> , MySqlMapper<T> {
+public interface MyMapper<T> extends Mapper<T> , MySqlMapper<T> { 
 
 }

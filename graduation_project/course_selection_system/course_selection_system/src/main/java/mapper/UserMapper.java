@@ -26,7 +26,7 @@ public interface UserMapper {
 	Teacher findTeacherByTno(String tno);
 	Admin findAdminByAid(String aid);
 	
-	//List<CourseTongXuan> findCourseTongXuanByTno(@Param("tno")String tno, @Param("page")int page, @Param("rows")int rows);
+	List<CourseTongXuan> findCourseTongXuanByTno(@Param("tno")String tno, @Param("page")int page, @Param("rows")int rows);
 	
 	
 }

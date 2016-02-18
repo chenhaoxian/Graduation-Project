@@ -56,11 +56,11 @@ public class UserOperationServiceImpl implements UserOperationService{
 		System.out.println(msg);
 	}
 
-//	@Override
-//	public List<CourseTongXuan> findCourseTongXuanByTno(@Param("tno")String tno, @Param("page")int page, @Param("rows")int rows) {
-//		
-//		PageHelper.startPage(page,rows);
-//		return userMapper.findCourseTongXuanByTno(tno, page, rows);
-//	}
+	@Override
+	public List<CourseTongXuan> findCourseTongXuanByTno(@Param("tno")String tno, @Param("page")int page, @Param("rows")int rows) {
+		
+		PageHelper.startPage(page,rows);
+		return userMapper.findCourseTongXuanByTno(tno, page, rows);
+	}
 
 }
