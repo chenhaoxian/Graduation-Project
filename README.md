@@ -8,7 +8,7 @@
 
 ▇ 运用spring4 对泛型Mapper 的注入
 
-▇ 前端 使用 Bootstrap + Jquery + CSS + Jsp + Sco.js
+▇ 前端 使用 Bootstrap + Jquery + CSS + Jsp + Sco + Angular
 
 ▇ 服务器 Tomcat7 
 
