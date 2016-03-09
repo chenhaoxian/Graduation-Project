@@ -20,7 +20,7 @@ public class SearchHelper {
 	
 	public void findCourseNameForAutoComplete(JspWriter out, String partialName) throws IOException{
 		Tool.print("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		List<String> courseNames = monitorSearchService.searchAutoCompleteName(partialName);
+		List<String> courseNames = monitorSearchService.searchAutoCompleteName();
 		Tool.print(courseNames.size());
 		populateData(out, courseNames);
 	}
