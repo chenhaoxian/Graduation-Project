@@ -29,7 +29,7 @@ public class StudentController {
 	
 	@RequestMapping("findAllCourseTongXuan")
 	public String showCourseTongXuan(@RequestParam(required = false, defaultValue = "1")Integer page,
-			@RequestParam(required = false, defaultValue = "2")Integer rows,
+			@RequestParam(required = false, defaultValue = "5")Integer rows,
 			@RequestParam(required = false, defaultValue = "0")Integer pages,
 			Model model,
 			@RequestParam(required = false, defaultValue = "0")boolean flag){
