@@ -73,12 +73,9 @@
 		where s.sno = #{sno}
 	 </select>
 	 
-	 
 	 <select id="findCourseTongXuanByTno" resultMap="courseTongXuanResult">
 	 	select * from courseTongXuan
 	 	where tno = #{tno}
 	 </select>
-	 
-	 
 
 </mapper>

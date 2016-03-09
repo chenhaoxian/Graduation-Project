@@ -2,21 +2,43 @@ package model;
 
 public class Teacher {
 	
-	private int id ;
-	private String tname;
 	private String tno;
-	private String departmentno;
+	private String tname;
 	private String password;
-	private int usertype;
+	private Department department;
 	
-	public Teacher(){}
+	public Teacher() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 
-	public int getId() {
-		return id;
+
+	@Override
+	public String toString() {
+		return "Teacher [tno=" + tno + ", tname=" + tname + ", password=" + password + ", department=" + department + "]";
 	}
 
-	public void setId(int id) {
-		this.id = id;
+
+
+
+	public Teacher(String tno, String tname, String password, Department department) {
+		super();
+		this.tno = tno;
+		this.tname = tname;
+		this.password = password;
+		this.department = department;
+	}
+
+
+
+
+	public String getTno() {
+		return tno;
+	}
+
+	public void setTno(String tno) {
+		this.tno = tno;
 	}
 
 	public String getTname() {
@@ -27,22 +49,6 @@ public class Teacher {
 		this.tname = tname;
 	}
 
-	public String getTno() {
-		return tno;
-	}
-
-	public void setTno(String tno) {
-		this.tno = tno;
-	}
-
-	public String getDepartmentno() {
-		return departmentno;
-	}
-
-	public void setDepartmentno(String departmentno) {
-		this.departmentno = departmentno;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -51,29 +57,14 @@ public class Teacher {
 		this.password = password;
 	}
 
-	public int getUsertype() {
-		return usertype;
+	public Department getDepartment() {
+		return department;
 	}
 
-	public void setUsertype(int usertype) {
-		this.usertype = usertype;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
-
-	public Teacher(int id, String tname, String tno, String departmentno, String password, int usertype) {
-		super();
-		this.id = id;
-		this.tname = tname;
-		this.tno = tno;
-		this.departmentno = departmentno;
-		this.password = password;
-		this.usertype = usertype;
-	}
-
-	@Override
-	public String toString() {
-		return "Teacher [id=" + id + ", tname=" + tname + ", tno=" + tno + ", departmentno=" + departmentno + ", password="
-				+ password + ", usertype=" + usertype + "]";
-	}
+	
 	
 	
 

@@ -10,18 +10,32 @@
 
 <mapper namespace="mapper.StudentMapper">
 	<resultMap type="CourseTongXuan" id="courseTongXuanResult">
-		<id column="id" property="id" jdbcType="INTEGER"/>
-		<result column="cno" property="cno" jdbcType="VARCHAR"/>
-		<result column="cname" property="cname" jdbcType="VARCHAR"/>
-		<result column="ctime" property="ctime" jdbcType="VARCHAR"/>
-		<result column="credit" property="credit" jdbcType="INTEGER"/>
-		<result column="total" property="total" jdbcType="INTEGER"/>
-		<result column="margin" property="margin" jdbcType="INTEGER"/>
-		<result column="tno" property="tno" jdbcType="VARCHAR"/>
+		<id column="id" property="id" />
+		<result column="cno" property="cno"/>
+		<result column="cname" property="cname" />
+		<result column="ctime" property="ctime" />
+		<result column="ctype" property="ctype"/>
+		<result column="credit" property="credit" />
+		<result column="total" property="total" />
+		<result column="margin" property="margin" />
+		<association property="teacher" javaType="Teacher">
+			<id property="tno" column="tno"/>
+			<result property="tname" column="tname"/>
+			<result property="password" column="password"/>
+			<association property="department" javaType="Department">
+				<id property="departmentNo" column="departmentNo"/>
+				<result property="departmentName" column="departmentName"/>
+			</association>
+
+		</association>
 	</resultMap>
 	
-	<select id="findAllCourseTongXuan" resultMap="courseTongXuanResult" statementType="CALLABLE">
-		select * from courseTongXuan
+	<select id="findAllCourseTongXuan" resultMap="courseTongXuanResult" >
+		SELECT c.*,t.*,d.*
+		from coursetongxuan c
+		LEFT JOIN teacher t on c.tno = CONVERT(t.tno USING utf8) COLLATE utf8_unicode_ci
+		left join department d on t.departmentNo = CONVERT(d.departmentNo USING utf8) COLLATE utf8_unicode_ci
+
 	</select>
 	
 	<select id="countCourseTongXuan" resultType="int" statementType="CALLABLE">

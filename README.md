@@ -8,7 +8,7 @@
 
 ▇ 运用spring4 对泛型Mapper 的注入
 
-▇ 前端 使用 Bootstrap + Jquery + CSS + Jsp 
+▇ 前端 使用 Bootstrap + Jquery + CSS + Jsp + Sco + Angular
 
 ▇ 服务器 Tomcat7 
 
@@ -31,6 +31,8 @@
 
 ▓ 删除分页代码，改用Mybatis分页插件，PageHelper.startPage(page,rows); 一句搞定，十分强大。
 
-▓ 只想说Mysql的存储过程贼恶心。
+▓ shiro
 
 ▓ http://www.ngrok.cc/ 手机端访问web项目
+
+

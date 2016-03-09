@@ -14,8 +14,11 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/buttons.css">
   <!-- grumble -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/grumble.min.css">
+	
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/student/autocomplete.css" >
   <!-- 只有使用字体图标时才需要加�Font-Awesome -->
   <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  
   
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
@@ -153,21 +156,34 @@
 					<div><span class="label">Select Course</span></div>
 				</div>
 
+				<div class="g_12 contents_header">
+					<div>
+						<table>
+							<tr id="course_name_table_tr">
+								<td class="labelText">课程名：</td>
+								<td><input type="text" class="form-control" id="courseName" size="50"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				
+
 
 				<div class="g_12 separator"><span></span></div>
 
    <!-- =======================================所有课程信息表=====start======================= -->
 				<div class="g_12">
-					<table class="tables datatable noObOLine">
+					<table class="tables">
 						<thead>
-							<tr>
-								<th>操作</th>
-								<th>上课时间</th>
-								<th>课程名</th>
-								<th>课程类型</th>
-								<th>学分</th>
-								<th>人数</th>
-								<th>已选人数</th>
+							<tr class="success">
+								<th class="success">操作</th>
+								<th class="success">上课时间</th>
+								<th class="success">课程名</th>
+								<th class="success">课程类型</th>
+								<th class="success">学分</th>
+								<th class="success">人数</th>
+								<th class="success">已选人数</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -177,7 +193,7 @@
 									<td><input value="选择" type="button" class="button button-glow button-rounded "/></td>
 									<td>${courseTongXuan.ctime }</td>
 									<td>
-										<button class="button button-glow button-rounded " onclick="show_teacher(${courseTongXuan.tno })">${courseTongXuan.cname }</button>
+										<button class="button button-glow button-rounded " onclick="show_teacher('${courseTongXuan.teacher.tname}','${courseTongXuan.teacher.department.departmentName }')">${courseTongXuan.cname }</button>
 									</td>
 									<td>${courseTongXuan.ctype }</td>
 									<td>${courseTongXuan.credit }</td>
@@ -199,7 +215,6 @@
 						<button id="btn_previous" class="button button-glow button-rounded button-raised button-primary">Previous</button>
             <button  id="btn_next" class="button button-glow button-rounded button-raised button-primary">Next</button>
             <!-- <button  class="button button-glow button-rounded button-raised button-primary"><span aria-hidden="true">&raquo;</span></button> -->
-
 			    </div>
 					
 					
@@ -208,7 +223,7 @@
 					</div>
 					
 <!-- =======================================所有课程信息表=====end======================================= -->
-				
+
 				
 				
 			</div>
@@ -218,15 +233,21 @@
 	
 <div class="g_12 separator"><span></span></div>
 
+
+
+
+
+
+
+
+
+
+
 <!-- js -->
   
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/res/js/secondpage/jQuery/jquery-1.7.2.min.js"></script>
-<!-- Flot -->
-<script src="${pageContext.request.contextPath}/res/js/secondpage/secondpage/Flot/jquery.flot.js"></script>
-<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/jquery.flot.resize.js"></script>
-<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/jquery.flot.pie.js"></script>
 <!-- DataTables -->
 <script src="${pageContext.request.contextPath}/res/js/secondpage/DataTables/jquery.dataTables.min.js"></script>
 <!-- ColResizable -->
@@ -256,45 +277,14 @@
 <!-- Kanrisha Script -->
 <script src="${pageContext.request.contextPath}/res/js/secondpage/kanrisha.js"></script>
 
-<!-- 当需要使用带下拉菜单的按钮时才需要加载下面的 JavaScript 文件 -->
-<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 
+<!-- grumble 插件 -->
 <script src="${pageContext.request.contextPath}/res/chx/js/jquery.grumble.min.js?v=7"></script>
+<script src="${pageContext.request.contextPath}/res/chx/js/student/jquery.autocomplete.min.js"></script>
 
 <script type="text/javascript">
 	
 	$(function(){ 
-		$('#btn_next').click(function(){
-
-			var page = <%=request.getAttribute("page")%> ;
-			var pages = <%=request.getAttribute("pages") %>;
-			
-			if(page<pages){
-				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}'; 
-				window.location.href = str;
-			}else{
-				var $me = $(this), interval;
-				$me.grumble(
-					{
-						angle: 130,
-						text: '已经最后一页了!',
-						type: 'alt-', 
-						distance: -10,
-						hideOnClick: true,
-						onShow: function(){
-							var angle = 130, dir = 1;
-							interval = setInterval(function(){
-								(angle > 220 ? (dir=-1, angle--) : ( angle < 130 ? (dir=1, angle++) : angle+=dir));
-								$me.grumble('adjust',{angle: angle});
-							},25);
-						},
-						onHide: function(){
-							clearInterval(interval);
-						}
-					}
-				);
-			}
-		});
 		
 		$('#btn_previous').click(function(){
 			var page = <%=request.getAttribute("page")%> ;
@@ -311,6 +301,7 @@
 						text: '已经是第一页了!',
 						type: 'alt-', 
 						distance: -10,
+						hideAfter: 2000,
 						hideOnClick: true,
 						onShow: function(){
 							var angle = 130, dir = 1;
@@ -326,9 +317,51 @@
 				);
 			}	
 		});
+		
+		
+		
+		$('#btn_next').click(function(){
+
+			var page = <%=request.getAttribute("page")%> ;
+			var pages = <%=request.getAttribute("pages") %>;
+			
+			if(page<pages){
+				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}'; 
+				window.location.href = str;
+			}else{
+				var $me = $(this), interval;
+				$me.grumble(
+					{
+						angle: 130,
+						text: '已经最后一页了!',
+						type: 'alt-', 
+						distance: -10,
+						hideAfter: 2000,
+						hideOnClick: true,
+						onShow: function(){
+							var angle = 130, dir = 1;
+							interval = setInterval(function(){
+								(angle > 220 ? (dir=-1, angle--) : ( angle < 130 ? (dir=1, angle++) : angle+=dir));
+								$me.grumble('adjust',{angle: angle});
+							},25);
+						},
+						onHide: function(){
+							clearInterval(interval);
+						}
+					}
+				);
+			}
+		});
+		
+		
 	});
 	
+	
+	
+
 </script>
+
+<script src="${pageContext.request.contextPath}/res/chx/js/student/selection.js"></script>
  
 </body>
 </html>
