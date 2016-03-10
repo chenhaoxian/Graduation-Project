@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import mapper.SearchHelpMapper;
+import model.CourseTongXuan;
 import service.MonitorSearchService;
 
 @Service("monitorSearchService")
@@ -18,6 +19,13 @@ public class SearchHelperServiceImpl implements MonitorSearchService {
 	public List<String> searchAutoCompleteName() {
 		List<String> list = searchHelpMapper.searchAutoCompleteName();
 		return list;
+	}
+
+	@Override
+	public CourseTongXuan searchCourseByCourseName(String courseName) {
+		CourseTongXuan courseTongXuan = new CourseTongXuan();
+		courseTongXuan = searchHelpMapper.searchCourseByCourseName(courseName);
+		return courseTongXuan;
 	}
 
 }

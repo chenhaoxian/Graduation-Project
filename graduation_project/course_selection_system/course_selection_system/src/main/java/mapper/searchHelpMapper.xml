@@ -9,4 +9,12 @@
 		select cname from courseTongxuan;
 	</select>
 	
+	<select id="searchCourseByCourseName" resultMap="mapper.StudentMapper.courseTongXuanResult">
+		SELECT c.*,t.*,d.*
+		from coursetongxuan c
+		LEFT JOIN teacher t on c.tno = CONVERT(t.tno USING utf8) COLLATE utf8_unicode_ci
+		left join department d on t.departmentNo = CONVERT(d.departmentNo USING utf8) COLLATE utf8_unicode_ci
+		where cname = #{courseName};
+	</select>
+	
 </mapper>
