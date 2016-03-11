@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-02-03 16:19:03
+Date: 2016-03-11 16:37:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -92,16 +92,20 @@ INSERT INTO `coursetongxuan` VALUES ('2', 'TX2', '通选课2', '自然科学', '
 INSERT INTO `coursetongxuan` VALUES ('3', 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '0', '1');
 INSERT INTO `coursetongxuan` VALUES ('4', 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '0', '1');
 INSERT INTO `coursetongxuan` VALUES ('5', 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
+INSERT INTO `coursetongxuan` VALUES ('6', 'TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
+INSERT INTO `coursetongxuan` VALUES ('7', 'TX8', '通选课8', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
+INSERT INTO `coursetongxuan` VALUES ('8', 'TX9', '通选课9', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
+INSERT INTO `coursetongxuan` VALUES ('9', 'TX10', 'TTTTTSTAG', 'TEST', 'TEST', '2', '33', '2', '1');
 
 -- ----------------------------
 -- Table structure for credit
 -- ----------------------------
 DROP TABLE IF EXISTS `credit`;
 CREATE TABLE `credit` (
-  `required` int(11) DEFAULT NULL,
   `selected` int(11) DEFAULT NULL,
-  `common` int(11) DEFAULT NULL,
   `sno` varchar(20) DEFAULT NULL,
+  `success` int(11) DEFAULT '0',
+  `ongoing` int(11) DEFAULT '0',
   KEY `fk_credit_student` (`sno`),
   CONSTRAINT `fk_credit_student` FOREIGN KEY (`sno`) REFERENCES `student` (`sno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -109,7 +113,7 @@ CREATE TABLE `credit` (
 -- ----------------------------
 -- Records of credit
 -- ----------------------------
-INSERT INTO `credit` VALUES ('4', '2', '2', '1');
+INSERT INTO `credit` VALUES ('2', '1', '2', '0');
 
 -- ----------------------------
 -- Table structure for department
@@ -151,12 +155,16 @@ INSERT INTO `profession` VALUES ('计算机科学与技术', '2', '1');
 DROP TABLE IF EXISTS `selectcourse`;
 CREATE TABLE `selectcourse` (
   `cno` varchar(20) DEFAULT NULL,
-  `sno` varchar(20) DEFAULT NULL
+  `sno` varchar(20) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  KEY `fk_selectcourse_coursetongxuan` (`cno`),
+  CONSTRAINT `fk_selectcourse_coursetongxuan` FOREIGN KEY (`cno`) REFERENCES `coursetongxuan` (`cno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of selectcourse
 -- ----------------------------
+INSERT INTO `selectcourse` VALUES ('TX1', '1', '已修');
 
 -- ----------------------------
 -- Table structure for student
@@ -180,6 +188,19 @@ CREATE TABLE `student` (
 -- Records of student
 -- ----------------------------
 INSERT INTO `student` VALUES ('1', 'student1', '1', '1', '123', '1', '1');
+
+-- ----------------------------
+-- Table structure for table_test
+-- ----------------------------
+DROP TABLE IF EXISTS `table_test`;
+CREATE TABLE `table_test` (
+  `COLUMN_int` int(11) DEFAULT NULL,
+  `COLUMN_varchar` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of table_test
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for teacher
@@ -340,5 +361,28 @@ prepare stmt from @v_tablename;
 EXECUTE stmt ;
 deallocate prepare stmt;
 END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Function structure for func_find_credit_by_cno
+-- ----------------------------
+DROP FUNCTION IF EXISTS `func_find_credit_by_cno`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `func_find_credit_by_cno`(p_cno varchar(30)) RETURNS int(11)
+BEGIN
+declare credit int;
+declare temp int ;
+select credit into temp from coursetongxuan where cno = p_cno;
+set credit = temp;
+RETURN credit;
+end
+;;
+DELIMITER ;
+DROP TRIGGER IF EXISTS `tri_update_selectcourse`;
+DELIMITER ;;
+CREATE TRIGGER `tri_update_selectcourse` AFTER UPDATE ON `selectcourse` FOR EACH ROW BEGIN
+
+end
 ;;
 DELIMITER ;

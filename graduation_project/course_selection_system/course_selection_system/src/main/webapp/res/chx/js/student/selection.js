@@ -25,7 +25,7 @@ Selection.prototype.init = function(){
 	var self = this;
 //	$('#courseName').autocomplete("${pageContext.request.contextPath}/jsp/student/course_name.jsp",self.courseNameOption);
 
-	$('#course_data_table tr:odd').css('background-color', '#CCFF99');
+	$('#course_data_table tr:odd').css('background-color', '#CCCCCC');
 	$('#course_data_table tr:even').css('background-color','');
 	$("#course_data_table tr:odd").addClass("odd");
 	$("#course_data_table tr:even").addClass("even");
