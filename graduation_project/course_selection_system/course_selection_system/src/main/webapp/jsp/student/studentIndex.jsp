@@ -143,10 +143,11 @@
 				</li>
 				<li class="i_32_ui">
 					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" title="Your Messages">
-						<span class="tab_label">通选选课</span>
+						<span class="tab_label">选课</span>
 						<span class="tab_info">Select course</span>
 					</a>
 				</li>
+				<!-- 
 				<li class="i_32_charts">
 					<a href="charts.html" title="Visual Data">
 						<span class="tab_label">Charts</span>
@@ -171,6 +172,7 @@
 						<span class="tab_info">Some Fields</span>
 					</a>
 				</li>
+				 -->
 			</ul>
 		</aside>
 		<!-- ==================侧边栏目    end ===================================================================== -->

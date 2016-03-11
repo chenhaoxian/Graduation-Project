@@ -116,20 +116,15 @@
 				</li>
 				<li class="active_tab i_32_ui">
 					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" title="Your Messages">
-						<span class="tab_label">通选选课</span>
+						<span class="tab_label">选课</span>
 						<span class="tab_info">Select Course</span>
 					</a>
 				</li>
+				<!-- 
 				<li class="i_32_charts">
 					<a href="charts.html" title="Visual Data">
 						<span class="tab_label">Charts</span>
 						<span class="tab_info">Visual Data</span>
-					</a>
-				</li>
-				<li class="i_32_ui">
-					<a href="ui.html" title="Kit elements">
-						<span class="tab_label">UI</span>
-						<span class="tab_info">Kit elements</span>
 					</a>
 				</li>
 				<li class="i_32_tables">
@@ -144,6 +139,7 @@
 						<span class="tab_info">Some Fields</span>
 					</a>
 				</li>
+				 -->
 			</ul>
 		</aside>
 		<!-- ==================侧边栏目    end ===================================================================== -->
@@ -160,8 +156,11 @@
 					<div>
 						<table>
 							<tr id="course_name_table_tr">
-								<td class="labelText">课程名：</td>
-								<td><input type="text" class="form-control" id="courseName" size="50"></td>
+								<td class="labelText"><h3 class="tab_label">课程名：</h3></td>
+								<td width="2%">&nbsp;</td>
+								<td ><input type="text" class="form-control" id="courseName" size="50"></td>
+								<td width="2%">&nbsp;</td>
+								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_course">search</button></td>
 							</tr>
 						</table>
 					</div>
@@ -176,7 +175,7 @@
 				<div class="g_12">
 					<table class="tables">
 						<thead>
-							<tr class="success">
+							<tr class="success" >
 								<th class="success">操作</th>
 								<th class="success">上课时间</th>
 								<th class="success">课程名</th>
@@ -186,7 +185,7 @@
 								<th class="success">已选人数</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="course_data_table">
 						
 							<c:forEach items="${courseTongXuanList }" var="courseTongXuan" varStatus="vs">
 								<tr>

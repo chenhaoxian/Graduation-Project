@@ -25,14 +25,15 @@
 
 
 
-#      记录开发日常
+#      开发日常
 
-▓ 弃用通用Mapper,原因： 在开发过程中，调用selectByExample(example); 报空指针异常，网上文档太少，原因不明。
 
-▓ 删除分页代码，改用Mybatis分页插件，PageHelper.startPage(page,rows); 一句搞定，十分强大。
+▓ 删除分页代码，改用Mybatis分页插件，PageHelper.startPage(page,rows)。
 
 ▓ shiro
 
 ▓ http://www.ngrok.cc/ 手机端访问web项目
+
+▓ 在线源码：http://www.boyunjian.com/javasrc/org.eclipse.persistence/org.eclipse.persistence.core/2.5.2-M1/_/org/eclipse/persistence/expressions/Expression.java
 
 

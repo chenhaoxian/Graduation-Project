@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.CourseTongXuan;
 import service.MonitorSearchService;
 import util.CollectionUtil;
 import util.Tool;
@@ -37,6 +38,19 @@ public class SearchHelperController {
 		List<String> courseNames = monitorSearchService.searchAutoCompleteName();
 		return courseNames;
 	}
+	
+	
+	@RequestMapping("searchCourseByCourseName")
+	@ResponseBody
+	public CourseTongXuan searchCourseByCourseName(String courseName){
+		
+		CourseTongXuan courseTongXuan = new CourseTongXuan();
+		courseTongXuan = monitorSearchService.searchCourseByCourseName(courseName);
+		return courseTongXuan;
+	}
+	
+	
+	
 	
 	
 	private void populateData(JspWriter out, List<String> names) throws IOException{
