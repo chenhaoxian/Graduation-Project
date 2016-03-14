@@ -219,31 +219,35 @@
 				<div class="g_12 separator"><span></span></div>
 
 				<!-- Quick Statistics -->
+				<!-- 
 				<div class="g_3 quick_stats">
 					<div class="big_stats visitor_stats">
 						${sessionScope.student.credit.required }
 					</div>
 					<h5 class="stats_info">必修学分</h5>
 				</div>
+				 -->
 				<div class="g_3 quick_stats">
 					<div class="big_stats tickets_stats">
 						${sessionScope.student.credit.selected }
 					</div>
-					<h5 class="stats_info">限选学分</h5>
+					<h5 class="stats_info">已选学分</h5>
 				</div>
+				<!-- 
 				<div class="g_3 quick_stats">
 					<div class="big_stats users_stats">
 						${sessionScope.student.credit.common }
 					</div>
 					<h5 class="stats_info">通选学分</h5>
 				</div>
+				
 				<div class="g_3 quick_stats">
 					<div class="big_stats orders_stats">
 						${sessionScope.student.credit.required +sessionScope.student.credit.selected+sessionScope.student.credit.common}
 					</div>
 					<h5 class="stats_info">已选学分</h5>
 				</div>
-				
+				 -->
 				<!-- Separator -->
 				<div class="g_12 separator"><span></span></div>
 				

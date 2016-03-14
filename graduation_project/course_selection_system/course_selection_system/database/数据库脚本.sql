@@ -106,6 +106,11 @@ update profession set departmentNo = '1' where professionNo = '1';
 select * from department;
 
 
+alter table selectcourse add constraint fk_selectcourse_coursetongxuan foreign key(cno) REFERENCES coursetongxuan(cno);
+select * from selectcourse;
+desc selectcourse;
+
+
 select * from student;
 desc profession;
 select * from profession;
@@ -233,7 +238,7 @@ select * from courseTongXuan;
 insert into courseTongXuan (cno,cname,ctype,ctime,credit,total,margin,tno) 
 values ('TX6','通选课6','自然科学','周一 10:00--11:30',2,50,0,'1');
 
---�?course 表数�?复制�?courseTongXuan
+--尿course 表数捿复制刿courseTongXuan
 insert into courseTongXuan (select * from course); 
 
 
@@ -291,8 +296,10 @@ end;
 
 SELECT * from coursetongxuan;
 
-
+desc coursetongxuan;
 select * from teacher;
+desc teacher;
+desc department;
 
 create PROCEDURE pro_findTeacherByTno(in p_tno varchar(50) )
 BEGIN
@@ -305,3 +312,147 @@ select t.tname ,d.departmentName
 from teacher t
 left JOIN department d on t.departmentNo = d.departmentNo
 where t.tno='1';
+
+select * from department;
+
+select * from profession;
+desc profession;
+insert into profession VALUES('计算机科学与技术','2','1');
+
+select * from teacher;
+desc teacher;
+desc coursetongxuan;
+
+select * from department;
+drop table teacher;
+alter table teacher CHANGE id id int(10);
+alter table teacher drop PRIMARY KEY;
+alter table teacher drop COLUMN id;
+alter table teacher change tno tno varchar(30);
+alter table teacher drop column tno;
+alter table teacher add PRIMARY KEY (tno);
+select * from coursetongxuan;
+desc coursetongxuan;
+drop FOREIGN key fk_coursetongxuan_teacher;
+alter table coursetongxuan drop FOREIGN KEY fk_coursetongxuan_teacher;
+
+
+
+select c.*,t.* ,d.*
+from coursetongxuan c
+LEFT JOIN teacher t on c.tno = t.tno
+LEFT JOIN department d on t.departmentNo = d.departmentNo
+
+desc student;
+select * from credit;
+desc credit;
+
+
+select s.* ,p.* , d.* , c.*
+		from student s
+		left join profession p 
+		on s.professionno = p.professionNo
+		left join department d 
+		on p.departmentNo = d.departmentNo
+		left join credit c
+		on s.sno = c.sno;
+
+select * from teacher;
+
+desc coursetongxuan;
+
+select * from coursetongxuan;
+insert into coursetongxuan VALUES (6,'TX7','通选课7','自然科学','周二 10:00--11：30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX8','通选课8','自然科学','周二 14:00--15：30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX9','通选课9','自然科学','周二 16:00--17：30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX10','通选课10','自然科学','周三 10:00--11：30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX11','通选课11','自然科学','周三 14:00--15：30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX12','通选课12','自然科学','周四 10:00--11：30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX13','通选课13','自然科学','周二 10:00--11：30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX14','通选课14','自然科学','周二 10:00--11：30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno) values('TX10','tongxuan','test','周二 10:00--11：30',2,50,0,'1');
+
+
+select cname from courseTongxuan;
+
+select * from credit;
+select * from selectcourse;
+desc selectcourse;
+desc credit;
+insert into selectcourse (cno,sno) values('TX1','1');
+SELECT * FROM STUDENT;
+
+select * from selectcourse;
+select * from coursetongxuan;
+select * from student;
+
+
+
+ALTER table credit drop COLUMN required ;
+
+alter table credit drop COLUMN common;
+
+select c.*,t.*
+from selectcourse s
+LEFT JOIN coursetongxuan c on s.cno = c.cno
+LEFT JOIN teacher t on c.tno = t.tno
+where s.sno = '1';
+
+select * from selectcourse;
+update  selectcourse set status = '已修' where sno = '1';
+alter table selectcourse add COLUMN status varchar(10);
+
+select * from credit;
+alter table credit add COLUMN success int DEFAULT 0;
+alter table credit add COLUMN ongoing int DEFAULT 0;
+update credit set success = 2 ;
+
+create PROCEDURE pro_update_credit(in p_sno varchar(50),in p_status varchar(10))
+BEGIN
+if(p_status == '已修')
+then 
+	update credit set success = success + 2
+
+select * from coursetongxuan;
+
+create FUNCTION func_find_credit_by_cno(p_cno varchar(30))
+RETURNS int 
+BEGIN
+declare credit int;
+declare temp int ;
+select credit into temp from coursetongxuan where cno = p_cno;
+set credit = temp;
+RETURN credit;
+end;
+
+create table table_test(
+COLUMN_int int,
+COLUMN_varchar varchar(100)
+)
+
+create PROCEDURE pro_update_credit(in )
+
+
+create TRIGGER tri_update_selectcourse
+after update on selectcourse
+for each ROW
+BEGIN
+
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

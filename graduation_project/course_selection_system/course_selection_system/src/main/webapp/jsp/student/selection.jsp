@@ -127,12 +127,14 @@
 						<span class="tab_info">Visual Data</span>
 					</a>
 				</li>
+				-->
 				<li class="i_32_tables">
 					<a href="tables.html" title="Some Rows">
-						<span class="tab_label">Tables</span>
-						<span class="tab_info">Some Rows</span>
+						<span class="tab_label">查看课程</span>
+						<span class="tab_info">Show Courses</span>
 					</a>
 				</li>
+				<!--
 				<li class="i_32_forms">
 					<a href="forms.html" title="Some Fields">
 						<span class="tab_label">Forms</span>
