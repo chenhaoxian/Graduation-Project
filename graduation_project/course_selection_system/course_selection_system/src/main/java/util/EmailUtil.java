@@ -22,7 +22,7 @@ public class EmailUtil {
         // 发件人的账号
         props.put("mail.user", "xiannzb@163.com");
         // 访问SMTP服务时需要提供的密码
-        props.put("mail.password", "xian9266.");
+        props.put("mail.password", "**************");
         
         // 构建授权信息，用于进行SMTP进行身份验证
         Authenticator authenticator = new Authenticator() {
@@ -75,7 +75,7 @@ public class EmailUtil {
 //        transport = mailSession.getTransport("smtp");
 //        
 //        message.saveChanges();
-//        transport.connect("smtp.163.com", "xiannzb", "xian9266.");
+//        transport.connect("smtp.163.com", "xiannzb", "***************");
 //        transport.sendMessage(message, message.getAllRecipients());
 //        transport.close();
 //    	Properties prop = new Properties();
@@ -85,7 +85,7 @@ public class EmailUtil {
 //    	Session session = Session.getInstance(prop);
 //    	session.setDebug(true);
 //    	Transport ts = session.getTransport();
-//    	ts.connect("smtp.163.com", "xiannzb", "xian9266.");
+//    	ts.connect("smtp.163.com", "xiannzb", "***********************");
 //    	MimeMessage message = new MimeMessage(session);
 //    	message.setFrom(new InternetAddress("xiannzb@163.com"));
 //    	message.setRecipient(Message.RecipientType.TO, new InternetAddress("xiannzb@163.com"));
