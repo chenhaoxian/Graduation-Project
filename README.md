@@ -4,7 +4,7 @@
 
 ▇ 项目集成了Mybatis分页插件  
 
-▇ 项目使用的mysql数据库
+▇ 项目使用的mysql数据库，在Linux系统管理数据库。
 
 ▇ 运用spring4 对泛型Mapper 的注入
 
