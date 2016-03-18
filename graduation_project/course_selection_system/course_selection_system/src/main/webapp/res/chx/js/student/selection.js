@@ -103,13 +103,10 @@ Selection.prototype.bindEvent = function(){
 				error : function(){
 					alert("对不起，没有这门课！");
 				}
-			
 			});
-			
 		}
-		
-		
 	});
+	
 }
 
 var Selection_Page = new Selection();
@@ -125,4 +122,10 @@ $(document).ready(function(){
 function show_teacher(teacherName,departmentName){
 	alert('授课老师:'+teacherName+' , 学院：'+departmentName);
 
+}
+
+function selectCourse(cno,sno){
+	$.ajax({
+		
+	});
 }

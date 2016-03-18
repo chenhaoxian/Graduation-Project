@@ -147,6 +147,12 @@
 						<span class="tab_info">Select course</span>
 					</a>
 				</li>
+				<li class="i_32_tables">
+					<a href="${pageContext.request.contextPath}/student/findSelectCourse?sno=${sessionScope.student.sno }" title="Some Rows">
+						<span class="tab_label">查看课程</span>
+						<span class="tab_info">Show Courses</span>
+					</a>
+				</li>
 				<!-- 
 				<li class="i_32_charts">
 					<a href="charts.html" title="Visual Data">

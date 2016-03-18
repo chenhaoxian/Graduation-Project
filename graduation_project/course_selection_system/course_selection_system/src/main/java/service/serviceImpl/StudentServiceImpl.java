@@ -12,6 +12,7 @@ import com.github.pagehelper.PageHelper;
 
 import mapper.StudentMapper;
 import model.CourseTongXuan;
+import model.SelectCourse;
 import service.StudentService;
 
 @Service("studentService")
@@ -41,6 +42,13 @@ public class StudentServiceImpl implements StudentService {
 		int pages = 0;
 		int countCourse ;
 		return 0;
+	}
+
+	@Override
+	public List<SelectCourse> getSelectCourseList(String sno) {
+		List<SelectCourse> selectCourseList = studentMapper.findSelectCourse(sno);
+		
+		return selectCourseList;
 	}
 
 }

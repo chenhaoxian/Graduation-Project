@@ -30,6 +30,14 @@
 		</association>
 	</resultMap>
 	
+	<resultMap type="SelectCourse" id="selectCourseResult">
+		<result column="sno" property="sno"/>
+		<result column="status" property="status"/>
+		<result column="cname" property="courseName"/>
+		<result column="ctime" property="ctime"/>
+		<result column="tname" property="teacherName"/>
+	</resultMap>
+	
 	<select id="findAllCourseTongXuan" resultMap="courseTongXuanResult" >
 		SELECT c.*,t.*,d.*
 		from coursetongxuan c
@@ -40,6 +48,10 @@
 	
 	<select id="countCourseTongXuan" resultType="int" statementType="CALLABLE">
 		call pro_getTableRows('courseTongXuan')
+	</select>
+	
+	<select id="findSelectCourse" resultMap="selectCourseResult" statementType="CALLABLE">
+		call pro_getSelectCourse(#{sno});
 	</select>
 	
 	
