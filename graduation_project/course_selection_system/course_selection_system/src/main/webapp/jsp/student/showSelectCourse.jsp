@@ -114,7 +114,7 @@
 						<span class="tab_info">Person Info</span>
 					</a>
 				</li>
-				<li class="active_tab i_32_ui">
+				<li class="i_32_ui">
 					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" title="Your Messages">
 						<span class="tab_label">选课</span>
 						<span class="tab_info">Select Course</span>
@@ -128,7 +128,7 @@
 					</a>
 				</li>
 				-->
-				<li class="i_32_tables">
+				<li class="active_tab i_32_tables">
 					<a href="${pageContext.request.contextPath}/student/findSelectCourse?sno=${sessionScope.student.sno }" title="Some Rows">
 						<span class="tab_label">查看课程</span>
 						<span class="tab_info">Show Courses</span>
@@ -145,94 +145,43 @@
 			</ul>
 		</aside>
 		<!-- ==================侧边栏目    end ===================================================================== -->
-
+		
+		
 		<div class="contents">
 			<div class="grid_wrapper">
-
-				<div class="g_6 contents_header">
-					<h3 class="i_16_ui tab_label">通选选课</h3>
-					<div><span class="label">Select Course</span></div>
-				</div>
-
-				<div class="g_12 contents_header">
-					<div>
-						<table>
-							<tr id="course_name_table_tr">
-								<td class="labelText"><h3 class="tab_label">课程名：</h3></td>
-								<td width="2%">&nbsp;</td>
-								<td ><input type="text" class="form-control" id="courseName" size="50"></td>
-								<td width="2%">&nbsp;</td>
-								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_course">search</button></td>
-							</tr>
-						</table>
-					</div>
-				</div>
-
-				
-
-
-				<div class="g_12 separator"><span></span></div>
-
-   <!-- =======================================所有课程信息表=====start======================= -->
 				<div class="g_12">
 					<table class="tables">
 						<thead>
 							<tr class="success" >
 								<th class="success">操作</th>
-								<th class="success">上课时间</th>
 								<th class="success">课程名</th>
-								<th class="success">课程类型</th>
-								<th class="success">学分</th>
-								<th class="success">人数</th>
-								<th class="success">已选人数</th>
+								<th class="success">教师名</th>
+								<th class="success">上课时间</th>
+								<th class="success">状态</th>
 							</tr>
 						</thead>
-						<tbody id="course_data_table">
-						
-							<c:forEach items="${courseTongXuanList }" var="courseTongXuan" varStatus="vs">
+						<tbody id="selectCourse_data_table">
+							<c:forEach items="${selectCourseList }" var="selectCourse" varStatus="vs">
 								<tr>
-									<td><input value="选择" type="button" class="button button-glow button-rounded " onclick="selectCourse('${courseTongXuan.cno}','${sessionScope.student.sno }')"/></td>
-									<td>${courseTongXuan.ctime }</td>
-									<td>
-										<button class="button button-glow button-rounded " onclick="show_teacher('${courseTongXuan.teacher.tname}','${courseTongXuan.teacher.department.departmentName }')">${courseTongXuan.cname }</button>
-									</td>
-									<td>${courseTongXuan.ctype }</td>
-									<td>${courseTongXuan.credit }</td>
-									<td>${courseTongXuan.total }</td>
-									<td>${courseTongXuan.margin }</td>
+									<td><c:if test="${selectCourse.status =='在修' }"><input value="退选" type="button" class="button button-glow button-rounded " style="width: 100%"/></c:if></td>
+									<td>${selectCourse.courseName }</td>
+									<td>${selectCourse.teacherName }</td>
+									<td>${selectCourse.ctime }</td>
+									<td>${selectCourse.status }</td>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 					
-
-					
-					<!-- =========================分页区域  start========================================================================== -->
-					
-					
-					<div class="g_12" align="center">
-					
-						<!-- <button class="button button-glow button-rounded button-raised button-primary " disabled="true"><span aria-hidden="true">&laquo;</span></button> -->
-						<button id="btn_previous" class="button button-glow button-rounded button-raised button-primary">Previous</button>
-            <button  id="btn_next" class="button button-glow button-rounded button-raised button-primary">Next</button>
-            <!-- <button  class="button button-glow button-rounded button-raised button-primary"><span aria-hidden="true">&raquo;</span></button> -->
-			    </div>
-					
-					
-					<!-- =========================分页区域  end========================================================================== -->
-					
-					</div>
-					
-<!-- =======================================所有课程信息表=====end======================================= -->
-
-				
-				
+				</div>				
 			</div>
 		</div>
+		
+		
+
 	</div>
 	
 	
-<div class="g_12 separator"><span></span></div>
 
 
 
@@ -278,91 +227,10 @@
 <!-- Kanrisha Script -->
 <script src="${pageContext.request.contextPath}/res/js/secondpage/kanrisha.js"></script>
 
+<!-- showSelectCourse.js -->
+<script src="${pageContext.request.contextPath}/res/chx/js/student/showSelectCourse.js"></script>
 
-<!-- grumble 插件 -->
-<script src="${pageContext.request.contextPath}/res/chx/js/jquery.grumble.min.js?v=7"></script>
-<script src="${pageContext.request.contextPath}/res/chx/js/student/jquery.autocomplete.min.js"></script>
 
-<script type="text/javascript">
-	
-	$(function(){ 
-		
-		$('#btn_previous').click(function(){
-			var page = <%=request.getAttribute("page")%> ;
-			var pages = <%=request.getAttribute("pages") %>;
-			
-			if(page<=pages && page>1){
-				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page-1}&pages=${pages}'; 
-				window.location.href = str;
-			}else{
-				var $me = $(this), interval;
-				$me.grumble(
-					{
-						angle: 130,
-						text: '已经是第一页了!',
-						type: 'alt-', 
-						distance: -10,
-						hideAfter: 2000,
-						hideOnClick: true,
-						onShow: function(){
-							var angle = 130, dir = 1;
-							interval = setInterval(function(){
-								(angle > 220 ? (dir=-1, angle--) : ( angle < 130 ? (dir=1, angle++) : angle+=dir));
-								$me.grumble('adjust',{angle: angle});
-							},25);
-						},
-						onHide: function(){
-							clearInterval(interval);
-						}
-					}
-				);
-			}	
-		});
-		
-		
-		
-		$('#btn_next').click(function(){
-
-			var page = <%=request.getAttribute("page")%> ;
-			var pages = <%=request.getAttribute("pages") %>;
-			
-			if(page<pages){
-				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}'; 
-				window.location.href = str;
-			}else{
-				var $me = $(this), interval;
-				$me.grumble(
-					{
-						angle: 130,
-						text: '已经最后一页了!',
-						type: 'alt-', 
-						distance: -10,
-						hideAfter: 2000,
-						hideOnClick: true,
-						onShow: function(){
-							var angle = 130, dir = 1;
-							interval = setInterval(function(){
-								(angle > 220 ? (dir=-1, angle--) : ( angle < 130 ? (dir=1, angle++) : angle+=dir));
-								$me.grumble('adjust',{angle: angle});
-							},25);
-						},
-						onHide: function(){
-							clearInterval(interval);
-						}
-					}
-				);
-			}
-		});
-		
-		
-	});
-	
-	
-	
-
-</script>
-
-<script src="${pageContext.request.contextPath}/res/chx/js/student/selection.js"></script>
  
 </body>
 </html>

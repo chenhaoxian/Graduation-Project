@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-03-11 16:37:48
+Date: 2016-03-18 16:55:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -86,16 +86,16 @@ CREATE TABLE `coursetongxuan` (
 -- ----------------------------
 -- Records of coursetongxuan
 -- ----------------------------
-INSERT INTO `coursetongxuan` VALUES ('0', 'TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('1', 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('2', 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('3', 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('4', 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('5', 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('6', 'TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('7', 'TX8', '通选课8', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('8', 'TX9', '通选课9', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('9', 'TX10', 'TTTTTSTAG', 'TEST', 'TEST', '2', '33', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('0', 'TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('1', 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('2', 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('3', 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('4', 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('5', 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('6', 'TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('7', 'TX8', '通选课8', '自然科学', '周五 8:00--9:30', '2', '50', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('8', 'TX9', '通选课9', '自然科学', '周五 8:00--9:30', '2', '50', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('9', 'TX10', 'TTTTTSTAG', 'TEST', 'TEST', '2', '32', '2', '1');
 
 -- ----------------------------
 -- Table structure for credit
@@ -105,7 +105,6 @@ CREATE TABLE `credit` (
   `selected` int(11) DEFAULT NULL,
   `sno` varchar(20) DEFAULT NULL,
   `success` int(11) DEFAULT '0',
-  `ongoing` int(11) DEFAULT '0',
   KEY `fk_credit_student` (`sno`),
   CONSTRAINT `fk_credit_student` FOREIGN KEY (`sno`) REFERENCES `student` (`sno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -113,7 +112,7 @@ CREATE TABLE `credit` (
 -- ----------------------------
 -- Records of credit
 -- ----------------------------
-INSERT INTO `credit` VALUES ('2', '1', '2', '0');
+INSERT INTO `credit` VALUES ('6', '1', '2');
 
 -- ----------------------------
 -- Table structure for department
@@ -165,6 +164,8 @@ CREATE TABLE `selectcourse` (
 -- Records of selectcourse
 -- ----------------------------
 INSERT INTO `selectcourse` VALUES ('TX1', '1', '已修');
+INSERT INTO `selectcourse` VALUES ('TX2', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX10', '1', '在修');
 
 -- ----------------------------
 -- Table structure for student
@@ -331,6 +332,23 @@ end
 DELIMITER ;
 
 -- ----------------------------
+-- Procedure structure for pro_getSelectCourse
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pro_getSelectCourse`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_getSelectCourse`(in p_sno varchar(50))
+BEGIN
+select s.* , c.cname,c.ctime,t.tname
+from selectcourse s
+LEFT JOIN coursetongxuan c on s.cno = c.cno
+LEFT JOIN teacher t on c.tno = t.tno
+where s.sno = p_sno
+ORDER BY s.status;
+end
+;;
+DELIMITER ;
+
+-- ----------------------------
 -- Procedure structure for pro_getTable
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pro_getTable`;
@@ -365,23 +383,67 @@ END
 DELIMITER ;
 
 -- ----------------------------
+-- Procedure structure for pro_update_credit
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pro_update_credit`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_update_credit`(in p_sno varchar(30),in p_credit int)
+BEGIN
+update credit set selected = selected - p_credit where sno = p_sno;
+end
+;;
+DELIMITER ;
+
+-- ----------------------------
 -- Function structure for func_find_credit_by_cno
 -- ----------------------------
 DROP FUNCTION IF EXISTS `func_find_credit_by_cno`;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` FUNCTION `func_find_credit_by_cno`(p_cno varchar(30)) RETURNS int(11)
 BEGIN
-declare credit int;
 declare temp int ;
 select credit into temp from coursetongxuan where cno = p_cno;
-set credit = temp;
-RETURN credit;
+RETURN temp;
 end
 ;;
 DELIMITER ;
-DROP TRIGGER IF EXISTS `tri_update_selectcourse`;
+
+-- ----------------------------
+-- Function structure for func_test
+-- ----------------------------
+DROP FUNCTION IF EXISTS `func_test`;
 DELIMITER ;;
-CREATE TRIGGER `tri_update_selectcourse` AFTER UPDATE ON `selectcourse` FOR EACH ROW BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `func_test`(p_test varchar(30)) RETURNS int(11)
+BEGIN
+declare temp int;
+select credit into temp from coursetongxuan where cno = p_test;
+return temp;
+end
+;;
+DELIMITER ;
+DROP TRIGGER IF EXISTS `tri_insert_selectcourse`;
+DELIMITER ;;
+CREATE TRIGGER `tri_insert_selectcourse` AFTER INSERT ON `selectcourse` FOR EACH ROW BEGIN
+declare v_credit int ;
+set v_credit = 0-func_find_credit_by_cno(new.cno);
+call pro_update_credit(new.sno,v_credit);
+
+update coursetongxuan 
+set margin = margin + 1;
+end
+;;
+DELIMITER ;
+DROP TRIGGER IF EXISTS `tri_delete_selectcourse`;
+DELIMITER ;;
+CREATE TRIGGER `tri_delete_selectcourse` AFTER DELETE ON `selectcourse` FOR EACH ROW BEGIN
+declare v_credit int ;
+
+set v_credit = func_find_credit_by_cno(old.cno);
+
+call pro_update_credit(old.sno,v_credit);
+
+update coursetongxuan set margin = margin - 1
+where cno = old.cno;
 
 end
 ;;

@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.CourseTongXuan;
+import model.SelectCourse;
 import service.CommonService;
 import service.StudentService;
+import util.Tool;
 
 @Controller
 @RequestMapping("student")
@@ -74,6 +76,14 @@ public class StudentController {
 	public @ResponseBody String findTeacherByTno(@RequestParam("tno")String tno){
 		System.out.println(tno);
 		return "success";
+	}
+	
+	
+	@RequestMapping("findSelectCourse")
+	public String findSelectCourse(@RequestParam("sno")String sno, Model model){
+		List<SelectCourse> selectCourseList = studentService.getSelectCourseList(sno);
+		model.addAttribute("selectCourseList", selectCourseList);
+		return "student/showSelectCourse";
 	}
 
 	

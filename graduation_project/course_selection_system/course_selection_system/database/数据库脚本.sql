@@ -415,15 +415,35 @@ then
 
 select * from coursetongxuan;
 
+
+-- ===========================================START
+drop FUNCTION func_find_credit_by_cno;
 create FUNCTION func_find_credit_by_cno(p_cno varchar(30))
 RETURNS int 
 BEGIN
-declare credit int;
 declare temp int ;
 select credit into temp from coursetongxuan where cno = p_cno;
-set credit = temp;
-RETURN credit;
+RETURN temp;
 end;
+
+select func_find_credit_by_cno('TX1');
+SELECT * FROM COURSETONGXUAN;
+-- +=======================================END
+
+-- ==========================================START
+drop function func_test;
+
+create function func_test(p_test varchar(30))
+returns int
+BEGIN
+declare temp int;
+select credit into temp from coursetongxuan where cno = p_test;
+return temp;
+end;
+
+select func_test('TX1');
+-- ============================================END
+
 
 create table table_test(
 COLUMN_int int,
@@ -433,22 +453,125 @@ COLUMN_varchar varchar(100)
 create PROCEDURE pro_update_credit(in )
 
 
-create TRIGGER tri_update_selectcourse
-after update on selectcourse
+
+select * from coursetongxuan;
+select * from credit;
+alter table credit drop COLUMN ongoing;
+
+
+
+select * from selectcourse;
+desc selectcourse;
+
+create PROCEDURE pro_test;
+
+update credit 
+set selected = selected + 2;
+select * from credit;
+
+create procedure pro_update_credit(in p_sno varchar(30),in p_credit int)
+BEGIN
+update credit set selected = selected - p_credit where sno = p_sno;
+end;
+
+EXEC pro_update_credit('1',2);
+call pro_update_credit('1',2);
+
+select * from coursetongxuan where cno like '%X%'
+
+select * from coursetongxuan
+GROUP BY cno
+having total < 40;
+
+select * from coursetongxuan 
+GROUP BY cno 
+having total > 40;
+
+
+select * from credit;
+
+update credit set selected = selected + 2 ;
+
+
+select * from selectcourse;
+
+-- ==============================================START
+drop TRIGGER tri_delete_selectcourse;
+
+
+
+
+create TRIGGER tri_delete_selectcourse
+after delete on selectcourse
 for each ROW
 BEGIN
+declare v_credit int ;
+
+set v_credit = func_find_credit_by_cno(old.cno);
+
+call pro_update_credit(old.sno,v_credit);
+
+update coursetongxuan set margin = margin - 1
+where cno = old.cno;
 
 end;
 
 
 
 
+drop trigger tri_insert_selectcourse;
 
+create TRIGGER tri_insert_selectcourse
+after insert on selectcourse
+for each ROW
+BEGIN
+declare v_credit int ;
+set v_credit = 0-func_find_credit_by_cno(new.cno);
+call pro_update_credit(new.sno,v_credit);
 
+update coursetongxuan 
+set margin = margin + 1;
+end;
 
+-- ====================================================END
+select * from coursetongxuan;
 
+select * from selectcourse;
+select * from credit;
+UPDATE CREDIT SET SELECTED = 2;
+insert into selectcourse (cno,sno,status) values('TX2','1','在修');
+delete  from selectcourse where cno = 'TX2';
 
+update coursetongxuan
+set total = total - 1 
+,margin = margin - 1
+where cno = 'TX10';
 
+insert into selectcourse(cno,sno,status) VALUES('TX10','1','在修');
+delete from selectcourse where cno = 'TX10';
+
+select * from student;
+
+desc selectcourse;
+
+drop PROCEDURE pro_getSelectCourse;
+
+create PROCEDURE pro_getSelectCourse(in p_sno varchar(50))
+BEGIN
+select s.* , c.cname,c.ctime,t.tname
+from selectcourse s
+LEFT JOIN coursetongxuan c on s.cno = c.cno
+LEFT JOIN teacher t on c.tno = t.tno
+where s.sno = p_sno
+ORDER BY s.status;
+end;
+
+call pro_getselectcourse('1');
+insert into selectcourse(cno,sno,status) values('TX10','1','在修');
+
+desc coursetongxuan;
+desc selectcourse;
+select * from selectcourse ORDER BY status;
 
 
 
