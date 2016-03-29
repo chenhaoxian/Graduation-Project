@@ -118,14 +118,17 @@ $(document).ready(function(){
 	Selection_Page.init();	
 });
 
-
 function show_teacher(teacherName,departmentName){
 	alert('授课老师:'+teacherName+' , 学院：'+departmentName);
-
 }
 
 function selectCourse(cno,sno){
 	$.ajax({
-		
+		type: "post",
+		url: "",
+		data:{},
+		success: function(){
+			
+		}
 	});
 }
