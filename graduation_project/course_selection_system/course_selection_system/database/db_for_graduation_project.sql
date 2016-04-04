@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : mydb
-Source Server Version : 50516
+Source Server Version : 50710
 Source Host           : localhost:3306
 Source Database       : db_course_selection_system
 
 Target Server Type    : MYSQL
-Target Server Version : 50516
+Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-03-18 16:55:14
+Date: 2016-04-04 18:37:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -86,16 +86,16 @@ CREATE TABLE `coursetongxuan` (
 -- ----------------------------
 -- Records of coursetongxuan
 -- ----------------------------
-INSERT INTO `coursetongxuan` VALUES ('0', 'TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '2', '1');
-INSERT INTO `coursetongxuan` VALUES ('1', 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '2', '1');
-INSERT INTO `coursetongxuan` VALUES ('2', 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '2', '1');
-INSERT INTO `coursetongxuan` VALUES ('3', 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '2', '1');
-INSERT INTO `coursetongxuan` VALUES ('4', 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '2', '1');
-INSERT INTO `coursetongxuan` VALUES ('5', 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '2', '1');
-INSERT INTO `coursetongxuan` VALUES ('6', 'TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '2', '1');
-INSERT INTO `coursetongxuan` VALUES ('7', 'TX8', '通选课8', '自然科学', '周五 8:00--9:30', '2', '50', '2', '1');
-INSERT INTO `coursetongxuan` VALUES ('8', 'TX9', '通选课9', '自然科学', '周五 8:00--9:30', '2', '50', '2', '1');
-INSERT INTO `coursetongxuan` VALUES ('9', 'TX10', 'TTTTTSTAG', 'TEST', 'TEST', '2', '32', '2', '1');
+INSERT INTO `coursetongxuan` VALUES ('0', 'TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '6', '1');
+INSERT INTO `coursetongxuan` VALUES ('1', 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '6', '1');
+INSERT INTO `coursetongxuan` VALUES ('2', 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '6', '1');
+INSERT INTO `coursetongxuan` VALUES ('3', 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '6', '1');
+INSERT INTO `coursetongxuan` VALUES ('4', 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '6', '1');
+INSERT INTO `coursetongxuan` VALUES ('5', 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '6', '1');
+INSERT INTO `coursetongxuan` VALUES ('6', 'TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '6', '1');
+INSERT INTO `coursetongxuan` VALUES ('7', 'TX8', '通选课8', '自然科学', '周五 8:00--9:30', '2', '50', '6', '1');
+INSERT INTO `coursetongxuan` VALUES ('8', 'TX9', '通选课9', '自然科学', '周五 8:00--9:30', '2', '50', '6', '1');
+INSERT INTO `coursetongxuan` VALUES ('9', 'TX10', 'TTTTTSTAG', 'TEST', 'TEST', '2', '32', '6', '1');
 
 -- ----------------------------
 -- Table structure for credit
@@ -112,7 +112,7 @@ CREATE TABLE `credit` (
 -- ----------------------------
 -- Records of credit
 -- ----------------------------
-INSERT INTO `credit` VALUES ('6', '1', '2');
+INSERT INTO `credit` VALUES ('10', '1', '2');
 
 -- ----------------------------
 -- Table structure for department
@@ -166,6 +166,10 @@ CREATE TABLE `selectcourse` (
 INSERT INTO `selectcourse` VALUES ('TX1', '1', '已修');
 INSERT INTO `selectcourse` VALUES ('TX2', '1', '在修');
 INSERT INTO `selectcourse` VALUES ('TX10', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX6', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX7', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX1', '', '在修');
+INSERT INTO `selectcourse` VALUES ('TX6', '', '在修');
 
 -- ----------------------------
 -- Table structure for student

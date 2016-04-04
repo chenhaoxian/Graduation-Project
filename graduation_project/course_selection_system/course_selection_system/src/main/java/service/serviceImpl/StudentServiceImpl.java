@@ -51,4 +51,15 @@ public class StudentServiceImpl implements StudentService {
 		return selectCourseList;
 	}
 
+	@Override
+	public Boolean handleSelectOperation(String cno, String sno) {
+		if(studentMapper.countSelectCourseByCnoSno(cno, sno) > 0){
+			return false;
+		}else{
+			studentMapper.insertSelectCourse(cno, sno);
+			return true;
+		}
+		
+	}
+
 }

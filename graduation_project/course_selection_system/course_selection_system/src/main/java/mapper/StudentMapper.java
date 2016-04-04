@@ -14,5 +14,9 @@ public interface StudentMapper {
 	int countCourseTongXuan();
 	
 	List<SelectCourse> findSelectCourse(String sno);
+	
+	int countSelectCourseByCnoSno(@Param("cno")String cno, @Param("sno")String sno);
+	
+	void insertSelectCourse(@Param("cno")String cno, @Param("sno")String sno);
 
 }

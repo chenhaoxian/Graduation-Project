@@ -54,6 +54,14 @@
 		call pro_getSelectCourse(#{sno});
 	</select>
 	
+	<select id="countSelectCourseByCnoSno" resultType="int" >
+		select count(1) from selectcourse where cno=#{cno} and sno=#{sno};
+	</select>
+	
+	<insert id="insertSelectCourse" >
+		insert into selectcourse(cno,sno,status) values(#{cno},#{sno},'在修');
+	</insert>
+	
 	
 	
 </mapper>
