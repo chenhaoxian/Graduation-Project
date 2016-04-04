@@ -163,7 +163,7 @@
 						<tbody id="selectCourse_data_table">
 							<c:forEach items="${selectCourseList }" var="selectCourse" varStatus="vs">
 								<tr>
-									<td><c:if test="${selectCourse.status =='在修' }"><input value="退选" type="button" class="button button-glow button-rounded " style="width: 100%"/></c:if></td>
+									<td><c:if test="${selectCourse.status =='在修' }"><input value="退选" type="button" class="button button-glow button-rounded " style="width: 100%" onclick=""/></c:if></td>
 									<td>${selectCourse.courseName }</td>
 									<td>${selectCourse.teacherName }</td>
 									<td>${selectCourse.ctime }</td>

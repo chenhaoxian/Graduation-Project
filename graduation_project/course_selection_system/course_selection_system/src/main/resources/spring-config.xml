@@ -19,7 +19,7 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	<property name="url" value="jdbc:mysql://localhost:3306/db_course_selection_system?characterEncoding=utf8"/> 
 	<property name="username" value="root"/> 
 	<property name="password" value="xian520."/>
-	</bean>
+	</bean> 
 
 	<!-- mybatis 的SqlSession 的工厂 ： SqlSessionFactoryBean dataSource : 应用数据源
 	mybatis 定义数据源，同意加载配置

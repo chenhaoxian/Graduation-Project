@@ -14,5 +14,8 @@ public interface StudentService {
 	int getPages(int pageSize);
 	
 	List<SelectCourse> getSelectCourseList(String sno);
+	
+	Boolean handleSelectOperation(@Param("cno")String cno, @Param("sno")String sno); 
+	
 
 }

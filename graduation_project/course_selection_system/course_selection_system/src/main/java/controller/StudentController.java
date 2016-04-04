@@ -82,8 +82,25 @@ public class StudentController {
 	@RequestMapping("findSelectCourse")
 	public String findSelectCourse(@RequestParam("sno")String sno, Model model){
 		List<SelectCourse> selectCourseList = studentService.getSelectCourseList(sno);
+		Tool.print(selectCourseList.get(0).toString());
 		model.addAttribute("selectCourseList", selectCourseList);
 		return "student/showSelectCourse";
+	}
+	
+	@RequestMapping("selectCourse")
+	@ResponseBody
+	public String selectCourse(@RequestParam("cno")String cno, 
+			@RequestParam("sno")String sno,
+			Model model){
+//		Tool.print("select Course operation success");
+//		Tool.print(cno);
+//		Tool.print(sno);
+		if(studentService.handleSelectOperation(cno, sno)){
+			return "success";
+		}else{
+			return "error";
+		}
+		
 	}
 
 	

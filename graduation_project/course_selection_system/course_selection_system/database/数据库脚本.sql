@@ -1,4 +1,4 @@
---================================================ä¸´æ—¶sqlè„šæœ¬==========================================================
+--================================================ÁÙÊ±sql½Å±¾==========================================================
 select * from user_contact;
 select * from user;
 
@@ -97,9 +97,9 @@ alter table student add column professionno varchar(20);
 alter table profession drop column departmentno;
 alter table profession add column departmentNo varchar(20);
 
---====================================ä¸ºstudentè¡¨çš„professionnoå­—æ®µè®¾ç½®å¤–é”®===================================
+--====================================Îªstudent±íµÄprofessionno×Ö¶ÎÉèÖÃÍâ¼ü===================================
 alter table student add constraint fk_student_professionNo foreign key(professionno) references profession(professionno);
---===================================ä¸ºprofessionè¡¨çš„departmentnoå­—æ®µè®¾ç½®å¤–é”®================================
+--===================================Îªprofession±íµÄdepartmentno×Ö¶ÎÉèÖÃÍâ¼ü================================
 alter table profession add constraint fk_profession_departmentNo foreign key(departmentNo) references department(departmentNo);
 select * from profession;
 update profession set departmentNo = '1' where professionNo = '1';
@@ -114,14 +114,14 @@ desc selectcourse;
 select * from student;
 desc profession;
 select * from profession;
-insert into profession values ('è½¯ä»¶å·¥ç¨‹','1','1');
+insert into profession values ('Èí¼ş¹¤³Ì','1','1');
 delete from profession;
 update student set professionno = '1' where sno = '1';
 desc student;
 
 
 
---æŸ¥æ‰¾å­¦ç”Ÿä¿¡æ¯
+--²éÕÒÑ§ÉúĞÅÏ¢
 select s.* ,p.* , d.*
 from student s
 left join profession p
@@ -201,13 +201,13 @@ select * from course;
 desc course;
 alter table course modify column ctype varchar(50);
 insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) 
-values ('TX2','é€šé€‰è¯¾2','è‡ªç„¶ç§‘å­¦','å‘¨äºŒ 8:00--9:30',2,50,0,'1');
+values ('TX2','Í¨Ñ¡¿Î2','×ÔÈ»¿ÆÑ§','ÖÜ¶ş 8:00--9:30',2,50,0,'1');
 insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) 
-values ('TX3','é€šé€‰è¯¾3','è‡ªç„¶ç§‘å­¦','å‘¨ä¸‰ 8:00--9:30',2,50,0,'1');
+values ('TX3','Í¨Ñ¡¿Î3','×ÔÈ»¿ÆÑ§','ÖÜÈı 8:00--9:30',2,50,0,'1');
 insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) 
-values ('TX4','é€šé€‰è¯¾4','è‡ªç„¶ç§‘å­¦','å‘¨å›› 8:00--9:30',2,50,0,'1');
+values ('TX4','Í¨Ñ¡¿Î4','×ÔÈ»¿ÆÑ§','ÖÜËÄ 8:00--9:30',2,50,0,'1');
 insert into course (cno,cname,ctype,ctime,credit,total,margin,tno) 
-values ('TX5','é€šé€‰è¯¾5','è‡ªç„¶ç§‘å­¦','å‘¨äº” 8:00--9:30',2,50,0,'1');
+values ('TX5','Í¨Ñ¡¿Î5','×ÔÈ»¿ÆÑ§','ÖÜÎå 8:00--9:30',2,50,0,'1');
 
 select * from teacher;
 
@@ -236,13 +236,13 @@ create table courseTongXuan(
 select * from courseTongXuan;
 
 insert into courseTongXuan (cno,cname,ctype,ctime,credit,total,margin,tno) 
-values ('TX6','é€šé€‰è¯¾6','è‡ªç„¶ç§‘å­¦','å‘¨ä¸€ 10:00--11:30',2,50,0,'1');
+values ('TX6','Í¨Ñ¡¿Î6','×ÔÈ»¿ÆÑ§','ÖÜÒ» 10:00--11:30',2,50,0,'1');
 
---å°¿course è¡¨æ•°æ¿å¤åˆ¶åˆ¿courseTongXuan
+--Äòcourse ±íÊı’İ¸´ÖÆØÛcourseTongXuan
 insert into courseTongXuan (select * from course); 
 
 
---!!!!!!!!!!!!!! åˆ†é¡µ   mysql æ²¡æœ‰ TOP 
+--!!!!!!!!!!!!!! ·ÖÒ³   mysql Ã»ÓĞ TOP 
 select * from courseTongXuan
 order by id 
 limit 2 , 2;
@@ -317,7 +317,7 @@ select * from department;
 
 select * from profession;
 desc profession;
-insert into profession VALUES('è®¡ç®—æœºç§‘å­¦ä¸æŠ€æœ¯','2','1');
+insert into profession VALUES('¼ÆËã»ú¿ÆÑ§Óë¼¼Êõ','2','1');
 
 select * from teacher;
 desc teacher;
@@ -362,15 +362,15 @@ select * from teacher;
 desc coursetongxuan;
 
 select * from coursetongxuan;
-insert into coursetongxuan VALUES (6,'TX7','é€šé€‰è¯¾7','è‡ªç„¶ç§‘å­¦','å‘¨äºŒ 10:00--11ï¼š30',2,50,0,'1');
-insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX8','é€šé€‰è¯¾8','è‡ªç„¶ç§‘å­¦','å‘¨äºŒ 14:00--15ï¼š30',2,50,0,'1');
-insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX9','é€šé€‰è¯¾9','è‡ªç„¶ç§‘å­¦','å‘¨äºŒ 16:00--17ï¼š30',2,50,0,'1');
-insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX10','é€šé€‰è¯¾10','è‡ªç„¶ç§‘å­¦','å‘¨ä¸‰ 10:00--11ï¼š30',2,50,0,'1');
-insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX11','é€šé€‰è¯¾11','è‡ªç„¶ç§‘å­¦','å‘¨ä¸‰ 14:00--15ï¼š30',2,50,0,'1');
-insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX12','é€šé€‰è¯¾12','è‡ªç„¶ç§‘å­¦','å‘¨å›› 10:00--11ï¼š30',2,50,0,'1');
-insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX13','é€šé€‰è¯¾13','è‡ªç„¶ç§‘å­¦','å‘¨äºŒ 10:00--11ï¼š30',2,50,0,'1');
-insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX14','é€šé€‰è¯¾14','è‡ªç„¶ç§‘å­¦','å‘¨äºŒ 10:00--11ï¼š30',2,50,0,'1');
-insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno) values('TX10','tongxuan','test','å‘¨äºŒ 10:00--11ï¼š30',2,50,0,'1');
+insert into coursetongxuan VALUES (6,'TX7','Í¨Ñ¡¿Î7','×ÔÈ»¿ÆÑ§','ÖÜ¶ş 10:00--11£º30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX8','Í¨Ñ¡¿Î8','×ÔÈ»¿ÆÑ§','ÖÜ¶ş 14:00--15£º30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX9','Í¨Ñ¡¿Î9','×ÔÈ»¿ÆÑ§','ÖÜ¶ş 16:00--17£º30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX10','Í¨Ñ¡¿Î10','×ÔÈ»¿ÆÑ§','ÖÜÈı 10:00--11£º30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX11','Í¨Ñ¡¿Î11','×ÔÈ»¿ÆÑ§','ÖÜÈı 14:00--15£º30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX12','Í¨Ñ¡¿Î12','×ÔÈ»¿ÆÑ§','ÖÜËÄ 10:00--11£º30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX13','Í¨Ñ¡¿Î13','×ÔÈ»¿ÆÑ§','ÖÜ¶ş 10:00--11£º30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  VALUES ('TX14','Í¨Ñ¡¿Î14','×ÔÈ»¿ÆÑ§','ÖÜ¶ş 10:00--11£º30',2,50,0,'1');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno) values('TX10','tongxuan','test','ÖÜ¶ş 10:00--11£º30',2,50,0,'1');
 
 
 select cname from courseTongxuan;
@@ -399,7 +399,7 @@ LEFT JOIN teacher t on c.tno = t.tno
 where s.sno = '1';
 
 select * from selectcourse;
-update  selectcourse set status = 'å·²ä¿®' where sno = '1';
+update  selectcourse set status = 'ÒÑĞŞ' where sno = '1';
 alter table selectcourse add COLUMN status varchar(10);
 
 select * from credit;
@@ -409,7 +409,7 @@ update credit set success = 2 ;
 
 create PROCEDURE pro_update_credit(in p_sno varchar(50),in p_status varchar(10))
 BEGIN
-if(p_status == 'å·²ä¿®')
+if(p_status == 'ÒÑĞŞ')
 then 
 	update credit set success = success + 2
 
@@ -539,7 +539,7 @@ select * from coursetongxuan;
 select * from selectcourse;
 select * from credit;
 UPDATE CREDIT SET SELECTED = 2;
-insert into selectcourse (cno,sno,status) values('TX2','1','åœ¨ä¿®');
+insert into selectcourse (cno,sno,status) values('TX2','1','ÔÚĞŞ');
 delete  from selectcourse where cno = 'TX2';
 
 update coursetongxuan
@@ -547,7 +547,7 @@ set total = total - 1
 ,margin = margin - 1
 where cno = 'TX10';
 
-insert into selectcourse(cno,sno,status) VALUES('TX10','1','åœ¨ä¿®');
+insert into selectcourse(cno,sno,status) VALUES('TX10','1','ÔÚĞŞ');
 delete from selectcourse where cno = 'TX10';
 
 select * from student;
@@ -567,11 +567,18 @@ ORDER BY s.status;
 end;
 
 call pro_getselectcourse('1');
-insert into selectcourse(cno,sno,status) values('TX10','1','åœ¨ä¿®');
+insert into selectcourse(cno,sno,status) values('TX10','1','ÔÚĞŞ');
 
 desc coursetongxuan;
 desc selectcourse;
 select * from selectcourse ORDER BY status;
+
+select * from coursetongxuan;
+
+select * from selectcourse;
+update selectcourse set status='ÔÚĞŞ' where status='ÔÙĞŞ';
+
+
 
 
 

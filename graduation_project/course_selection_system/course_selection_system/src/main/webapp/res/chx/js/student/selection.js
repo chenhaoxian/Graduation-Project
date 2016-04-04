@@ -125,10 +125,21 @@ function show_teacher(teacherName,departmentName){
 function selectCourse(cno,sno){
 	$.ajax({
 		type: "post",
-		url: "",
-		data:{},
-		success: function(){
+		url: "../student/selectCourse.do",
+		data:{
+			"cno" : cno,
+			"sno" : sno
 			
+		},
+		success: function(msg){
+			if(msg == "success"){
+				alert("选课成功");
+				$(this).attr("disabled","disabled");
+				
+			}else{
+				alert("选课失败，你已经选择了这门课");
+				$(this).attr("disabled","disabled");
+			}
 		}
 	});
 }
