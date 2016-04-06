@@ -1,8 +1,11 @@
--- ======================== å­˜å‚¨è¿‡ç¨‹ è„šæœ¬================================
+-- ======================== ´æ´¢¹ı³Ì ½Å±¾================================
 
-create PROCEDURE pro_findTeacherByTno(in p_tno varchar(50) )
+create PROCEDURE pro_findTeacherByTno(in p_tno varchar(30))
 BEGIN
-select * from teacher where tno = p_tno;
+	select t.* ,d.departmentname
+	from teacher t
+	LEFT JOIN department d on t.departmentNo=d.departmentNo
+	where t.tno = p_tno;
 end;
 
 create procedure pro_update_credit(in p_sno varchar(30),in p_credit int)
@@ -22,7 +25,7 @@ ORDER BY s.status;
 end;
 
 
--- ========================  è§¦å‘å™¨ è„šæœ¬ ================================
+-- ========================  ´¥·¢Æ÷ ½Å±¾ ================================
 
 create TRIGGER tri_delete_selectcourse
 after delete on selectcourse
@@ -49,11 +52,12 @@ set v_credit = 0-func_find_credit_by_cno(new.cno);
 call pro_update_credit(new.sno,v_credit);
 
 update coursetongxuan 
-set margin = margin + 1;
+set margin = margin + 1
+where cno = new.cno;
 end;
 
 
--- ========================== å‡½æ•°  è„šæœ¬===================================
+-- ========================== º¯Êı  ½Å±¾===================================
 
 create function func_test(p_test varchar(30))
 returns int
@@ -71,4 +75,16 @@ BEGIN
 declare temp int ;
 select credit into temp from coursetongxuan where cno = p_cno;
 RETURN temp;
+end;
+
+create function func_countCourseRecordBySno(p_sno varchar(30))
+returns int
+BEGIN
+declare temp int;
+select count(1) into temp from coursetongxuan 
+	where cno not in
+	(
+		select cno from selectcourse where sno = P_Sno
+	);
+return temp;
 end;

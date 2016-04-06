@@ -6,6 +6,8 @@ public class SelectCourse {
 	
 	private String sno;
 	
+	private String cno;
+	
 	private String status;
 	
 	private String courseName;
@@ -13,6 +15,14 @@ public class SelectCourse {
 	private String ctime;
 	
 	private String teacherName;
+
+	public String getCno() {
+		return cno;
+	}
+
+	public void setCno(String cno) {
+		this.cno = cno;
+	}
 
 	public String getSno() {
 		return sno;
@@ -56,8 +66,8 @@ public class SelectCourse {
 
 	@Override
 	public String toString() {
-		return "SelectCourse [sno=" + sno + ", status=" + status + ", courseName=" + courseName + ", ctime=" + ctime
-				+ ", teacherName=" + teacherName + "]";
+		return "SelectCourse [sno=" + sno + ", cno=" + cno + ", status=" + status + ", courseName=" + courseName
+				+ ", ctime=" + ctime + ", teacherName=" + teacherName + "]";
 	}
 
 	

@@ -4,6 +4,6 @@ import org.apache.ibatis.annotations.Param;
 
 public interface CommonService {
 	
-	int countPages(@Param("pageSize")int pageSize, @Param("tableName")String tableName);
+	int countPages(@Param("pageSize")int pageSize, @Param("sno")String sno);
 
 }

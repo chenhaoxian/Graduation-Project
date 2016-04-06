@@ -46,6 +46,13 @@
 		<result column="margin" property="margin" jdbcType="INTEGER"/>
 		<result column="tno" property="tno" jdbcType="VARCHAR"/>
 	</resultMap>
+	
+	<resultMap type="teacher" id="teacherResult">
+		<result column="tno" property="tno"/>
+		<result column="tname" property="tname"/>
+		<result column="departmentNo" property="departmentNo" />
+		<result column="departmentname" property="departmentName"/>
+	</resultMap>
 
 
 <!-- 
@@ -53,8 +60,8 @@
 	 	select * from student where sno = #{sno}
 	 </select>
 	  -->
-	 <select id="findTeacherByTno" parameterType="String" resultType="Teacher">
-	 	select * from teacher where tno = #{tno}
+	 <select id="findTeacherByTno" parameterType="String" resultMap="teacherResult">
+	 	call pro_findTeacherByTno(#{tno})
 	 </select>
 	 
 	 <select id="findAdminByAid" parameterType="String" resultType="Admin">

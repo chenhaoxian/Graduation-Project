@@ -23,7 +23,7 @@ public class StudentServiceImpl implements StudentService {
 	private StudentMapper studentMapper;
 
 	@Override
-	public List<CourseTongXuan> findAllCourseTongXuan(@Param("page")int page, @Param("rows")int rows) {
+	public List<CourseTongXuan> findAllCourseTongXuan(@Param("page")int page, @Param("rows")int rows, @Param("sno")String sno) {
 		
 //		Page<CourseTongXuan> pages = new Page<CourseTongXuan>(); 
 		
@@ -31,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
 //		pages.setPageSize(rows);
 //		pages.setPageNum(page);
 		
-		List<CourseTongXuan> list = studentMapper.findAllCourseTongXuan(page, rows);
+		List<CourseTongXuan> list = studentMapper.findAllCourseTongXuan(page, rows,sno);
 		
 		return list;
 	}
@@ -60,6 +60,12 @@ public class StudentServiceImpl implements StudentService {
 			return true;
 		}
 		
+	}
+
+	@Override
+	public void cancelSelectCourse(String cno, String sno) {
+		
+		studentMapper.deleteSelectCourseByCnoSno(cno, sno);
 	}
 
 }

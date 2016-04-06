@@ -13,8 +13,8 @@ public class CommonServiceImpl implements CommonService {
 	private CommonMapper commonMapper;
 	
 	@Override
-	public int countPages(int pageSize, String tableName) {
-		int total = commonMapper.countTableRows(tableName);
+	public int countPages(int pageSize, String sno) {
+		int total = commonMapper.countTableRows(sno);
 		int i = total / pageSize;
 		int pages = (total <= pageSize*i ? i : (i+1));
 		

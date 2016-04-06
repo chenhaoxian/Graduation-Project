@@ -9,7 +9,7 @@ import model.SelectCourse;
 
 public interface StudentMapper {
 	
-	List<CourseTongXuan> findAllCourseTongXuan(@Param("page")int page, @Param("rows")int rows);
+	List<CourseTongXuan> findAllCourseTongXuan(@Param("page")int page, @Param("rows")int rows, @Param("sno")String sno);
 	
 	int countCourseTongXuan();
 	
@@ -18,5 +18,7 @@ public interface StudentMapper {
 	int countSelectCourseByCnoSno(@Param("cno")String cno, @Param("sno")String sno);
 	
 	void insertSelectCourse(@Param("cno")String cno, @Param("sno")String sno);
+	
+	void deleteSelectCourseByCnoSno(@Param("cno")String cno, @Param("sno")String sno);
 
 }

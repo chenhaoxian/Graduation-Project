@@ -18,6 +18,7 @@ import model.Student;
 import model.Teacher;
 import model.User;
 import service.LoginService;
+import util.Tool;
 
 @Controller
 @RequestMapping("/login")
@@ -52,6 +53,7 @@ public class LoginController {
 		int usertype = Integer.parseInt(request.getParameter("usertype"));
 		
 		Teacher teacher = loginService.findTeacherByTno(tno);
+		Tool.print(teacher.toString());
 		
 		if(teacher == null){
 			return "null";

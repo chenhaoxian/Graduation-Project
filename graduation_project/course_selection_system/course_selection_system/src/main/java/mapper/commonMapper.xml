@@ -6,7 +6,7 @@
 <mapper namespace="mapper.CommonMapper">
 	
 	<select id="countTableRows" resultType="INT" statementType="CALLABLE">
-		call pro_countTableRows(#{tableName});
+		select func_countCourseRecordBySno(#{sno}) from dual
 	</select>
 	
 </mapper>

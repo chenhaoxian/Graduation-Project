@@ -103,7 +103,7 @@ $(function(){
 						$("#teacher_password").html("密码错误！");
 						
 					}else {
-						window.location.href = '/jsp/test.jsp';
+						window.location.href = 'jsp/teacher/teacherIndex.jsp';
 					}
 				}
 			});

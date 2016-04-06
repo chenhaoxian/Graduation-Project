@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : mydb
-Source Server Version : 50710
+Source Server Version : 50516
 Source Host           : localhost:3306
 Source Database       : db_course_selection_system
 
 Target Server Type    : MYSQL
-Target Server Version : 50710
+Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-04-04 18:37:58
+Date: 2016-04-06 15:31:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -86,16 +86,16 @@ CREATE TABLE `coursetongxuan` (
 -- ----------------------------
 -- Records of coursetongxuan
 -- ----------------------------
-INSERT INTO `coursetongxuan` VALUES ('0', 'TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '6', '1');
-INSERT INTO `coursetongxuan` VALUES ('1', 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '6', '1');
-INSERT INTO `coursetongxuan` VALUES ('2', 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '6', '1');
-INSERT INTO `coursetongxuan` VALUES ('3', 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '6', '1');
-INSERT INTO `coursetongxuan` VALUES ('4', 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '6', '1');
-INSERT INTO `coursetongxuan` VALUES ('5', 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '6', '1');
-INSERT INTO `coursetongxuan` VALUES ('6', 'TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '6', '1');
-INSERT INTO `coursetongxuan` VALUES ('7', 'TX8', '通选课8', '自然科学', '周五 8:00--9:30', '2', '50', '6', '1');
-INSERT INTO `coursetongxuan` VALUES ('8', 'TX9', '通选课9', '自然科学', '周五 8:00--9:30', '2', '50', '6', '1');
-INSERT INTO `coursetongxuan` VALUES ('9', 'TX10', 'TTTTTSTAG', 'TEST', 'TEST', '2', '32', '6', '1');
+INSERT INTO `coursetongxuan` VALUES ('0', 'TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '0', '1');
+INSERT INTO `coursetongxuan` VALUES ('1', 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '1', '1');
+INSERT INTO `coursetongxuan` VALUES ('2', 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '1', '1');
+INSERT INTO `coursetongxuan` VALUES ('3', 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '1', '1');
+INSERT INTO `coursetongxuan` VALUES ('4', 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '0', '1');
+INSERT INTO `coursetongxuan` VALUES ('5', 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '1', '1');
+INSERT INTO `coursetongxuan` VALUES ('6', 'TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
+INSERT INTO `coursetongxuan` VALUES ('7', 'TX8', '通选课8', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
+INSERT INTO `coursetongxuan` VALUES ('8', 'TX9', '通选课9', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
+INSERT INTO `coursetongxuan` VALUES ('9', 'TX10', 'TTTTTSTAG', 'TEST', 'TEST', '2', '32', '1', '1');
 
 -- ----------------------------
 -- Table structure for credit
@@ -163,13 +163,11 @@ CREATE TABLE `selectcourse` (
 -- ----------------------------
 -- Records of selectcourse
 -- ----------------------------
-INSERT INTO `selectcourse` VALUES ('TX1', '1', '已修');
-INSERT INTO `selectcourse` VALUES ('TX2', '1', '在修');
 INSERT INTO `selectcourse` VALUES ('TX10', '1', '在修');
-INSERT INTO `selectcourse` VALUES ('TX6', '1', '在修');
-INSERT INTO `selectcourse` VALUES ('TX7', '1', '在修');
-INSERT INTO `selectcourse` VALUES ('TX1', '', '在修');
-INSERT INTO `selectcourse` VALUES ('TX6', '', '在修');
+INSERT INTO `selectcourse` VALUES ('TX1', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX2', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX3', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX5', '1', '在修');
 
 -- ----------------------------
 -- Table structure for student
@@ -328,9 +326,12 @@ DELIMITER ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pro_findTeacherByTno`;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_findTeacherByTno`(in p_tno varchar(50) )
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_findTeacherByTno`(in p_tno varchar(30))
 BEGIN
-select * from teacher where tno = p_tno;
+	select t.* ,d.departmentname
+	from teacher t
+	LEFT JOIN department d on t.departmentNo=d.departmentNo
+	where t.tno = p_tno;
 end
 ;;
 DELIMITER ;
@@ -399,6 +400,24 @@ end
 DELIMITER ;
 
 -- ----------------------------
+-- Function structure for func_countCourseRecordBySno
+-- ----------------------------
+DROP FUNCTION IF EXISTS `func_countCourseRecordBySno`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `func_countCourseRecordBySno`(p_sno varchar(30)) RETURNS int(11)
+BEGIN
+declare temp int;
+select count(1) into temp from coursetongxuan 
+	where cno not in
+	(
+		select cno from selectcourse where sno = P_Sno
+	);
+return temp;
+end
+;;
+DELIMITER ;
+
+-- ----------------------------
 -- Function structure for func_find_credit_by_cno
 -- ----------------------------
 DROP FUNCTION IF EXISTS `func_find_credit_by_cno`;
@@ -433,7 +452,8 @@ set v_credit = 0-func_find_credit_by_cno(new.cno);
 call pro_update_credit(new.sno,v_credit);
 
 update coursetongxuan 
-set margin = margin + 1;
+set margin = margin + 1
+where cno = new.cno;
 end
 ;;
 DELIMITER ;
