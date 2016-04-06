@@ -141,6 +141,7 @@
 						<span class="tab_info">Person Info</span>
 					</a>
 				</li>
+				<!-- 
 				<li class="i_32_ui">
 					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1&sno=${sessionScope.student.sno }" title="Your Messages">
 						<span class="tab_label">选课</span>
@@ -153,6 +154,7 @@
 						<span class="tab_info">Show Courses</span>
 					</a>
 				</li>
+				 -->
 				<!-- 
 				<li class="i_32_charts">
 					<a href="charts.html" title="Visual Data">
@@ -277,34 +279,36 @@
 					</div>
 				</div>
 					 -->
+					 
+					 
 					
 				<div class="g_12">
 					<div class="widget_header">
 						<h4 class="widget_header_title wwIcon i_16_add">姓名</h4>
 					</div>
 					<div class="widget_contents">
-					${sessionScope.student.sname }
+					${sessionScope.teacher.tname}
 					</div>
 				</div>
 				
 				<div class="g_12">
 					<div class="widget_header">
-						<h4 class="widget_header_title wwIcon i_16_add">学号</h4>
+						<h4 class="widget_header_title wwIcon i_16_add">教工号</h4>
 					</div>
 					<div class="widget_contents">
-						${sessionScope.student.sno}
+						${sessionScope.teacher.tno}
 					</div>
 				</div>
 				
 				<div class="g_12">
 					<div class="widget_header">
-						<h4 class="widget_header_title wwIcon i_16_add">年级</h4>
+						<h4 class="widget_header_title wwIcon i_16_add">隶属</h4>
 					</div>
 					<div class="widget_contents">
-					 ${sessionScope.student.grade }年级 
+					 ${sessionScope.teacher.departmentName }
 					</div>
 				</div>
-				
+				<!--
 				<div class="g_12">
 					<div class="widget_header">
 						<h4 class="widget_header_title wwIcon i_16_add">专业</h4>
@@ -322,6 +326,8 @@
 						${sessionScope.student.profession.department.departmentName }
 					</div>
 				</div>
+				
+				 -->
 				
 				<!-- Separator -->
 				<div class="g_12 separator"><span></span></div>

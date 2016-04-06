@@ -32,17 +32,22 @@
 	
 	<resultMap type="SelectCourse" id="selectCourseResult">
 		<result column="sno" property="sno"/>
+		<result column="cno" property="cno"/>
 		<result column="status" property="status"/>
 		<result column="cname" property="courseName"/>
 		<result column="ctime" property="ctime"/>
 		<result column="tname" property="teacherName"/>
 	</resultMap>
 	
-	<select id="findAllCourseTongXuan" resultMap="courseTongXuanResult" >
+	<select id="findAllCourseTongXuan" resultMap="courseTongXuanResult" parameterType="STRING">
 		SELECT c.*,t.*,d.*
 		from coursetongxuan c
 		LEFT JOIN teacher t on c.tno = CONVERT(t.tno USING utf8) COLLATE utf8_unicode_ci
 		left join department d on t.departmentNo = CONVERT(d.departmentNo USING utf8) COLLATE utf8_unicode_ci
+		where c.cno not in (
+			select cno from selectcourse where sno = #{sno}
+		)
+		order by c.cno
 
 	</select>
 	
@@ -61,6 +66,10 @@
 	<insert id="insertSelectCourse" >
 		insert into selectcourse(cno,sno,status) values(#{cno},#{sno},'在修');
 	</insert>
+	
+	<delete id="deleteSelectCourseByCnoSno">
+		delete from selectCourse where cno = #{cno} and sno = #{sno}
+	</delete>
 	
 	
 	

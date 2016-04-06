@@ -574,13 +574,80 @@ desc selectcourse;
 select * from selectcourse ORDER BY status;
 
 select * from coursetongxuan;
+select * from selectcourse;
+delete FROM selectcourse where cno = 'TX6';
+
+delete from selectcourse where status = 'ÔÚÐÞ'
+
+update coursetongxuan set margin = 0 ;
+SELECT c.*,t.*,d.*
+from coursetongxuan c
+LEFT JOIN teacher t on c.tno = CONVERT(t.tno USING utf8) COLLATE utf8_unicode_ci
+left join department d on t.departmentNo = CONVERT(d.departmentNo USING utf8) COLLATE utf8_unicode_ci
+where c.cno not in (
+	select cno from selectcourse where sno = '1'
+)
+order by c.cno;
+
+create PROCEDURE pro_countCourseRecordBySno(in P_Sno varchar(30) )
+AS
+BEGIN
+	select count(1) from coursetongxuan 
+	where cno not in
+	(
+		select cno from selectcourse where sno = P_Sno
+	);
+end;
+
+create function func_countCourseRecordBySno(p_sno varchar(30))
+returns int
+BEGIN
+declare temp int;
+select count(1) into temp from coursetongxuan 
+	where cno not in
+	(
+		select cno from selectcourse where sno = P_Sno
+	);
+return temp;
+end;
+
+ func_countCourseRecordBySno('1');
+select func_countCourseRecordBySno('1') from dual;
+
+drop trigger tri_insert_selectcourse;
+create TRIGGER tri_insert_selectcourse
+after insert on selectcourse
+for each ROW
+BEGIN
+declare v_credit int ;
+set v_credit = 0-func_find_credit_by_cno(new.cno);
+call pro_update_credit(new.sno,v_credit);
+
+update coursetongxuan 
+set margin = margin + 1
+where cno = new.cno;
+end;
 
 select * from selectcourse;
-update selectcourse set status='ÔÚÐÞ' where status='ÔÙÐÞ';
+
+delete from selectcourse where sno = '3';
+
+select * from teacher;
+select * from department;
+select * from profession;
 
 
+call pro_findTeacherByTno('1');
+drop PROCEDURE pro_findTeacherByTno;
+create PROCEDURE pro_findTeacherByTno(in p_tno varchar(30))
+BEGIN
+	select t.* ,d.departmentname
+	from teacher t
+	LEFT JOIN department d on t.departmentNo=d.departmentNo
+	where t.tno = p_tno;
+end;
 
-
+select * from coursetongxuan where tno='1'
 
 
 

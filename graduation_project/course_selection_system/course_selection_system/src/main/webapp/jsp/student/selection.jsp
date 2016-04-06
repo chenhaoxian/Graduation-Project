@@ -96,7 +96,7 @@
 	<div class="wrapper small_menu">
 		<ul class="menu_small_buttons">
 			<li><a title="个人 信息" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
-			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1"></a></li>
+			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=true&sno=${sessionScope.student.sno }"></a></li>
 			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
 			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>
 			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
@@ -115,7 +115,7 @@
 					</a>
 				</li>
 				<li class="active_tab i_32_ui">
-					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" title="Your Messages">
+					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=true&sno=${sessionScope.student.sno }" title="Your Messages">
 						<span class="tab_label">选课</span>
 						<span class="tab_info">Select Course</span>
 					</a>
@@ -191,7 +191,7 @@
 						
 							<c:forEach items="${courseTongXuanList }" var="courseTongXuan" varStatus="vs">
 								<tr>
-									<td><input value="选择" type="button" class="button button-glow button-rounded " onclick="selectCourse('${courseTongXuan.cno}','${sessionScope.student.sno }')"/></td>
+									<td><input value="选择" type="button" class="button button-glow button-rounded " onclick="selectCourse('${courseTongXuan.cno}')"/></td>
 									<td>${courseTongXuan.ctime }</td>
 									<td>
 										<button class="button button-glow button-rounded " onclick="show_teacher('${courseTongXuan.teacher.tname}','${courseTongXuan.teacher.department.departmentName }')">${courseTongXuan.cname }</button>
@@ -292,7 +292,7 @@
 			var pages = <%=request.getAttribute("pages") %>;
 			
 			if(page<=pages && page>1){
-				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page-1}&pages=${pages}'; 
+				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page-1}&pages=${pages}&sno=${sessionScope.student.sno }'; 
 				window.location.href = str;
 			}else{
 				var $me = $(this), interval;
@@ -327,7 +327,7 @@
 			var pages = <%=request.getAttribute("pages") %>;
 			
 			if(page<pages){
-				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}'; 
+				var str = '${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?page=${page+1}&pages=${pages}&sno=${sessionScope.student.sno}'; 
 				window.location.href = str;
 			}else{
 				var $me = $(this), interval;

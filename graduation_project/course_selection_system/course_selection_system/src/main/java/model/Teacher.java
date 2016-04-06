@@ -5,33 +5,12 @@ public class Teacher {
 	private String tno;
 	private String tname;
 	private String password;
+	private String departmentNo;
+	private String departmentName;
+	
 	private Department department;
 	
-	public Teacher() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-
-
-	@Override
-	public String toString() {
-		return "Teacher [tno=" + tno + ", tname=" + tname + ", password=" + password + ", department=" + department + "]";
-	}
-
-
-
-
-	public Teacher(String tno, String tname, String password, Department department) {
-		super();
-		this.tno = tno;
-		this.tname = tname;
-		this.password = password;
-		this.department = department;
-	}
-
-
-
+	public Teacher() {}
 
 	public String getTno() {
 		return tno;
@@ -57,6 +36,30 @@ public class Teacher {
 		this.password = password;
 	}
 
+	public String getDepartmentName() {
+		return departmentName;
+	}
+
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+
+	public String getDepartmentNo() {
+		return departmentNo;
+	}
+
+	public void setDepartmentNo(String departmentNo) {
+		this.departmentNo = departmentNo;
+	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Teacher [tno=" + tno + ", tname=" + tname + ", password=" + password + ", departmentNo=" + departmentNo
+				+ ", departmentName=" + departmentName + ", department=" + department + "]";
+	}
+
 	public Department getDepartment() {
 		return department;
 	}
@@ -64,7 +67,7 @@ public class Teacher {
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
-	
+
 	
 	
 

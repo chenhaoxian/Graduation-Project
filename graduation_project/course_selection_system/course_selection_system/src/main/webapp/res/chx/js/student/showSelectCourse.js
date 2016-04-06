@@ -19,9 +19,38 @@ ShowSelectCourse.prototype.bindEvent = function(){
 }
 
 var ShowSelectCourse_Page = new ShowSelectCourse();
-
+var flag = 'Y';
 
 $(document).ready(function(){
 	ShowSelectCourse_Page.bindEvent();
 	ShowSelectCourse_Page.init();	
 });
+
+function cancelSelect(cno,sno){
+//	alert('cno:'+cno+'sno' + sno);
+	var self = this;
+	if(cno==null || cno=='' || sno==null || sno ==""){
+		alert('操作失败');
+	}else{
+		$.ajax({
+			type : "post",
+			url : "../student/cancelSelectCourse.do",
+			data : {
+				"cno" : cno,
+				"sno" : sno
+			},
+			success : function(msg){
+				if(msg == "success"){
+					alert("操作成功");
+//					flag = 'N';
+//					alert($(this).val());
+//					$(this).parent().attr("disabled","disabled");
+//					$("#btn_"+'1').attr("disabled","disabled");
+					//刷新全部数据
+					window.location.reload(true);
+					
+				}
+			}
+		});
+	}
+}

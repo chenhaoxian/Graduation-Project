@@ -96,7 +96,7 @@
 	<div class="wrapper small_menu">
 		<ul class="menu_small_buttons">
 			<li><a title="个人 信息" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
-			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1"></a></li>
+			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1&sno=${sessionScope.student.sno }"></a></li>
 			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
 			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>
 			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
@@ -115,7 +115,7 @@
 					</a>
 				</li>
 				<li class="i_32_ui">
-					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1" title="Your Messages">
+					<a href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1&sno=${sessionScope.student.sno }" title="Your Messages">
 						<span class="tab_label">选课</span>
 						<span class="tab_info">Select Course</span>
 					</a>
@@ -162,8 +162,12 @@
 						</thead>
 						<tbody id="selectCourse_data_table">
 							<c:forEach items="${selectCourseList }" var="selectCourse" varStatus="vs">
-								<tr>
-									<td><c:if test="${selectCourse.status =='在修' }"><input value="退选" type="button" class="button button-glow button-rounded " style="width: 100%" onclick=""/></c:if></td>
+								<tr >
+									<td>
+										<c:if test="${selectCourse.status =='在修' }">
+											<input id='btn_'+'1' value="退选" type="button" class="button button-glow button-rounded " style="width: 100%" onclick="cancelSelect('${selectCourse.cno}','${selectCourse.sno }')"/>
+										</c:if>
+									</td>
 									<td>${selectCourse.courseName }</td>
 									<td>${selectCourse.teacherName }</td>
 									<td>${selectCourse.ctime }</td>

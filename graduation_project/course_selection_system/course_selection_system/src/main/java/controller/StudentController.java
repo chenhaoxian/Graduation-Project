@@ -2,6 +2,9 @@ package controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.CourseTongXuan;
 import model.SelectCourse;
+import model.Student;
 import service.CommonService;
 import service.StudentService;
 import util.Tool;
@@ -31,13 +35,15 @@ public class StudentController {
 	
 	@RequestMapping("findAllCourseTongXuan")
 	public String showCourseTongXuan(@RequestParam(required = false, defaultValue = "1")Integer page,
-			@RequestParam(required = false, defaultValue = "7")Integer rows,
-			@RequestParam(required = false, defaultValue = "0")Integer pages,
+			@RequestParam(required = false, defaultValue = "5")Integer rows,
+			@RequestParam(required = false, defaultValue = "1")Integer pages,
+			@RequestParam(required = true)String sno,
 			Model model,
-			@RequestParam(required = false, defaultValue = "0")boolean flag){
+			@RequestParam(required = false, defaultValue = "false")boolean flag){
 //		System.out.println(pages);
 //		int page_int = Integer.parseInt(page);
-		courseTongXuanList = studentService.findAllCourseTongXuan(page, rows);
+//		Tool.print(pages);
+		courseTongXuanList = studentService.findAllCourseTongXuan(page, rows,sno);
 //		for(CourseTongXuan c : courseTongXuanList){
 //			System.out.println(c.toString());
 //		}
@@ -45,8 +51,9 @@ public class StudentController {
 		model.addAttribute("courseTongXuanList", courseTongXuanList);
 		model.addAttribute("page", page);
 		if(flag){
-			pages = commonService.countPages(rows, "courseTongXuan");
+			pages = commonService.countPages(rows, sno);
 		}
+//		Tool.print(pages);
 		model.addAttribute("pages", pages);
 		
 		return "student/selection";
@@ -57,10 +64,11 @@ public class StudentController {
 	public @ResponseBody String showCourseTongXuanByPage(@RequestParam(required = false, defaultValue = "1")Integer page,
 			@RequestParam(required = false, defaultValue = "2")Integer rows,
 			@RequestParam(required = false, defaultValue = "0")Integer pages,
+			@RequestParam(required = true)String sno,
 			@RequestParam(required = false, defaultValue = "0")boolean flag){
 		System.out.println(pages);
 //		int page_int = Integer.parseInt(page);
-		courseTongXuanList = studentService.findAllCourseTongXuan(page, rows);
+		courseTongXuanList = studentService.findAllCourseTongXuan(page, rows,sno);
 //		for(CourseTongXuan c : courseTongXuanList){
 //			System.out.println(c.toString());
 //		}
@@ -82,7 +90,7 @@ public class StudentController {
 	@RequestMapping("findSelectCourse")
 	public String findSelectCourse(@RequestParam("sno")String sno, Model model){
 		List<SelectCourse> selectCourseList = studentService.getSelectCourseList(sno);
-		Tool.print(selectCourseList.get(0).toString());
+//		Tool.print(selectCourseList.get(0).toString());
 		model.addAttribute("selectCourseList", selectCourseList);
 		return "student/showSelectCourse";
 	}
@@ -90,17 +98,30 @@ public class StudentController {
 	@RequestMapping("selectCourse")
 	@ResponseBody
 	public String selectCourse(@RequestParam("cno")String cno, 
-			@RequestParam("sno")String sno,
-			Model model){
+			Model model,
+			HttpServletRequest request){
 //		Tool.print("select Course operation success");
 //		Tool.print(cno);
 //		Tool.print(sno);
-		if(studentService.handleSelectOperation(cno, sno)){
+		HttpSession session = request.getSession();
+		Student student = new Student();
+		student = (Student)session.getAttribute("student");
+		
+		if(student == null ){
+			return "error";
+		}else if(studentService.handleSelectOperation(cno, student.getSno())){
 			return "success";
 		}else{
-			return "error";
+			return "fail";
 		}
+	}
+	
+	@RequestMapping("cancelSelectCourse")
+	@ResponseBody
+	public String cancelSelect(String cno,String sno){
 		
+		studentService.cancelSelectCourse(cno, sno);
+		return "success";
 	}
 
 	

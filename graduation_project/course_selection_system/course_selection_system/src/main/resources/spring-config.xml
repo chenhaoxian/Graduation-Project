@@ -10,7 +10,7 @@ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.0.xsd
 http://www.springframework.org/schema/tx
-http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"> 
  
 
 	<!-- data source : DriverManagerDataSource -->
@@ -29,6 +29,7 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 		<property name="mapperLocations">
 			<array>
 				<value>classpath:mapper/*.xml</value>
+				<value>classpath:teacher/mapper/*.xml</value>
 			</array>
 		</property>
 		<property name="typeAliasesPackage" value="model"></property>  

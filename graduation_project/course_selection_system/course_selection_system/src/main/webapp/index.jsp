@@ -194,12 +194,12 @@
 							<form  name="teacher_form" method="post"  class="modal-body" >
 					      	<div class="input-group">
 									  <span class="input-group-addon" id="basic-addon1">账号</span>
-									  <input type="text" class="form-control" placeholder="输入教工号"  id="tno" aria-describedby="basic-addon1">
+									  <input type="text" class="form-control" placeholder="输入教工号"  id="tno" aria-describedby="basic-addon1" value="1">
 									</div>
 									<span class="label label-danger" id="tno_warning"></span>
 									<div class="input-group">
 									  <span class="input-group-addon" id="basic-addon1">密码</span>
-									  <input type="password" id="teacher_password" class="form-control" placeholder="密码" aria-describedby="basic-addon1">
+									  <input type="password" id="teacher_password" class="form-control" placeholder="密码" aria-describedby="basic-addon1" value="123">
 									</div>
 									<span class="label label-danger" id="t_pwd_warning"></span>
 									<div>
