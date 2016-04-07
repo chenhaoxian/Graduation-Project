@@ -649,6 +649,18 @@ end;
 
 select * from coursetongxuan where tno='1'
 
+select * from coursetongxuan;
+desc coursetongxuan;
+
+alter table coursetongxuan drop COLUMN id;
+alter table coursetongxuan add column id int primary key auto_increment ;
+
+alter table coursetongxuan MODIFY column id int PRIMARY key auto_increment;
+
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno) values('TX23423','testCourse1','自然科学','周五 8:00--9:30',3,50,0,'1');
+
+
+
 
 
 
