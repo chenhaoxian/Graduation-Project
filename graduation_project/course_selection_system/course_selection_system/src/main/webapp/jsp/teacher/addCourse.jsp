@@ -135,7 +135,7 @@
 		
 		<aside class="sidebar">
 			<ul class="tab_nav">
-				<li class="active_tab i_32_dashboard">
+				<li class="i_32_dashboard">
 					<a href="${pageContext.request.contextPath}/jsp/teacher/teacherIndex.jsp" title="General Info">
 						<span class="tab_label">个人信息</span>
 						<span class="tab_info">Person Info</span>
@@ -174,14 +174,14 @@
 						<span class="tab_info">Some Rows</span>
 					</a>
 				</li>
-				 -->
-				<li class=" i_32_forms">
+				-->
+				<li class="i_32_forms">
 					<a href="${pageContext.request.contextPath}/jsp/teacher/addCourse.jsp" title="Some Fields">
-						<span class="tab_label">添加课程</span>
+						<span class="active_tab tab_label">添加课程</span>
 						<span class="tab_info">Forms</span>
 					</a>
 				</li>
-				
+				 
 			</ul>
 		</aside>
 		<!-- ==================侧边栏目    end ===================================================================== -->
@@ -190,8 +190,8 @@
 			<div class="grid_wrapper">
 
 				<div class="g_6 contents_header">
-					<h3 class="i_16_dashboard tab_label">个人信息</h3>
-					<div><span class="label">Person Info</span></div>
+					<h3 class="i_16_forms tab_label">添加课程</h3>
+					<div><span class="label">add course</span></div>
 				</div>
 				<!-- 
 				<div class="g_6 contents_options">
@@ -285,30 +285,54 @@
 					
 				<div class="g_12">
 					<div class="widget_header">
-						<h4 class="widget_header_title wwIcon i_16_add">姓名</h4>
+						<h4 class="widget_header_title wwIcon i_16_valid">课程信息</h4>
 					</div>
-					<div class="widget_contents">
-					${sessionScope.teacher.tname}
+					<div class="widget_contents noPadding">
+						<form id="course_form" action="${pageContext.request.contextPath}/teacher/addCourse.do">
+							<div class="line_grid">
+								<div class="g_3"><span class="label">课程名 <span class="must">*</span></span></div>
+								<div class="g_9">
+									<input id="cname" type="text" placeholder="Jake Bob" class="simple_field" name="cname" required />
+								</div>
+							</div>
+							<div class="line_grid">
+								<div class="g_3"><span class="label">课程类型 <span class="must">*</span></span></div>
+								<div class="g_9">
+									<input id="ctype" type="text" placeholder="Jake Bob" class="simple_field" name="ctype" required />
+								</div>
+							</div>
+							<div class="line_grid">
+								<div class="g_3"><span class="label">上课时间 <span class="must">*</span></span></div>
+								<div class="g_9">
+									<input id="ctime" type="text" placeholder="Jake Bob" class="simple_field" name="ctime" required />
+								</div>
+							</div>
+							<div class="line_grid">
+								<div class="g_3"><span class="label">学分 <span class="must">*</span></span></div>
+								<div class="g_3">
+									<input type="text" class="simple_field spinner1" id="credit" name="credit"/>
+									<div class="field_notice">Min 0 |</div>
+								</div>
+							</div>
+							<div class="line_grid">
+								<div class="g_3"><span class="label">总人数<span class="must">*</span></span></div>
+								<div class="g_3">
+									<input type="text" class="simple_field spinner1" id="total" name="total"/>
+									<div class="field_notice">Min 30 | Max 150</div>
+								</div>
+							</div>
+							<div class="line_grid">
+								<div class="g_3"><span class="label">Submit</span></div>
+								<div class="g_9">
+									<input type="submit" value="Validate" class="submitIt simple_buttons" id="course_form_sumbit"/>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 				
-				<div class="g_12">
-					<div class="widget_header">
-						<h4 class="widget_header_title wwIcon i_16_add">教工号</h4>
-					</div>
-					<div class="widget_contents">
-						${sessionScope.teacher.tno}
-					</div>
-				</div>
 				
-				<div class="g_12">
-					<div class="widget_header">
-						<h4 class="widget_header_title wwIcon i_16_add">隶属</h4>
-					</div>
-					<div class="widget_contents">
-					 ${sessionScope.teacher.departmentName }
-					</div>
-				</div>
+				<div class="g_12 separator"><span></span></div>
 				<!--
 				<div class="g_12">
 					<div class="widget_header">
@@ -338,6 +362,8 @@
 		</div>
 
 	</div>
+	
+	<script src="${pageContext.request.contextPath}/res/chx/js/teacher/addCourse.js"></script>
 
 
 </body>

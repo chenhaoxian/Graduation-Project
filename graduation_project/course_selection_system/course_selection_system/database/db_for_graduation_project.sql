@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-04-06 15:31:52
+Date: 2016-04-07 17:11:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -68,7 +68,6 @@ INSERT INTO `course` VALUES ('5', 'TX5', '通选课5', '自然科学', '周五 8
 -- ----------------------------
 DROP TABLE IF EXISTS `coursetongxuan`;
 CREATE TABLE `coursetongxuan` (
-  `id` int(11) NOT NULL,
   `cno` varchar(20) DEFAULT NULL,
   `cname` varchar(50) DEFAULT NULL,
   `ctype` varchar(50) DEFAULT NULL,
@@ -77,25 +76,27 @@ CREATE TABLE `coursetongxuan` (
   `total` int(11) DEFAULT NULL,
   `margin` int(11) DEFAULT NULL,
   `tno` varchar(20) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   UNIQUE KEY `cno` (`cno`),
   KEY `tno` (`tno`),
   CONSTRAINT `coursetongxuan_ibfk_1` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of coursetongxuan
 -- ----------------------------
-INSERT INTO `coursetongxuan` VALUES ('0', 'TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('1', 'TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '1', '1');
-INSERT INTO `coursetongxuan` VALUES ('2', 'TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '1', '1');
-INSERT INTO `coursetongxuan` VALUES ('3', 'TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '1', '1');
-INSERT INTO `coursetongxuan` VALUES ('4', 'TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('5', 'TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '1', '1');
-INSERT INTO `coursetongxuan` VALUES ('6', 'TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('7', 'TX8', '通选课8', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('8', 'TX9', '通选课9', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1');
-INSERT INTO `coursetongxuan` VALUES ('9', 'TX10', 'TTTTTSTAG', 'TEST', 'TEST', '2', '32', '1', '1');
+INSERT INTO `coursetongxuan` VALUES ('TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '0', '1', '1');
+INSERT INTO `coursetongxuan` VALUES ('TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '1', '1', '2');
+INSERT INTO `coursetongxuan` VALUES ('TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '0', '1', '3');
+INSERT INTO `coursetongxuan` VALUES ('TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '0', '1', '4');
+INSERT INTO `coursetongxuan` VALUES ('TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '0', '1', '5');
+INSERT INTO `coursetongxuan` VALUES ('TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '1', '1', '6');
+INSERT INTO `coursetongxuan` VALUES ('TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1', '7');
+INSERT INTO `coursetongxuan` VALUES ('TX8', '通选课8', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1', '8');
+INSERT INTO `coursetongxuan` VALUES ('TX9', '通选课9', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1', '9');
+INSERT INTO `coursetongxuan` VALUES ('TX10', 'TTTTTSTAG', 'TEST', 'TEST', '2', '32', '0', '1', '10');
+INSERT INTO `coursetongxuan` VALUES ('TX23423', 'testCourse1', '自然科学', '周五 8:00--9:30', '3', '50', '0', '1', '11');
 
 -- ----------------------------
 -- Table structure for credit
@@ -112,7 +113,7 @@ CREATE TABLE `credit` (
 -- ----------------------------
 -- Records of credit
 -- ----------------------------
-INSERT INTO `credit` VALUES ('10', '1', '2');
+INSERT INTO `credit` VALUES ('4', '1', '2');
 
 -- ----------------------------
 -- Table structure for department
@@ -163,11 +164,8 @@ CREATE TABLE `selectcourse` (
 -- ----------------------------
 -- Records of selectcourse
 -- ----------------------------
-INSERT INTO `selectcourse` VALUES ('TX10', '1', '在修');
-INSERT INTO `selectcourse` VALUES ('TX1', '1', '在修');
-INSERT INTO `selectcourse` VALUES ('TX2', '1', '在修');
-INSERT INTO `selectcourse` VALUES ('TX3', '1', '在修');
 INSERT INTO `selectcourse` VALUES ('TX5', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX1', '1', '在修');
 
 -- ----------------------------
 -- Table structure for student
