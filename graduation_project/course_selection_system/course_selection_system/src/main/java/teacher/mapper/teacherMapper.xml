@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<!--   
+    namespace：必须与对应的接口全类名一致  
+    id:必须与对应接口的某个对应的方法名一致  
+      
+ --> 
+<!--  在dao包下创建一个UserMapper.xml文件作为上一步创建的DAO接口的实现。 -->
+
+<mapper namespace="teacher.mapper.TeacherMapper">
+	
+	<select id="countCnoFromCourseTable" resultType="INT">
+		select count(1) from coursetongxuan where cno = #{cno}
+	</select>
+	
+	<insert id="insertCourse">
+		insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno) values(#{cno},#{cname},#{ctype},#{ctime},#{creditInt},#{totalInt},#{margin},#{tno})
+	</insert>
+	
+	<select id="getCourseByTno" resultType="CourseTongXuan">
+		select * from coursetongxuan where tno = #{tno}
+	</select>
+	
+</mapper>
