@@ -53,14 +53,14 @@ public class LoginController {
 		int usertype = Integer.parseInt(request.getParameter("usertype"));
 		
 		Teacher teacher = loginService.findTeacherByTno(tno);
-		Tool.print(teacher.toString());
+//		Tool.print(teacher.toString());
 		
 		if(teacher == null){
 			return "null";
 		}else if(!password.equals(teacher.getPassword())){
 			return "error";
 		}else{
-			print(teacher.toString());
+//			print(teacher.toString());
 			request.getSession().setAttribute("teacher", teacher);
 			return "success";
 		}

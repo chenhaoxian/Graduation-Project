@@ -175,7 +175,7 @@
 					</a>
 				</li>
 				-->
-				<li class="i_32_forms">
+				<li class="active_tab i_32_forms">
 					<a href="${pageContext.request.contextPath}/jsp/teacher/addCourse.jsp" title="Some Fields">
 						<span class="active_tab tab_label">添加课程</span>
 						<span class="tab_info">Forms</span>
@@ -324,7 +324,7 @@
 							<div class="line_grid">
 								<div class="g_3"><span class="label">Submit</span></div>
 								<div class="g_9">
-									<input type="submit" value="Validate" class="submitIt simple_buttons" id="course_form_sumbit"/>
+									<input type="submit" value="提交" class="submitIt simple_buttons" id="course_form_sumbit"/>
 								</div>
 							</div>
 						</form>
