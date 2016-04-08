@@ -244,7 +244,7 @@
 
 	</div>
 
-
+<script src="${pageContext.request.contextPath}/res/chx/js/teacher/selection.js"></script>
 
 </body>
 </html>
