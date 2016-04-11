@@ -16,5 +16,9 @@ public interface TeacherMapper {
 			@Param("margin")int margin, @Param("tno")String tno);
 	
 	List<CourseTongXuan> getCourseByTno(@Param("tno")String tno);
+	
+	int deleteCourse(@Param("cno")String cno);
+	
+	void deleteSelectCourseByCno(@Param("cno")String cno);
 
 }

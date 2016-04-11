@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.CourseTongXuan;
 import model.Teacher;
@@ -45,17 +46,30 @@ public class TeacherController {
 //		Tool.print(credit);
 //		Tool.print(total);
 		teacherService.insertCourse(cname, ctype, ctime, creditInt, totalInt, tno);
-		return "redirect:/jsp/teacher/teacherIndex.jsp";
+		return "redirect:/teacher/findCourse.do?tno="+tno;
 	}
 	
 	@RequestMapping("findCourse")
 	private String findCourse(String tno, Model model){
 		
 		List<CourseTongXuan> courseList = teacherService.findCourse(tno);
-		Tool.print(courseList.size());
-		Tool.print(courseList.get(0).toString());
+//		Tool.print(courseList.size());
+//		Tool.print(courseList.get(0).toString());
 		model.addAttribute("courseList", courseList);
 		return "teacher/showCourse";
 	}
 	
+	@RequestMapping("deleteCourse")
+	@ResponseBody
+	private String deleteCourse(String cno, String tno){
+		Tool.print(cno);
+		Tool.print(tno);
+		if(teacherService.deleteCourse(cno)){
+//			List<CourseTongXuan> courseList = teacherService.findCourse(tno);
+//			model.addAttribute("courseList", courseList);
+			return "success";
+		}else{
+			return "fail";
+		}
+	}
 }

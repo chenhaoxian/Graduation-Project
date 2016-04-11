@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-04-08 16:54:12
+Date: 2016-04-11 16:54:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -81,7 +81,7 @@ CREATE TABLE `coursetongxuan` (
   UNIQUE KEY `cno` (`cno`),
   KEY `tno` (`tno`),
   CONSTRAINT `coursetongxuan_ibfk_1` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of coursetongxuan
@@ -93,12 +93,7 @@ INSERT INTO `coursetongxuan` VALUES ('TX3', '通选课3', '自然科学', '周�
 INSERT INTO `coursetongxuan` VALUES ('TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '0', '1', '5');
 INSERT INTO `coursetongxuan` VALUES ('TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '1', '1', '6');
 INSERT INTO `coursetongxuan` VALUES ('TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1', '7');
-INSERT INTO `coursetongxuan` VALUES ('TX8', '通选课8', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1', '8');
-INSERT INTO `coursetongxuan` VALUES ('TX9', '通选课9', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1', '9');
-INSERT INTO `coursetongxuan` VALUES ('TX10', 'TTTTTSTAG', 'TEST', 'TEST', '2', '32', '0', '1', '10');
-INSERT INTO `coursetongxuan` VALUES ('TX23423', 'testCourse1', '自然科学', '周五 8:00--9:30', '3', '50', '0', '1', '11');
-INSERT INTO `coursetongxuan` VALUES ('420350', 'testCourse1', '自然科学', '周五 8:00--9:30', '3', '50', '0', '1', '12');
-INSERT INTO `coursetongxuan` VALUES ('218724', 'test1234556', 'tetstset', 'setsetet', '8', '16', '0', '1', '13');
+INSERT INTO `coursetongxuan` VALUES ('853313', 'test1', 'rsrser', 'serser', '0', '0', '0', '1', '23');
 
 -- ----------------------------
 -- Table structure for credit
