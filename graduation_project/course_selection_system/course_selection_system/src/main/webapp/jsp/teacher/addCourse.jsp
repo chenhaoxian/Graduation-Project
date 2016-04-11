@@ -181,6 +181,13 @@
 						<span class="tab_info">Forms</span>
 					</a>
 				</li>
+				
+				<li class=" i_32_tables">
+					<a href="${pageContext.request.contextPath}/teacher/findCourse.do?tno=${sessionScope.teacher.tno}" title="Some Rows">
+						<span class="tab_label">查看课程</span>
+						<span class="tab_info">show course</span>
+					</a>
+				</li>
 				 
 			</ul>
 		</aside>

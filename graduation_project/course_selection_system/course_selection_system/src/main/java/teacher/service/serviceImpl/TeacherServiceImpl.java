@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import model.CourseTongXuan;
@@ -41,6 +42,21 @@ public class TeacherServiceImpl implements TeacherService {
 	public List<CourseTongXuan> findCourse(String tno) {
 		List<CourseTongXuan> courseList = teacherMapper.getCourseByTno(tno);
 		return courseList;
+	}
+
+	@Override
+	@Transactional
+	public boolean deleteCourse(String cno) {
+		Tool.print(cno);
+		int returnEffect = teacherMapper.deleteCourse(cno) ; 
+		Tool.print(returnEffect);
+		if(returnEffect >=1 ){
+			teacherMapper.deleteSelectCourseByCno(cno);
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
 }

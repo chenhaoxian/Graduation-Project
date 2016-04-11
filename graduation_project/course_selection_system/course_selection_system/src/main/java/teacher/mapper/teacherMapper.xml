@@ -19,7 +19,15 @@
 	</insert>
 	
 	<select id="getCourseByTno" resultType="CourseTongXuan">
-		select * from coursetongxuan where tno = #{tno}
+		select * from coursetongxuan where tno = #{tno} order by cno
 	</select>
+	
+	<delete id="deleteCourse">
+		delete from coursetongxuan where cno = #{cno};
+	</delete>
+	
+	<delete id="deleteSelectCourseByCno">
+		delete from selectCourse where cno = #{cno};
+	</delete>
 	
 </mapper>

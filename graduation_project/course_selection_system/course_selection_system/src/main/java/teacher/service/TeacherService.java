@@ -13,5 +13,7 @@ public interface TeacherService {
 			@Param("ctime")String ctime, @Param("creditInt")int creditInt, @Param("totalInt")int totalInt, @Param("tno")String tno);
 	
 	List<CourseTongXuan> findCourse(@Param("tno")String tno);
+	
+	boolean deleteCourse(@Param("cno")String cno);
 
 }

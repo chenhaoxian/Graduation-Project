@@ -662,6 +662,8 @@ insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno) values
 desc coursetongxuan;
 select * from coursetongxuan;
 
+select * from selectcourse;
+
 
 
 

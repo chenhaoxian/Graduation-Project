@@ -179,7 +179,7 @@
 				</li>
 				
 				<li class="active_tab i_32_tables">
-					<a href="" title="Some Rows">
+					<a href="${pageContext.request.contextPath}/teacher/findCourse.do?tno=${sessionScope.teacher.tno}" title="Some Rows">
 						<span class="tab_label">查看课程</span>
 						<span class="tab_info">show course</span>
 					</a>
@@ -211,11 +211,13 @@
 									<tbody id="selectCourse_data_table">
 										<c:choose>
 											<c:when test="${courseList != null}">
+												<%int i=0; %>
 												<c:forEach items="${courseList }" var="course" varStatus="vs">
-													<tr >
+													<tr class="">
 														<td>
 															
-																<input id='btn_+${course.id }' value="删除" type="button" class="button button-glow button-rounded " style="width: 100%" onclick=""/>
+																<input value="删除" type="button" class="button button-glow button-rounded " style="width: 100%" onclick="deleteCourse('${course.cno}','${sessionScope.teacher.tno }','<%= i%>')"/>
+																<%i++; %>
 														</td>
 														<td>${course.cno }</td>
 														<td>${course.cname }</td>
@@ -226,11 +228,9 @@
 														<td>${course.margin }</td>
 													</tr>
 												</c:forEach>
-												
 											</c:when>
 											<c:otherwise><tr><td>not data found!</td></tr></c:otherwise>
 										</c:choose>
-										
 									</tbody>
 								</table>
 								
@@ -244,7 +244,7 @@
 
 	</div>
 
-<script src="${pageContext.request.contextPath}/res/chx/js/teacher/selection.js"></script>
+<script src="${pageContext.request.contextPath}/res/chx/js/teacher/showCourse.js"></script>
 
 </body>
 </html>
