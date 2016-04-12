@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import model.CourseTongXuan;
 import teacher.mapper.TeacherMapper;
+import teacher.model.Student;
 import teacher.service.TeacherService;
 import util.Tool;
 
@@ -57,6 +58,12 @@ public class TeacherServiceImpl implements TeacherService {
 			return false;
 		}
 		
+	}
+
+	@Override
+	public List<Student> findStudent(String cno) {
+		List<Student> list = teacherMapper.getStudent(cno);
+		return list;
 	}
 
 }

@@ -208,12 +208,12 @@
 											<th class="success">已选人数</th>
 										</tr>
 									</thead>
-									<tbody id="selectCourse_data_table">
+									<tbody id="course_data_table">
 										<c:choose>
 											<c:when test="${courseList != null}">
 												<%int i=0; %>
 												<c:forEach items="${courseList }" var="course" varStatus="vs">
-													<tr class="">
+													<tr >
 														<td>
 															
 																<input value="删除" type="button" class="button button-glow button-rounded " style="width: 100%" onclick="deleteCourse('${course.cno}','${sessionScope.teacher.tno }','<%= i%>')"/>
@@ -225,7 +225,12 @@
 														<td>${course.ctime }</td>
 														<td>${course.credit }</td>
 														<td>${course.total }</td>
-														<td>${course.margin }</td>
+														<td>
+															<c:choose>
+																<c:when test="${course.margin != 0 }"><button onclick="displayStudent('${course.cno }')">${course.margin }</button></c:when>
+																<c:otherwise>${course.margin }</c:otherwise>
+															</c:choose>
+														</td>
 													</tr>
 												</c:forEach>
 											</c:when>
@@ -243,6 +248,30 @@
 		
 
 	</div>
+	
+	
+	<div id="showStudent" style="left: 50%; top: 50%; position: absolute ; background-color:#CCCCCC; display: none" class="modal fade" tabindex="-1" role="dialog" >
+		<table class="tables">
+			<thead>
+				<tr>
+					<th class="error">编号</th>
+					<th class="error">姓名</th>
+					<th class="error">学号</th>
+					<th class="error">年级</th>
+					<th class="error">专业</th>
+					<th class="error">学院</th>
+					<th >移除</th>
+				</tr>
+			</thead>
+			<tbody id="student_data_table">
+
+			</tbody>
+			<tfoot><tr"><td style="left: 50%; size: auto;" ><button id="student_data_table_close">关闭</button></td></tr></tfoot>
+		</table>
+			
+	</div>
+
+
 
 <script src="${pageContext.request.contextPath}/res/chx/js/teacher/showCourse.js"></script>
 

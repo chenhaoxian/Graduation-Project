@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-04-11 16:54:16
+Date: 2016-04-12 17:21:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -81,19 +81,20 @@ CREATE TABLE `coursetongxuan` (
   UNIQUE KEY `cno` (`cno`),
   KEY `tno` (`tno`),
   CONSTRAINT `coursetongxuan_ibfk_1` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of coursetongxuan
 -- ----------------------------
 INSERT INTO `coursetongxuan` VALUES ('TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '0', '1', '1');
 INSERT INTO `coursetongxuan` VALUES ('TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '1', '1', '2');
-INSERT INTO `coursetongxuan` VALUES ('TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '0', '1', '3');
-INSERT INTO `coursetongxuan` VALUES ('TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '0', '1', '4');
-INSERT INTO `coursetongxuan` VALUES ('TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '0', '1', '5');
+INSERT INTO `coursetongxuan` VALUES ('TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '1', '1', '3');
+INSERT INTO `coursetongxuan` VALUES ('TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '1', '1', '4');
+INSERT INTO `coursetongxuan` VALUES ('TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '1', '1', '5');
 INSERT INTO `coursetongxuan` VALUES ('TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '1', '1', '6');
 INSERT INTO `coursetongxuan` VALUES ('TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1', '7');
-INSERT INTO `coursetongxuan` VALUES ('853313', 'test1', 'rsrser', 'serser', '0', '0', '0', '1', '23');
+INSERT INTO `coursetongxuan` VALUES ('233636', 'testst', 'setsets', 'setsetset', '4', '24', '0', '1', '26');
+INSERT INTO `coursetongxuan` VALUES ('47931', 'test123', 'test1123', 'setest', '2', '27', '0', '1', '27');
 
 -- ----------------------------
 -- Table structure for credit
@@ -110,7 +111,7 @@ CREATE TABLE `credit` (
 -- ----------------------------
 -- Records of credit
 -- ----------------------------
-INSERT INTO `credit` VALUES ('4', '1', '2');
+INSERT INTO `credit` VALUES ('10', '1', '2');
 
 -- ----------------------------
 -- Table structure for department
@@ -163,6 +164,9 @@ CREATE TABLE `selectcourse` (
 -- ----------------------------
 INSERT INTO `selectcourse` VALUES ('TX5', '1', '在修');
 INSERT INTO `selectcourse` VALUES ('TX1', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX2', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX3', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX4', '1', '在修');
 
 -- ----------------------------
 -- Table structure for student

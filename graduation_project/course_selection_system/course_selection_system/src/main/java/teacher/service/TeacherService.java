@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import model.CourseTongXuan;
+import teacher.model.Student;
 
 public interface TeacherService {
 	
@@ -15,5 +16,7 @@ public interface TeacherService {
 	List<CourseTongXuan> findCourse(@Param("tno")String tno);
 	
 	boolean deleteCourse(@Param("cno")String cno);
+	
+	List<Student> findStudent(@Param("cno")String cno);
 
 }

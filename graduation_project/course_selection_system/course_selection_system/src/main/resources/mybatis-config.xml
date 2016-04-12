@@ -14,6 +14,7 @@
 		<typeAlias type="model.Credit" alias="Credit"/>
 		<typeAlias type="model.CourseTongXuan" alias="CourseTongXuan"/> 
 		<typeAlias type="model.SelectCourse" alias="SelectCourse"/>
+		<typeAlias type="teacher.model.Student" alias="tStudent"/>
 		
 	</typeAliases>
 	
