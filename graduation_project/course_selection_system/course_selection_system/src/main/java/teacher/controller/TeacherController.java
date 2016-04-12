@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.CourseTongXuan;
 import model.Teacher;
+import teacher.model.Student;
 import teacher.service.TeacherService;
 import util.Tool;
 
@@ -72,4 +73,27 @@ public class TeacherController {
 			return "fail";
 		}
 	}
+	
+//	@RequestMapping("findStudent")
+//	@ResponseBody
+//	private String findStudent(String cno, Model model){
+//		
+//		List<Student> list = teacherService.findStudent(cno);
+//		Tool.print(list.get(0));
+//		model.addAttribute("studentList", list);
+//		
+//		return "success";
+//	}
+	
+	@RequestMapping("findStudent")
+	@ResponseBody
+	private List<Student> findStudent(String cno, Model model){
+		
+		List<Student> list = teacherService.findStudent(cno);
+		Tool.print(list.get(0));
+		model.addAttribute("studentList", list);
+		
+		return list;
+	}
+	
 }

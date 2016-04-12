@@ -9,6 +9,16 @@
 <!--  在dao包下创建一个UserMapper.xml文件作为上一步创建的DAO接口的实现。 -->
 
 <mapper namespace="teacher.mapper.TeacherMapper">
+
+	<resultMap id="studentResultMap" type="tStudent">
+		<id column="id" property="id"/>
+		<result column="sname" property="sname"/>
+		<result column="sno" property="sno" />
+		<result column="grade" property="grade" />
+		<result column="professionName" property="professionName"/>
+		<result column="departmentName" property="departmentName" />
+	</resultMap>
+	
 	
 	<select id="countCnoFromCourseTable" resultType="INT">
 		select count(1) from coursetongxuan where cno = #{cno}
@@ -29,5 +39,14 @@
 	<delete id="deleteSelectCourseByCno">
 		delete from selectCourse where cno = #{cno};
 	</delete>
+	
+	<select id="getStudent" resultMap="studentResultMap">
+		select s.*,p.professionName,d.departmentName
+		from student s
+		left JOIN selectcourse sc on s.sno = sc.sno
+		left join profession p on s.professionno = p.professionNo
+		left join department d on p.departmentNo = d.departmentNo
+		where sc.cno = #{cno}
+	</select>
 	
 </mapper>

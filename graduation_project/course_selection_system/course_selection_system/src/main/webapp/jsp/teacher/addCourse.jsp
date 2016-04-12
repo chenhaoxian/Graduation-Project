@@ -299,19 +299,19 @@
 							<div class="line_grid">
 								<div class="g_3"><span class="label">课程名 <span class="must">*</span></span></div>
 								<div class="g_9">
-									<input id="cname" type="text" placeholder="Jake Bob" class="simple_field" name="cname" required />
+									<input id="cname" type="text" placeholder="课程名" class="simple_field" name="cname" required />
 								</div>
 							</div>
 							<div class="line_grid">
 								<div class="g_3"><span class="label">课程类型 <span class="must">*</span></span></div>
 								<div class="g_9">
-									<input id="ctype" type="text" placeholder="Jake Bob" class="simple_field" name="ctype" required />
+									<input id="ctype" type="text" placeholder="课程类型" class="simple_field" name="ctype" required />
 								</div>
 							</div>
 							<div class="line_grid">
 								<div class="g_3"><span class="label">上课时间 <span class="must">*</span></span></div>
 								<div class="g_9">
-									<input id="ctime" type="text" placeholder="Jake Bob" class="simple_field" name="ctime" required />
+									<input id="ctime" type="text" placeholder="上课时间" class="simple_field" name="ctime" required />
 								</div>
 							</div>
 							<div class="line_grid">

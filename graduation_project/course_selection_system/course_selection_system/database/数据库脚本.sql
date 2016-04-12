@@ -664,6 +664,16 @@ select * from coursetongxuan;
 
 select * from selectcourse;
 
+select * from student;
 
+select s.*,p.professionName,d.departmentName
+from student s
+left JOIN selectcourse sc on s.sno = sc.sno
+left join profession p on s.professionno = p.professionNo
+left join department d on p.departmentNo = d.departmentNo
+where sc.cno = 'TX1'
+
+select * from student;
+desc student;
 
 
