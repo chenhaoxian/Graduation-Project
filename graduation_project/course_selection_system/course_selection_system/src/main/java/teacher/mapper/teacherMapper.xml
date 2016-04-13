@@ -49,4 +49,8 @@
 		where sc.cno = #{cno}
 	</select>
 	
+	<delete id="deleteStudentFromSelectCourse">
+		delete from selectcourse where sno = #{sno} and cno = #{cno}
+	</delete>
+	
 </mapper>

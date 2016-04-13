@@ -66,4 +66,14 @@ public class TeacherServiceImpl implements TeacherService {
 		return list;
 	}
 
+	@Override
+	public boolean removeStudent(String sno, String cno) {
+		
+		if(teacherMapper.deleteStudentFromSelectCourse(sno, cno)==0){
+			return false;
+		}else{
+			return true;
+		}
+	}
+
 }

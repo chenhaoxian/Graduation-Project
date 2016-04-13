@@ -23,5 +23,7 @@ public interface TeacherMapper {
 	void deleteSelectCourseByCno(@Param("cno")String cno);
 	
 	List<Student> getStudent(@Param("cno")String cno);
+	
+	int deleteStudentFromSelectCourse(@Param("sno")String sno, @Param("cno")String cno);
 
 }

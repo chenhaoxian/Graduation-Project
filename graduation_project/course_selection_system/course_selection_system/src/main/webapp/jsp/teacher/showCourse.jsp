@@ -253,14 +253,14 @@
 	<div id="showStudent" style="left: 50%; top: 50%; position: absolute ; background-color:#CCCCCC; display: none" class="modal fade" tabindex="-1" role="dialog" >
 		<table class="tables">
 			<thead>
-				<tr>
-					<th class="error">编号</th>
-					<th class="error">姓名</th>
-					<th class="error">学号</th>
-					<th class="error">年级</th>
-					<th class="error">专业</th>
-					<th class="error">学院</th>
-					<th >移除</th>
+				<tr style="background-color:#CCCCCC">
+					<th class="error"><h2>编号</h2></th>
+					<th class="error"><h2>姓名</h2></th>
+					<th class="error"><h2>学号</h2></th>
+					<th class="error"><h2>年级</h2></th>
+					<th class="error"><h2>专业</h2></th>
+					<th class="error"><h2>学院</h2></th>
+					<th ><h2>移除</h2></th>
 				</tr>
 			</thead>
 			<tbody id="student_data_table">

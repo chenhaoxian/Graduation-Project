@@ -46,7 +46,7 @@ function deleteCourse(cno,tno,i){
 		success : function(msg){
 			if(msg == "success"){
 				alert("success");
-				$("#selectCourse_data_table tr:eq("+i+")").hide();
+				$("#course_data_table tr:eq("+i+")").hide();
 			}else if(msg == "fail"){
 				alert("fail");
 			}
@@ -79,7 +79,7 @@ function displayStudent(cno){
 				$.each(list,function(key,value){
 //					alert(key+'   '+value);
 					
-					trs += "<tr><td>"+(key+1)+"</td><td>"+value.sname+"</td><td>"+value.sno+"</td><td>"+value.grade+"</td><td>"+value.professionName+"</td><td>"+value.departmentName+"</td><td><button onclick='removeStudent(\""+value.sno+"\",\""+cno+"\")'>移除</button></td></tr>";
+					trs += "<tr><td>"+(key+1)+"</td><td>"+value.sname+"</td><td>"+value.sno+"</td><td>"+value.grade+"</td><td>"+value.professionName+"</td><td>"+value.departmentName+"</td><td><button onclick='removeStudent(\""+value.sno+"\",\""+cno+"\",\""+key+"\")'>移除</button></td></tr>";
 				});
 //				
 				$("#student_data_table").append(trs);
@@ -92,7 +92,22 @@ function displayStudent(cno){
 
 }
 
-function removeStudent(sno,cno){
-	alert(sno+'    '+cno);
+function removeStudent(sno,cno,row){
+	$.ajax({
+		type : "post",
+		url : "../teacher/removeStudent.do",
+		data : {
+			"sno" : sno,
+			"cno" : cno
+		},
+		success : function(msg){
+			if(msg == "success"){
+				alert("移除学生成功");
+				$("#student_data_table tr:eq("+row+")").hide();
+			}else if(msg == "fail"){
+				alert("移除学生失败");
+			}
+		}
+	});
 }
 

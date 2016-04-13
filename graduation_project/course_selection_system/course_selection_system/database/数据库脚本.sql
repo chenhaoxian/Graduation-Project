@@ -676,4 +676,28 @@ where sc.cno = 'TX1'
 select * from student;
 desc student;
 
+select * from selectcourse;
+
+select * from admin;
+
+select * from user_contact;
+
+select count(1) from user_contact;
+
+select * from student;
+insert into student(sname,sno,grade,password,professionno) values('student2',2,2,123,1);
+insert into student(sname,sno,grade,password,professionno) values('student3',3,2,123,1);
+insert into student(sname,sno,grade,password,professionno) values('student4',4,2,123,1);
+insert into student(sname,sno,grade,password,professionno) values('student5',5,2,123,1);
+insert into student(sname,sno,grade,password,professionno) values('student6',6,2,123,1);
+insert into student(sname,sno,grade,password,professionno) values('student7',7,2,123,1);
+insert into student(sname,sno,grade,password,professionno) values('student8',8,2,123,1);
+
+select * from profession;
+select * from department;
+insert into department(departmentNO,departmentname) values('2','外国语学院');
+insert into department(departmentNO,departmentname)values('3','艺术学院');
+insert into department(departmentNO,departmentname)values('4','机车学院');
+insert into department(departmentNO,departmentname)values('5','数理学院');
+insert into department(departmentNO,departmentname)values('6','会计与金融学院');
 
