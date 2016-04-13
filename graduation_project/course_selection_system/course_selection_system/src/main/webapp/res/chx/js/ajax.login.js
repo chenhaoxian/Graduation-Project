@@ -157,7 +157,7 @@ $(function(){
 						
 					}else {
 						//$('#loginform').sumbit();
-						window.location.href = 'jsp/test.jsp';
+						window.location.href = 'jsp/admin/adminIndex.jsp';
 					}
 				}
 			});

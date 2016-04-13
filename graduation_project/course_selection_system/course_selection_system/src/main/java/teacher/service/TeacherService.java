@@ -18,5 +18,7 @@ public interface TeacherService {
 	boolean deleteCourse(@Param("cno")String cno);
 	
 	List<Student> findStudent(@Param("cno")String cno);
+	
+	boolean removeStudent(@Param("sno")String sno, @Param("cno")String cno);
 
 }

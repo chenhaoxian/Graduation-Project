@@ -63,8 +63,8 @@ public class TeacherController {
 	@RequestMapping("deleteCourse")
 	@ResponseBody
 	private String deleteCourse(String cno, String tno){
-		Tool.print(cno);
-		Tool.print(tno);
+//		Tool.print(cno);
+//		Tool.print(tno);
 		if(teacherService.deleteCourse(cno)){
 //			List<CourseTongXuan> courseList = teacherService.findCourse(tno);
 //			model.addAttribute("courseList", courseList);
@@ -90,10 +90,20 @@ public class TeacherController {
 	private List<Student> findStudent(String cno, Model model){
 		
 		List<Student> list = teacherService.findStudent(cno);
-		Tool.print(list.get(0));
+//		Tool.print(list.get(0));
 		model.addAttribute("studentList", list);
 		
 		return list;
+	}
+	
+	@RequestMapping("removeStudent")
+	@ResponseBody
+	private String removeStudent(String sno, String cno){
+		if(teacherService.removeStudent(sno, cno)){
+			return "success";
+		}else {
+			return "fail";
+		}
 	}
 	
 }

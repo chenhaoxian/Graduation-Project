@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-04-12 17:21:32
+Date: 2016-04-13 16:22:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -81,20 +81,19 @@ CREATE TABLE `coursetongxuan` (
   UNIQUE KEY `cno` (`cno`),
   KEY `tno` (`tno`),
   CONSTRAINT `coursetongxuan_ibfk_1` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of coursetongxuan
 -- ----------------------------
-INSERT INTO `coursetongxuan` VALUES ('TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '0', '1', '1');
-INSERT INTO `coursetongxuan` VALUES ('TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '1', '1', '2');
+INSERT INTO `coursetongxuan` VALUES ('TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '1', '1', '1');
+INSERT INTO `coursetongxuan` VALUES ('TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '0', '1', '2');
 INSERT INTO `coursetongxuan` VALUES ('TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '1', '1', '3');
 INSERT INTO `coursetongxuan` VALUES ('TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '1', '1', '4');
 INSERT INTO `coursetongxuan` VALUES ('TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '1', '1', '5');
-INSERT INTO `coursetongxuan` VALUES ('TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '1', '1', '6');
-INSERT INTO `coursetongxuan` VALUES ('TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1', '7');
-INSERT INTO `coursetongxuan` VALUES ('233636', 'testst', 'setsets', 'setsetset', '4', '24', '0', '1', '26');
-INSERT INTO `coursetongxuan` VALUES ('47931', 'test123', 'test1123', 'setest', '2', '27', '0', '1', '27');
+INSERT INTO `coursetongxuan` VALUES ('TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1', '6');
+INSERT INTO `coursetongxuan` VALUES ('TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '1', '1', '7');
+INSERT INTO `coursetongxuan` VALUES ('556179', 'tetst', 'etstst', 'setsetst', '3', '3', '0', '1', '28');
 
 -- ----------------------------
 -- Table structure for credit
@@ -127,6 +126,11 @@ CREATE TABLE `department` (
 -- Records of department
 -- ----------------------------
 INSERT INTO `department` VALUES ('1', '计算机学院');
+INSERT INTO `department` VALUES ('2', '外国语学院');
+INSERT INTO `department` VALUES ('3', '艺术学院');
+INSERT INTO `department` VALUES ('4', '机车学院');
+INSERT INTO `department` VALUES ('5', '数理学院');
+INSERT INTO `department` VALUES ('6', '会计与金融学院');
 
 -- ----------------------------
 -- Table structure for profession
@@ -162,11 +166,11 @@ CREATE TABLE `selectcourse` (
 -- ----------------------------
 -- Records of selectcourse
 -- ----------------------------
-INSERT INTO `selectcourse` VALUES ('TX5', '1', '在修');
-INSERT INTO `selectcourse` VALUES ('TX1', '1', '在修');
 INSERT INTO `selectcourse` VALUES ('TX2', '1', '在修');
 INSERT INTO `selectcourse` VALUES ('TX3', '1', '在修');
 INSERT INTO `selectcourse` VALUES ('TX4', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX6', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX7', '1', '在修');
 
 -- ----------------------------
 -- Table structure for student
@@ -184,12 +188,19 @@ CREATE TABLE `student` (
   UNIQUE KEY `sno` (`sno`),
   KEY `fk_student_professionNo` (`professionno`),
   CONSTRAINT `fk_student_professionNo` FOREIGN KEY (`professionno`) REFERENCES `profession` (`professionNo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of student
 -- ----------------------------
 INSERT INTO `student` VALUES ('1', 'student1', '1', '1', '123', '1', '1');
+INSERT INTO `student` VALUES ('2', 'student2', '2', '2', '123', null, '1');
+INSERT INTO `student` VALUES ('3', 'student3', '3', '2', '123', null, '1');
+INSERT INTO `student` VALUES ('4', 'student4', '4', '2', '123', null, '1');
+INSERT INTO `student` VALUES ('5', 'student5', '5', '2', '123', null, '1');
+INSERT INTO `student` VALUES ('6', 'student6', '6', '2', '123', null, '1');
+INSERT INTO `student` VALUES ('7', 'student7', '7', '2', '123', null, '1');
+INSERT INTO `student` VALUES ('8', 'student8', '8', '2', '123', null, '1');
 
 -- ----------------------------
 -- Table structure for table_test
