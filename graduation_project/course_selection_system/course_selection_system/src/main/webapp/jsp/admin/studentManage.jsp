@@ -89,27 +89,50 @@
 				<div class="g_12 contents_header">
 					<div>
 						<table>
-							<tr id="course_name_table_tr">
+							<tr id="search_student_table_tr">
 								<td class="labelText"><h3 class="tab_label">学生学号：</h3></td>
 								<td width="2%">&nbsp;</td>
-								<td ><input type="text" class="form-control" id="courseName" size="50"></td>
+								<td ><input type="text" class="form-control" id="studentNo" size="50"></td>
 								<td width="2%">&nbsp;</td>
-								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_course">Search</button></td>
+								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_student">Search</button></td>
 								<td width="2%">&nbsp;</td>
-								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_allCourse">Show All</button></td>
+								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_allStudent">Show All</button></td>
 							</tr>
 						</table>
 					</div>
 				</div>
 				
+				
+				<div class="g_12 separator"><span></span></div>
+				
+				<div class="g_12">
+				
+						<table class="tables">
+							<thead>
+								<tr class="success" >
+									<th class="success">编号</th>
+									<th class="success">姓名</th>
+									<th class="success">学号</th>
+									<th class="success">年级</th>
+									<th class="success">专业</th>
+									<th class="success">学院</th>
+									<th class="success">操作</th>
+								</tr>
+							</thead>
+							<tbody id="student_data_table">
 
+							</tbody>
+						</table>
+
+					</div>
+				
 			</div>
 		</div>
 
 	</div>
 	
 	
-<div class="g_12 separator"><span></span></div>
+
 
 
 
@@ -159,6 +182,8 @@
 <!-- grumble 插件 -->
 <script src="${pageContext.request.contextPath}/res/chx/js/jquery.grumble.min.js?v=7"></script>
 <script src="${pageContext.request.contextPath}/res/chx/js/student/jquery.autocomplete.min.js"></script>
+
+<script src="${pageContext.request.contextPath}/res/chx/js/admin/studentManage.js"></script>
  
 </body>
 </html>

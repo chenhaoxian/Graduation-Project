@@ -72,6 +72,7 @@ function displayStudent(cno){
 		dataType: "json",
 		success : function(list){
 			if(list != null){
+				
 //				$("#showStudent").after("<jsp:include page='studentData.jsp'></jsp:include>");
 //				alert(list[0].id);
 //				$("#student_data_table").after("");

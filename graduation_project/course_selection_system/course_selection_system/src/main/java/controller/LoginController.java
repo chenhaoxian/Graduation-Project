@@ -79,7 +79,7 @@ public class LoginController {
 		}else if(!password.equals(admin.getPassword())){
 			return "error";
 		}else {
-			print(admin.toString());
+//			print(admin.toString());
 			request.getSession().setAttribute("admin", admin);
 			return "success";
 		}

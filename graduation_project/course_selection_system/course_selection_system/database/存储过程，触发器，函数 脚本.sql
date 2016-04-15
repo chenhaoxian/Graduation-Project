@@ -25,6 +25,26 @@ ORDER BY s.status;
 end;
 
 
+create procedure pro_deleteStudentByAdmin(in p_sno varchar(30))
+BEGIN	
+	declare t_error integer default 0;
+	declare continue handler for sqlexception set t_error = 1;
+	
+	start transaction;
+		delete from student where sno = p_sno;
+		delete from selectcourse where sno = p_sno;
+	
+	if t_error = 1 THEN
+		rollback;
+	ELSE		
+		commit;
+	end if;
+	
+	select t_error;
+
+end;
+
+
 -- ========================  ´¥·¢Æ÷ ½Å±¾ ================================
 
 create TRIGGER tri_delete_selectcourse

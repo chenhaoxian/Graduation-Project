@@ -685,13 +685,22 @@ select * from user_contact;
 select count(1) from user_contact;
 
 select * from student;
-insert into student(sname,sno,grade,password,professionno) values('student2',2,2,123,1);
-insert into student(sname,sno,grade,password,professionno) values('student3',3,2,123,1);
-insert into student(sname,sno,grade,password,professionno) values('student4',4,2,123,1);
-insert into student(sname,sno,grade,password,professionno) values('student5',5,2,123,1);
-insert into student(sname,sno,grade,password,professionno) values('student6',6,2,123,1);
-insert into student(sname,sno,grade,password,professionno) values('student7',7,2,123,1);
-insert into student(sname,sno,grade,password,professionno) values('student8',8,2,123,1);
+insert into student(sname,sno,grade,password,professionno) values('student21','21',2,'123','2');
+insert into student(sname,sno,grade,password,professionno) values('student31','31',2,'123','2');
+insert into student(sname,sno,grade,password,professionno) values('student41','41',2,'123','3');
+insert into student(sname,sno,grade,password,professionno) values('student51','51',2,'123','4');
+insert into student(sname,sno,grade,password,professionno) values('student61','61',2,'123','4');
+insert into student(sname,sno,grade,password,professionno) values('student71','71',2,'123','5');
+insert into student(sname,sno,grade,password,professionno) values('student81','81',2,'123','5');
+
+insert into student(sname,sno,grade,password,professionno) values('student22','91',1,'123','6');
+insert into student(sname,sno,grade,password,professionno) values('student32','101',2,'123','6');
+insert into student(sname,sno,grade,password,professionno) values('student42','111',3,'123','7');
+insert into student(sname,sno,grade,password,professionno) values('student52','121',4,'123','7');
+insert into student(sname,sno,grade,password,professionno) values('student62','131',1,'123','8');
+insert into student(sname,sno,grade,password,professionno) values('student72','141',2,'123','9');
+insert into student(sname,sno,grade,password,professionno) values('student82','151',4,'123','10');
+insert into student(sname,sno,grade,password,professionno) values('student84','2341',4,'123','10');
 
 select * from profession;
 select * from department;
@@ -700,4 +709,52 @@ insert into department(departmentNO,departmentname)values('3','艺术学院');
 insert into department(departmentNO,departmentname)values('4','机车学院');
 insert into department(departmentNO,departmentname)values('5','数理学院');
 insert into department(departmentNO,departmentname)values('6','会计与金融学院');
+
+insert into profession values('服装设计','3','3');
+insert into profession values('日语','4','2');
+insert into profession values('机车专业1','5','4');
+insert into profession values('物理专业','6','5');
+insert into profession values('数学专业','7','5');
+insert into profession values('会计','8','6');
+insert into profession values('金融学','9','6');
+insert into profession values('经济学','10','6');
+insert into profession values('国际贸易','11','6');
+
+select * from selectcourse;
+select * from coursetongxuan;
+
+desc selectcourse;
+
+create procedure pro_deleteStudentByAdmin(in p_sno varchar(30))
+BEGIN	
+	declare t_error integer default 0;
+	declare continue handler for sqlexception set t_error = 1;
+	
+	start transaction;
+		delete from student where sno = p_sno;
+		delete from selectcourse where sno = p_sno;
+	
+	if t_error = 1 THEN
+		rollback;
+	ELSE		
+		commit;
+	end if;
+	
+	select t_error;
+
+end;
+
+select * from student;
+select * from selectcourse;
+insert into selectcourse values('TX2','7','在修');
+select * from coursetongxuan;
+select * from profession;
+
+call pro_deleteStudentByAdmin('7');
+
+select s.id,s.sname,s.sno,s.grade,p.professionName,d.departmentName
+from student s
+LEFT JOIN profession p on s.professionno = p.professionNo
+left join department d on p.departmentNo = d.departmentNo
+order by d.departmentName,p.professionName,s.grade,s.sno
 
