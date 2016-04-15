@@ -15,7 +15,7 @@
 		<typeAlias type="model.CourseTongXuan" alias="CourseTongXuan"/> 
 		<typeAlias type="model.SelectCourse" alias="SelectCourse"/>
 		<typeAlias type="teacher.model.Student" alias="tStudent"/>
-		
+		<typeAlias type="admin.model.Student" alias="aStudent"/>
 	</typeAliases>
 	
 <!-- 实体接口映射资源 -->

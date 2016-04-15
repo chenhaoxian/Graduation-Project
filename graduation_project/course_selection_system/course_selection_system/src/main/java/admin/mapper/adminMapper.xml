@@ -11,8 +11,25 @@
 <mapper namespace="admin.mapper.AdminMapper">
 
 	
+	<resultMap type="aStudent" id="aStudentResultMap">
+		<id column="id" property="id"/>
+		<result column="sname" property="sname"/>
+		<result column="sno" property="sno"/>
+		<result column="grade" property="grade"/>
+		<result column="professionName" property="professionName"/>
+		<result column="departmentName" property="departmentName"/>
+	</resultMap>
+	
 	<select id="countUserContact" resultType="INT">
 		select count(1) from user_contact
+	</select>
+	
+	<select id="getAllStudent" resultMap="aStudentResultMap">
+		select s.id,s.sname,s.sno,s.grade,p.professionName,d.departmentName
+		from student s
+		LEFT JOIN profession p on s.professionno = p.professionNo
+		left join department d on p.departmentNo = d.departmentNo
+		order by d.departmentName,p.professionName,s.grade,s.sno
 	</select>
 	
 </mapper>

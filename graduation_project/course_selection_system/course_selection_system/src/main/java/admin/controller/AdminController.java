@@ -1,16 +1,20 @@
 package admin.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import admin.model.Student;
 import admin.service.AdminService;
+import util.CollectionUtil;
 import util.Tool;
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("/admin")
 public class AdminController {
 	
 	@Autowired
@@ -25,6 +29,15 @@ public class AdminController {
 		String countStr = String.valueOf(count);
 //		model.addAttribute("messageCount", count);
 		return "success";
+	}
+	
+	@RequestMapping("/findAllStudent")
+	@ResponseBody
+	private List<Student> findAllStudent(){
+		
+		List<Student> list = adminService.findAllStudent();
+		Tool.print(list.get(0).toString());
+		return list;
 	}
 	
 }

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-04-13 16:22:59
+Date: 2016-04-15 16:10:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -81,7 +81,7 @@ CREATE TABLE `coursetongxuan` (
   UNIQUE KEY `cno` (`cno`),
   KEY `tno` (`tno`),
   CONSTRAINT `coursetongxuan_ibfk_1` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of coursetongxuan
@@ -149,7 +149,16 @@ CREATE TABLE `profession` (
 -- Records of profession
 -- ----------------------------
 INSERT INTO `profession` VALUES ('软件工程', '1', '1');
+INSERT INTO `profession` VALUES ('经济学', '10', '6');
+INSERT INTO `profession` VALUES ('国际贸易', '11', '6');
 INSERT INTO `profession` VALUES ('计算机科学与技术', '2', '1');
+INSERT INTO `profession` VALUES ('服装设计', '3', '3');
+INSERT INTO `profession` VALUES ('日语', '4', '2');
+INSERT INTO `profession` VALUES ('机车专业1', '5', '4');
+INSERT INTO `profession` VALUES ('物理专业', '6', '5');
+INSERT INTO `profession` VALUES ('数学专业', '7', '5');
+INSERT INTO `profession` VALUES ('会计', '8', '6');
+INSERT INTO `profession` VALUES ('金融学', '9', '6');
 
 -- ----------------------------
 -- Table structure for selectcourse
@@ -188,7 +197,7 @@ CREATE TABLE `student` (
   UNIQUE KEY `sno` (`sno`),
   KEY `fk_student_professionNo` (`professionno`),
   CONSTRAINT `fk_student_professionNo` FOREIGN KEY (`professionno`) REFERENCES `profession` (`professionNo`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of student
@@ -199,8 +208,21 @@ INSERT INTO `student` VALUES ('3', 'student3', '3', '2', '123', null, '1');
 INSERT INTO `student` VALUES ('4', 'student4', '4', '2', '123', null, '1');
 INSERT INTO `student` VALUES ('5', 'student5', '5', '2', '123', null, '1');
 INSERT INTO `student` VALUES ('6', 'student6', '6', '2', '123', null, '1');
-INSERT INTO `student` VALUES ('7', 'student7', '7', '2', '123', null, '1');
-INSERT INTO `student` VALUES ('8', 'student8', '8', '2', '123', null, '1');
+INSERT INTO `student` VALUES ('10', 'student8', '8', '2', '123', null, '1');
+INSERT INTO `student` VALUES ('12', 'student21', '21', '2', '123', null, '2');
+INSERT INTO `student` VALUES ('13', 'student31', '31', '2', '123', null, '2');
+INSERT INTO `student` VALUES ('14', 'student41', '41', '2', '123', null, '3');
+INSERT INTO `student` VALUES ('15', 'student51', '51', '2', '123', null, '4');
+INSERT INTO `student` VALUES ('16', 'student61', '61', '2', '123', null, '4');
+INSERT INTO `student` VALUES ('17', 'student71', '71', '2', '123', null, '5');
+INSERT INTO `student` VALUES ('18', 'student81', '81', '2', '123', null, '5');
+INSERT INTO `student` VALUES ('19', 'student22', '91', '1', '123', null, '6');
+INSERT INTO `student` VALUES ('20', 'student32', '101', '2', '123', null, '6');
+INSERT INTO `student` VALUES ('21', 'student42', '111', '3', '123', null, '7');
+INSERT INTO `student` VALUES ('22', 'student52', '121', '4', '123', null, '7');
+INSERT INTO `student` VALUES ('23', 'student62', '131', '1', '123', null, '8');
+INSERT INTO `student` VALUES ('24', 'student72', '141', '2', '123', null, '9');
+INSERT INTO `student` VALUES ('25', 'student82', '151', '4', '123', null, '10');
 
 -- ----------------------------
 -- Table structure for table_test
@@ -328,6 +350,32 @@ prepare stmt from @v_tablename;
 execute stmt;
 deallocate prepare stmt;
 END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for pro_deleteStudentByAdmin
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pro_deleteStudentByAdmin`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_deleteStudentByAdmin`(in p_sno varchar(30))
+BEGIN	
+	declare t_error integer default 0;
+	declare continue handler for sqlexception set t_error = 1;
+	
+	start transaction;
+		delete from student where sno = p_sno;
+		delete from selectcourse where sno = p_sno;
+	
+	if t_error = 1 THEN
+		rollback;
+	ELSE		
+		commit;
+	end if;
+	
+	select t_error;
+
+end
 ;;
 DELIMITER ;
 

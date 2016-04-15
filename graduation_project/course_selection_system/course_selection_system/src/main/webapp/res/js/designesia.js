@@ -14,7 +14,7 @@ jQuery(document).ready(function() {
 	});
  	});
 	document.createElement("article");
-	document.createElement("section");
+	document.createElement("section"); 
 	
 	
 	

@@ -18,7 +18,7 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	<property name="driverClassName" value="org.gjt.mm.mysql.Driver"/>
 	<property name="url" value="jdbc:mysql://localhost:3306/db_course_selection_system?characterEncoding=utf8"/> 
 	<property name="username" value="root"/> 
-	<property name="password" value="xian520."/>
+	<property name="password" value="xian520."/> 
 	</bean> 
 
 	<!-- mybatis 的SqlSession 的工厂 ： SqlSessionFactoryBean dataSource : 应用数据源
@@ -77,7 +77,7 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     </bean>  
     
     <!-- 
-        4. 事务管理 : DataSourceTransactionManager dataSource:引用上面定义的数据源 
+        4. 事务管理 : DataSourceTransactionManager dataSource:引用上面定义的数据源  
     -->  
     <bean id="txManager"  
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
