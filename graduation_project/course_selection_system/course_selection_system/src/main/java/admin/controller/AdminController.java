@@ -14,7 +14,7 @@ import util.CollectionUtil;
 import util.Tool;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("myadmin")
 public class AdminController {
 	
 	@Autowired
@@ -31,13 +31,21 @@ public class AdminController {
 		return "success";
 	}
 	
-	@RequestMapping("/findAllStudent")
+	@RequestMapping("findAllStudent")
 	@ResponseBody
-	private List<Student> findAllStudent(){
+	private List<Student> findAllStudent(String test){
+		Tool.print(test);
 		
 		List<Student> list = adminService.findAllStudent();
 		Tool.print(list.get(0).toString());
 		return list;
+	}
+	
+	@RequestMapping("test")
+	@ResponseBody
+	private String myTest(){
+		Tool.print("test success!");
+		return "success";
 	}
 	
 }

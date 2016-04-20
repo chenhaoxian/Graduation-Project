@@ -5,13 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>学生选课系统</title>
-	<!--[if lt IE 9]>
-		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/excanvas.js"></script>
-	<![endif]-->
-	<!-- The Fonts -->
-	<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />
+
 	<!-- The Main CSS File -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/secondpage/CSS/style.css" />
 	<!-- jQuery -->
