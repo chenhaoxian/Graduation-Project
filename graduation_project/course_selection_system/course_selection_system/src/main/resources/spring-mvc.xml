@@ -31,7 +31,7 @@
 	<context:component-scan base-package="controller"></context:component-scan> 
 	<context:component-scan base-package="teacher.controller"></context:component-scan>
 	<context:component-scan base-package="admin.controller"></context:component-scan>
-	<context:component-scan base-package="service"></context:component-scan>
+	<context:component-scan base-package="service"></context:component-scan> 
 	<context:component-scan base-package="teacher.service"></context:component-scan> 
 	<context:component-scan base-package="admin.service"></context:component-scan> 
 	<context:component-scan base-package="util"></context:component-scan>  

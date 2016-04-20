@@ -6,8 +6,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>学生选课系统</title>
-	<!-- The Fonts -->
-	<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />
+
 	<!-- The Main CSS File -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/secondpage/CSS/style.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/flat-ui.css" />
@@ -16,8 +15,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/grumble.min.css">
 	
   <link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/student/autocomplete.css" >
-  <!-- 只有使用字体图标时才需要加�Font-Awesome -->
-  <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
   
   
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
