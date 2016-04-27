@@ -178,9 +178,10 @@
 
 
 <!-- grumble 插件 -->
+<!-- 
 <script src="${pageContext.request.contextPath}/res/chx/js/jquery.grumble.min.js?v=7"></script>
 <script src="${pageContext.request.contextPath}/res/chx/js/student/jquery.autocomplete.min.js"></script>
-
+-->
 <script src="${pageContext.request.contextPath}/res/chx/js/admin/studentManage.js"></script>
  
 </body>
