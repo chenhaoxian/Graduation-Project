@@ -43,7 +43,8 @@ public class AdminController {
 	
 	@RequestMapping("test")
 	@ResponseBody
-	private String myTest(){
+	public String myTest(String test){
+		Tool.print(test);
 		Tool.print("test success!");
 		return "success";
 	}

@@ -9,7 +9,7 @@ StudentManage.prototype.init = function(){
 
 StudentManage.prototype.bindEvent = function(){
 	var self = this;
-//	var test = "test";
+	var test = "test";
 	
 	$("#btn_search_allStudent").click(function(){
 		alert(1);
@@ -39,12 +39,12 @@ StudentManage.prototype.bindEvent = function(){
 //				alert("error");
 //			}
 //		});
-		
+		alert(test);
 		$.ajax({
 			type:"post",
 			url:"../myadmin/test.do",
-			data:{},
-			success:function(){
+			data:{"test":test},
+			success:function(msg){
 				alert(2);
 			}
 		});
