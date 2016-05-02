@@ -20,6 +20,13 @@
 		<result column="departmentName" property="departmentName"/>
 	</resultMap>
 	
+	<resultMap type="aTeacher" id="aTeacherResultMap">
+		<result column="tname" property="tname"/>
+		<result column="tno" property="tno"/>
+		<result column="departmentNo" property="departmentNo"/>
+		<result column="departmentName" property="departmentName"/>
+	</resultMap>
+	
 	<select id="countUserContact" resultType="INT">
 		select count(1) from user_contact
 	</select>
@@ -30,6 +37,25 @@
 		LEFT JOIN profession p on s.professionno = p.professionNo
 		left join department d on p.departmentNo = d.departmentNo
 		order by d.departmentName,p.professionName,s.grade,s.sno
+	</select>
+	
+	<select id="deleteStudentBySno" resultType="INT">
+		call pro_deleteStudentByAdmin(#{sno})
+	</select>
+	
+	<select id="getStudentBySno" resultMap="aStudentResultMap">
+		select s.id,s.sname,s.sno,s.grade,p.professionName,d.departmentName
+		from student s
+		LEFT JOIN profession p on s.professionno = p.professionNo
+		left join department d on p.departmentNo = d.departmentNo
+		where s.sno = #{sno}
+	</select>
+	
+	
+	<select id="getAllTeacher" resultMap="aTeacherResultMap">
+		select t.* , d.*
+		from teacher t
+		LEFT JOIN department d on t.departmentNo = d.departmentNo
 	</select>
 	
 </mapper>

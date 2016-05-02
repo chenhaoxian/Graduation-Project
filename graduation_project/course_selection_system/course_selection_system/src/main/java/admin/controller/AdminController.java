@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import admin.model.Student;
@@ -14,7 +15,7 @@ import util.CollectionUtil;
 import util.Tool;
 
 @Controller
-@RequestMapping("myadmin")
+@RequestMapping("myAdmin")
 public class AdminController {
 	
 	@Autowired
@@ -33,18 +34,50 @@ public class AdminController {
 	
 	@RequestMapping("findAllStudent")
 	@ResponseBody
-	private List<Student> findAllStudent(String test){
-		Tool.print(test);
+	private List<Student> findAllStudent(){
 		
 		List<Student> list = adminService.findAllStudent();
-		Tool.print(list.get(0).toString());
+//		Tool.print(list.get(0).toString());
 		return list;
 	}
 	
-	@RequestMapping("test")
+	@RequestMapping("deleteStudent")
 	@ResponseBody
-	public String myTest(String test){
-		Tool.print(test);
+	private String deleteStudent(String sno){
+//		
+//		Tool.print("test");
+//		Tool.print(sno);
+		if(adminService.deleteStudent(sno)==0){
+			return "success";
+		}else{
+			return "fail";
+		}
+	}
+	
+	
+	@RequestMapping("searchStudentBySno")
+	@ResponseBody
+	private Student searchStudentBySno(String sno){
+		Student student = adminService.searchStudentBySno(sno);
+//		Tool.print(student.toString());
+		return student;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping("test1")
+	@ResponseBody
+	public String myTest(){
 		Tool.print("test success!");
 		return "success";
 	}

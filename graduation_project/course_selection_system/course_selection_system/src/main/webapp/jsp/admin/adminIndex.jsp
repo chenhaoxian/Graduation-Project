@@ -74,28 +74,28 @@
 				</li>
 				
 				<li class="i_32_ui">
-					<a href="" title="teacher manage">
+					<a href="${pageContext.request.contextPath}/jsp/admin/teacherManage.jsp" title="teacher manage">
 						<span class="tab_label">教师管理</span>
 						<span class="tab_info">teacher manage</span>
 					</a>
 				</li>
 				
 				<li class="i_32_ui">
-					<a href="" title="department manage">
+					<a href="${pageContext.request.contextPath}/jsp/admin/departmentManage.jsp" title="department manage">
 						<span class="tab_label">院系管理</span>
 						<span class="tab_info">department manage</span>
 					</a>
 				</li>
 				
 				<li class="i_32_ui">
-					<a href="" title="course manage">
+					<a href="${pageContext.request.contextPath}/jsp/admin/courseManage.jsp" title="course manage">
 						<span class="tab_label">课程管理</span>
 						<span class="tab_info">course manage</span>
 					</a>
 				</li>
 				
 				<li class="i_32_ui">
-					<a href="" title="profession manage">
+					<a href="${pageContext.request.contextPath}/jsp/admin/professionManage.jsp" title="profession manage">
 						<span class="tab_label">专业管理</span>
 						<span class="tab_info">profession manage</span>
 					</a>

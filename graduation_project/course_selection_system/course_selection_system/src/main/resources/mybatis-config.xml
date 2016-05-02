@@ -16,6 +16,7 @@
 		<typeAlias type="model.SelectCourse" alias="SelectCourse"/>
 		<typeAlias type="teacher.model.Student" alias="tStudent"/>
 		<typeAlias type="admin.model.Student" alias="aStudent"/>
+		<typeAlias type="admin.model.Teacher" alias="aTeacher"/>
 	</typeAliases>
 	
 <!-- 实体接口映射资源 -->

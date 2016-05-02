@@ -758,3 +758,58 @@ LEFT JOIN profession p on s.professionno = p.professionNo
 left join department d on p.departmentNo = d.departmentNo
 order by d.departmentName,p.professionName,s.grade,s.sno
 
+
+select t.* , d.*
+from teacher t
+LEFT JOIN department d on t.departmentNo = d.departmentNo;
+
+select * from teacher;
+insert into teacher(tno,tname,PASSWORD,departmentNo) VALUES('2','teacher2','123','2');
+delete from selectcourse where cno = '234234';
+select * from selectcourse;
+select * from coursetongxuan;
+insert into selectcourse values('234234','1','дкао');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  values('234234','test2','test2','test2',1,7,1,'2');
+
+delete from coursetongxuan where cno = '234234';
+ALTER TABLE selectcourse DROP FOREIGN KEY  fk_selectcourse_coursetongxuan;
+
+drop TRIGGER tri_delete_course;
+create TRIGGER tri_delete_course
+after delete on coursetongxuan
+for each ROW
+BEGIN
+
+delete from selectcourse where cno = old.cno;
+
+end;
+call pro_deleteTeacherByAdmin('2');
+
+create procedure pro_deleteTeacherByAdmin(in p_tno varchar(30))
+BEGIN	
+	declare t_error integer default 0;
+	declare continue handler for sqlexception set t_error = 1;
+	
+	start transaction;
+		delete from teacher where tno = p_tno;
+		delete from selectcourse where cno in (
+			select cno from coursetongxuan where tno = p_tno
+		);
+		delete from coursetongxuan where tno = p_tno;
+	
+	if t_error = 1 THEN
+		rollback;
+	ELSE		
+		commit;
+	end if;
+	
+	select t_error;
+
+end;
+
+
+delete from selectcourse where cno in (
+			select cno from coursetongxuan where tno = '2'
+		);
+
+
