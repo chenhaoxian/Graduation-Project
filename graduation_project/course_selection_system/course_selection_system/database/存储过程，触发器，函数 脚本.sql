@@ -45,6 +45,35 @@ BEGIN
 end;
 
 
+
+DROP PROCEDURE IF EXISTS `pro_deleteTeacherByAdmin`;
+create procedure pro_deleteTeacherByAdmin(in p_tno varchar(30))
+BEGIN	
+	declare t_error integer default 0;
+	declare continue handler for sqlexception set t_error = 1;
+	declare v_cno varchar(30);
+
+	
+	
+	start transaction;
+		delete from coursetongxuan where tno = p_tno;
+		delete from teacher where tno = p_tno;
+-- 		delete from selectcourse where cno in (
+-- 			select cno from coursetongxuan where tno = p_tno
+-- 		);
+		
+	
+	if t_error = 1 THEN
+		rollback;
+	ELSE		
+		commit;
+	end if;
+	
+	select t_error;
+
+end;
+
+
 -- ========================  ´¥·¢Æ÷ ½Å±¾ ================================
 
 create TRIGGER tri_delete_selectcourse

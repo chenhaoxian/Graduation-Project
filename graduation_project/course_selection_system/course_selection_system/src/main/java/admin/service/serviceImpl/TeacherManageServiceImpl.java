@@ -21,4 +21,16 @@ public class TeacherManageServiceImpl implements TeacherManageService {
 		return adminMapper.getAllTeacher();
 	}
 
+	@Override
+	public int deleteTeacherByTno(String tno ) {
+		// TODO Auto-generated method stub
+		return adminMapper.deleteTeacherByTno(tno);
+	}
+
+	@Override
+	public Teacher findTeacherByTno(String tno) {
+		// TODO Auto-generated method stub
+		return adminMapper.getTeacherByTno(tno);
+	}
+
 }

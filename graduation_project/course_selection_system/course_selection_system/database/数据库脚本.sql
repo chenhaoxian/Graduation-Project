@@ -769,10 +769,12 @@ delete from selectcourse where cno = '234234';
 select * from selectcourse;
 select * from coursetongxuan;
 insert into selectcourse values('234234','1','дкао');
-insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  values('234234','test2','test2','test2',1,7,1,'2');
+insert into coursetongxuan(cno,cname,ctype,ctime,credit,total,margin,tno)  values('test123','test2','test2','test2',1,7,1,'2');
 
 delete from coursetongxuan where cno = '234234';
 ALTER TABLE selectcourse DROP FOREIGN KEY  fk_selectcourse_coursetongxuan;
+select * from selectcourse;
+
 
 drop TRIGGER tri_delete_course;
 create TRIGGER tri_delete_course
@@ -785,22 +787,30 @@ delete from selectcourse where cno = old.cno;
 end;
 call pro_deleteTeacherByAdmin('2');
 
+DROP PROCEDURE IF EXISTS `pro_deleteTeacherByAdmin`;
 create procedure pro_deleteTeacherByAdmin(in p_tno varchar(30))
 BEGIN	
 	declare t_error integer default 0;
 	declare continue handler for sqlexception set t_error = 1;
+	declare v_cno varchar(30);
+
+	
 	
 	start transaction;
-		delete from teacher where tno = p_tno;
-		delete from selectcourse where cno in (
-			select cno from coursetongxuan where tno = p_tno
-		);
 		delete from coursetongxuan where tno = p_tno;
+		delete from teacher where tno = p_tno;
+-- 		delete from selectcourse where cno in (
+-- 			select cno from coursetongxuan where tno = p_tno
+-- 		);
+		
 	
 	if t_error = 1 THEN
 		rollback;
 	ELSE		
-		commit;
+		BEGIN
+			delete from selectcourse where cno 
+			commit;
+		end;
 	end if;
 	
 	select t_error;
@@ -808,8 +818,19 @@ BEGIN
 end;
 
 
+select * from teacher;
+select * from coursetongxuan;
+select * from selectcourse;
+
+
+delete from selectcourse where cno not in (select cno from coursetongxuan );
+
+select * from coursetongxuan;
 delete from selectcourse where cno in (
 			select cno from coursetongxuan where tno = '2'
 		);
+
+
+select * from department;
 
 

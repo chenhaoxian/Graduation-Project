@@ -27,7 +27,7 @@ StudentManage.prototype.bindEvent = function(){
 				if(list != null){
 					var trs = "";
 					$.each(list,function(key,value){
-						trs += "<tr><td>"+(key+1)+"</td><td>"+value.sname+"</td><td>"+value.sno+"</td><td>"+value.grade+"</td><td>"+value.professionName+"</td><td>"+value.departmentName+"</td><td><button onclick='deleteStudent(\""+value.sno+"\",\""+key+"\")'>移除</button></td></tr>";
+						trs += "<tr><td>"+(key+1)+"</td><td>"+value.sname+"</td><td>"+value.sno+"</td><td>"+value.grade+"</td><td>"+value.professionName+"</td><td>"+value.departmentName+"</td><td align='center'><button class='btn btn-danger' onclick='deleteStudent(\""+value.sno+"\",\""+key+"\")'>移除</button></td></tr>";
 					});
 					$("#student_data_table").append(trs);
 					
@@ -70,7 +70,7 @@ StudentManage.prototype.bindEvent = function(){
 				success: function(data){
 					if(data != null){
 						
-						var resultRow = "<tr><td>"+1+"</td><td>"+data.sname+"</td><td>"+data.sno+"</td><td>"+data.grade+"</td><td>"+data.professionName+"</td><td>"+data.departmentName+"</td><td><button onclick='deleteStudent(\""+data.sno+"\",\""+1+"\")'>移除</button></td></tr>";
+						var resultRow = "<tr><td>"+1+"</td><td>"+data.sname+"</td><td>"+data.sno+"</td><td>"+data.grade+"</td><td>"+data.professionName+"</td><td>"+data.departmentName+"</td><td align='center'><button class='btn btn-danger' onclick='deleteStudent(\""+data.sno+"\",\""+1+"\")'>移除</button></td></tr>";
 						tbody.append(resultRow);
 //						$("#btn_previous").attr("disabled","disabled");
 //						$("#btn_next").attr("disabled","disabled");

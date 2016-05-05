@@ -5,9 +5,9 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 	<title>学生选课系统</title>
-	<!-- The Fonts -->
-	<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />
+
 	<!-- The Main CSS File -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/secondpage/CSS/style.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/flat-ui.css" />
@@ -16,81 +16,16 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/grumble.min.css">
 	
   <link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/student/autocomplete.css" >
-  <!-- 只有使用字体图标时才需要加�Font-Awesome -->
-  <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
   
   
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 	<!-- Change Pattern -->
-	<div class="changePattern">
-		<span id="pattern1"></span>
-		<span id="pattern2"></span>
-		<span id="pattern3"></span>
-		<span id="pattern4"></span>
-		<span id="pattern5"></span>
-		<span id="pattern6"></span>
-	</div>
-	
+
 	<!-- 头文�-->
 	<jsp:include page="header.jsp"></jsp:include>
 
-	<header class="main_header">
-		<div class="wrapper">
-			
-			<nav class="top_buttons">
-				<ul>
-					<li class="big_button">
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Analytics" class="the_button">
-										<span class="i_32_statistic"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="big_button">
-						<div class="big_count">
-							<span>7</span>
-						</div>
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Support" class="the_button">
-										<span class="i_32_support"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="big_button">
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Delivery" class="the_button">
-										<span class="i_32_delivery"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="big_button">
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Earning" class="the_button">
-										<span class="i_32_dollar"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
 
 	<!-- =========================侧边栏目          start ========================================================-->
 	<div class="wrapper small_menu">

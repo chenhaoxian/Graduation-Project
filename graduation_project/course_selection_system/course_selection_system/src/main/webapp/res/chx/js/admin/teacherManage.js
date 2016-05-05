@@ -27,13 +27,13 @@ TeacherManage.prototype.bindEvent = function(){
 				if(list != null){
 					var trs = "";
 					$.each(list,function(key,value){
-						trs += "<tr><td>"+(key+1)+"</td><td>"+value.tname+"</td><td>"+value.tno+"</td><td>"+value.departmentName+"</td><td><button onclick='deleteTeacher(\""+value.tno+"\",\""+key+"\")'>移除</button></td></tr>";
+						trs += "<tr><td>"+(key+1)+"</td><td>"+value.tname+"</td><td>"+value.tno+"</td><td>"+value.departmentName+"</td><td align='center'><button class='btn btn-danger' onclick='deleteTeacher(\""+value.tno+"\",\""+key+"\")'>移除</button></td></tr>";
 					});
 					$("#teacher_data_table").append(trs);
 					
 				}else{
 					var tr = "<tr><td>no record found!</td></tr>";
-					$("#teacher_data_table").append(trs);
+					$("#teacher_data_table").append(tr);
 				}
 			},
 			error:function(){
@@ -54,33 +54,33 @@ TeacherManage.prototype.bindEvent = function(){
 	
 	$("#btn_search_teacher").click(function(){
 		
-		var studentNo = $.trim($("#studentNo").val());
-		if(studentNo == "" || studentNo == null){
-			alert("请输入学生学号");
+		var teacherNo = $.trim($("#teacherNo").val());
+		if(teacherNo == "" || teacherNo == null){
+			alert("请输入教师工号");
 		}else{
 			tbody.empty();
 			$.ajax({
 				type: "post",
-				url: "../../myAdmin/searchStudentBySno.do",
+				url: "../../admin/teacherManage/searchTeacherByTno.do",
 				data: {
-					"sno": studentNo
+					"tno": teacherNo
 				},
 				cache: true,
 				dataType : "json",
 				success: function(data){
 					if(data != null){
-						
-						var resultRow = "<tr><td>"+1+"</td><td>"+data.sname+"</td><td>"+data.sno+"</td><td>"+data.grade+"</td><td>"+data.professionName+"</td><td>"+data.departmentName+"</td><td><button onclick='deleteStudent(\""+data.sno+"\",\""+1+"\")'>移除</button></td></tr>";
+						var resultRow = '';
+						resultRow += "<tr><td>"+1+"</td><td>"+data.tname+"</td><td>"+data.tno+"</td><td>"+data.departmentName+"</td><td align='center'><button class='btn btn-danger' onclick='deleteTeacher(\""+data.tno+"\",\""+0+"\")'>移除</button></td></tr>";
 						tbody.append(resultRow);
 //						$("#btn_previous").attr("disabled","disabled");
 //						$("#btn_next").attr("disabled","disabled");
 					}else{
-						var resultRow = "<tr><td>no data found!</td></tr>";
+						var resultRow = "<tr><td>no record found!</td></tr>";
 						tbody.append(resultRow);
 					}
 				},
 				error : function(){
-					alert("对不起，没有这门课！");
+					alert("对不起，没有这个老师！");
 				}
 			});
 		}
@@ -100,12 +100,11 @@ function deleteTeacher(tno,row){
 //	alert(tno+'   '+row);
 	$.ajax({
 		type : "post",
-		url : "../../admin/deleteTeacher.do",
+		url : "../../admin/teacherManage/deleteTeacher.do",
 		data : {
 			"tno" : tno
 		},
 		success : function(msg){
-			alert(msg);
 			if(msg == "success"){
 				alert("删除教师成功");
 				$("#teacher_data_table tr:eq("+row+")").hide();

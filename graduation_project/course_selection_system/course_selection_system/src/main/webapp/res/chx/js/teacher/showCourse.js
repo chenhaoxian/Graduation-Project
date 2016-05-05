@@ -80,7 +80,7 @@ function displayStudent(cno){
 				$.each(list,function(key,value){
 //					alert(key+'   '+value);
 					
-					trs += "<tr><td>"+(key+1)+"</td><td>"+value.sname+"</td><td>"+value.sno+"</td><td>"+value.grade+"</td><td>"+value.professionName+"</td><td>"+value.departmentName+"</td><td><button onclick='removeStudent(\""+value.sno+"\",\""+cno+"\",\""+key+"\")'>移除</button></td></tr>";
+					trs += "<tr><td>"+(key+1)+"</td><td>"+value.sname+"</td><td>"+value.sno+"</td><td>"+value.grade+"</td><td>"+value.professionName+"</td><td>"+value.departmentName+"</td><td><button class='btn btn-danger' onclick='removeStudent(\""+value.sno+"\",\""+cno+"\",\""+key+"\")'>移除</button></td></tr>";
 				});
 //				
 				$("#student_data_table").append(trs);

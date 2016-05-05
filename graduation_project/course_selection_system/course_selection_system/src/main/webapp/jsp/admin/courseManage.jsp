@@ -40,7 +40,7 @@
 					</a>
 				</li>
 				
-				<li class="active_tab i_32_ui">
+				<li class=" i_32_ui">
 					<a href="${pageContext.request.contextPath}/jsp/admin/teacherManage.jsp" title="teacher manage">
 						<span class="tab_label">教师管理</span>
 						<span class="tab_info">teacher manage</span>
@@ -54,7 +54,7 @@
 					</a>
 				</li>
 				 -->
-				<li class="i_32_ui">
+				<li class="active_tab i_32_ui">
 					<a href="${pageContext.request.contextPath}/jsp/admin/courseManage.jsp" title="course manage">
 						<span class="tab_label">课程管理</span>
 						<span class="tab_info">course manage</span>
@@ -76,21 +76,21 @@
 			<div class="grid_wrapper">
 
 				<div class="g_6 contents_header">
-					<h3 class="i_16_ui tab_label">教师管理</h3>
-					<div><span class="label">Teacher Manage</span></div>
+					<h3 class="i_16_ui tab_label">课程管理</h3>
+					<div><span class="label">Course Manage</span></div>
 				</div>
 
 				<div class="g_12 contents_header">
 					<div>
 						<table>
-							<tr id="search_teacher_table_tr">
-								<td class="labelText"><h3 class="tab_label">教师工号：</h3></td>
+							<tr id="search_course_table_tr">
+								<td class="labelText"><h3 class="tab_label">课程号：</h3></td>
 								<td width="2%">&nbsp;</td>
-								<td ><input type="text" class="form-control" id="teacherNo" size="50"></td>
+								<td ><input type="text" class="form-control" id="courseNo" size="50"></td>
 								<td width="2%">&nbsp;</td>
-								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_teacher">Search</button></td>
+								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_course">Search</button></td>
 								<td width="2%">&nbsp;</td>
-								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_allTeacher">Show All</button></td>
+								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_allCourse">Show All</button></td>
 							</tr>
 						</table>
 					</div>
@@ -105,13 +105,14 @@
 							<thead>
 								<tr class="success" >
 									<th class="success">编号</th>
-									<th class="success">姓名</th>
-									<th class="success">工号</th>
-									<th class="success">学院</th>
+									<th class="success">课程名</th>
+									<th class="success">课程号</th>
+									<th class="success">上课时间</th>
+									<th class="success">授课老师</th>
 									<th class="success">操作</th>
 								</tr>
 							</thead>
-							<tbody id="teacher_data_table">
+							<tbody id="course_data_table">
 
 							</tbody>
 						</table>
@@ -170,7 +171,7 @@
 <!-- Kanrisha Script -->
 <script src="${pageContext.request.contextPath}/res/js/secondpage/kanrisha.js"></script>
 
-<script src="${pageContext.request.contextPath}/res/chx/js/admin/teacherManage.js"></script>
+<script src="${pageContext.request.contextPath}/res/chx/js/admin/courseManage.js"></script>
  
 </body>
 </html>

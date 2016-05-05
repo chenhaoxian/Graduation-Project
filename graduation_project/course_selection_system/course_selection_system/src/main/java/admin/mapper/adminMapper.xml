@@ -27,6 +27,14 @@
 		<result column="departmentName" property="departmentName"/>
 	</resultMap>
 	
+	<resultMap type="aCourse" id="aCourseResultMap">
+		<result column="cname" property="cname"/>
+		<result column="cno" property="cno"/>
+		<result column="ctime" property="ctime"/>
+		<result column="tname" property="tname"/>
+		<result column="tno" property="tno"/>
+	</resultMap>
+	
 	<select id="countUserContact" resultType="INT">
 		select count(1) from user_contact
 	</select>
@@ -43,6 +51,10 @@
 		call pro_deleteStudentByAdmin(#{sno})
 	</select>
 	
+	<select id="deleteTeacherByTno" resultType="INT">
+		call pro_deleteTeacherByAdmin(#{tno})
+	</select>
+	
 	<select id="getStudentBySno" resultMap="aStudentResultMap">
 		select s.id,s.sname,s.sno,s.grade,p.professionName,d.departmentName
 		from student s
@@ -57,5 +69,30 @@
 		from teacher t
 		LEFT JOIN department d on t.departmentNo = d.departmentNo
 	</select>
+	
+	<select id="getTeacherByTno" resultMap="aTeacherResultMap">
+		select t.* , d.*
+		from teacher t
+		LEFT JOIN department d on t.departmentNo = d.departmentNo
+		where t.tno = #{tno}
+	</select>
+	
+	<select id="getAllCourse" resultMap="aCourseResultMap">
+		select c.cname, c.cno,c.ctime,t.tname,t.tno
+		from coursetongxuan c
+		left join teacher t on c.tno = t.tno
+		group by t.tno,c.cno
+	</select>
+	
+	<select id="getCourseByCno" resultMap="aCourseResultMap">
+		select c.cname, c.cno,c.ctime,t.tname,t.tno
+		from coursetongxuan c
+		left join teacher t on c.tno = t.tno
+		where c.cno = #{cno}
+	</select>
+	
+	<delete id="deleteCourseByAdmin" >
+		delete from coursetongxuan where cno = #{cno}
+	</delete>
 	
 </mapper>

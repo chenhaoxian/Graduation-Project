@@ -5,13 +5,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>学生选课系统</title>
-	<!--[if lt IE 9]>
-		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/excanvas.js"></script>
-	<![endif]-->
-	<!-- The Fonts -->
-	<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />
+
+
+
 	<!-- The Main CSS File -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/secondpage/CSS/style.css" />
 	<!-- jQuery -->
@@ -50,74 +46,10 @@
 	<script src="${pageContext.request.contextPath}/res/js/secondpage/kanrisha.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
-	<!-- Change Pattern -->
-	<div class="changePattern">
-		<span id="pattern1"></span>
-		<span id="pattern2"></span>
-		<span id="pattern3"></span>
-		<span id="pattern4"></span>
-		<span id="pattern5"></span>
-		<span id="pattern6"></span>
-	</div>
+
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<!--==================================================== 4 yuan =============================================== -->
-	<header class="main_header">
-		<div class="wrapper">
-			<nav class="top_buttons">
-				<ul>
-					<li class="big_button">
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Analytics" class="the_button">
-										<span class="i_32_statistic"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="big_button">
-						<div class="big_count">
-							<span>7</span>
-						</div>
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Support" class="the_button">
-										<span class="i_32_support"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="big_button">
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Delivery" class="the_button">
-										<span class="i_32_delivery"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="big_button">
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Earning" class="the_button">
-										<span class="i_32_dollar"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<!-- ===================================4yuan  end=========================================================== -->
+	
 
 	<!-- =========================侧边栏目          start ========================================================-->
 	<div class="wrapper small_menu">

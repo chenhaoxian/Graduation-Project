@@ -35,8 +35,23 @@ public class TeacherManageController {
 		}else{
 			return null;
 		}
-		
-		
+	}
+	
+	@RequestMapping("deleteTeacher")
+	@ResponseBody
+	private String deleteTeacher(String tno){
+		if(teacherManageService.deleteTeacherByTno(tno)==0){
+			return "success";
+		}else{
+			return "fail";
+		}
+	}
+	
+	@RequestMapping("searchTeacherByTno")
+	@ResponseBody
+	private Teacher findTeacher(String tno){
+		Teacher teacher = teacherManageService.findTeacherByTno(tno);
+		return teacher;
 	}
 	
 	
