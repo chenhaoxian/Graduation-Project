@@ -5,13 +5,6 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>学生选课系统</title>
-	<!--[if lt IE 9]>
-		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/excanvas.js"></script>
-	<![endif]-->
-	<!-- The Fonts -->
-	<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />
 	<!-- The Main CSS File -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/secondpage/CSS/style.css" />
 	<!-- jQuery -->
@@ -50,7 +43,7 @@
 	<script src="${pageContext.request.contextPath}/res/js/secondpage/kanrisha.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
-	<!-- Change Pattern -->
+	<!-- Change Pattern
 	<div class="changePattern">
 		<span id="pattern1"></span>
 		<span id="pattern2"></span>
@@ -58,10 +51,10 @@
 		<span id="pattern4"></span>
 		<span id="pattern5"></span>
 		<span id="pattern6"></span>
-	</div>
+	</div> -->
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<!--==================================================== 4 yuan =============================================== -->
+	<!--==================================================== 4 yuan =============================================== 
 	<header class="main_header">
 		<div class="wrapper">
 			<nav class="top_buttons">
@@ -117,6 +110,7 @@
 			</nav>
 		</div>
 	</header>
+	-->
 	<!-- ===================================4yuan  end=========================================================== -->
 
 	<!-- =========================侧边栏目          start ========================================================-->

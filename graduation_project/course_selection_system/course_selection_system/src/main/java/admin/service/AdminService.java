@@ -9,5 +9,9 @@ public interface AdminService {
 	int countContactMessage();
 	
 	List<Student> findAllStudent();
+	
+	int deleteStudent(String sno);
+	
+	Student searchStudentBySno(String sno );
 
 }

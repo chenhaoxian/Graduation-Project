@@ -4,7 +4,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 	<title>学生选课系统</title>
 
 	<!-- The Main CSS File -->
@@ -32,46 +32,46 @@
 		<aside class="sidebar">
 			<ul class="tab_nav">
 				<li class=" i_32_dashboard">
-					<a href="" title="General Info">
+					<a href="${pageContext.request.contextPath}/jsp/admin/adminIndex.jsp" title="General Info">
 						<span class="tab_label">个人信息</span>
 						<span class="tab_info">Person Info</span>
 					</a>
 				</li>
 				 <li class="active_tab i_32_ui">
-					<a href="" title="student manage">
+					<a href="${pageContext.request.contextPath}/jsp/admin/studentManage.jsp" title="student manage">
 						<span class="tab_label">学生管理</span>
 						<span class="tab_info">student manage</span>
 					</a>
 				</li>
 				
 				<li class="i_32_ui">
-					<a href="" title="teacher manage">
+					<a href="${pageContext.request.contextPath}/jsp/admin/teacherManage.jsp" title="teacher manage">
 						<span class="tab_label">教师管理</span>
 						<span class="tab_info">teacher manage</span>
 					</a>
 				</li>
-				
+				<!-- 
 				<li class="i_32_ui">
-					<a href="" title="department manage">
+					<a href="${pageContext.request.contextPath}/jsp/admin/departmentManage.jsp" title="department manage">
 						<span class="tab_label">院系管理</span>
 						<span class="tab_info">department manage</span>
 					</a>
 				</li>
-				
+				 -->
 				<li class="i_32_ui">
-					<a href="" title="course manage">
+					<a href="${pageContext.request.contextPath}/jsp/admin/courseManage.jsp" title="course manage">
 						<span class="tab_label">课程管理</span>
 						<span class="tab_info">course manage</span>
 					</a>
 				</li>
-				
+				<!-- 
 				<li class="i_32_ui">
-					<a href="" title="profession manage">
+					<a href="${pageContext.request.contextPath}/jsp/admin/professionManage.jsp" title="profession manage">
 						<span class="tab_label">专业管理</span>
 						<span class="tab_info">profession manage</span>
 					</a>
 				</li>
-				
+				 -->
 			</ul>
 		</aside>
 		<!-- ==================侧边栏目    end ===================================================================== -->

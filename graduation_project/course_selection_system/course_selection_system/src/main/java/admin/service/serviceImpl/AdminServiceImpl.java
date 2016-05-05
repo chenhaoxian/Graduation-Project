@@ -34,4 +34,16 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public int deleteStudent(String sno) {
+		
+		return adminMapper.deleteStudentBySno(sno);
+	}
+
+	@Override
+	public Student searchStudentBySno(String sno) {
+		// TODO Auto-generated method stub
+		return adminMapper.getStudentBySno(sno);
+	}
+
 }

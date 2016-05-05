@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-04-15 16:10:14
+Date: 2016-05-05 16:48:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -81,7 +81,7 @@ CREATE TABLE `coursetongxuan` (
   UNIQUE KEY `cno` (`cno`),
   KEY `tno` (`tno`),
   CONSTRAINT `coursetongxuan_ibfk_1` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of coursetongxuan
@@ -110,7 +110,7 @@ CREATE TABLE `credit` (
 -- ----------------------------
 -- Records of credit
 -- ----------------------------
-INSERT INTO `credit` VALUES ('10', '1', '2');
+INSERT INTO `credit` VALUES (null, '1', '2');
 
 -- ----------------------------
 -- Table structure for department
@@ -168,8 +168,7 @@ CREATE TABLE `selectcourse` (
   `cno` varchar(20) DEFAULT NULL,
   `sno` varchar(20) DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
-  KEY `fk_selectcourse_coursetongxuan` (`cno`),
-  CONSTRAINT `fk_selectcourse_coursetongxuan` FOREIGN KEY (`cno`) REFERENCES `coursetongxuan` (`cno`)
+  KEY `fk_selectcourse_coursetongxuan` (`cno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -255,6 +254,7 @@ CREATE TABLE `teacher` (
 -- Records of teacher
 -- ----------------------------
 INSERT INTO `teacher` VALUES ('1', 'teacher1', '123', '1');
+INSERT INTO `teacher` VALUES ('2', 'teacher2', '123', '2');
 
 -- ----------------------------
 -- Table structure for user
@@ -366,6 +366,36 @@ BEGIN
 	start transaction;
 		delete from student where sno = p_sno;
 		delete from selectcourse where sno = p_sno;
+	
+	if t_error = 1 THEN
+		rollback;
+	ELSE		
+		commit;
+	end if;
+	
+	select t_error;
+
+end
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for pro_deleteTeacherByAdmin
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pro_deleteTeacherByAdmin`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_deleteTeacherByAdmin`(in p_tno varchar(30))
+BEGIN	
+	declare t_error integer default 0;
+	declare continue handler for sqlexception set t_error = 1;
+	
+	start transaction;
+		delete from coursetongxuan where tno = p_tno;
+		delete from teacher where tno = p_tno;
+-- 		delete from selectcourse where cno in (
+-- 			select cno from coursetongxuan where tno = p_tno
+-- 		);
+		
 	
 	if t_error = 1 THEN
 		rollback;

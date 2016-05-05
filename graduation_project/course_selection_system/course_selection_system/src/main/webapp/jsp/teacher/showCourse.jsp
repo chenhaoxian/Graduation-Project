@@ -6,19 +6,17 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>学生选课系统</title>
-	<!--[if lt IE 9]>
-		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/excanvas.js"></script>
-	<![endif]-->
-	<!-- The Fonts -->
-	<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet" />
+
 	<!-- The Main CSS File -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/secondpage/CSS/style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/flat-ui.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/buttons.css">
+
+	
+
 	<!-- jQuery -->
 	<script src="${pageContext.request.contextPath}/res/js/secondpage/jQuery/jquery-1.7.2.min.js"></script>
-	<!-- Flot -->
-	<script src="${pageContext.request.contextPath}/res/js/secondpage/secondpage/Flot/jquery.flot.js"></script>
+
 	<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/jquery.flot.resize.js"></script>
 	<script src="${pageContext.request.contextPath}/res/js/secondpage/Flot/jquery.flot.pie.js"></script>
 	<!-- DataTables -->
@@ -51,74 +49,10 @@
 	<script src="${pageContext.request.contextPath}/res/js/secondpage/kanrisha.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
-	<!-- Change Pattern -->
-	<div class="changePattern">
-		<span id="pattern1"></span>
-		<span id="pattern2"></span>
-		<span id="pattern3"></span>
-		<span id="pattern4"></span>
-		<span id="pattern5"></span>
-		<span id="pattern6"></span>
-	</div>
+	
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<!--==================================================== 4 yuan =============================================== -->
-	<header class="main_header">
-		<div class="wrapper">
-			<nav class="top_buttons">
-				<ul>
-					<li class="big_button">
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Analytics" class="the_button">
-										<span class="i_32_statistic"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="big_button">
-						<div class="big_count">
-							<span>7</span>
-						</div>
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Support" class="the_button">
-										<span class="i_32_support"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="big_button">
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Delivery" class="the_button">
-										<span class="i_32_delivery"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="big_button">
-						<div class="out_border">
-							<div class="button_wrapper">
-								<div class="in_border">
-									<a href="#" title="Earning" class="the_button">
-										<span class="i_32_dollar"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<!-- ===================================4yuan  end=========================================================== -->
+	
 
 	<!-- =========================侧边栏目          start ========================================================-->
 	<div class="wrapper small_menu">
@@ -214,9 +148,9 @@
 												<%int i=0; %>
 												<c:forEach items="${courseList }" var="course" varStatus="vs">
 													<tr >
-														<td>
+														<td align='center'>
 															
-																<input value="删除" type="button" class="button button-glow button-rounded " style="width: 100%" onclick="deleteCourse('${course.cno}','${sessionScope.teacher.tno }','<%= i%>')"/>
+																<input value="删除" type="button" class="btn btn-danger" style="width: 100%" onclick="deleteCourse('${course.cno}','${sessionScope.teacher.tno }','<%= i%>')"/>
 																<%i++; %>
 														</td>
 														<td>${course.cno }</td>
@@ -225,9 +159,9 @@
 														<td>${course.ctime }</td>
 														<td>${course.credit }</td>
 														<td>${course.total }</td>
-														<td>
+														<td align='center'>
 															<c:choose>
-																<c:when test="${course.margin != 0 }"><button onclick="displayStudent('${course.cno }')">${course.margin }</button></c:when>
+																<c:when test="${course.margin != 0 }"><button class='btn btn-danger' onclick="displayStudent('${course.cno }')">${course.margin }</button></c:when>
 																<c:otherwise>${course.margin }</c:otherwise>
 															</c:choose>
 														</td>
@@ -254,19 +188,19 @@
 		<table class="tables">
 			<thead>
 				<tr style="background-color:#CCCCCC">
-					<th class="error"><h2>编号</h2></th>
-					<th class="error"><h2>姓名</h2></th>
-					<th class="error"><h2>学号</h2></th>
-					<th class="error"><h2>年级</h2></th>
-					<th class="error"><h2>专业</h2></th>
-					<th class="error"><h2>学院</h2></th>
-					<th ><h2>移除</h2></th>
+					<th ><h5>编号</h5></th>
+					<th ><h5>姓名</h5></th>
+					<th ><h5>学号</h5></th>
+					<th ><h5>年级</h5></th>
+					<th ><h5>专业</h5></th>
+					<th ><h5>学院</h5></th>
+					<th ><h5>移除</h5></th>
 				</tr>
 			</thead>
 			<tbody id="student_data_table">
 
 			</tbody>
-			<tfoot><tr"><td style="left: 50%; size: auto;" ><button id="student_data_table_close">关闭</button></td></tr></tfoot>
+			<tfoot><tr><td align='center' COLSPAN=7><button id="student_data_table_close" class='btn btn-danger'>关闭</button></td></tr></tfoot>
 		</table>
 			
 	</div>
