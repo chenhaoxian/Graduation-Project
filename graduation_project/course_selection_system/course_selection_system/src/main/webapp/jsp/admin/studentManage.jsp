@@ -88,18 +88,38 @@
 					<div>
 						<table>
 							<tr id="search_student_table_tr">
-								<td class="labelText"><h3 class="tab_label">学生学号：</h3></td>
-								<td width="2%">&nbsp;</td>
-								<td ><input type="text" class="form-control" id="studentNo" size="50"></td>
-								<td width="2%">&nbsp;</td>
-								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_student">Search</button></td>
-								<td width="2%">&nbsp;</td>
-								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_allStudent">Show All</button></td>
+								<td class="labelText"><h3 class="tab_label">学号或专业名：</h3></td>
+								<td >&nbsp;</td>
+								<td ><input type="text" class="form-control" id="studentNo" size="50" name="searchValue"></td>
+								<td >&nbsp;</td>
+								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_student">搜索学号</button></td>
+								<td >&nbsp;</td>
+								<!-- <td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_allStudent">Show All</button></td> -->
+								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_by_professionName">搜索专业</button></td>
 							</tr>
+							<tr>
+								<td class="labelText" align="right" colspan="2"><h3 class="tab_label">年级：</h3></td>
+								<td colspan="1" align="left">
+									<select class="form-control" id="select_grade">
+										<option value ="1">大一</option>
+									  <option value ="2">大二</option>
+									  <option value="3">大三</option>
+									  <option value="4">大四</option>
+									</select>
+								</td>
+							</tr>
+							
 						</table>
 					</div>
 				</div>
 				
+				<div class="g_12 contents_header">
+					<div>
+							<div class="alert">
+									<strong>警告!</strong> 请确认你要删除的数据.
+						</div>
+					</div>
+				</div>
 				
 				<div class="g_12 separator"><span></span></div>
 				
@@ -180,8 +200,9 @@
 <!-- grumble 插件 -->
 <!-- 
 <script src="${pageContext.request.contextPath}/res/chx/js/jquery.grumble.min.js?v=7"></script>
-<script src="${pageContext.request.contextPath}/res/chx/js/student/jquery.autocomplete.min.js"></script>
 -->
+<script src="${pageContext.request.contextPath}/res/chx/js/student/jquery.autocomplete.min.js"></script>
+
 <script src="${pageContext.request.contextPath}/res/chx/js/admin/studentManage.js"></script>
  
 </body>

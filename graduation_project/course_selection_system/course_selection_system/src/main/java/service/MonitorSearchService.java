@@ -10,6 +10,8 @@ public interface MonitorSearchService {
 	
 	CourseTongXuan searchCourseByCourseName(String courseName);
 	
+	List<String> getProfessionNames();
+	
 	
 
 }

@@ -9,5 +9,7 @@ public interface SearchHelpMapper {
 	List<String> searchAutoCompleteName();
 	
 	CourseTongXuan searchCourseByCourseName(String courseName);
+	
+	List<String> getProfessionNames();
 
 }

@@ -49,8 +49,15 @@ public class SearchHelperController {
 		return courseTongXuan;
 	}
 	
+	@RequestMapping("findProfessionNames")
+	@ResponseBody
+	public List<String> findProfessionName(){
+		List<String> professionNames = monitorSearchService.getProfessionNames();
+		return professionNames;
+		
+	}
 	
-	
+
 	
 	
 	private void populateData(JspWriter out, List<String> names) throws IOException{
