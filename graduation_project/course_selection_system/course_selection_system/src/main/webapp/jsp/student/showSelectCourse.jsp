@@ -96,11 +96,13 @@
 							</tr>
 						</thead>
 						<tbody id="selectCourse_data_table">
+						<%int i = 0; %>
 							<c:forEach items="${selectCourseList }" var="selectCourse" varStatus="vs">
 								<tr >
 									<td>
 										<c:if test="${selectCourse.status =='在修' }">
-											<input id='btn_'+'1' value="退选" type="button" class="button button-glow button-rounded " style="width: 100%" onclick="cancelSelect('${selectCourse.cno}','${selectCourse.sno }')"/>
+											<input value="退选" type="button" class="button button-glow button-rounded " style="width: 100%" onclick="cancelSelect('${selectCourse.cno}','${selectCourse.sno }','<%=i%>')"/>
+											<%i++; %>
 										</c:if>
 									</td>
 									<td>${selectCourse.courseName }</td>

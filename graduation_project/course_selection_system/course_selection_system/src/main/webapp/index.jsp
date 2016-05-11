@@ -166,7 +166,7 @@
 							<form  name="loginform" method="post"  class="modal-body" >
 					      	<div class="input-group">
 									  <span class="input-group-addon" id="basic-addon1">账号</span>
-									  <input type="text" class="form-control" placeholder="输入学号"  id="account" aria-describedby="basic-addon1" value="1">
+									  <input type="text" class="form-control" placeholder="输入学号"  id="account" aria-describedby="basic-addon1" value="120202041016">
 									</div>
 									<span class="label label-danger" id="account_warning"></span>	
 									<div class="input-group">
@@ -185,12 +185,12 @@
 							<form  name="teacher_form" method="post"  class="modal-body" >
 					      	<div class="input-group">
 									  <span class="input-group-addon" id="basic-addon1">账号</span>
-									  <input type="text" class="form-control" placeholder="输入教工号"  id="tno" aria-describedby="basic-addon1" value="1">
+									  <input type="text" class="form-control" placeholder="输入教工号"  id="tno" aria-describedby="basic-addon1" value="123456">
 									</div>
 									<span class="label label-danger" id="tno_warning"></span>
 									<div class="input-group">
 									  <span class="input-group-addon" id="basic-addon1">密码</span>
-									  <input type="password" id="teacher_password" class="form-control" placeholder="密码" aria-describedby="basic-addon1" value="123">
+									  <input type="password" id="teacher_password" class="form-control" placeholder="密码" aria-describedby="basic-addon1" value="">
 									</div>
 									<span class="label label-danger" id="t_pwd_warning"></span>
 									<div>
@@ -204,12 +204,12 @@
 							<form  name="adminform" method="post"  class="modal-body" >
 					      	<div class="input-group">
 									  <span class="input-group-addon" id="basic-addon1">账号</span>
-									  <input type="text" class="form-control" placeholder="输入工号"  id="aid" aria-describedby="basic-addon1" value="1">
+									  <input type="text" class="form-control" placeholder="输入工号"  id="aid" aria-describedby="basic-addon1" value="120202041016">
 									</div>
 									<span class="label label-danger" id="aid_warning"></span>
 									<div class="input-group">
 									  <span class="input-group-addon" id="basic-addon1">密码</span>
-									  <input type="password" id="admin_password" class="form-control" placeholder="密码" aria-describedby="basic-addon1" value="123">
+									  <input type="password" id="admin_password" class="form-control" placeholder="密码" aria-describedby="basic-addon1" value="">
 									</div>
 									<span class="label label-danger" id="a_pwd_warning"></span>
 									<div>

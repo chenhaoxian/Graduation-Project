@@ -132,10 +132,11 @@
 							</tr>
 						</thead>
 						<tbody id="course_data_table">
+						<%int i = 0; %>
 						
 							<c:forEach items="${courseTongXuanList }" var="courseTongXuan" varStatus="vs">
 								<tr>
-									<td><input value="选择" type="button" class="button button-glow button-rounded " onclick="selectCourse('${courseTongXuan.cno}')"/></td>
+									<td><input value="选择" type="button" class="button button-glow button-rounded " onclick="selectCourse('${courseTongXuan.cno}','<%=i%>')"/></td><%i++; %>
 									<td>${courseTongXuan.ctime }</td>
 									<td>
 										<button class="button button-glow button-rounded " onclick="show_teacher('${courseTongXuan.teacher.tname}','${courseTongXuan.teacher.department.departmentName }')">${courseTongXuan.cname }</button>

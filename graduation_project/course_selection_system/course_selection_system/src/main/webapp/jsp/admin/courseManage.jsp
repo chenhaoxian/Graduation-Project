@@ -109,6 +109,7 @@
 									<th class="success">课程号</th>
 									<th class="success">上课时间</th>
 									<th class="success">授课老师</th>
+									<th class="success">教师工号</th>
 									<th class="success">操作</th>
 								</tr>
 							</thead>

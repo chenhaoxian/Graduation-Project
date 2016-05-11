@@ -26,7 +26,7 @@ $(document).ready(function(){
 	ShowSelectCourse_Page.init();	
 });
 
-function cancelSelect(cno,sno){
+function cancelSelect(cno,sno,row){
 //	alert('cno:'+cno+'sno' + sno);
 	var self = this;
 	if(cno==null || cno=='' || sno==null || sno ==""){
@@ -41,13 +41,13 @@ function cancelSelect(cno,sno){
 			},
 			success : function(msg){
 				if(msg == "success"){
-					alert("操作成功");
+//					alert("操作成功");
 //					flag = 'N';
 //					alert($(this).val());
 //					$(this).parent().attr("disabled","disabled");
 //					$("#btn_"+'1').attr("disabled","disabled");
 					//刷新全部数据
-					window.location.reload(true);
+					$("#selectCourse_data_table tr:eq("+row+")").hide();
 					
 				}
 			}
