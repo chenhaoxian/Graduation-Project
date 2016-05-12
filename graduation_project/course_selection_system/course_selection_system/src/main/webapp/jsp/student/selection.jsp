@@ -4,7 +4,6 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title>学生选课系统</title>
 
@@ -17,7 +16,6 @@
 	
   <link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/student/autocomplete.css" >
 
-  
   
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
@@ -39,13 +37,16 @@
 	<!-- =========================侧边栏目          start ========================================================-->
 	<div class="wrapper small_menu">
 		<ul class="menu_small_buttons">
-			<li><a title="个人 信息" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
-			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=true&sno=${sessionScope.student.sno }"></a></li>
-			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
-			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>
+			<li><a title="个人 信息" class="i_22_dashboard " href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
+			<li><a title="选课" class="i_32_ui smActive" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1&sno=${sessionScope.student.sno }"></a></li>
+			<li><a title="查看课程" class="i_32_tables" href="${pageContext.request.contextPath}/student/findSelectCourse?sno=${sessionScope.student.sno }"></a></li>
+			<!-- 
+			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>			
 			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
 			<li><a title="Some Fields" class="i_22_forms" href="forms.html"></a></li>
+			-->
 		</ul>
+		
 	</div>
 
 	<div class="wrapper contents_wrapper">
@@ -94,7 +95,7 @@
 			<div class="grid_wrapper">
 
 				<div class="g_6 contents_header">
-					<h3 class="i_16_ui tab_label">通选选课</h3>
+					<h3 class="i_16_ui tab_label">学生选课</h3>
 					<div><span class="label">Select Course</span></div>
 				</div>
 
@@ -107,6 +108,7 @@
 								<td ><input type="text" class="form-control" id="courseName" size="50"></td>
 								<td width="2%">&nbsp;</td>
 								<td ><button type="button" class="btn btn-warning btn-lg" id="btn_search_course">search</button></td>
+								
 							</tr>
 						</table>
 					</div>
@@ -132,16 +134,17 @@
 							</tr>
 						</thead>
 						<tbody id="course_data_table">
+						
 						<%int i = 0; %>
 						
 							<c:forEach items="${courseTongXuanList }" var="courseTongXuan" varStatus="vs">
 								<tr>
-									<td><input value="选择" type="button" class="button button-glow button-rounded " onclick="selectCourse('${courseTongXuan.cno}','<%=i%>')"/></td><%i++; %>
+									<td ><input value="选择" type="button" class="button button-glow button-rounded " onclick="selectCourse('${courseTongXuan.cno}','<%=i%>')"/></td><%i++; %>
 									<td>${courseTongXuan.ctime }</td>
 									<td>
 										<button class="button button-glow button-rounded " onclick="show_teacher('${courseTongXuan.teacher.tname}','${courseTongXuan.teacher.department.departmentName }')">${courseTongXuan.cname }</button>
 									</td>
-									<td>${courseTongXuan.ctype }</td>
+									<td >${courseTongXuan.ctype }</td>
 									<td>${courseTongXuan.credit }</td>
 									<td>${courseTongXuan.total }</td>
 									<td>${courseTongXuan.margin }</td>
@@ -149,6 +152,7 @@
 							</c:forEach>
 						</tbody>
 					</table>
+					
 					
 
 					
@@ -165,7 +169,7 @@
 					
 					
 					<!-- =========================分页区域  end========================================================================== -->
-					
+					</div>
 					</div>
 					
 <!-- =======================================所有课程信息表=====end======================================= -->
@@ -174,17 +178,8 @@
 				
 			</div>
 		</div>
-	</div>
 	
 	
-<div class="g_12 separator"><span></span></div>
-
-
-
-
-
-
-
 
 
 

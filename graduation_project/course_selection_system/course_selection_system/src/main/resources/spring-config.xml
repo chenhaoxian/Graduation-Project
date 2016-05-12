@@ -10,7 +10,7 @@ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.0.xsd
 http://www.springframework.org/schema/tx
-http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"> 
+http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">  
  
 
 	<!-- data source : DriverManagerDataSource -->
@@ -18,7 +18,7 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	<property name="driverClassName" value="org.gjt.mm.mysql.Driver"/>
 	<property name="url" value="jdbc:mysql://localhost:3306/db_course_selection_system?characterEncoding=utf8"/> 
 	<property name="username" value="root"/> 
-	<property name="password" value="xian520."/> 
+	<property name="password" value="******"/> 
 	</bean> 
 
 	<!-- mybatis 的SqlSession 的工厂 ： SqlSessionFactoryBean dataSource : 应用数据源

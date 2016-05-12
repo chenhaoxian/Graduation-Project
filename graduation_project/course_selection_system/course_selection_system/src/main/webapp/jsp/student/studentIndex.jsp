@@ -115,13 +115,16 @@
 	<!-- =========================侧边栏目          start ========================================================-->
 	<div class="wrapper small_menu">
 		<ul class="menu_small_buttons">
-			<li><a title="个人 信息" class="i_22_dashboard smActive" href="studentIndex.jsp"></a></li>
-			<li><a title="Your Messages" class="i_22_inbox" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1&sno=1"></a></li>
-			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
-			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>
+			<li><a title="个人 信息" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
+			<li><a title="选课" class="i_32_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1&sno=${sessionScope.student.sno }"></a></li>
+			<li><a title="查看课程" class="i_32_tables" href="${pageContext.request.contextPath}/student/findSelectCourse.do?sno=${sessionScope.student.sno }"></a></li>
+			<!-- 
+			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>			
 			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
 			<li><a title="Some Fields" class="i_22_forms" href="forms.html"></a></li>
+			-->
 		</ul>
+		
 	</div>
 
 	<div class="wrapper contents_wrapper">
@@ -129,7 +132,7 @@
 		<aside class="sidebar">
 			<ul class="tab_nav">
 				<li class="active_tab i_32_dashboard">
-					<a href="studentIndex.jsp" title="General Info">
+					<a href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp" title="General Info">
 						<span class="tab_label">个人信息</span>
 						<span class="tab_info">Person Info</span>
 					</a>
@@ -141,7 +144,7 @@
 					</a>
 				</li>
 				<li class="i_32_tables">
-					<a href="${pageContext.request.contextPath}/student/findSelectCourse?sno=${sessionScope.student.sno }" title="Some Rows">
+					<a href="${pageContext.request.contextPath}/student/findSelectCourse.do?sno=${sessionScope.student.sno }" title="Some Rows">
 						<span class="tab_label">查看课程</span>
 						<span class="tab_info">Show Courses</span>
 					</a>
