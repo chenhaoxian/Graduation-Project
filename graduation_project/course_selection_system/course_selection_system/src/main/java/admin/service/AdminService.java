@@ -2,6 +2,8 @@ package admin.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import admin.model.Student;
 
 public interface AdminService {
@@ -13,5 +15,7 @@ public interface AdminService {
 	int deleteStudent(String sno);
 	
 	Student searchStudentBySno(String sno );
+	
+	List<Student> findStudentByProfessionName(@Param("professionName")String professionName,@Param("selectGrade")String selectGrade);
 
 }

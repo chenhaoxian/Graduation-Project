@@ -64,6 +64,14 @@ public class AdminController {
 	}
 	
 	
+	@RequestMapping("searchStudentByProfessionName")
+	@ResponseBody
+	public List<Student> searchStudentByProfessionName(String professionName,String selectGrade){
+		List<Student> list = adminService.findStudentByProfessionName(professionName,selectGrade);
+		return list;
+	}
+	
+	
 	
 	
 	

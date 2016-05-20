@@ -16,12 +16,17 @@
   
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
-	
-	<!-- 头文�-->
 	<jsp:include page="header.jsp"></jsp:include>
 
 
-	<!-- =========================侧边栏目          start ========================================================-->
+	<div class="wrapper small_menu">
+			<ul class="menu_small_buttons">
+				<li><a title="个人 信息" class="i_22_dashboard " href="${pageContext.request.contextPath}/jsp/admin/adminIndex.jsp"></a></li>
+				<li><a title="学生管理" class="i_32_ui " href="${pageContext.request.contextPath}/jsp/admin/studentManage.jsp"></a></li>
+				<li><a title="教师管理" class="i_32_ui smActive" href="${pageContext.request.contextPath}/jsp/admin/teacherManage.jsp"></a></li>
+				<li><a title="课程管理" class="i_32_ui " href="${pageContext.request.contextPath}/jsp/admin/courseManage.jsp"></a></li>			
+			</ul>
+	</div>
 
 	<div class="wrapper contents_wrapper">
 		
@@ -46,31 +51,14 @@
 						<span class="tab_info">teacher manage</span>
 					</a>
 				</li>
-				<!--  
-				<li class="i_32_ui">
-					<a href="${pageContext.request.contextPath}/jsp/admin/departmentManage.jsp" title="department manage">
-						<span class="tab_label">院系管理</span>
-						<span class="tab_info">department manage</span>
-					</a>
-				</li>
-				 -->
 				<li class="i_32_ui">
 					<a href="${pageContext.request.contextPath}/jsp/admin/courseManage.jsp" title="course manage">
 						<span class="tab_label">课程管理</span>
 						<span class="tab_info">course manage</span>
 					</a>
 				</li>
-				<!-- 
-				<li class="i_32_ui">
-					<a href="${pageContext.request.contextPath}/jsp/admin/professionManage.jsp" title="profession manage">
-						<span class="tab_label">专业管理</span>
-						<span class="tab_info">profession manage</span>
-					</a>
-				</li>
-				 -->
 			</ul>
 		</aside>
-		<!-- ==================侧边栏目    end ===================================================================== -->
 
 		<div class="contents">
 			<div class="grid_wrapper">
@@ -100,7 +88,6 @@
 				<div class="g_12 separator"><span></span></div>
 				
 				<div class="g_12">
-				
 						<table class="tables">
 							<thead>
 								<tr class="success" >
@@ -123,20 +110,7 @@
 
 	</div>
 	
-	
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- js -->
   
 
 <!-- jQuery -->

@@ -4,15 +4,15 @@
 
 ▇ 集成了Mybatis分页插件  
 
-▇ 使用的mysql数据库，在Linux系统管理数据库。
+▇ 使用的mysql数据库。
 
 ▇ 运用spring4 对泛型Mapper 的注入
 
 ▇ 前端 使用 Bootstrap + Jquery + CSS + Jsp + Sco + Angular
 
-▇ 服务器 Tomcat7 
-
 ▇ 使用 redis 提高系统性能
+
+▇ 服务器 搭建在 CentOS 64 上访问地址： http://119.29.226.226/
 
 
 

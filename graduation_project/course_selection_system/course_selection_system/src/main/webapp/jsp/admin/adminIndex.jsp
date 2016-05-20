@@ -48,6 +48,21 @@
 
 	<jsp:include page="header.jsp"></jsp:include>
 	
+	<div class="wrapper small_menu">
+		<ul class="menu_small_buttons">
+			<li><a title="个人 信息" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/admin/adminIndex.jsp"></a></li>
+			<li><a title="学生管理" class="i_32_ui " href="${pageContext.request.contextPath}/jsp/admin/studentManage.jsp"></a></li>
+			<li><a title="教师管理" class="i_32_ui " href="${pageContext.request.contextPath}/jsp/admin/teacherManage.jsp"></a></li>
+			
+			<li><a title="课程管理" class="i_32_ui " href="${pageContext.request.contextPath}/jsp/admin/courseManage.jsp"></a></li>			
+			<!-- 
+			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
+			<li><a title="Some Fields" class="i_22_forms" href="forms.html"></a></li>
+			-->
+		</ul>
+		
+	</div>
+	
 	<!--==================================================== 4 yuan =============================================== -->
 
 	<!-- ===================================4yuan  end=========================================================== -->

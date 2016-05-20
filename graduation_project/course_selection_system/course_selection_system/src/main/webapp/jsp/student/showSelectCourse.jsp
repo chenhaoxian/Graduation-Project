@@ -4,7 +4,6 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title>学生选课系统</title>
 
@@ -13,32 +12,20 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/flat-ui.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/buttons.css">
   <!-- grumble -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/grumble.min.css">
 	
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/res/chx/css/student/autocomplete.css" >
-
-  
-  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
-	<!-- Change Pattern -->
-
-	<!-- 头文�-->
 	<jsp:include page="header.jsp"></jsp:include>
 
-
-	<!-- =========================侧边栏目          start ========================================================-->
 	<div class="wrapper small_menu">
 		<ul class="menu_small_buttons">
-			<li><a title="个人 信息" class="i_22_dashboard smActive" href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
-			<li><a title="Your Messages" class="i_22_ui" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1&sno=${sessionScope.student.sno }"></a></li>
-			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
-			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>
-			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
-			<li><a title="Some Fields" class="i_22_forms" href="forms.html"></a></li>
+			<li><a title="个人 信息" class="i_22_dashboard " href="${pageContext.request.contextPath}/jsp/student/studentIndex.jsp"></a></li>
+			<li><a title="选课" class="i_32_ui " href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1&sno=${sessionScope.student.sno }"></a></li>
+			<li><a title="查看课程" class="i_32_tables smActive" href="${pageContext.request.contextPath}/student/findSelectCourse?sno=${sessionScope.student.sno }"></a></li>
+			
 		</ul>
 	</div>
-
+	
 	<div class="wrapper contents_wrapper">
 		
 		<aside class="sidebar">
@@ -55,35 +42,29 @@
 						<span class="tab_info">Select Course</span>
 					</a>
 				</li>
-				<!-- 
-				<li class="i_32_charts">
-					<a href="charts.html" title="Visual Data">
-						<span class="tab_label">Charts</span>
-						<span class="tab_info">Visual Data</span>
-					</a>
-				</li>
-				-->
 				<li class="active_tab i_32_tables">
 					<a href="${pageContext.request.contextPath}/student/findSelectCourse?sno=${sessionScope.student.sno }" title="Some Rows">
 						<span class="tab_label">查看课程</span>
 						<span class="tab_info">Show Courses</span>
 					</a>
 				</li>
-				<!--
-				<li class="i_32_forms">
-					<a href="forms.html" title="Some Fields">
-						<span class="tab_label">Forms</span>
-						<span class="tab_info">Some Fields</span>
-					</a>
-				</li>
-				 -->
+				
 			</ul>
 		</aside>
-		<!-- ==================侧边栏目    end ===================================================================== -->
 		
 		
 		<div class="contents">
 			<div class="grid_wrapper">
+			
+				<div class="g_6 contents_header">
+					<h3 class="i_16_tables tab_label">查看课程</h3>
+					<div><span class="label">Show Course</span></div>
+				</div>
+				
+				
+				
+				<div class="g_12 separator"><span></span></div>
+				
 				<div class="g_12">
 					<table class="tables">
 						<thead>
@@ -96,11 +77,13 @@
 							</tr>
 						</thead>
 						<tbody id="selectCourse_data_table">
+						<%int i = 0; %>
 							<c:forEach items="${selectCourseList }" var="selectCourse" varStatus="vs">
 								<tr >
 									<td>
 										<c:if test="${selectCourse.status =='在修' }">
-											<input id='btn_'+'1' value="退选" type="button" class="button button-glow button-rounded " style="width: 100%" onclick="cancelSelect('${selectCourse.cno}','${selectCourse.sno }')"/>
+											<input value="退选" type="button" class="button button-glow button-rounded " style="width: 100%" onclick="cancelSelect('${selectCourse.cno}','${selectCourse.sno }','<%=i%>')"/>
+											<%i++; %>
 										</c:if>
 									</td>
 									<td>${selectCourse.courseName }</td>
@@ -121,14 +104,6 @@
 	</div>
 	
 	
-
-
-
-
-
-
-
-
 
 
 

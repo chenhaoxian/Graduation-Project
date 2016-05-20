@@ -2,6 +2,8 @@ package admin.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import admin.model.Course;
 import admin.model.Student;
 import admin.model.Teacher;
@@ -27,5 +29,7 @@ public interface AdminMapper {
 	Course getCourseByCno(String cno);
 	
 	int deleteCourseByAdmin(String cno );
+	
+	List<Student> getStudentByProfessionName(@Param("professionName")String professionName, @Param("selectGrade")String selectGrade);
 
 }

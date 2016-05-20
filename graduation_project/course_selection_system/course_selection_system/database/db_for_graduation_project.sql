@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2016-05-05 16:48:06
+Date: 2016-05-11 16:20:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,12 +27,14 @@ CREATE TABLE `admin` (
   `usertype` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `aid` (`aid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
 INSERT INTO `admin` VALUES ('1', '1', '123', 'admin1', '3');
+INSERT INTO `admin` VALUES ('2', '1202020241016', '123', '陈浩贤', null);
+INSERT INTO `admin` VALUES ('3', '120202041016', '123', '陈浩贤', null);
 
 -- ----------------------------
 -- Table structure for course
@@ -81,19 +83,22 @@ CREATE TABLE `coursetongxuan` (
   UNIQUE KEY `cno` (`cno`),
   KEY `tno` (`tno`),
   CONSTRAINT `coursetongxuan_ibfk_1` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tno`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of coursetongxuan
 -- ----------------------------
-INSERT INTO `coursetongxuan` VALUES ('TX6', '通选课6', '自然科学', '周一 10:00--11:30', '2', '50', '1', '1', '1');
-INSERT INTO `coursetongxuan` VALUES ('TX1', '通选课1', '自然科学', '周一 8:00--9:30', '2', '50', '0', '1', '2');
-INSERT INTO `coursetongxuan` VALUES ('TX2', '通选课2', '自然科学', '周二 8:00--9:30', '2', '50', '1', '1', '3');
-INSERT INTO `coursetongxuan` VALUES ('TX3', '通选课3', '自然科学', '周三 8:00--9:30', '2', '50', '1', '1', '4');
-INSERT INTO `coursetongxuan` VALUES ('TX4', '通选课4', '自然科学', '周四 8:00--9:30', '2', '50', '1', '1', '5');
-INSERT INTO `coursetongxuan` VALUES ('TX5', '通选课5', '自然科学', '周五 8:00--9:30', '2', '50', '0', '1', '6');
-INSERT INTO `coursetongxuan` VALUES ('TX7', '通选课7', '自然科学', '周五 8:00--9:30', '2', '50', '1', '1', '7');
-INSERT INTO `coursetongxuan` VALUES ('556179', 'tetst', 'etstst', 'setsetst', '3', '3', '0', '1', '28');
+INSERT INTO `coursetongxuan` VALUES ('1111111', '计算机基础', '自然科学', '周一 10:00--11:30', '2', '50', '0', '4', '42');
+INSERT INTO `coursetongxuan` VALUES ('1111112', '程序设计基础（C）', '自然科学', '周一 10:00--11:30', '2', '50', '0', '10', '43');
+INSERT INTO `coursetongxuan` VALUES ('1111113', '计算机网络', '自然科学', '周二 10:00--11:30', '2', '50', '0', '16', '44');
+INSERT INTO `coursetongxuan` VALUES ('1111114', 'Java程序设计', '自然科学', '周一 10:00--11:30', '2', '50', '0', '22', '45');
+INSERT INTO `coursetongxuan` VALUES ('1111116', 'C++程序设计', '自然科学', '周一 10:00--11:30', '2', '50', '0', '28', '47');
+INSERT INTO `coursetongxuan` VALUES ('1111118', '数据结构', '自然科学', '周二 10:00--11:30', '2', '50', '0', '4', '49');
+INSERT INTO `coursetongxuan` VALUES ('2222221', '中国近代史', '自然科学', '周一 10:00--11:30', '2', '50', '0', '9', '50');
+INSERT INTO `coursetongxuan` VALUES ('2222222', '毛泽东思想', '人文地理', '周四 10:00--11:30', '2', '50', '0', '45', '51');
+INSERT INTO `coursetongxuan` VALUES ('2222223', '马克思主义概论', '人文地理', '周五 10:00--11:30', '2', '50', '0', '51', '52');
+INSERT INTO `coursetongxuan` VALUES ('1111117', '算法设计与分析', '自然科学', '周一 10:00--11:30', '2', '50', '0', '123456', '55');
+INSERT INTO `coursetongxuan` VALUES ('1111115', 'C#程序设计', '自然科学', '周二 10:00--11:30', '2', '50', '0', '123456', '56');
 
 -- ----------------------------
 -- Table structure for credit
@@ -130,7 +135,7 @@ INSERT INTO `department` VALUES ('2', '外国语学院');
 INSERT INTO `department` VALUES ('3', '艺术学院');
 INSERT INTO `department` VALUES ('4', '机车学院');
 INSERT INTO `department` VALUES ('5', '数理学院');
-INSERT INTO `department` VALUES ('6', '会计与金融学院');
+INSERT INTO `department` VALUES ('6', '思政部');
 
 -- ----------------------------
 -- Table structure for profession
@@ -178,7 +183,22 @@ INSERT INTO `selectcourse` VALUES ('TX2', '1', '在修');
 INSERT INTO `selectcourse` VALUES ('TX3', '1', '在修');
 INSERT INTO `selectcourse` VALUES ('TX4', '1', '在修');
 INSERT INTO `selectcourse` VALUES ('TX6', '1', '在修');
-INSERT INTO `selectcourse` VALUES ('TX7', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX1', '1', '在修');
+INSERT INTO `selectcourse` VALUES ('TX1', '2543', '在修');
+INSERT INTO `selectcourse` VALUES ('TX2', '2543', '在修');
+INSERT INTO `selectcourse` VALUES ('TX3', '2543', '在修');
+INSERT INTO `selectcourse` VALUES ('TX4', '2543', '在修');
+INSERT INTO `selectcourse` VALUES ('TX5', '2543', '在修');
+INSERT INTO `selectcourse` VALUES ('TX6', '2543', '在修');
+INSERT INTO `selectcourse` VALUES ('TX4', '5342', '在修');
+INSERT INTO `selectcourse` VALUES ('TX2', '5342', '在修');
+INSERT INTO `selectcourse` VALUES ('TX5', '5342', '在修');
+INSERT INTO `selectcourse` VALUES ('TX3', '5342', '在修');
+INSERT INTO `selectcourse` VALUES ('TX1', '5342', '在修');
+INSERT INTO `selectcourse` VALUES ('TX1', '5311', '在修');
+INSERT INTO `selectcourse` VALUES ('TX2', '5311', '在修');
+INSERT INTO `selectcourse` VALUES ('TX3', '5311', '在修');
+INSERT INTO `selectcourse` VALUES ('TX4', '5311', '在修');
 
 -- ----------------------------
 -- Table structure for student
@@ -196,32 +216,13 @@ CREATE TABLE `student` (
   UNIQUE KEY `sno` (`sno`),
   KEY `fk_student_professionNo` (`professionno`),
   CONSTRAINT `fk_student_professionNo` FOREIGN KEY (`professionno`) REFERENCES `profession` (`professionNo`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9029 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of student
 -- ----------------------------
 INSERT INTO `student` VALUES ('1', 'student1', '1', '1', '123', '1', '1');
-INSERT INTO `student` VALUES ('2', 'student2', '2', '2', '123', null, '1');
-INSERT INTO `student` VALUES ('3', 'student3', '3', '2', '123', null, '1');
-INSERT INTO `student` VALUES ('4', 'student4', '4', '2', '123', null, '1');
-INSERT INTO `student` VALUES ('5', 'student5', '5', '2', '123', null, '1');
-INSERT INTO `student` VALUES ('6', 'student6', '6', '2', '123', null, '1');
-INSERT INTO `student` VALUES ('10', 'student8', '8', '2', '123', null, '1');
-INSERT INTO `student` VALUES ('12', 'student21', '21', '2', '123', null, '2');
-INSERT INTO `student` VALUES ('13', 'student31', '31', '2', '123', null, '2');
-INSERT INTO `student` VALUES ('14', 'student41', '41', '2', '123', null, '3');
-INSERT INTO `student` VALUES ('15', 'student51', '51', '2', '123', null, '4');
-INSERT INTO `student` VALUES ('16', 'student61', '61', '2', '123', null, '4');
-INSERT INTO `student` VALUES ('17', 'student71', '71', '2', '123', null, '5');
-INSERT INTO `student` VALUES ('18', 'student81', '81', '2', '123', null, '5');
-INSERT INTO `student` VALUES ('19', 'student22', '91', '1', '123', null, '6');
-INSERT INTO `student` VALUES ('20', 'student32', '101', '2', '123', null, '6');
-INSERT INTO `student` VALUES ('21', 'student42', '111', '3', '123', null, '7');
-INSERT INTO `student` VALUES ('22', 'student52', '121', '4', '123', null, '7');
-INSERT INTO `student` VALUES ('23', 'student62', '131', '1', '123', null, '8');
-INSERT INTO `student` VALUES ('24', 'student72', '141', '2', '123', null, '9');
-INSERT INTO `student` VALUES ('25', 'student82', '151', '4', '123', null, '10');
+INSERT INTO `student` VALUES ('9028', '陈浩贤', '120202041016', '1', '123', null, '1');
 
 -- ----------------------------
 -- Table structure for table_test
@@ -254,7 +255,53 @@ CREATE TABLE `teacher` (
 -- Records of teacher
 -- ----------------------------
 INSERT INTO `teacher` VALUES ('1', 'teacher1', '123', '1');
-INSERT INTO `teacher` VALUES ('2', 'teacher2', '123', '2');
+INSERT INTO `teacher` VALUES ('4', '陈维红', '123', '1');
+INSERT INTO `teacher` VALUES ('5', '陈志霞', '123', '2');
+INSERT INTO `teacher` VALUES ('9', '陈妍郡', '123', '6');
+INSERT INTO `teacher` VALUES ('10', '陈艳妍', '123', '1');
+INSERT INTO `teacher` VALUES ('11', '陈妍艳', '123', '2');
+INSERT INTO `teacher` VALUES ('12', '陈妍飞', '123', '3');
+INSERT INTO `teacher` VALUES ('13', '陈妍菲', '123', '4');
+INSERT INTO `teacher` VALUES ('14', '陈妍霏', '123', '5');
+INSERT INTO `teacher` VALUES ('15', '陈桐文', '123', '6');
+INSERT INTO `teacher` VALUES ('16', '陈芬英', '123', '1');
+INSERT INTO `teacher` VALUES ('17', '陈明艳', '123', '2');
+INSERT INTO `teacher` VALUES ('18', '陈虹颖', '123', '3');
+INSERT INTO `teacher` VALUES ('19', '陈银霞', '123', '4');
+INSERT INTO `teacher` VALUES ('20', '陈丹玲', '123', '5');
+INSERT INTO `teacher` VALUES ('21', '陈碧琴', '123', '6');
+INSERT INTO `teacher` VALUES ('22', '陈宇芬', '123', '1');
+INSERT INTO `teacher` VALUES ('23', '陈香蓉', '123', '2');
+INSERT INTO `teacher` VALUES ('24', '陈银娜', '123', '3');
+INSERT INTO `teacher` VALUES ('25', '陈湘莹', '123', '4');
+INSERT INTO `teacher` VALUES ('26', '陈晖莹', '123', '5');
+INSERT INTO `teacher` VALUES ('27', '陈立颖', '123', '6');
+INSERT INTO `teacher` VALUES ('28', '陈泓怡', '123', '1');
+INSERT INTO `teacher` VALUES ('29', '陈爱英', '123', '2');
+INSERT INTO `teacher` VALUES ('30', '陈虞莹', '123', '3');
+INSERT INTO `teacher` VALUES ('31', '陈脘莹', '123', '4');
+INSERT INTO `teacher` VALUES ('32', '陈睦莹', '123', '5');
+INSERT INTO `teacher` VALUES ('33', '陈暮莹', '123', '6');
+INSERT INTO `teacher` VALUES ('34', '陈宁颖', '123', '1');
+INSERT INTO `teacher` VALUES ('35', '陈焕莹', '123', '2');
+INSERT INTO `teacher` VALUES ('36', '陈韵怡', '123', '3');
+INSERT INTO `teacher` VALUES ('37', '陈熳琳', '123', '4');
+INSERT INTO `teacher` VALUES ('38', '陈丽琳', '123', '5');
+INSERT INTO `teacher` VALUES ('39', '陈艳琼', '123', '6');
+INSERT INTO `teacher` VALUES ('40', '张伟', '123', '1');
+INSERT INTO `teacher` VALUES ('41', '王伟', '123', '2');
+INSERT INTO `teacher` VALUES ('42', '王芳', '123', '3');
+INSERT INTO `teacher` VALUES ('43', '李伟', '123', '4');
+INSERT INTO `teacher` VALUES ('44', '李娜', '123', '5');
+INSERT INTO `teacher` VALUES ('45', '张敏', '123', '6');
+INSERT INTO `teacher` VALUES ('46', '李静', '123', '1');
+INSERT INTO `teacher` VALUES ('47', '王静刘伟', '123', '2');
+INSERT INTO `teacher` VALUES ('48', '王秀英', '123', '3');
+INSERT INTO `teacher` VALUES ('49', '陈红', '123', '4');
+INSERT INTO `teacher` VALUES ('50', '王莹', '123', '5');
+INSERT INTO `teacher` VALUES ('51', '陈兆颖', '123', '6');
+INSERT INTO `teacher` VALUES ('52', '陈欣瑶', '123', '1');
+INSERT INTO `teacher` VALUES ('123456', '周天剑', '123', '1');
 
 -- ----------------------------
 -- Table structure for user

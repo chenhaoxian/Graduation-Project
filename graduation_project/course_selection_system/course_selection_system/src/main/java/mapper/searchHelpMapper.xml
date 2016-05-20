@@ -9,6 +9,10 @@
 		select cname from courseTongxuan;
 	</select>
 	
+	<select id="getProfessionNames" resultType="STRING">
+		select professionName from profession;
+	</select>
+	
 	<select id="searchCourseByCourseName" resultMap="mapper.StudentMapper.courseTongXuanResult">
 		SELECT c.*,t.*,d.*
 		from coursetongxuan c

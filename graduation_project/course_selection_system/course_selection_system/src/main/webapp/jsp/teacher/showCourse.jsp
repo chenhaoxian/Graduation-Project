@@ -57,13 +57,16 @@
 	<!-- =========================侧边栏目          start ========================================================-->
 	<div class="wrapper small_menu">
 		<ul class="menu_small_buttons">
-			<li><a title="个人 信息" class="i_22_dashboard smActive" href="studentIndex.jsp"></a></li>
-			<li><a title="Your Messages" class="i_22_inbox" href="${pageContext.request.contextPath}/student/findAllCourseTongXuan.do?flag=1&sno=1"></a></li>
-			<li><a title="Visual Data" class="i_22_charts" href="charts.html"></a></li>
-			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>
+			<li><a title="个人 信息" class="i_22_dashboard " href="${pageContext.request.contextPath}/jsp/teacher/teacherIndex.jsp"></a></li>
+			<li><a title="添加课程" class="i_32_forms " href="${pageContext.request.contextPath}/jsp/teacher/addCourse.jsp"></a></li>
+			<li><a title="查看课程" class="i_32_tables smActive" href="${pageContext.request.contextPath}/teacher/findCourse.do?tno=${sessionScope.teacher.tno}"></a></li>
+			<!-- 
+			<li><a title="Kit elements" class="i_22_ui" href="ui.html"></a></li>			
 			<li><a title="Some Rows" class="i_22_tables" href="tables.html"></a></li>
 			<li><a title="Some Fields" class="i_22_forms" href="forms.html"></a></li>
+			-->
 		</ul>
+		
 	</div>
 
 	<div class="wrapper contents_wrapper">

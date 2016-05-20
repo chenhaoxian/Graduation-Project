@@ -42,8 +42,12 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Student searchStudentBySno(String sno) {
-		// TODO Auto-generated method stub
 		return adminMapper.getStudentBySno(sno);
+	}
+
+	@Override
+	public List<Student> findStudentByProfessionName(String professionName,String selectGrade) {
+		return adminMapper.getStudentByProfessionName(professionName,selectGrade);
 	}
 
 }

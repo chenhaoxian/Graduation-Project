@@ -95,4 +95,13 @@
 		delete from coursetongxuan where cno = #{cno}
 	</delete>
 	
+	<select id="getStudentByProfessionName" resultMap="aStudentResultMap">
+		select s.id,s.sname,s.sno,s.grade,p.professionName,d.departmentName
+		from student s
+		LEFT JOIN profession p on s.professionno = p.professionNo
+		left join department d on p.departmentNo = d.departmentNo
+		where p.professionName = #{professionName} and s.grade = #{selectGrade}
+		order by d.departmentName,p.professionName,s.grade,s.sno
+	</select>
+	
 </mapper>

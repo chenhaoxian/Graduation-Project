@@ -28,4 +28,10 @@ public class SearchHelperServiceImpl implements MonitorSearchService {
 		return courseTongXuan;
 	}
 
+	@Override
+	public List<String> getProfessionNames() {
+		// TODO Auto-generated method stub
+		return searchHelpMapper.getProfessionNames();
+	}
+
 }

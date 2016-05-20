@@ -92,7 +92,7 @@ Selection.prototype.bindEvent = function(){
 					if(data != null){
 						var tbody = $("#course_data_table");
 						tbody.empty();
-						var resultRow = "<tr><td><input value=\"选择\" type=\"button\" class=\"button button-glow button-rounded \" onclick=\"selectCourse('"+data.cno+"')\" ></td><td>"+data.ctime+"</td><td><button class=\"button button-glow button-rounded \" onclick=\"show_teacher('"+data.teacher.tname+"','"+data.teacher.department.departmentName+" ')\">"+data.cname+"</button></td><td>"+data.ctype+"</td><td>"+data.credit+"</td><td>"+data.total+"</td><td>"+data.margin+"</td></tr>";
+						var resultRow = "<tr><td><input value=\"选择\" type=\"button\" class=\"button button-glow button-rounded \" onclick=\"selectCourse('"+data.cno+"','0')\" ></td><td>"+data.ctime+"</td><td><button class=\"button button-glow button-rounded \" onclick=\"show_teacher('"+data.teacher.tname+"','"+data.teacher.department.departmentName+" ')\">"+data.cname+"</button></td><td>"+data.ctype+"</td><td>"+data.credit+"</td><td>"+data.total+"</td><td>"+data.margin+"</td></tr>";
 						tbody.append(resultRow);
 						$("#btn_previous").attr("disabled","disabled");
 						$("#btn_next").attr("disabled","disabled");
@@ -122,7 +122,7 @@ function show_teacher(teacherName,departmentName){
 	alert('授课老师:'+teacherName+' , 学院：'+departmentName);
 }
 
-function selectCourse(cno){
+function selectCourse(cno,row){
 	$.ajax({
 		type: "post",
 		url: "../student/selectCourse.do",
@@ -132,8 +132,7 @@ function selectCourse(cno){
 		},
 		success: function(msg){
 			if(msg == "success"){
-				alert("选课成功");
-				$(this).vjs.Slider;
+				$("#course_data_table tr:eq("+row+")").hide();
 			}else if(msg == "fail"){
 				alert("选课失败，你已经选择了这门课");
 				$(this).attr("disabled","disabled");
