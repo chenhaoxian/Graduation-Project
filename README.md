@@ -8,7 +8,7 @@
 
 ▇ 运用spring4 对泛型Mapper 的注入
 
-▇ 前端 使用 Bootstrap + Jquery + CSS + Jsp + Sco + Angular
+▇ 前端 使用 Bootstrap + Jquery + CSS + Jsp + Sco 
 
 ▇ 使用 redis 提高系统性能
 
